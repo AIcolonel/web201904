@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>072-浮动元素-贴靠现象.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 500px;
+			height: 600px;
+			margin:0 auto;
+			border: 1px solid #000;
+			overflow: hidden;
+		}
+		.box1{
+			float: left;
+			width: 100px;
+			height: 200px;
+			background-color: red;
+		}
+		.box2{
+			float: left;
+			width: 200px;
+			height: 100px;
+			background-color: pink;
+		}
+		.box3{
+			float: left;
+			width: 200px;
+			height: 200px;
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="box1"></div>
+		<div class="box2"></div>
+		<div class="box3"></div>
+	</div>
+</body>
+</html>

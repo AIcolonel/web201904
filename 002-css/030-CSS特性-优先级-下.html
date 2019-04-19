@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>030-CSS特性-优先级-下.html</title>
+	<style>
+		/*直接选中情况下：1.谁的ID多听谁的
+		2.ID一样多的情况下：谁的类多听谁的
+		3.ID和类一样多：谁的标签多听谁的
+		4.所有选择器一样多：谁在后面听谁的
+		*/
+		/*#ul1 #li1 #p1{
+			color: red;
+		}
+		#li1 #p1{
+			color: blue;
+		}*/
+		/*#ul1 .li1 .p1{
+			color: red;
+		}
+		#ul1 p.p1{
+			color: blue;
+		}*/
+		/*#ul1 p.p1{
+			color: red;
+		}
+		#ul1 .p1{
+			color: blue;
+		}*/
+		#li1 p{
+			font-size: 12px;
+			color: blue !important;
+		}
+		#ul1 p{
+			color: red;
+			font-size: 24px;
+		}
+
+	</style>
+</head>
+<body>
+	<ul id="ul1" class="ul1">
+		<li id="li1" class="li1">
+			<p id="p1" class="p1">我是p11</p>
+		</li>
+	</ul>
+</body>
+</html>

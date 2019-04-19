@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>104-CSS3-修改旋转基点.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+			margin:50px auto;
+		}
+		.son{
+			width: 200px;
+			height: 200px;
+			background: red;
+			/*transform-origin: 50% 0;*/
+			transform-origin: center bottom;
+			transform: rotate(45deg);
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son"></div>
+	</div>
+</body>
+</html>

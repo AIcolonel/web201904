@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>026-选择器-其他伪类选择器.html</title>
+	<style>
+		p:before{
+			content: "hello,";
+		}
+		p:after{
+			content: ",我可以和你做朋友吗？？";
+		}
+		[type="text"]:focus{
+			outline-color: red;
+		}
+		[type="checkbox"]:checked{
+			/*color: red;*/
+			width: 50px;
+		}
+	</style>
+</head>
+<body>
+	<p>美女</p>
+	<input type="text">
+	<input type="checkbox">
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>126-单页面平滑案例.html</title>
+	<link rel="stylesheet" href="css/all.css">
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.page>input,.page>a{
+			position: fixed;
+			top: 0;
+			left:0;
+			width: 20%;
+			height: 40px;
+			font-size: 24px;
+			line-height: 40px;
+			text-align: center;
+		}
+		.page>input{
+			z-index: 999;
+			opacity: 0;
+			cursor: pointer;
+		}
+		.page>a{
+			color: #fff;
+			background: #2f2f2f;
+			text-decoration: none;
+			z-index: 10;
+		}
+		.page>a i{
+			margin-right: 5px;
+		}
+		.page>input:hover + a{
+			background: #000;
+		}
+		#ctr1,#ctr1 + a{
+			left: 0%;
+		}
+		#ctr2,#ctr2 + a{
+			left: 20%;
+		}
+		#ctr3,#ctr3 + a{
+			left: 40%;
+		}
+		#ctr4,#ctr4 + a{
+			left: 60%;
+		}
+		#ctr5,#ctr5 + a{
+			left: 80%;
+		}
+		.page>input:checked + a{
+			color: #ff6200;
+		}
+		html,body,.page{
+			height: 100%;
+		}
+		body{
+			overflow: hidden;
+		}
+		.content{
+			height: 100%;
+			margin-top: 40px;
+			transition: all 300ms linear;
+		}
+		.pannel{
+			height: 100%;
+		}
+		#ctr1:checked ~ .content{
+			transform: translateY(-0%);
+		}
+		#ctr2:checked ~ .content{
+			transform: translateY(-100%);
+		}
+		#ctr3:checked ~ .content{
+			transform: translateY(-200%);
+		}
+		#ctr4:checked ~ .content{
+			transform: translateY(-300%);
+		}
+		#ctr5:checked ~ .content{
+			transform: translateY(-400%);
+		}
+		#home{
+			background-image: url(img/home.png);
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+		#service{
+			background-image: url(img/service.png);
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+		#about{
+			background-image: url(img/about.png);
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+		#team{
+			background-image: url(img/team.png);
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+		#contact{
+			background-image: url(img/contact.png);
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+		#ctr1:checked ~ .content>#home{
+			animation:sport 1s;
+		}
+		#ctr2:checked ~ .content>#service{
+			animation:sport 1s;
+		}
+		#ctr3:checked ~ .content>#about{
+			animation:sport 1s;
+		}
+		#ctr4:checked ~ .content>#team{
+			animation:sport 1s;
+		}
+		#ctr5:checked ~ .content>#contact{
+			animation:sport 1s;
+		}
+		@keyframes sport{
+			from{
+				opacity: 0;
+			}
+			to{
+				opacity: 1;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="page">
+		<input type="radio" name="btn" id="ctr1" checked>
+		<a href="#"><i class="fas fa-home"></i>Home</a>
+		<input type="radio" name="btn" id="ctr2">
+		<a href="#"><i class="fas fa-coffee"></i>Service</a>
+		<input type="radio" name="btn" id="ctr3">
+		<a href="#"><i class="fas fa-building"></i>About</a>
+		<input type="radio" name="btn" id="ctr4">
+		<a href="#"><i class="fas fa-users"></i>Team</a>
+		<input type="radio" name="btn" id="ctr5">
+		<a href="#"><i class="fas fa-phone"></i>Contact</a>
+		<div class="content">
+			<div class="pannel" id="home"></div>
+			<div class="pannel" id="service"></div>
+			<div class="pannel" id="about"></div>
+			<div class="pannel" id="team"></div>
+			<div class="pannel" id="contact"></div>
+		</div>
+	</div>
+</body>
+</html>

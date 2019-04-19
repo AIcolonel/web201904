@@ -1,0 +1,41 @@
+/*顶部导航区域开始*/
+.top{
+	height: 40px;
+	background: gray;
+}
+/*顶部导航区域结束*/
+
+/*logo区域信息开始*/
+.header{
+	height: 100px;
+	background: red;
+}
+/*logo区域信息结束*/
+
+/*焦点区域开始*/
+.home{
+	height: 1274px;
+	background: purple;
+}
+/*焦点区域结束*/
+
+/*产品区域开始*/
+.main{
+	height: 2176px;
+	background: pink;
+}
+/*产品区域结束*/
+
+/*底部导航信息开始*/
+.footer{
+	height: 274px;
+	background: green;
+}
+/*底部导航信息结束*/
+
+/*网站结束信息开始*/
+.end{
+	height: 168px;
+	background: skyblue;
+}
+/*网站结束信息结束*/

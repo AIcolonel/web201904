@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>019-选择器-通用兄弟选择器.html</title>
+	<style>
+		/*.p2 + span{
+			color: red;
+		}*/
+		.p2 ~ p{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<p>1</p>
+	<p class="p2">2</p>
+	<span>666</span>
+	<p>3</p>
+	<p>4</p>
+	<p>5</p>
+</body>
+</html>

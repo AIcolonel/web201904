@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>079-清除浮动5.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father1{
+			/*margin-bottom: 20px;*/
+			background-color: red;
+		}
+		p{
+			width: 100px;
+			height: 30px;
+		}
+		.father1 p{
+			background-color: green;
+		}
+		.father1 p:first-child{
+			float: left;
+		}
+		.father1 p:nth-child(2){
+			float: left;
+		}
+		.father1 p:nth-child(3){
+			float: left;
+		}
+		.father2{
+			margin-top: 20px;
+			background-color: blue;
+		}
+		.father2 p{
+			background-color: pink;
+		}
+		.father2 p:first-child{
+			float: left;
+		}
+		.father2 p:nth-child(2){
+			float: left;
+		}
+		.father2 p:nth-child(3){
+			float: left;
+		}
+		/*.father1:after{
+			clear: both;
+			display: block;
+			content: "";
+			height: 20px;
+		}*/
+		.clearfix:after{
+			clear: both;
+			display: block;
+			content: "";
+			height: 0;
+		}
+		.clearfix{
+			*zoom: 1;
+		}
+	</style>
+</head>
+<body>
+	<div class="father1 clearfix">
+		<p class="p1">p1</p>
+		<p class="p2">p2</p>
+		<p class="p3">p3</p>
+	</div>
+	<div class="father2">
+		<p class="p11">p11</p>
+		<p class="p22">p22</p>
+		<p class="p33">p33</p>
+	</div>
+</body>
+</html>

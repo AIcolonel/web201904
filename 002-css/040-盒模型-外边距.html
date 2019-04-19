@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>040-盒模型-外边距.html</title>
+	<style>
+		.father{
+			border: 1px solid #000;
+			padding-top: 10px;
+			padding-left: 20px;
+		}
+		.father div{
+			display: inline-block;
+			width: 200px;
+			height: 200px;
+			vertical-align: bottom;
+			/*margin-top:10px;*/
+		}
+		.son1{
+			background: red;
+			/*margin-left: 20px;*/
+		}
+		.son2{
+			background: blue;
+			/*margin-top:10px; 
+			margin-right: 20px;
+			margin-bottom: 30px;
+			margin-left: 40px;*/
+			/*margin:10px;*/
+			/*margin-left: -50px;*/
+			/*margin-left: -50px;*/
+			
+
+		}
+		.son3{
+			background: green;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son1"></div><div class="son2"></div><div class="son3"></div>
+	</div>
+</body>
+</html>

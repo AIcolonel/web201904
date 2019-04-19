@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>105-CSS3-修改旋转轴向.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+			width: 200px;
+			height: 300px;
+			border: 1px solid #000;
+			margin:20px auto;
+			perspective: 500px;
+		}
+		li img{
+			width: 100%;
+			height: 100%;
+		}
+		li:nth-child(1) img{
+			transform: rotateX(90deg);
+		}
+		li:nth-child(2) img{
+			transform: rotateZ(45deg);
+		}
+		li:nth-child(3) img{
+			transform: rotateY(90deg);
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li><img class="imgs" src="img/x.jpg" alt=""></li>
+		<li><img class="imgs" src="img/y.jpg" alt=""></li>
+		<li><img class="imgs" src="img/z.jpg" alt=""></li>
+	</ul>
+</body>
+</html>

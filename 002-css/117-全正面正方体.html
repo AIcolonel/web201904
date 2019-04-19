@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>117-全正面正方体.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			position: relative;
+			width: 200px;
+			height: 200px;
+			margin:100px auto;
+			border: 1px solid #000;
+			list-style: none;
+			transform-style: preserve-3d;
+			transform: rotateX(0deg) rotateY(0deg);
+		}
+		li{
+			position: absolute;
+			left:0;
+			top: 0;
+			width: 200px;
+			height: 200px;
+			line-height: 200px;
+			text-align: center;
+			font-size:30px;
+		}
+		li:nth-child(1){
+			background: red;
+			transform: rotateX(90deg) translateZ(100px);
+		}
+		li:nth-child(2){
+			background: yellow;
+			transform: rotateX(180deg) translateZ(100px);
+		}
+		li:nth-child(3){
+			background: pink;
+			transform: rotateX(270deg) translateZ(100px);
+		}
+		li:nth-child(4){
+			background: blue;
+			transform: rotateX(360deg) translateZ(100px);
+		}
+		li:nth-child(5){
+			background: green;
+			transform: rotateY(90deg) translateZ(100px);
+		}
+		li:nth-child(6){
+			background: purple;
+			transform: rotateY(270deg) translateZ(100px);
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+	</ul>
+</body>
+</html>

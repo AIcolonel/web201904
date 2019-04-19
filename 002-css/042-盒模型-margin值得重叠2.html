@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>042-盒模型-margin值得重叠2.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 200px;
+			height: 200px;
+			background: green;
+			/*margin-top: 100px;*/
+			/*border-top: 50px solid black;*/
+			/*padding-top: 100px;*/
+			overflow: hidden;
+		}
+		.son{
+			width: 100px;
+			height: 100px;
+			background: red;
+			margin-top: 50px;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>092-定位流-元素显示顺序.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 200px;
+			height: 200px;
+		}
+		.box1{
+			position: absolute;
+			top: 0;
+			left: 0;
+			/*position: relative;*/
+			/*position: absolute;*/
+		/*	position: fixed;*/
+			/*top:50px;
+			left: 50px;*/
+			background: red;
+			z-index:999999; 
+		}
+		.box2{
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: blue;
+			z-index: 9;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1"></div>
+	<div class="box2"></div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>064-CSS的显示模式.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 200px;
+			height: 200px;
+			margin-left: 100px;
+			margin-top: 50px;
+			padding-left: 50px;
+			padding-right: 50px;
+			padding-top: 50px;
+			padding-bottom: 50px;
+			border: 1px solid #000;
+			/*background-color: red;*/
+		}
+		.father{
+			border: 1px solid #000;
+		}
+		.father .box{
+			border: 1px solid #f00;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">box1</div>
+	<div class="box">box2</div>
+	<div class="father">
+		<span class="box">span1</span>
+		<span class="box">span2</span>
+	</div>
+	
+	<img class="box" src="img/example.jpg" alt="">
+	<img class="box" src="img/example.jpg" alt="">
+</body>
+</html>

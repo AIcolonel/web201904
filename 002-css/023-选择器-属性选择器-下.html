@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>023-选择器-属性选择器-下.html</title>
+	<style>
+		/*[title |= "kuahzu"]{
+			color: red;
+		}*/
+		/*[title ^= "kuahzu"]{
+			color: red;
+		}*/
+		/*[title $= "com"]{
+			color: red;
+		}*/
+		/*[title ~= "com"]{
+			color: red;
+		}*/
+		[title *= "com"]{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<a href="#">我是a</a><br>
+	<a href="#" title="#">title="#"</a><br>
+	<a href="#" title="kuahzu">title="kuahzu"</a><br>
+	<a href="#" title="kuahzu.com">title="kuahzu.com"</a><br>
+	<a href="#" title="kuahzu-com">title="kuahzu-com"</a><br>
+	<a href="#" title="kuahzu&com">title="kuahzu&com"</a><br>
+	<a href="#" title="kuahzu com">title="kuahzu com"</a><br>
+	<a href="#" title="com">title="com"</a><br>
+	<a href="#" title="kuahzu com cn">title="kuahzu com cn"</a><br>
+	<p title="p1">我是p</p>
+</body>
+</html>

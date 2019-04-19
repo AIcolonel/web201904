@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>114-滚动轮播图.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 800px;
+			height: 400px;
+			margin: 50px auto;
+			border: 5px solid #000;
+			overflow: hidden;
+		}
+		ul{
+			width: 4000px;
+			height: 400px;
+			animation:sport 6s linear infinite;
+		}
+		@keyframes sport{
+			from{
+				margin-left: 0px;
+			}
+			to{
+				margin-left: -3200px;
+			}
+		}
+		ul li{
+			float: left;
+			list-style: none;
+			width: 800px;
+			height: 400px;
+			background: red;
+		}
+		li img{
+			width: 100%;
+			height: 100%;
+		}
+		.box ul:hover{
+			animation-play-state: paused;
+		}
+		.box ul:hover li{
+			opacity: 0.5;
+		}
+		.box ul li:hover{
+			opacity: 1;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<ul>
+			<li>
+				<img src="img/ad1.jpg" alt="">
+			</li>
+			<li>
+				<img src="img/ad2.jpg" alt="">
+			</li>
+			<li>
+				<img src="img/ad3.jpg" alt="">
+			</li>
+			<li>
+				<img src="img/ad4.png" alt="">
+			</li>
+			<li>
+				<img src="img/ad1.jpg" alt="">
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

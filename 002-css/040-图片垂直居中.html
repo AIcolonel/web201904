@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>040-图片垂直居中.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 300px;
+			height: 500px;
+			border: 1px solid #000;
+			line-height: 500px;
+			margin: 0 auto;
+			
+			
+		}
+		img{
+			border: 1px solid #000;
+			/*vertical-align: baseline;*/
+			/*vertical-align: middle;*/
+			/*vertical-align: text-top;*/
+			/*vertical-align: text-bottom;*/
+			/*vertical-align: top;*/
+			vertical-align: bottom;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		我是文本
+		<img src="img/example.jpg" alt="">
+	</div>
+</body>
+</html>

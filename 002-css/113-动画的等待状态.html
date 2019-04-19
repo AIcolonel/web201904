@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>113-动画的等待状态.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+			margin: 100px auto;
+		}
+		.son{
+			width: 200px;
+			height: 200px;
+			background: green;
+			animation:sport 4s 1s linear;
+			/*animation-fill-mode: none;*/
+			/*animation-fill-mode: backwards;*/
+			/*animation-fill-mode: forwards;*/
+			/*animation-fill-mode: both;*/
+		}
+		@keyframes sport{
+			0%{
+				transform: rotate(10deg);
+			}
+			25%{
+				transform: rotate(30deg);
+			}
+			50%{
+				transform: rotate(45deg);
+			}
+			75%{
+				transform: rotate(60deg);
+			}
+			100%{
+				transform: rotate(85deg);
+			}
+		}
+	</style>
+</head>
+<body>
+	
+	<div class="father">
+		<div class="son"></div>
+	</div>
+</body>
+</html>

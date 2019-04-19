@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>019-表单基本应用.html</title>
+</head>
+<body>
+	<form action="http://www.kuazhu.com" method="get">
+		<fieldset>
+			<legend>用户注册</legend>
+			<p>
+				<label for="username">
+					用户名：
+				</label>
+				<input type="text" name="username" value="tom" id="username">
+			</p>
+			<p>
+				<label for="password">
+					密码：
+				</label>
+				<input type="password" name="password" value="123" id="password">
+			</p>
+			<p>
+				性别：
+				男<input type="radio" name="sex" value="male">
+				女<input type="radio" name="sex" checked value="female">
+				不确定<input type="radio" name="sex" value="none">
+			</p>
+			<p>
+				爱好：
+				篮球<input type="checkbox" name="hobby" value="basketball" checked>
+				足球<input type="checkbox" name="hobby" value="football">
+				乒乓球<input type="checkbox" name="hobby" value="table">
+			</p>
+			<p>
+				<input type="submit" value="提交">
+			</p>
+		</fieldset>
+	</form>
+</body>
+</html>

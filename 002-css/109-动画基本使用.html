@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>109-动画基本使用.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background: red;
+			animation-name: sport;
+			animation-duration: 2s;
+			/*transition: width 2s 0ms linear;*/
+		}
+		@keyframes sport{
+			from{
+				width: 100px;
+			}
+			to{
+				width: 500px;
+			}
+		}
+		/*div:hover{
+			width: 500px;
+		}*/
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

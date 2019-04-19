@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>090-定位流-固定定位2.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			height: 2000px;
+		}
+		.father{
+			position: relative;
+			width: 400px;
+			height: 400px;
+			border: 1px solid #000;
+			margin:0 auto;
+		}
+		.son{
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>041-盒模型-margin值重叠1.html</title>
+	<style>
+		/*div{
+			width: 100px;
+			height: 100px;
+		}*/
+		.box1{
+			width: 100px;
+			height: 100px;
+			background: red;
+			margin-bottom: 100px;
+		}
+		.box2{
+			width: 100px;
+			height: 100px;
+			margin-top: 200px;
+			background: gray;
+		}
+		.father{
+			overflow: hidden;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1"></div>
+	<div class="father">
+		<div class="box2"></div>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>012-选择器-类选择器.html</title>
+	<style>
+		/*p{
+			font-size: 24px;
+		}*/
+		.person{
+			font-size: 24px;
+		}
+		.teacher{
+			color: red;
+		}
+		.student{
+			color: blue;
+		}
+		.p1{
+			text-decoration: underline;
+		}
+	</style>
+</head>
+<body>
+	<p class="person teacher">我是老师1</p>
+	<p class="person teacher">我是老师2</p>
+	<p class="person student">我是学生1</p>
+	<p class="person student">我是学生2</p>
+	<span class="person teacher">我是老师4</span>
+	<ul>
+		<li>
+			<ul>
+				<li>
+					<p class="person teacher p1">我是老师3</p>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>112-百分比动画.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			position: relative;
+			width: 600px;
+			height: 400px;
+			margin: 50px auto;
+			border: 1px solid #000;
+		}
+		.son{
+			position: absolute;
+			left: 0;
+			top:0; 
+			width: 100px;
+			height: 100px;
+			background: red;
+			animation:sport 1s linear infinite;
+		}
+		@keyframes sport{
+			0%{
+				left: 0;
+				top: 0;
+			}
+			25%{
+				left: 500px;
+				top: 0;
+			}
+			50%{
+				left:500px;
+				top:300px;
+			}
+			75%{
+				left:0;
+				top:300px;
+			}
+			100%{
+				left: 0;
+				top: 0;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son"></div>
+	</div>
+</body>
+</html>

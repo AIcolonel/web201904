@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>029-CSS特性-优先级.html</title>
+	<style>
+		/*优先级：ID选择器>类选择器>标签选择器>通用选择器>间接>浏览器默认*/
+		*{
+			color: red;
+		}
+		#li1{
+			color: skyblue;
+		}
+		p{
+			color: green;
+		}
+		/*.p1{
+			color: purple;
+		}
+		#p1{
+			color: blue;
+		}*/
+	</style>
+</head>
+<body>
+	<div>
+		<ul>
+			<li id="li1">
+				<p id="p1" class="p1">我是p11</p>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

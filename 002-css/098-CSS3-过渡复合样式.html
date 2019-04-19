@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>098-CSS3-过渡复合样式.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 100px;
+			height: 100px;
+			background: red;
+			
+			/*transition-property: width,height;
+			transition-duration:3s,2s;
+			transition-delay: 1s,2s;
+			transition-timing-function: linear;*/
+			
+			/*transition:width 3s 0s linear,height 2s 1s ease;*/
+			transition: all 2s 1s;
+		}
+		.box:hover{
+			width: 400px;
+			height: 400px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+</html>

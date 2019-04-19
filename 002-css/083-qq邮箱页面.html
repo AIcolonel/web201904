@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>083-qq邮箱页面.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+		}
+		.link{
+			text-decoration: none;
+			color: #1d5494;
+		}
+		.link:hover{
+			text-decoration: underline;
+		}
+		.clearfix:after{
+			display: block;
+			height: 0;
+			clear: both;
+			content: "";
+			visibility: hidden;
+		}
+		.clearfix{
+			*zoom: 1;
+		}
+		.container{
+			width: 1286px;
+			margin: 0 auto;
+		}
+		header{
+			width: 100%;
+			background-color: #eff4fa;
+		}
+		h1{
+			float: left;
+			width: 184px;
+			height: 62px;
+			line-height: 62px;
+		}
+		h1 a{
+			width: 100%;
+			height: 100%;
+			background: url(./img/qqmail_02.png) no-repeat;
+			display: inline-block;
+		}
+		nav{
+			float: right;
+			height: 62px;
+			line-height: 62px;
+		}
+		ul li{
+			float: left;
+			color: #b6bfd5;
+			font-size: 12px;
+		}
+		section .container{
+			/*height: 574px;*/
+			padding: 74px 182px 112px 182px;
+			/*background: red;*/
+			box-sizing: border-box;
+		}
+		section .left-area{
+			float: left;
+			width: 586px;
+			height: 390px;
+			background: url(./img/qqmail_06.png) no-repeat;
+			/*background-size: 100% 100%;*/
+			background-position: center center;
+		}
+		section .right-area{
+			float: left;
+			width: 336px;
+			height: 390px;
+			border: 1px solid #a0b1c4;
+			/*background: purple;*/
+			box-sizing: border-box;
+			border-radius: 5px;
+		}
+		section .right-area .hd{
+			height: 52px;
+			line-height: 52px;
+			padding: 0 54px;
+			border-bottom: 1px solid #a0b1c4;
+			/*text-align: center;*/
+			box-sizing: border-box;
+		}
+		section .right-area .hd a{
+			font-size: 16px;
+			color: #999;
+			text-decoration: none;
+		}
+		section .right-area .hd a:last-child{
+			margin-left: 62px;
+		}
+		section .right-area .hd a.active{
+			color: #333;
+		}
+		section .right-area .bd{
+			padding: 38px 26px 0 26px;
+		}
+		section .login{
+			width: 284px;
+			height: 40px;
+			padding-left: 12px;
+			margin-bottom: 10px;
+			box-sizing: border-box;
+			outline: none;
+		}
+		section .login:focus{
+			outline: 1px solid skyblue;
+		}
+		.check-item{
+			line-height: 16px;
+			font-size: 12px;
+			margin-bottom: 18px;
+		}
+		.check-item [type="checkbox"]{
+			vertical-align: middle;
+		}
+		[type="button"]{
+			width: 100%;
+			height: 40px;
+			font-size: 18px;
+			color: #fff;
+			background: #5a98de;
+			outline: none;
+			cursor: pointer;
+			letter-spacing: 10px;
+		}
+		[type="button"]:hover{
+			opacity: 0.8;
+		}
+		.form-list{
+			margin-top: 80px;
+			margin-left: 78px;
+		}
+		footer{
+			background: #eff4fa;
+		}
+		footer .container{
+			height: 36px;
+			line-height: 36px;
+			/*background: blue;*/
+			font-size: 12px;
+			text-align: center;
+			color: #b6bfd5;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<div class="container clearfix">
+			<h1>
+				<a href="#"></a>
+			</h1>
+			<nav>     
+				<ul>
+					<li><a href="#" class="link">基本版</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
+					<li><a href="#" class="link">English</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
+					<li><a href="#" class="link">手机版</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
+					<li><a href="#" class="link">企业邮箱</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<section>
+		<div class="container clearfix">
+			<div class="left-area"></div>
+			<div class="right-area">
+				<div class="hd">
+					<a href="javascript:;">微信登录</a>
+					<a href="javascript:;" class="active">QQ登录</a>
+				</div>
+				<div class="bd">
+					<div class="form-box">
+						<input type="text" class="login" placeholder="支持QQ号/邮箱/手机号登录">
+					</div>
+					<div class="form-box">
+						<input type="password" class="login" placeholder="QQ密码">
+					</div>
+					<div class="form-box check-item">
+						<input type="checkbox" id="auto-item">
+						<label for="auto-item">下次自动登录</label>
+					</div>
+					<div class="form-box">
+						<input type="button" value="登录">
+					</div>
+					<div class="form-list">
+						<ul>
+							<li><a href="#" class="link">忘了密码？</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
+							<li><a href="#" class="link">注册新账户</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
+							<li><a href="#" class="link">意见反馈</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer>
+		<div class="container">
+			<a href="#" class="link">关于腾讯</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+			<a href="#" class="link">服务条款</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+			<a href="#" class="link">隐私政策</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+			<a href="#" class="link">客服中心</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+			<a href="#" class="link">联系我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+			<a href="#" class="link">帮助中心</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+			©1998 - 2019 Tencent Inc. All Rights Reserved.
+		</div>
+	</footer>
+</body>
+</html>

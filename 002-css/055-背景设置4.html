@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>055-背景设置.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 200px;
+			height: 200px;
+			margin:10px auto;
+			border: 10px dashed #000;
+			padding: 10px;
+			background-image: url(img/example3.jpg);
+			background-repeat: no-repeat;
+		}
+		div:nth-child(2){
+			background-origin: padding-box;
+		}
+		div:nth-child(3){
+			background-origin: content-box;
+		}
+		div:nth-child(4){
+			background-origin: border-box;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+</html>

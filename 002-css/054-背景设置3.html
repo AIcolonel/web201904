@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>054-背景设置3.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			list-style: none;
+			
+		}
+		li{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+			margin: 10px auto;
+			background-image: url(img/example.jpg);
+			background-repeat: no-repeat;
+		}
+		li:nth-child(2){
+			background-size: 200px 100px;
+		}
+		li:nth-child(3){
+			background-size: 200px 200px;
+		}
+		li:nth-child(4){
+			background-size:100%;
+		}
+		li:nth-child(5){
+			background-size:auto 100%;
+		}
+		li:nth-child(6){
+			height: 400px;
+			background-size:cover;
+		}
+		li:nth-child(7){
+			height: 400px;
+			background-size:contain;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+</html>

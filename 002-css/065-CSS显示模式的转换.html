@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>065-CSS显示模式的转换.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box1,.box2{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+			/*display: block;*/
+			display: inline-block;
+		}
+		span{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+			/*display: inline;*/
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1"></div>
+	<div class="box2"></div>
+	<div>
+		<span class="span1">span1</span>
+		<span class="span2">span2</span>
+	</div>
+	
+</body>
+</html>

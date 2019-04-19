@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>086-定位流-绝对定位2.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.grfather{
+			position: relative;
+			width: 600px;
+			height: 500px;
+			padding: 50px;
+			border: 1px solid #000;
+			margin:0 auto;
+			background: red;
+		}
+		.father{
+			position: relative;
+			width: 400px;
+			height: 400px;
+			padding: 50px;
+			border: 1px solid #000;
+			margin:50px;
+			background: blue;
+		}
+		.son{
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100px;
+			height: 100px;
+			/*margin-left: 50px;*/
+			background: yellow;
+		}
+	</style>
+</head>
+<body>
+	<div class="grfather">
+		<div class="father">
+			<div class="son"></div>
+		</div>
+	</div>
+</body>
+</html>
