@@ -3,3 +3,25 @@
 	margin-left: auto;
 	margin-right: auto;
 }
+
+/*清除浮动*/
+.clearfix:after{
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+	content: "";
+}
+.clearfix{
+	*zoom: 1;
+}
+
+/*超链接共通样式*/
+a{
+	text-decoration: none;
+	font-size: 12px;
+	color: #b0b0b0;
+}
+a:hover{
+	color: #fff;
+}
