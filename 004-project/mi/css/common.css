@@ -25,3 +25,13 @@ a{
 a:hover{
 	color: #fff;
 }
+
+.col1{
+	float: left;
+	width: 234px;
+}
+.col2{
+	float: left;
+	width: 980px;
+	margin-left: 14px;
+}
