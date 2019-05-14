@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>085-节点类型.html</title>
+</head>
+<body>
+	<ul id="list">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+</body>
+<script>
+	// var aLi =document.getElementsByTagName('li');
+	// for(var i =0;i<aLi.length;i++){
+	// 	aLi[i].style.color = "red";
+	// }
+	var oUl = document.getElementById('list');
+	var aNodes = oUl.childNodes;
+	// console.log(aNodes);
+	for(var i =0;i<aNodes.length;i++){
+		// aNodes[i].style.color = "red";
+		// console.log(aNodes[i].nodeType);
+		if(aNodes[i].nodeType == 1){
+			aNodes[i].style.color = "red";
+		}
+	}
+	console.log(document);
+	console.log(document.nodeType);
+</script>
+</html>

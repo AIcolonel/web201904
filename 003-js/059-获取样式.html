@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>059-获取样式.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+		}
+		.toBlue{
+			background: blue;
+		}
+		.toBlue:after{
+			display: block;
+			content: "";
+			background: yellow;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn1">变红</button>
+	<button id="btn2">变蓝</button>
+	<button id="btn3">获取</button>
+	<div id="box"></div>
+</body>
+<script>
+	var oBtn1 = document.getElementById('btn1');
+	var oBtn2 = document.getElementById('btn2');
+	var oBtn3 = document.getElementById('btn3');
+	var oBox = document.getElementById('box');
+
+	oBtn1.onclick = function(){
+		oBox.style.background = "red";
+		// oBox.style.width = "200px";
+	}
+	oBtn2.onclick = function(){
+		oBox.className = "toBlue";
+	}
+	oBtn3.onclick = function(){
+		// alert(oBox.style.width);
+		// alert(oBox.style["width"]);
+		// alert(getComputedStyle(oBox,false)["backgroundColor"]);
+	}
+</script>
+</html>

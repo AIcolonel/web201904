@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>087-通过类名获取元素.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<div id="list">
+		<div></div>
+		<div class="box"></div>
+		<div></div>
+		<div class="box"></div>
+		<div class="box"></div>
+	</div>
+</body>
+<script>
+	var oDiv = document.getElementById('list');
+	var aBox = document.getElementsByClassName('box');
+	console.log(aBox);
+	
+	function getElementsByClass(oParent,sClass){
+		var classArr =[];
+		// aNodes = oParent.children;
+		aNodes = oParent.querySelectorAll("*");
+		for(var i = 0;i<aNodes.length;i++){
+			if(aNodes[i].className == sClass){
+				classArr.push(aNodes[i]);
+			}
+		}
+
+		return classArr;
+	}
+
+	console.log(getElementsByClass(oDiv,"box"));
+</script>
+</html>

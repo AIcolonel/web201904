@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>116-Date对象实例方法.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var today = new Date();
+	console.log("today.getFullYear():::",today.getFullYear()) //返回指定日期对象的年份。
+	console.log("today.getMonth():::",today.getMonth())//返回指定日期对象的月份，从0开始（0表示一年中的第一月）。
+	console.log("today.getDate():::",today.getDate())//返回指定日期对象在月中的第几天
+	console.log("today.getHours():::",today.getHours()) //返回指定日期对象的小时。
+	console.log("today.getMinutes():::",today.getMinutes()) //返回指定日期对象的分钟数。
+	console.log("today.getSeconds():::",today.getSeconds()) //返回指定日期对象的秒数。
+	console.log("today.getMilliseconds():::",today.getMilliseconds()) //返回指定日期对象的毫秒数。
+	console.log("Date.now():::",Date.now());
+	console.log("today.getTime():::",today.getTime()) //返回值一个数值，表示从1970-1-1 00:00:00  UTC (世界标准时间)距离该日期对象所代表时间的毫秒数。
+	console.log("today.getDay():::",today.getDay()) //返回指定日期对象在具体日期中一周的第几天，0,表示星期天。
+	console.log("today.toLocaleDateString():::",today.toLocaleDateString()) //返回指定日期对象的年月日字符串
+	console.log("today.toLocaleString():::",today.toLocaleString()) //返回指定日期对象的年月日和时间字符串
+	console.log("today.toLocaleTimeString():::",today.toLocaleTimeString()) //返回指定日期对象的时间字符串
+</script>
+</html>

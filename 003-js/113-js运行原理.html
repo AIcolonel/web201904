@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>113-js运行原理.html</title>
+</head>
+<body>
+	<button id="btn">测试</button>
+	<!-- <img src="images/mn.jpg" alt=""> -->
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	var i = 0;
+
+	oBtn.onclick = function(){
+		i++;
+		console.log("click::",i);
+	}
+
+	setTimeout(function(){
+		console.log("timer::",i);
+	},2000);
+
+	i++;
+</script>
+</html>

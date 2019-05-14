@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>022-内存管理.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var a = 1;//Number
+	var b = "kuazhu";//String
+	var c;// undefined
+	var d = true;//Boolean
+	var f = a;
+	f = 2;
+	console.log(a);//1
+	console.log(f);//2
+	// console.log(typeof f);
+
+	var g = {
+		name:"tom",
+		age:18
+	}
+
+	var h = g;
+
+	h.sex = "male";
+	console.log(g);
+	console.log(h);
+	// console.log(typeof h);
+</script>
+</html>

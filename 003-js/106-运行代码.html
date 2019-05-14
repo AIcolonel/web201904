@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>106-运行代码.html</title>
+</head>
+<body>
+	<textarea id="txt" cols="30" rows="10"></textarea>
+	<button id="btn">新窗口运行代码</button>
+</body>
+<script>
+	var oTxt = document.getElementById('txt');
+	var oBtn = document.getElementById('btn');
+
+	oBtn.onclick = function(){
+		var sVal = oTxt.value;
+		var newWin = window.open();
+		// console.log(newWin.document.body);
+		// newWin.document.write(sVal);
+		newWin.document.body.innerHTML = sVal;
+	}
+</script>
+</html>

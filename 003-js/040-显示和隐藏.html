@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>040-显示和隐藏.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			/*display: none;*/
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">显示和隐藏</button>
+	<div id="box">我是内容</div>
+</body>
+<script>
+	var oBox = document.getElementById('box');
+	var oBtn = document.getElementById('btn');
+
+	oBtn.onclick = function(){
+		console.log(oBox.style.display);
+		// alert(oBox.style.display);
+		if(oBox.style.display == "none"){
+			oBox.style.display = "block";
+		}else{
+			oBox.style.display = "none";
+		}
+		// console.log(oBox.style.display);
+	}
+</script>
+</html>

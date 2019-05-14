@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>024-显示转换-上.html</title>
+</head>
+<body>
+	
+	<input type="text" id="txt">
+	<button id="btn">转换</button>
+</body>
+<script>
+	var oInput = document.getElementById('txt');
+	var oBtn = document.getElementById('btn');
+	oBtn.onclick = function(){
+		// alert(parseInt(oInput.value));
+		alert(parseFloat(oInput.value));
+	}
+</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>094-追加节点.html</title>
+</head>
+<body>
+	<ul id="ul1">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+	</ul>
+	<button id="btn">追加</button>
+	<ul id="ul2">
+		<!-- <li></li> -->
+		<!-- <li>1</li> -->
+	</ul>
+</body>
+<script>
+	// var aLi = document.querySelectorAll("#ul1 li");
+	var oUl1 = document.getElementById('ul1');
+	var aLi = oUl1.children;
+	var oBtn = document.getElementById('btn');
+	var oUl2 = document.getElementById('ul2');
+	// console.log(aLi);
+	oBtn.onclick = function(){
+		oUl2.appendChild(aLi[0]);
+	}
+</script>
+</html>

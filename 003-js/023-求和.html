@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>023-求和.html</title>
+</head>
+<body>
+	<input type="text" id="txt1">
+	<input type="text" id="txt2">
+	<button id="btn">求和</button>
+</body>
+<script>
+	var oTxt1 =document.getElementById('txt1');
+	var oTxt2 =document.getElementById('txt2');
+	var oBtn =document.getElementById('btn');
+
+	// console.log(oTxt1);
+	// console.log(oTxt2);
+	// console.log(oBtn);
+
+	oBtn.onclick = function(){
+		// alert(oTxt1.value);
+		var oVal1 = parseFloat(oTxt1.value);
+		var oVal2 = parseFloat(oTxt2.value);
+
+		// alert(typeof oVal1);
+		//NaN=>not a number;
+		// alert(1 == 1);
+		// alert(oVal1 == NaN);
+		// alert(isNaN(1));
+		if(isNaN(oVal1)){
+			alert("请在第一个输入框输入正确的数字");
+		}else if(isNaN(oVal2)){
+			alert("请在第二个输入框输入正确的数字");
+		}else{
+			alert(oVal1 + oVal2);
+		}
+
+		// alert(oVal1 + oVal2);
+	}
+</script>
+</html>

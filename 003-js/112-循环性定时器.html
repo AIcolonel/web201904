@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>112-循环性定时器.html</title>
+</head>
+<body>
+	<button id="btn">关闭</button>
+</body>
+<script>
+	// setInterval("console.log('1')",2000);
+	var oBtn = document.getElementById('btn');
+	var i = 0;
+	var timer = 0;
+	/*
+	function showNum(){
+		console.log(i++);
+	}
+	*/
+	// setInterval(showNum,2000);
+	oBtn.onclick = function(){
+		clearInterval(timer);
+	}
+	timer = setInterval(function(){
+		console.log(1);
+	},4);
+	console.log(timer);
+</script>
+</html>

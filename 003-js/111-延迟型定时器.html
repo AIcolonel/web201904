@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>110-延迟型定时器.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// setTimeout("console.log('hahha')",2000);
+	function hah(){
+		console.log('hahha');
+		// return 123;
+	}
+	// console.log(hah());
+
+	// setTimeout(hah(),2000);
+	// setTimeout(hah,2000);
+	var timer = setTimeout(function(){
+		console.log('hahha123');
+	},2000);
+	clearTimeout(timer)
+	// console.log(timer);
+	// console.log(window);
+</script>
+</html>

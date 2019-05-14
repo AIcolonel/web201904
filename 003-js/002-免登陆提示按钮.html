@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>002-免登陆提示按钮.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 400px;
+			height: 50px;
+			background: red;
+			display: none;
+		}
+		/*
+		input:hover + div{
+			display: block;
+		}
+		*/
+	</style>
+</head>
+<body>
+	<!-- <input type="checkbox" 
+		   onmouseover="box.style.display='block'"
+		   onmouseout="box.style.display='none'"
+		   >
+	七天内免密码登陆 -->
+	<input type="checkbox" 
+		   onmouseover="document.getElementById('box').style.display='block'"
+		   onmouseout="document.getElementById('box').style.display='none'"
+		   >
+	七天内免密码登陆
+	<div id="box">你确定要选择这样做吗？？？？？</div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>104-打开新窗口.html</title>
+</head>
+<body>
+	<button id="btn">打开新页面</button>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	oBtn.onclick = function(){
+		// window.open();
+		var newWin = window.open("https://www.kuazhu.com","_blank");
+		console.log(newWin);
+		// window.open("./101-动态九宫格.html");
+		// window.open("about:blank");
+	}
+</script>
+</html>

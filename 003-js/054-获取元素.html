@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>054-获取元素.html</title>
+</head>
+<body>
+	<div id="box" class="box">
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+	</div>
+</body>
+<script>
+	var oBox = document.getElementById('box');
+	// var oBox = document.getElementsByTagName('div')[0];
+	// var oBox = document.querySelectorAll('.box');
+	var oBox1 = oBox.getElementsByTagName('span');
+	// console.log(oBox);
+	console.log(oBox1);
+</script>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>107-BOM-location对象</title>
+</head>
+<body>
+	<button id="btn">跳转</button>
+</body>
+<script>
+	console.log("document.location::",document.location);
+	console.log("window.location::",window.location);
+	console.log(window.location === document.location);
+	console.log(document.location.href);
+
+	var oBtn = document.getElementById('btn');
+	oBtn.onclick = function(){
+		// window.location.assign("https://www.kuazhu.com");
+		// window.location.href = "https://www.kuazhu.com";
+		window.location = "https://www.kuazhu.com";
+	}
+</script>
+</html>

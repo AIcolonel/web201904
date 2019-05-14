@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>071-闭包.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function fn1(){
+		var a = 1;
+		console.log("fn1:::",a);//1
+		console.log("fn1:::",b);//
+		function fn2(){
+			var b = 2;
+			console.log("fn2:::",a);//1
+		}
+		function fn3(){
+			function fn4(){
+				fn2();
+			}
+			fn4();
+		}
+		fn3();
+	}
+	fn1();
+</script>
+</html>

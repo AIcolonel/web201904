@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>061-匿名函数.html</title>
+</head>
+<body>
+	<button id="btn">点击</button>
+</body>
+<script>
+	function sayHi(){
+		alert("hi everyone");
+	}
+	var oBtn = document.getElementById('btn');
+
+	// oBtn.onclick = sayHi;
+	oBtn.onclick = function(){
+		alert("hi everyone");
+	}
+</script>
+</html>

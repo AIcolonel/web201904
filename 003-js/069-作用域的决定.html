@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>069-作用域的决定.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var age = 18;
+	function showAge(){
+		var age = 20;
+		return age;
+	}
+	console.log(age);//18
+	console.log(showAge());//20
+</script>
+</html>

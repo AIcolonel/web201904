@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>070-作用域的决定.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var a = 1;
+	function fn1(){
+		console.log("fn1:::",a);//1 ? 2
+	}
+	function fn2(){
+		var a = 2;
+		fn1();
+	}
+	fn2();
+</script>
+</html>

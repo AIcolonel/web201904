@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>080-数组排序-数字.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var arr = [8,65,13,24,98,2,42];
+	//[2,65,13,24,98,8,42]
+	//[2,13,65,24,98,8,42]
+	//[2,8,65,24,98,13,42]
+	//[2,8,24,65,98,13,42]
+	//[2,8,13,65,98,24,42]
+	//[2,8,13,24,98,65,42]
+	//[2,8,13,24,65,98,42]
+	//[2,8,13,24,42,98,65]
+	//[2,8,13,24,42,65,98]
+
+	var tmp =0;
+	console.log(":::1",arr);
+	for(var i =0;i<arr.length;i++){
+		for(var j =i+1;j<arr.length;j++){
+			if(arr[i] > arr[j]){
+				tmp = arr[i];
+				arr[i] = arr[j];
+				arr[j] = tmp;
+				console.log(arr);
+			}
+		}
+	}
+	// console.log(":::2",arr);
+</script>
+</html>

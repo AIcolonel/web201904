@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>095-获取输入框的值插入到无序列表的后面.html</title>
+</head>
+<body>
+	<input type="text" id="txt">
+	<button id="btn">插入</button>
+	<ul id="list">
+		
+	</ul>
+</body>
+<script>
+	var oTxt = document.getElementById('txt');
+	var oBtn = document.getElementById('btn');
+	var oUl = document.getElementById('list');
+
+	oBtn.onclick = function(){
+		//1.獲取輸入框的值
+		var sVal = oTxt.value;
+		//2.生成一個新的li，蔣獲取的值付給新的li
+		var newLi = document.createElement("li");
+		newLi.innerHTML = sVal;
+		//3.蔣新的li插入到ul中
+		oUl.appendChild(newLi);
+
+		oTxt.value = "";
+	}
+</script>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>096-按无序列表项中值对列表排序.html</title>
+</head>
+<body>
+	<ul id="list">
+		<li>12</li>
+		<li>8</li>
+		<li>25</li>
+		<li>64</li>
+		<li>3</li>
+		<li>79</li>
+	</ul>
+	<button id="btn">排序</button>
+</body>
+<script>
+	var oUl = document.getElementById('list');
+	var oBtn = document.getElementById('btn');
+	var aLi = oUl.children;
+
+	oBtn.onclick = function(){
+		var newLi = [];
+		for(var i =0;i<aLi.length;i++){
+			newLi.push(aLi[i]);
+		}
+		// console.log(newLi);
+		newLi.sort(function(aLi1,aLi2){
+			// console.log(aLi1,aLi2);
+			return aLi1.innerHTML - aLi2.innerHTML;
+		});
+		console.log(newLi);
+
+		for(var j = 0;j<newLi.length;j++){
+			oUl.appendChild(newLi[j]);
+		}
+
+		/*
+		oUl.sort();
+		console.log(aLi);
+		*/
+	}
+</script>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>051-月历.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+		}
+		.time{
+			width: 380px;
+			height: 600px;
+			margin: 50px auto;
+			background: #ccc;
+		}
+		ul{
+			overflow: hidden;
+		}
+		ul li{
+			float: left;
+			width: 100px;
+			height: 100px;
+			margin-top: 20px;
+			margin-left: 20px;
+			line-height: 100px;
+			font-size: 30px;
+			color: #fff;
+			background: #000;
+			text-align: center;
+			cursor: pointer;
+		}
+		.active{
+			color: #000;
+			background: #fff;
+		}
+		.plan{
+			margin-left: 20px;
+			margin-top: 20px;
+		}
+		.plan p{
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="time">
+		<ul>
+			<li class="active">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+			<li>9</li>
+			<li>10</li>
+			<li>11</li>
+			<li>12</li>
+		</ul>
+		<div class="plan">
+			<h2>1月</h2>
+			<p>吃饭</p>
+		</div>
+	</div>
+</body>
+<script>
+	var aLi = document.getElementsByTagName('li');
+	var oPlan = document.querySelector('.plan');
+	var arr = ["养生","睡觉","打豆豆","去踏青","去游泳","去蹦迪","吃饭","睡觉","打豆豆","去踏青","去游泳","去蹦迪"];
+	// console.log(aLi);
+	// console.log(oPlan);
+
+	oPlan.innerHTML = "<h2>1月</h2><p>" + arr[0] + "</p>";
+
+	for(var i=0;i<aLi.length;i++){
+		aLi[i].index = i;
+		aLi[i].onmouseover = function(){
+			for(var j=0;j<aLi.length;j++){
+				aLi[j].className = "";
+			}
+			this.className = "active";
+			oPlan.innerHTML = "<h2>" + (this.index+1) + "月</h2><p>" + arr[this.index] + "</p>";
+		}
+	}
+</script>
+</html>

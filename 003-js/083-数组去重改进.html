@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>083-数组去重改进.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var arr = [2,6,9,14,2,7,6,3,14];
+	//var result = []
+	//[2]
+	//[2,6]
+	//[2,6,9]
+	//[2,6,9,14]
+	//[2,6,9,14,7]
+	//[2,6,9,14,7,3]
+	//1.循环遍历数组中每一项;
+	//2.定义一个新的数组用来存数据
+	//3.拿原数组和新的数组中的每一项比较，没有就添加到新的数组中
+
+	console.log(":::1",arr);
+
+	function unique(arr){
+		var result = [];
+		for(var i=0;i<arr.length;i++){
+			/*
+				var isTrue =false;
+				for(var j =0;j<result.length;j++){
+					if(arr[i] == result[j]){
+						isTrue = true;
+						break;
+					}
+				}
+				if(!isTrue){
+					result.push(arr[i]);
+				}
+			*/
+			if(result.indexOf(arr[i],0) == -1){
+				result.push(arr[i]);
+			}
+		}
+		return result;
+	}
+
+	var newArr = unique(arr);
+	console.log(":::2",arr);
+	console.log(":::3",newArr);
+</script>
+</html>

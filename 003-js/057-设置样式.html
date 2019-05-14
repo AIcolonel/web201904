@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>057-设置样式.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn1">变宽</button>
+	<button id="btn2">变高</button>
+	<button id="btn3">变色</button>
+	<div id="box"></div>
+	<div id="box2"></div>
+</body>
+<script>
+	function css(obj,attr,val){
+		obj.style[attr] = val;
+	}
+	var oBtn1 = document.getElementById('btn1');
+	var oBtn2 = document.getElementById('btn2');
+	var oBtn3 = document.getElementById('btn3');
+	var oBox = document.getElementById('box');
+	var oBox2 = document.getElementById('box2');
+
+	oBtn1.onclick = function(){
+		// oBox.style.width = "200px";
+		css(oBox,"width","200px");
+		// css(oBox2,"width","200px");
+	}
+	oBtn2.onclick = function(){
+		// oBox.style.height = "200px";
+		css(oBox,"height","200px");
+		// css(oBox2,"height","200px");
+	}
+	oBtn3.onclick = function(){
+		// oBox.style.backgroundColor = "red";
+		css(oBox,"backgroundColor","red");
+		// css(oBox2,"backgroundColor","blue");
+	}
+</script>
+</html>

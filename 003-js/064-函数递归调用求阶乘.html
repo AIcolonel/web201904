@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>064-函数递归调用求阶乘.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//5! = 5 * 4!;
+	//4! = 4 * 3!;
+	//3! = 3 * 2!;
+	//2! = 2 * 1!;
+	//1! = 1;
+	//5! = 5 * 4 * 3 * 2 * 1 = 120
+
+	function fact(num){
+		if(num == 1){
+			return 1;
+		}
+		// console.log(fact);
+		// console.log(arguments.callee);
+		// return num * fact(num-1);
+		return num * arguments.callee(num-1);
+		// return num * (num-1)
+		//5 * 4!
+		//4 * 3!
+		//3 * 2!
+		//2 * 1!
+		//1
+	}
+	var fact2 = fact;
+
+	fact = 1;
+	console.log(fact2(5));
+
+	// console.log(fact(17));
+</script>
+</html>

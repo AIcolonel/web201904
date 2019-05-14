@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>050-倒三角.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.str{
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+		}
+	</style>
+</head>
+<body>
+	
+</body>
+<script>
+	for(var i = 1;i<6;i++){
+		for(var k=1;k<6-i;k++){
+			document.write("<span class='str'></span>")
+		}
+		for(var j = 1;j<=i;j++){
+			document.write("<span class='str'>*</span>");
+		}
+		document.write("<br>");
+	}
+</script>
+</html>

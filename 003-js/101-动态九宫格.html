@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>101-动态九宫格.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			position: relative;
+		}
+		.node{
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">生成</button>
+	<div id="box">
+		<div class="node"></div>
+		<!-- <div class="node"></div>
+		<div class="node"></div>
+		<div class="node"></div>
+		<div class="node"></div>
+		<div class="node"></div>
+		<div class="node"></div>
+		<div class="node"></div>
+		<div class="node"></div> -->
+	</div>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	var oBox = document.getElementById('box');
+	var aNodes = oBox.children;
+
+	var iWidth = 100;
+	var iHeight = 100;
+	var iMargin = 15;
+	var iCollAll = 3;
+
+	oBtn.onclick = function(){
+		var newNode = aNodes[0].cloneNode(true);
+		oBox.appendChild(newNode);
+		for(var i = 0;i<aNodes.length;i++){
+			aNodes[i].style.top = parseInt(i / iCollAll) * (iHeight + iMargin) + "px";
+			aNodes[i].style.left = (i % iCollAll) * (iWidth + iMargin) + "px";
+		}
+	}
+</script>
+</html>

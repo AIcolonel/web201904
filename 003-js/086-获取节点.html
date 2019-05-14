@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>086-获取节点.html</title>
+</head>
+<body>
+	<ul id="list">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+</body>
+<script>
+	var oUl = document.getElementById('list');
+
+	var aNodesAll = oUl.childNodes;
+	var aNodesElementsAll = oUl.children;
+	var oFirstNode = oUl.firstChild;
+	var oLastNode = oUl.lastChild;
+	var oFirstElementNode = oUl.firstElementChild;
+	var oLastElementNode = oUl.lastElementChild;
+	console.log("aNodesAll::",aNodesAll);
+	console.log("aNodesElementsAll::",aNodesElementsAll);
+	console.log("oFirstNode::",oFirstNode);
+	console.log("oLastNode::",oLastNode);
+	console.log("oFirstElementNode::",oFirstElementNode);
+	console.log("oLastElementNode::",oLastElementNode);
+</script>
+</html>

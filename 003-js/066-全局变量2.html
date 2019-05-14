@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>066-全局变量2.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var a = 1;
+	function fn(){
+		//var a ;
+		console.log("fn:::",a);//1 ? 2 undefined
+		var a = 2;
+		function fn1(){
+			console.log("fn1:::",a);//2
+		}
+		fn1();
+	}
+
+	console.log("global1:::",a);//1
+
+	fn();
+
+	console.log("global2:::",a);//1
+</script>
+</html>

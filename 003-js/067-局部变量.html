@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>067-局部变量.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function fn1(){
+		var a = 1;
+		console.log("fn1:::",a);//1
+		function fn2(){
+			console.log("fn2:::",a);//1
+		}
+		fn2();
+	}
+	fn1();
+	console.log("global:::",a);//undefined ? null
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>089-获取父节点.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#father{
+			position: relative;
+			width: 300px;
+			height: 300px;
+			border: 1px solid #000;
+			margin: 100px auto;
+		}
+		#son{
+			width: 100px;
+			height: 100px;
+			background: #ccc;
+		}
+	</style>
+</head>
+<body>
+	<div id="father">
+		<div id="son"></div>
+	</div>
+</body>
+<script>
+	var oSon = document.getElementById('son');
+	// var oParent = oSon.parentNode;
+	var oParent = oSon.offsetParent;
+	// console.log(oParent);
+	oParent.style.background = "red";
+</script>
+</html>

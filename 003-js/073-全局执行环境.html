@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>073-全局执行环境.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var a = 1;
+	function showName(){
+		console.log("tom");
+		function showAge(){
+			console.log("my age is 18");
+		}
+	}
+	console.log(window);
+	// window.alert("hello");
+
+	console.log(window.a === a);
+	window.showName();
+	console.log(window.showName);
+	console.log(window.showAge);
+</script>
+</html>
