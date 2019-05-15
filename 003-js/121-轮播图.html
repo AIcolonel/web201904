@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>121-轮播图.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+		}
+		.coursel{
+			position: relative;
+			width: 1260px;
+			height: 460px;
+			margin: 50px auto;
+			/*background: red;*/
+		}
+		.coursel .coursel-list{
+			width: 100%;
+			height: 100%;
+		}
+		.coursel .coursel-list li{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+		.coursel-list li img{
+			width: 100%;
+			height: 100%;
+		}
+		.coursel .arrow{
+			position: absolute;
+			top:50%;
+			width: 50px;
+			height: 70px;
+			margin-top: -35px;
+			line-height: 70px;
+			font-size: 30px;
+			font-weight: bold;
+			color: #d5d4d1;
+			text-align: center;
+			cursor: pointer;
+			z-index: 999;
+		}
+		.coursel .arrow:hover{
+			background-color: rgba(0,0,0,0.2);
+		}
+		.coursel .left-arrow{
+			left: 0px;
+			border-top-right-radius: 5px;
+			border-bottom-right-radius: 5px;
+		}
+		.coursel .right-arrow{
+			right:0;
+			border-top-left-radius: 5px;
+			border-bottom-left-radius: 5px;
+		}
+		.coursel .coursel-btns{
+			position: absolute;
+			right: 34px;
+			bottom: 24px;
+			z-index: 999;
+		}
+		.coursel .coursel-btns li{
+			float: left;
+			width: 10px;
+			height: 10px;
+			margin-left: 10px;
+			background: #96938a;
+			border:1px solid #b5b3ad;
+			border-radius: 50%;
+			cursor: pointer;
+		}
+		.coursel .coursel-btns li.active{
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="coursel">
+		<ul class="coursel-list">
+			<li style="z-index: 9;"><img src="images/b1.jpg" alt=""></li>
+			<li><img src="images/b2.jpg" alt=""></li>
+			<li><img src="images/b3.jpg" alt=""></li>
+		</ul>
+		<i class="iconfont arrow left-arrow">&lt;</i>
+		<i class="iconfont arrow right-arrow">&gt;</i>
+		<ul class="coursel-btns">
+			<li class="active coursel-btns-item"></li>
+			<li class="coursel-btns-item"></li>
+			<li class="coursel-btns-item"></li>
+		</ul>
+	</div>
+</body>
+<script>
+	function tab(){
+		for(var i=0;i<aImg.length;i++){
+			aImg[i].style.zIndex = 0;
+			aBtns[i].className = "coursel-btns-item";
+		}
+		aImg[nowIndex].style.zIndex = 9;
+		aBtns[nowIndex].className = "coursel-btns-item active";
+	}
+
+	//1.获取元素
+	var aImg = document.querySelectorAll('.coursel-list li');
+	var oLeftBtn = document.querySelector('.left-arrow');
+	var oRightBtn = document.querySelector('.right-arrow');
+	var aBtns = document.querySelectorAll(".coursel-btns-item");
+	var oCoursel = document.querySelector('.coursel');
+
+	var timer = null;
+	
+	//2.点击右按钮向下翻页
+	var nowIndex = 0;
+	oRightBtn.onclick = function(){
+		nowIndex++;
+		if(nowIndex >= aImg.length){
+			nowIndex=0
+		}
+		/*
+		for(var i=0;i<aImg.length;i++){
+			aImg[i].style.zIndex = 0;
+			aBtns[i].className = "coursel-btns-item";
+		}
+		aImg[nowIndex].style.zIndex = 9;
+		aBtns[nowIndex].className = "coursel-btns-item active";
+		*/
+		tab();
+	}
+	//3.点击左按钮向上翻页
+	oLeftBtn.onclick = function(){
+		nowIndex--;
+		if(nowIndex < 0){
+			nowIndex=aImg.length - 1;
+		}
+		/*
+		for(var i=0;i<aImg.length;i++){
+			aImg[i].style.zIndex = 0;
+			aBtns[i].className = "coursel-btns-item";
+		}
+		aImg[nowIndex].style.zIndex = 9;
+		aBtns[nowIndex].className = "coursel-btns-item active";
+		*/
+		tab();
+	}
+	//4.给底部按钮添加点击事件
+	for(var j=0;j<aBtns.length;j++){
+		aBtns[j].index = j;
+		aBtns[j].onclick =function(){
+			nowIndex = this.index;
+			tab();
+		}
+	}
+
+	//5.自动轮播
+	timer = setInterval(oRightBtn.onclick,1000);
+
+	//6.当鼠标放到容器上时清除定时器
+	oCoursel.onmouseover = function(){
+		clearInterval(timer);
+	}
+	oCoursel.onmouseout = function(){
+		timer = setInterval(oRightBtn.onclick,1000);
+	}
+</script>
+</html>

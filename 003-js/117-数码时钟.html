@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>117-数码时钟.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background-color: #000;
+		}
+		#timer{
+			margin:100px auto;
+			font-size: 40px;
+			color: #fff;
+			text-align:center;
+		}
+	</style>
+</head>
+<body>
+	<div id="timer">
+		<!-- 16:04:30 -->
+	</div>
+</body>
+<script>
+	function to2Str(num){
+		return num<10 ? "0"+ num : ""+num;
+	}
+	var timer = document.getElementById('timer');
+
+	function showTime(){
+		var today = new Date();
+		var iHour = today.getHours();
+		var iMinute = today.getMinutes();
+		var iSecond = today.getSeconds();
+		// console.log(iSecond);
+		timer.innerHTML = to2Str(iHour) + ":" + to2Str(iMinute) + ":" + to2Str(iSecond);
+	}
+	setInterval(showTime,1000);
+	showTime();
+</script>
+</html>

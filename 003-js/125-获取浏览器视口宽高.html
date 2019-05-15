@@ -1,0 +1,40 @@
+<!-- <!DOCTYPE html> -->
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>125-获取浏览器视口宽高.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			width: 3000px;
+			height: 3000px;
+		}
+	</style>
+</head>
+<body>
+	
+</body>
+<script>
+	console.log(document.compatMode);
+	console.log("document.documentElement.clientWidth::",document.documentElement.clientWidth);
+	console.log("document.documentElement.clientHeight::",document.documentElement.clientHeight);
+	console.log("document.body.clientWidth::",document.body.clientWidth);
+	console.log("document.body.clientHeight::",document.body.clientHeight);
+
+	var iWidth = 0;
+	var iHeight = 0;
+	if(document.compatMode == 'CSS1Compat'){
+		iWidth = document.documentElement.clientWidth;
+		iHeight = document.documentElement.clientHeight;
+	}else{
+		iWidth = document.body.clientWidth;
+		iHeight = document.body.clientHeight;
+	}
+	console.log(iWidth,iHeight);
+	console.log("window.innerWidth::",window.innerWidth)
+	console.log("window.innerHeight::",window.innerHeight)
+</script>
+</html>

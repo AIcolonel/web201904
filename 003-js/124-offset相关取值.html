@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>124-offset相关取值.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#father{
+			position: relative;
+			width: 400px;
+			height: 400px;
+			margin:50px auto;
+			border: 1px solid #000;
+		}
+		#son{
+			position: absolute;
+			top: 100px;
+			left: 50px;
+			width: 100px;
+			height: 100px;
+			padding: 10px;
+			border: 5px dashed #000;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="father">
+		<div id="son"></div>
+	</div>
+</body>
+<script>
+	var oBox = document.getElementById('son');
+
+	console.log("oBox.offsetTop::",oBox.offsetTop);
+	console.log("oBox.offsetLeft::",oBox.offsetLeft);
+	console.log("oBox.offsetHeight::",oBox.offsetHeight);
+	console.log("oBox.offsetWidth::",oBox.offsetWidth);
+	console.log("oBox.clientHeight::",oBox.clientHeight);
+	console.log("oBox.clientWidth::",oBox.clientWidth);
+</script>
+</html>
