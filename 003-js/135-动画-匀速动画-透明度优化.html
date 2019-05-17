@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>129-动画-匀速动画防止多次点击.html</title>
+	<title>135-动画-匀速动画-透明度优化.html</title>
 	<style>
 		*{
 			margin: 0;
@@ -11,11 +11,11 @@
 		#box{
 			position: absolute;
 			top: 50px;
-			left: 0;
+			left: 0px;
 			width: 100px;
 			height: 100px;
 			background: red;
-			/*transition: all 2s linear;*/
+			opacity: 0.2;
 		}
 		.line{
 			width: 1px;
@@ -36,17 +36,25 @@
 	var oBtn = document.getElementById('btn');
 	var oBox = document.getElementById('box');
 	var timer = null;
+	var iSpeed = 0;
 
 	oBtn.onclick = function(){
-		// oBox.style.left = "400px";
 		clearInterval(timer);
 		timer = setInterval(function(){
-			console.log("tiemr::",timer);
-			if(oBox.offsetLeft == 400){
+			var currentVal = parseFloat(getComputedStyle(oBox,false)["opacity"]);
+			currentVal = Math.round(currentVal*100);
+			if(currentVal < 100){
+				iSpeed = 3;
+ 			}else{
+ 				iSpeed = -3;
+ 			}
+			if(Math.abs(100 - currentVal) < Math.abs(iSpeed)){
+				oBox.style.opacity = 1;
 				clearInterval(timer);
 			}else{
-				oBox.style.left = oBox.offsetLeft + 10 + "px";
+				oBox.style.opacity = (currentVal + iSpeed)/100;
 			}
+			console.log(currentVal);
 		},30)
 	}
 </script>

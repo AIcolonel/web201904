@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>129-动画-匀速动画防止多次点击.html</title>
+	<title>131-动画-匀速动画-正反向合并动画.html</title>
 	<style>
 		*{
 			margin: 0;
@@ -11,11 +11,10 @@
 		#box{
 			position: absolute;
 			top: 50px;
-			left: 0;
+			left: 800px;
 			width: 100px;
 			height: 100px;
 			background: red;
-			/*transition: all 2s linear;*/
 		}
 		.line{
 			width: 1px;
@@ -36,16 +35,20 @@
 	var oBtn = document.getElementById('btn');
 	var oBox = document.getElementById('box');
 	var timer = null;
+	var iSpeed = 0;
 
 	oBtn.onclick = function(){
-		// oBox.style.left = "400px";
 		clearInterval(timer);
 		timer = setInterval(function(){
-			console.log("tiemr::",timer);
+			if(oBox.offsetLeft < 400){
+				iSpeed = 10;
+ 			}else{
+ 				iSpeed = -10;
+ 			}
 			if(oBox.offsetLeft == 400){
 				clearInterval(timer);
 			}else{
-				oBox.style.left = oBox.offsetLeft + 10 + "px";
+				oBox.style.left = oBox.offsetLeft + iSpeed + "px";
 			}
 		},30)
 	}

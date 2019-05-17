@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>137-动画-匀速动画-封装函数.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.container{
+			width: 400px;
+			margin:50px auto;
+		}
+		.box{
+			width: 100px;
+			height: 100px;
+			margin-top: 20px;
+			background: red;
+		}
+		.box:last-child{
+			opacity: 0.2;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="box" id="box1"></div>
+		<div class="box" id="box2"></div>
+		<div class="box" id="box3"></div>
+	</div>
+</body>
+<script>
+
+	function animation(obj,attr,iTarget){
+		//防止用户多次点击
+		clearInterval(obj.timer);
+		obj.timer = setInterval(function(){
+			//获取当前该属性的值
+			var currentVal = parseFloat(getComputedStyle(obj,false)[attr]);
+			//处理透明度,将其转化为百分制数
+			if(attr == "opacity"){
+				currentVal = Math.round(currentVal*100);
+			}
+			//判断速度的取值
+			if(currentVal < iTarget){
+				iSpeed = 3;
+ 			}else{
+ 				iSpeed = -3;
+ 			}
+ 			//动画的终止条件
+			if(Math.abs(iTarget - currentVal) < Math.abs(iSpeed)){
+				//处理透明度和非透明度的取值
+				if(attr == "opacity"){
+					obj.style[attr] = iTarget/100;
+				}else{
+					obj.style[attr] = iTarget + "px";
+				}
+				//动画终止清除定时器
+				clearInterval(obj.timer);
+			}else{//动画不终止
+				//处理透明度和非透明度的取值
+				if(attr == "opacity"){
+					obj.style[attr] = (currentVal + iSpeed)/100;
+				}else{
+					obj.style[attr] = currentVal + iSpeed + "px";
+				}
+			}
+		},30)
+	}
+
+	var oBox1 = document.getElementById('box1');
+	var oBox2 = document.getElementById('box2');
+	var oBox3 = document.getElementById('box3');
+	// var timer = null;
+
+	oBox1.onmouseover = function(){
+		/*
+		clearInterval(oBox1.timer);
+		oBox1.timer = setInterval(function(){
+			if(oBox1.offsetWidth < 400){
+				iSpeed = 7;
+ 			}else{
+ 				iSpeed = -7;
+ 			}
+			if(Math.abs(400 - oBox1.offsetWidth) < Math.abs(iSpeed)){
+				oBox1.style.width = 400 + "px";
+				clearInterval(oBox1.timer);
+			}else{
+				oBox1.style.width = oBox1.offsetWidth + iSpeed + "px";
+			}
+		},30)
+		*/
+		animation(oBox1,"width",400);
+	}
+
+	oBox2.onmouseover = function(){
+		/*
+		clearInterval(oBox2.timer);
+		oBox2.timer = setInterval(function(){
+			if(oBox2.offsetHeight < 400){
+				iSpeed = 7;
+ 			}else{
+ 				iSpeed = -7;
+ 			}
+			if(Math.abs(400 - oBox2.offsetHeight) < Math.abs(iSpeed)){
+				oBox2.style.height = 400 + "px";
+				clearInterval(oBox2.timer);
+			}else{
+				oBox2.style.height = oBox2.offsetHeight + iSpeed + "px";
+			}
+		},30)
+		*/
+		animation(oBox2,"height",400);
+	}
+	oBox3.onmouseover = function(){
+		/*
+		clearInterval(oBox3.timer);
+		oBox3.timer = setInterval(function(){
+			var currentVal = parseFloat(getComputedStyle(oBox3,false)["opacity"]);
+			currentVal = Math.round(currentVal*100);
+			if(currentVal < 100){
+				iSpeed = 3;
+ 			}else{
+ 				iSpeed = -3;
+ 			}
+			if(Math.abs(100 - currentVal) < Math.abs(iSpeed)){
+				oBox3.style.opacity = 1;
+				clearInterval(oBox3.timer);
+			}else{
+				oBox3.style.opacity = (currentVal + iSpeed)/100;
+			}
+		},30)
+		*/
+		animation(oBox3,"opacity",100);
+	}
+</script>
+</html>
