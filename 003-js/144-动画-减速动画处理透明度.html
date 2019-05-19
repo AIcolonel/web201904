@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>144-动画-减速动画处理透明度.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			position: absolute;
+			top: 50px;
+			left: 0px;
+			width: 100px;
+			height: 100px;
+			background: red;
+			opacity: 0.1;
+		}
+		.line{
+			width: 1px;
+			height: 400px;
+			background: #000;
+			position: absolute;
+			top: 0;
+			left: 400px;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">开始动画</button>
+	<div id="box"></div>
+	<div class="line"></div>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	var oBox = document.getElementById('box');
+	var timer = null;
+	var iSpeed = 0;
+
+	oBtn.onclick = function(){
+		clearInterval(timer);
+		timer = setInterval(function(){
+			var currentVal = parseFloat(getComputedStyle(oBox,false)["opacity"]);
+			currentVal = Math.round(currentVal*100);
+			iSpeed = (100 - currentVal)/10;
+			iSpeed = iSpeed>0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+			if(!iSpeed){
+				clearInterval(timer);
+			}else{
+				oBox.style.opacity = (currentVal + iSpeed)/100;
+			}
+			console.log(currentVal);
+		},30)
+	}
+</script>
+</html>

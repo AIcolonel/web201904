@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>139-动画-中部固定.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			height: 3000px;
+			width: 3000px;
+		}
+		div{
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script src="js/animation.js"></script>
+<script>
+	
+	var oBox = document.getElementById('box');
+
+	window.onload = window.onresize = window.onscroll = function(){
+		var h = 0;
+
+		if(document.compatMode == 'CSS1Compat'){
+			h = document.documentElement.clientHeight;
+		}else{
+			h = document.body.clientHeight;
+		}
+		var iTop = (h - oBox.offsetHeight)*0.5 + getScrollTop();
+		animation(oBox,"top",iTop);
+	}
+</script>
+</html>

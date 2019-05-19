@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>140-动画-顶部固定.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.top{
+			height: 100px;
+			background-color: #ccc;
+		}
+		#nav{
+			position: fixed;
+			top: 0;
+			left: 50%;
+			margin-left: -500px;
+			width: 1000px;
+			/*height: 100px;*/
+			height: 0;
+			background-color: pink;
+		}
+		.main{
+			height: 2000px;
+			background: blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="top"></div>
+	<div id="nav"></div>
+	<div class="main"></div>
+</body>
+<script src="js/animation.js"></script>
+<script>
+	var oNav = document.getElementById('nav');
+	var isShow = false;
+
+	window.onscroll = function(){
+		var iTop = getScrollTop();
+		if(iTop >= 100){
+			if(!isShow){
+				console.log(111);
+				animation(oNav,"height",100);
+				isShow = true;
+			}
+		}else{
+			if(isShow){
+				console.log(222);
+				animation(oNav,"height",0);
+				isShow = false;
+			}
+			
+		}
+	}
+</script>
+</html>

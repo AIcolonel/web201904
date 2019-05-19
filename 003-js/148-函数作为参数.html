@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>148-函数作为参数.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	function showName(fn){
+		// console.log(name);
+		fn();
+	}
+	*/
+	// showName(function(){console.log("tom")});
+	// showName("tom");
+
+	function sum(n1,n2,fn){
+		var result = n1 + n2;
+		fn(result);
+	}
+	sum(1,2,function(name){
+		console.log(name)
+	});
+</script>
+</html>
