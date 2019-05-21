@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>153-事件-事件流.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 200px;
+			height: 200px;
+			margin: 100px auto;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		
+	</div>
+</body>
+<script>
+	var oBox = document.getElementById('box');
+
+	/*
+	oBox.addEventListener("click",function(){
+		console.log("oBox click");
+	},true);
+	window.addEventListener("click",function(){
+		console.log("window click");
+	},true);
+	document.addEventListener("click",function(){
+		console.log("document click");
+	},true);
+	document.documentElement.addEventListener("click",function(){
+		console.log("document.documentElement click");
+	},true);
+	document.body.addEventListener("click",function(){
+		console.log("document.body click");
+	},true);
+	*/
+	oBox.addEventListener("click",function(){
+		console.log("oBox click");
+	},false);
+	window.addEventListener("click",function(){
+		console.log("window click");
+	},false);
+	document.addEventListener("click",function(){
+		console.log("document click");
+	},false);
+	document.documentElement.addEventListener("click",function(){
+		console.log("document.documentElement click");
+	},false);
+	document.body.addEventListener("click",function(){
+		console.log("document.body click");
+	},false);
+</script>
+</html>

@@ -40,6 +40,10 @@ function animation(obj,attr,iTarget){
 function getScrollTop(){
 	return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
 }
+//获取水平方向上的滚动距离
+function getScrollLeft(){
+	return window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft;
+}
 
 //综合动画完善
 function animate(obj,options,isLinear,fnEnd){

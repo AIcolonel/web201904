@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>156-事件-多个物体随着鼠标移动.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100px;
+			height: 100px;
+			background-image: url(images/bird.jpg);
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+		div:nth-child(1){
+			z-index: 10;
+		}
+		div:nth-child(2){
+			z-index: 9;
+		}
+		div:nth-child(3){
+			z-index: 8;
+		}
+		div:nth-child(4){
+			z-index: 7;
+		}
+		div:nth-child(5){
+			z-index: 6;
+		}
+		div:nth-child(6){
+			z-index: 5;
+		}
+		div:nth-child(7){
+			z-index: 4;
+		}
+		div:nth-child(8){
+			z-index: 3;
+		}
+		div:nth-child(9){
+			z-index: 2;
+		}
+		body{
+			width: 3000px;
+			height: 3000px;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+<script src="js/animation.js"></script>
+<script>
+	var aBox = document.getElementsByTagName('div');
+
+	document.onmousemove = function(ev){
+		aBox[0].style.left = getScrollLeft() + ev.clientX + 'px';
+		aBox[0].style.top = getScrollTop() + ev.clientY + 'px';
+
+		for(var i=aBox.length-1;i>0;i--){
+			aBox[i].style.left = aBox[i-1].offsetLeft + 20 + 'px';
+			aBox[i].style.top = aBox[i-1].offsetTop + 20 + 'px';
+		}
+	}
+</script>
+</html>

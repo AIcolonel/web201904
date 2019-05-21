@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>160-带吸附的拖拽.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#father{
+			position: relative;
+			width: 400px;
+			height: 400px;
+			margin: 50px auto;
+			border: 1px solid #000;
+		}
+		#son{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="father">
+		<div id="son"></div>
+	</div>
+</body>
+<script>
+	var oFather = document.getElementById('father');
+	var oSon = document.getElementById('son');
+
+	oSon.onmousedown = function(ev){
+		var disX = ev.clientX - oSon.offsetLeft;
+		var disY = ev.clientY - oSon.offsetTop;
+		var l = 0;
+		var t = 0;
+
+		document.onmousemove = function(ev){
+			l = ev.clientX - disX;
+			t = ev.clientY - disY;
+
+			if(l < 20){
+				l = 0;
+			}else if(l + 20> oFather.offsetWidth - oSon.offsetWidth ){
+				l = oFather.offsetWidth - oSon.offsetWidth; 
+			}
+			if(t < 20){
+				t = 0;
+			}else if(t + 20> oFather.offsetHeight - oSon.offsetHeight ){
+				t = oFather.offsetHeight - oSon.offsetHeight; 
+			}
+			oSon.style.left = l + "px";
+			oSon.style.top = t + "px";
+		}
+		document.onmouseup = function(){
+			document.onmousemove = null;
+			document.onmouseup = null;
+		}
+	}
+</script>
+</html>

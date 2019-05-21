@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>154-事件-鼠标事件.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 200px;
+			height: 200px;
+			background-color: pink;
+			margin: 100px auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script>
+	var oBox = document.getElementById('box')
+
+	oBox.addEventListener("mousedown",function(){
+		console.log("down");
+	},false);
+	oBox.addEventListener("mouseup",function(){
+		console.log("up");
+	},false);
+	oBox.addEventListener("mousemove",function(){
+		console.log("move");
+	},false);
+</script>
+</html>
