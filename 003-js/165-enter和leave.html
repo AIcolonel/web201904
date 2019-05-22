@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>165-enter和leave.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#father{
+			width: 400px;
+			height: 400px;
+			margin: 50px auto;
+			background: blue;
+			overflow: hidden;
+		}
+		#son{
+			width: 100px;
+			height: 100px;
+			margin: 150px auto;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="father">
+		<div id="son"></div>
+	</div>
+</body>
+<script>
+	var oFather = document.getElementById('father');
+	var oSon = document.getElementById('son');
+
+	/*
+	oFather.onmouseover = function(){
+		console.log("father mouseover");
+	}
+	oFather.onmouseout = function(){
+		console.log("father mouseout");
+	}
+	*/
+	oFather.onmouseenter = function(){
+		console.log("father onmouseenter");
+	}
+	oFather.onmouseleave = function(){
+		console.log("father onmouseleave");
+	}
+</script>
+</html>

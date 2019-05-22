@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>164-碰撞检测.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		#box2{
+			position: absolute;
+			top: 200px;
+			left: 400px;
+			width: 300px;
+			height: 300px;
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<div id="box2"></div>
+</body>
+<script>
+	function checkBump(obj1,obj2){
+		if(obj1.offsetWidth + obj1.offsetLeft >= obj2.offsetLeft 
+				&& obj1.offsetHeight + obj1.offsetTop >= obj2.offsetTop 
+				&& obj2.offsetWidth + obj2.offsetLeft >= obj1.offsetLeft
+				&& obj2.offsetHeight + obj2.offsetTop >= obj1.offsetTop
+				){
+				return true;
+		}else{
+			return false;
+		}
+	}
+	var oBox = document.getElementById('box');
+	var oBox2 = document.getElementById('box2');
+
+	oBox.onmousedown = function(ev){
+		// console.log(ev.clientX,ev.clientY);
+		var disX = ev.clientX - oBox.offsetLeft;
+		var disY = ev.clientY - oBox.offsetTop;
+
+		document.onmousemove = function(ev){
+			oBox.style.left = ev.clientX - disX + "px";
+			oBox.style.top = ev.clientY - disY + "px";
+
+			/*
+			if(oBox.offsetWidth + oBox.offsetLeft >= oBox2.offsetLeft 
+				&& oBox.offsetHeight + oBox.offsetTop >= oBox2.offsetTop 
+				&& oBox2.offsetWidth + oBox2.offsetLeft >= oBox.offsetLeft
+				&& oBox2.offsetHeight + oBox2.offsetTop >= oBox.offsetTop
+				){
+				oBox2.style.backgroundColor = "green";
+			}else{
+				oBox2.style.backgroundColor = "blue";
+			}
+			*/
+			if(checkBump(oBox,oBox2)){
+				oBox2.style.backgroundColor = "green";
+			}else{
+				oBox2.style.backgroundColor = "blue";
+			}
+		}
+		document.onmouseup = function(){
+			document.onmousemove = null;
+			document.onmouseup = null;
+		}
+	}
+</script>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>169-愤怒的小鸟.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#wrap{
+			position: absolute;
+			top: 50px;
+			left: 200px;
+			width: 600px;
+			height: 600px;
+			border: 1px solid #000;
+		}
+		#bird{
+			position: absolute;
+			top: 0;
+			left: 50%;
+			margin-left: -25px;
+			width: 50px;
+			height: 50px;
+			background-image: url(images/bird.jpg);
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+		.topLine{
+			position: absolute;
+			top: 0;
+			left :100%;
+			width: 40px;
+			background: green;
+		}
+		.bottomLine{
+			position: absolute;
+			bottom: 0;
+			left :100%;
+			width: 40px;
+			background: green;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<div id="bird"></div>
+	</div>
+</body>
+<script>
+	
+	//碰撞检测
+	function checkBump(obj1,obj2){
+		if(obj1.offsetWidth + obj1.offsetLeft >= obj2.offsetLeft 
+				&& obj1.offsetHeight + obj1.offsetTop >= obj2.offsetTop 
+				&& obj2.offsetWidth + obj2.offsetLeft >= obj1.offsetLeft
+				&& obj2.offsetHeight + obj2.offsetTop >= obj1.offsetTop
+				){
+				return true;
+		}else{
+			return false;
+		}
+	}
+
+	//生成随机整数
+	function getRandom(min,max){
+		return Math.round(min+(max-min)*Math.random());
+	}
+	var oWrap = document.getElementById('wrap');
+	var oBird = document.getElementById('bird');
+	var iSpeed = 0;
+	//游戏死亡
+	var isDie = false;
+
+	//小鸟生存空间
+	var space = 100;
+
+	var moveBirdTimer = null;
+	var addLineTimer = null;
+	var moveLineTimer = null;
+
+	//4.生成柱子
+	clearInterval(addLineTimer);
+	function addLine(){
+		//生成柱子
+		var topLine = document.createElement("div");
+		var bottomLine = document.createElement("div");
+
+		//随机生成柱子的高度
+		h = getRandom(200,300);
+
+		//将柱子的初始的left值存下来，以便接下来移动柱子使用+
+		topLine.leftData = 100;
+
+		//给柱子添加基本样式
+		topLine.className = "topLine";
+		bottomLine.className = "bottomLine";
+
+		//给柱子添加高度
+		topLine.style.height = h + "px";
+		bottomLine.style.height = oWrap.offsetHeight - h - space - 2 + "px";
+
+		//将柱子插入到容器中
+		oWrap.appendChild(topLine);
+		oWrap.appendChild(bottomLine);
+	}
+	addLineTimer = setInterval(addLine,600);
+
+	//5.设置定时器移动柱子
+	clearInterval(moveLineTimer);
+	moveLineTimer = setInterval(function(){
+		var aTopLine = document.querySelectorAll('.topLine');
+		var aBottomLine = document.querySelectorAll('.bottomLine');
+
+		for(var i = 0;i<aTopLine.length;i++){
+
+			//碰撞检测
+			if(checkBump(oBird,aTopLine[i]) || checkBump(oBird,aBottomLine[i])){
+				//游戏结束
+				death()
+			}
+
+			aBottomLine[i].style.left = aTopLine[i].style.left = aTopLine[i].leftData - 1 + "%";
+
+			aTopLine[i].leftData = aTopLine[i].leftData -1;
+
+			//如果柱子移出去之后需要清除掉
+			if(aTopLine[i].leftData < -20){
+				oWrap.removeChild(aTopLine[i]);
+				oWrap.removeChild(aBottomLine[i]);
+			}
+		}
+	},30)
+
+
+
+	//1.设置定时器让小鸟做加速向下运动
+	clearInterval(moveBirdTimer);
+	moveBirdTimer = setInterval(function(){
+		iSpeed += 1;
+		var iTop = oBird.offsetTop + iSpeed;
+		if(iTop < 0){
+			iTop = 0;
+			death();
+		}else if(iTop > oWrap.offsetHeight - oBird.offsetHeight - 2){
+			iTop = oWrap.offsetHeight - oBird.offsetHeight - 2;
+			death();
+		}
+		oBird.style.top = iTop + "px";
+	},30);
+
+	//2.游戏结束
+	function death(){
+		isDie = true;
+		clearInterval(moveBirdTimer);
+		clearInterval(addLineTimer);
+		clearInterval(moveLineTimer);
+	}
+
+	//3.监听键盘事件控制小鸟的速度
+	document.onkeydown = function(ev){
+		if(isDie){
+			return false;
+		}
+		// console.log(ev.keyCode);
+		if(ev.keyCode == 32){
+			iSpeed -=10;
+		}
+	}
+</script>
+</html>
