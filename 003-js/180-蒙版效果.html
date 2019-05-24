@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>180-蒙版效果.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			height: 3000px;
+		}
+		#login{
+			position: absolute;
+			left: 600px;
+			top: 200px;
+			width: 200px;
+			height: 300px;
+			background-color: #ccc;
+			display: none;
+			z-index: 999;
+		}
+		#mask{
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background-color: rgba(0,0,0,0.5);
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">注册</button>
+	<div id="login"></div>
+	<div id="mask"></div>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	var oLogin = document.getElementById('login');
+	var oMask = document.getElementById('mask');
+
+	oBtn.onclick = function(ev){
+		oLogin.style.display = "block";
+		oMask.style.display = "block";
+
+		ev.stopPropagation();
+	}
+	oLogin.onclick = function(ev){
+		ev.stopPropagation();
+	}
+
+	document.onclick = function(){
+		oLogin.style.display = "none";
+		oMask.style.display = "none";
+	}
+</script>
+</html>

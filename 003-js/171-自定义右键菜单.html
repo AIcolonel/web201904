@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>171-自定义右键菜单.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#menu{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 300px;
+			height: 400px;
+			background: pink;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="menu"></div>
+</body>
+<script>
+	var oMenu = document.getElementById('menu');
+
+	document.oncontextmenu = function(ev){
+		// alert("yes");
+		oMenu.style.display = "block";
+		oMenu.style.top = ev.clientY + "px";
+		oMenu.style.left = ev.clientX + "px";
+
+		// ev.preventDefault();
+		return false;
+	}
+
+	oMenu.onclick = function(ev){
+		ev.stopPropagation();
+	}
+
+	document.onclick = function(){
+		oMenu.style.display = "none";
+	}
+</script>
+</html>

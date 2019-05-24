@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>177-共通事件类型.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 200px;
+			height: 200px;
+			margin:100px auto;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script>
+	var oBox  = document.getElementById('box');
+
+	function handleDom(ev){
+		if(ev.type == "mouseover"){
+			oBox.style.background = "blue";
+		}else if(ev.type == "click"){
+			oBox.style.background = "green";
+		}
+	}
+
+	/*
+	oBox.onmouseover = function(ev){
+		console.log(ev.type);
+		oBox.style.background = "blue";
+	}
+	oBox.onclick = function(ev){
+		console.log(ev.type);
+		oBox.style.background = "green";
+	}
+	*/
+	oBox.onmouseover = handleDom;
+	oBox.onclick = handleDom;
+</script>
+</html>

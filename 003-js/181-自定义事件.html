@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>181-自定义事件.html</title>
+</head>
+<body>
+	<button id="btn">事件</button>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+
+	/*
+	oBtn.onclick = function(){
+		console.log("oBtn.onclick");
+	}
+	*/
+	/*
+	oBtn.addEventListener('click',function(){
+		console.log("oBtn.addEventListener");
+	},false)
+	*/
+	//1.生成一个事件对象
+	var ev = new Event('test');
+	//2.绑定自定义事件
+	oBtn.addEventListener('test',function(){
+		alert("new event");
+	},false);
+	//3.触发自定义事件
+	
+
+	oBtn.addEventListener('click',function(){
+		oBtn.dispatchEvent(ev);
+	},false)
+	
+</script>
+</html>

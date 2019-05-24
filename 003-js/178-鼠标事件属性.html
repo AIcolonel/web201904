@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>178-鼠标事件属性.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			height: 3000px;
+		}
+	</style>
+</head>
+<body>
+	
+</body>
+<script>
+	document.onclick = function(ev){
+		console.log("event.clientY",event.clientY)// 可视区(浏览器)的内沿到鼠标的距离
+		console.log("event.clientX",event.clientX)// 可视区(浏览器)的内沿到鼠标的距离
+		console.log("event.pageY",event.pageY)// 可视区(浏览器)的内沿加滚动距离到鼠标的距离
+		console.log("event.pageX,",event.pageX)// 可视区(浏览器)的内沿加滚动距离到鼠标的距离
+		console.log("event.screenY",event.screenY)// 显示器屏幕内沿到鼠标的距离
+		console.log("event.screenX",event.screenX)// 显示器屏幕内沿到鼠标的距离
+	}
+
+	window.onmousewheel = function(ev){
+		console.log(ev.wheelDelta)
+	}
+</script>
+</html>

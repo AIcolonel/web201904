@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>173-点击删除父元素.html</title>
+</head>
+<body>
+	<ul id="list">
+		<li>1<a class="del" href="#">删除</a></li>
+		<li>2<a class="del" href="#">删除</a></li>
+		<li>3<a class="del" href="#">删除</a></li>
+		<li>4<a class="del" href="#">删除</a></li>
+		<li>5<a class="del" href="#">删除</a></li>
+		<li>6<a class="del" href="#">删除</a></li>
+	</ul>
+</body>
+<script>
+	/*
+	var oUl = document.getElementById("list");
+	var aA = document.getElementsByTagName('a');
+
+	for(var i = 0;i<aA.length;i++){
+		aA[i].onclick = function(){
+			oUl.removeChild(this.parentNode);
+		}
+	}
+	*/
+	var oUl = document.getElementById("list");
+	oUl.onclick = function(ev){
+		// alert(11);
+		// console.log(ev.target);
+		var oTarget = ev.target;
+		if(oTarget.className == "del"){
+			oUl.removeChild(oTarget.parentNode);
+		}
+	}
+</script>
+</html>

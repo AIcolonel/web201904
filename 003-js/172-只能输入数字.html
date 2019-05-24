@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>172-只能输入数字.html</title>
+</head>
+<body>
+	输入银行卡号:<input type="text" id="txt" autocomplete="off">
+</body>
+<script>
+	var oTxt = document.getElementById('txt');
+
+	document.onkeydown = function(ev){
+		console.log(ev.keyCode);
+		if((ev.keyCode < 96 || ev.keyCode > 105) && ev.keyCode !=8 && ev.keyCode != 37 && ev.keyCode !=39){
+			return false;
+		}
+	}
+</script>
+</html>

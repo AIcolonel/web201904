@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>182-兼容处理.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			width: 3000px;
+			height: 3000px;
+			background: green;
+		}
+	</style>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	document.body.onclick = function(ev){
+		var oEvent = ev || window.event;
+		console.log(oEvent);
+	}
+	*/
+	function handleEvent(){
+		console.log("body click");
+	}
+	/*
+	document.body.addEventListener("click",handleEvent,false);
+	*/
+	/*
+	document.body.attachEvent("onclick",handleEvent);
+	*/
+	// document.body.detachEvent("onclick",handleEvent);
+	addEvent(document.body,"click",handleEvent);
+	removeEvent(document.body,"click",handleEvent)
+	function addEvent(elem,eventType,handel){
+		if(elem.addEventListener){
+			elem.addEventListener(eventType,handel,false);
+		}else{
+			elem.attachEvent("on"+eventType,handel);
+		}
+	}
+
+	function removeEvent(elem,eventType,handel){
+		if(elem.removeEventListener){
+			elem.removeEventListener(eventType,handel,false);
+		}else{
+			elem.detachEvent("on"+eventType,handel);
+		}
+	}
+
+</script>
+</html>
