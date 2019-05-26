@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>186-JSON和js对象的区别.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var json1 = '{"name":"tom","age":18}';
+	var obj = {name:"tom",age:18,sayName:function(){}};
+
+	console.log(json1.name);
+	console.log(obj.name);
+
+	console.log(json1);
+	console.log(obj);
+
+	var jsonToObj = JSON.parse(json1);
+	console.log(jsonToObj);
+	var objToJson = JSON.stringify(obj);
+	console.log(objToJson);
+</script>
+</html>

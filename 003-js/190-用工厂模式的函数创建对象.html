@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>190-用工厂模式的函数创建对象.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function createPerson(name,age){
+		var obj = {};
+		obj.name = name;
+		obj.age = age;
+		obj.sayName = function(){
+			console.log("I am "+ this.name);
+		}
+		obj.sayAge = function(){
+			console.log("I am "+ this.age + "years old");
+		}
+
+		return obj;
+	}
+
+	var person1 = createPerson("tom",18);
+	person1.sayName();
+	person1.sayAge();
+	console.log(person1);
+
+	var person2 = createPerson("leo",88);
+	person2.sayName();
+	person2.sayAge();
+	console.log(person2);
+
+
+	console.log(person1.sayName == person2.sayName);
+</script>
+</html>

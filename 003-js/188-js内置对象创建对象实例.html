@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>188-js内置对象创建对象实例.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var person = new Array();
+	person.name = "tom";
+	person.age = 18;
+	person.sayName = function(){
+		console.log('I am '+ this.name);
+	}
+	person.sort = function(){
+		console.log("hello every");
+	}
+	console.log(person.sort());
+
+	console.log(person);
+</script>
+</html>

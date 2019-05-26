@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>185-对象基本操作.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var obj = {
+		name:"tom",
+		age:18,
+		friends:["leo","anmy"],
+		sayName:function(){
+			console.log("I am " +this.name);
+		}
+	}
+	console.log(obj);
+	obj.sex = "male";
+	delete obj.friends;
+	obj.age = 20;
+	console.log(obj.name);
+	console.log(obj);
+
+	obj.sayName();
+</script>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>197-面向对象-选项卡.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+		}
+		.tab-btn{
+			overflow: hidden;
+			margin-bottom: 20px;
+		}
+		.tab-btn li{
+			float: left;
+			width: 100px;
+			line-height: 40px;
+			text-align: center;
+			cursor: pointer;
+		}
+		.tab-content li{
+			width: 300px;
+			height: 300px;
+			line-height: 300px;
+			border: 1px solid #000;
+			text-align: center;
+			display: none;
+		}
+		.active{
+			color: #ff6700;
+			border-bottom: 2px solid #ff6700;
+		}
+	</style>
+</head>
+<body>
+	<ul id="tab-btn1" class="tab-btn">
+		<li class="active">热门</li>
+		<li>电视影音</li>
+		<li>电脑</li>
+		<li>家居</li>
+	</ul>
+	<ul id="tab-content1" class="tab-content">
+		<li style="display: block;">1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+
+	<ul id="tab-btn2" class="tab-btn">
+		<li class="active">热门</li>
+		<li>电视影音</li>
+		<li>电脑</li>
+		<li>家居</li>
+	</ul>
+	<ul id="tab-content2" class="tab-content">
+		<li style="display: block;">1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ul>
+</body>
+<script>
+	/*
+	var aBtns = document.querySelectorAll("#tab-btn li");
+	var aContents = document.querySelectorAll("#tab-content li");
+	for(var i =0;i<aBtns.length;i++){
+		aBtns[i].index = i;
+		aBtns[i].onclick = function(){
+			for(var j= 0;j<aBtns.length;j++){
+				aBtns[j].className = "";
+				aContents[j].style.display = "none";
+			}
+			this.className = "active";
+			aContents[this.index].style.display = "block";
+			
+		}
+	}
+	*/
+	function Tab(aBtns,aContents){
+		//1.罗列属性
+		this.aBtns = document.querySelectorAll(aBtns);
+		this.aContents = document.querySelectorAll(aContents);
+
+		//2.绑定事件
+		this.bindEvent();
+	}
+	Tab.prototype.bindEvent = function(){
+		// console.log(this);
+		var _this = this;
+		for(var i = 0;i<this.aBtns.length;i++){
+			this.aBtns[i].index = i;
+			this.aBtns[i].onclick = function(){
+				// console.log(this);
+				_this.fnClick(this);
+			}
+		}
+	}
+	Tab.prototype.fnClick = function(oBtn){
+		// console.log(this);
+		for(var j= 0;j<this.aBtns.length;j++){
+			this.aBtns[j].className = "";
+			this.aContents[j].style.display = "none";
+		}
+		oBtn.className = "active";
+		this.aContents[oBtn.index].style.display = "block";
+	}
+
+	new Tab("#tab-btn1 li","#tab-content1 li");
+	new Tab("#tab-btn2 li","#tab-content2 li");
+</script>
+</html>
