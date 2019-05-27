@@ -56,7 +56,11 @@
 	<div id="box">
 		
 	</div>
+	<div id="box2">
+		
+	</div>
 </body>
+<script src="js/animation.js"></script>
 <script>
 	function Coursel(options){
 		//1.罗列属性
@@ -69,6 +73,9 @@
 		this.oRightBtn = null;
 		this.oUlBtns = null;
 
+		//设置轮播图时间
+		this.playtime = options.playtime;
+
 		//默认显示第一张图片
 		this.now = 0;
 
@@ -77,6 +84,12 @@
 		
 		//3.绑定事件
 		this.bindEvent();
+
+
+		//4.是否自动轮播
+		if(this.playtime){
+			this.auto();
+		}
 	}
 	Coursel.prototype.init = function(){
 		//给外层父容器添加样式
@@ -182,29 +195,48 @@
 		}
 	}
 	Coursel.prototype.tab = function(){
-		/*
-		for(var i=0;i<aImg.length;i++){
-			aImg[i].style.zIndex = 0;
-			aBtns[i].className = "coursel-btns-item";
-		}
-		aImg[nowIndex].style.zIndex = 9;
-		aBtns[nowIndex].className = "coursel-btns-item active";
-		*/
 		for(var i = 0;i<this.oUlImg.children.length;i++){
 			this.oUlImg.children[i].style.zIndex = 0;
 			this.oUlImg.children[i].style.opacity = 0.2;
 			this.oUlBtns.children[i].className = "";
 		}
 		this.oUlImg.children[this.now].style.zIndex = "99";
-		this.oUlImg.children[this.now].style.opacity = 1;
+		// this.oUlImg.children[this.now].style.opacity = 1;
+		//执行动画
+		animate(this.oUlImg.children[this.now],{opacity:100});
 		this.oUlBtns.children[this.now].className = "active";
+	}
+
+	Coursel.prototype.auto = function(){
+		var _this = this;
+		//设置定时器
+		var timer = 0;
+		//自动轮播
+		timer = setInterval(this.oRightBtn.onclick,this.playtime);
+
+		//鼠标移入停止动画
+		this.box.onmouseover = function(){
+			clearInterval(timer);
+		}
+		//鼠标移除重新开始动画
+		this.box.onmouseout = function(){
+			timer = setInterval(_this.oRightBtn.onclick,_this.playtime);
+		}
 	}
 
 	new Coursel({
 		id:"box",
 		width:1000,
 		height:400,
-		img:["images/b1.jpg","images/b2.jpg","images/b3.jpg"]
+		img:["images/b1.jpg","images/b2.jpg","images/b3.jpg"],
+		playtime:3000
+	});
+	new Coursel({
+		id:"box2",
+		width:600,
+		height:200,
+		img:["images/b1.jpg","images/b2.jpg","images/b3.jpg"],
+		playtime:1000
 	});
 </script>
 </html>
