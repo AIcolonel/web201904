@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>202-正则-原子筛选.html</title>
+</head>
+<body>
+	<input type="text" id="txt" autocomplete="off">
+	<button id="btn">发布</button>
+	<ul id="list">
+		
+	</ul>
+</body>
+<script>
+	/*
+	var str = "abc edf ghi dsa";
+	var reg1 = /a/g;
+	var reg2 = /d/g;
+	var reg3 = /a|d|g/g;
+
+	console.log(str);
+	console.log(str.replace(reg1,"*"));
+	console.log(str.replace(reg2,"*"));
+	console.log(str.replace(reg3,"*"));
+	*/
+	var oTxt = document.getElementById('txt');
+	var oBtn = document.getElementById('btn');
+	var oUl = document.getElementById('list');
+
+	oBtn.onclick = function(){
+		var val = oTxt.value;
+		var oLi = document.createElement('li');
+		var reg = /淘宝|掏宝|某宝/g;
+		var newVal = val.replace(reg,"*");
+		oLi.innerHTML = newVal;
+
+		oUl.insertBefore(oLi,oUl.firstChild);
+		oTxt.value = "";
+	}
+</script>
+</html>

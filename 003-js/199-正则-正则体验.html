@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>199-正则-正则体验.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str = "abc 123 45 789 fd41";
+	var result = [];
+	var tmp = "";
+	for(var i =0;i<str.length;i++){
+		// console.log(parseInt(str.charAt(i)));
+		if(!isNaN(parseInt(str.charAt(i)))){
+			// result.push(str.charAt(i));
+			tmp = tmp + str.charAt(i);
+		}else{
+			if(tmp){
+				result.push(tmp);
+				tmp = "";
+			}
+			
+		}
+	}
+	if(tmp){
+		result.push(tmp);
+		tmp = "";
+	}
+	console.log(result);
+
+	//console.log(str.match(/\d+/g));//global
+	console.log(str.replace(/\d+/g,"*"));//global
+	//[123,45,789,41]
+</script>
+</html>
