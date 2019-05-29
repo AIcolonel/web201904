@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>207-合法年份.html</title>
+</head>
+<body>
+	<input type="text" id="txt" autocomplete="off">
+	<button id="btn">检测</button>
+</body>
+<script>
+	var oTxt = document.getElementById('txt');
+	var oBtn = document.getElementById('btn');
+	oBtn.onclick = function(){
+		//合法年份(公元1000年至公元2999年);
+		var sVal = oTxt.value;
+		var reg = /^[12]\d{3}$/;
+
+		// console.log(reg.test(sVal));
+		if(reg.test(sVal)){
+			alert("合法");
+		}else{
+			alert("不合法");
+		}
+	}
+</script>
+</html>

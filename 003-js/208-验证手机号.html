@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>208-验证手机号.html</title>
+</head>
+<body>
+	<input type="text" id="txt" autocomplete="off">
+	<button id="btn">检测</button>
+</body>
+<script>
+	var oTxt = document.getElementById('txt');
+	var oBtn = document.getElementById('btn');
+	oBtn.onclick = function(){
+		//1 345789 456789546
+		var sVal = oTxt.value;
+		var reg = /^1[345789]\d{9}$/;
+
+		// console.log(reg.test(sVal));
+		if(reg.test(sVal)){
+			alert("合法");
+		}else{
+			alert("不合法");
+		}
+	}
+</script>
+</html>

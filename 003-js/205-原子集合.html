@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>205-原子集合.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str = "abcd1245	fghj	6789rtyu0000_$#%&";
+	var reg1 = /[0-9]/g;
+	var reg2 = /\d/g;
+	var reg3 = /[^0-9]/g;
+	var reg4 = /\D/g;
+	var reg5 = /./g;
+	var reg6 = /[0-9a-z_]/g;
+	var reg7 = /\w/g;
+	var reg8 = /[^0-9a-z_]/g;
+	var reg9 = /\W/g; 
+	var reg10 = /\s/g;
+	var reg11 = /[\t/n/r/f\v]/g;
+	var reg12 = /\S/g;
+
+	console.log(str);
+	console.log(str.replace(reg1,"*"));
+	console.log(str.replace(reg2,"*"));
+	console.log(str.replace(reg3,"*"));
+	console.log(str.replace(reg4,"*"));
+	console.log(str.replace(reg5,"*"));
+	console.log(str.replace(reg6,"*"));
+	console.log(str.replace(reg7,"*"));
+	console.log(str.replace(reg8,"*"));
+	console.log(str.replace(reg9,"*"));
+	console.log(str.replace(reg10,"*"));
+	console.log(str.replace(reg11,"*"));
+	console.log(str.replace(reg12,"*"));
+</script>
+</html>

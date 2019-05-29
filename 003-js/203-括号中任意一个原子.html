@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>203-括号中任意一个原子.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	var str = "sdasd123ggref4634553adsd";
+	var reg1 = /a|b|c|d|e/g;
+	var reg2 = /[abcde]/g;
+	var reg3 = /[a|b|c|d|e]/g;
+	var reg4 = /[a-z]/g;
+	var reg5 = /[0-9]/g;
+
+	console.log(str);
+	console.log(str.replace(reg1,"*"));
+	console.log(str.replace(reg2,"*"));
+	console.log(str.replace(reg3,"*"));
+	console.log(str.replace(reg4,"*"));
+	console.log(str.replace(reg5,"*"));
+
+	*/
+	var str = "你好hello世界";
+	var reg = /[\u4e00-\u9fa5]/g;
+
+	console.log(str);
+	console.log(str.replace(reg,"*"));
+	console.log(str.length);
+
+	function getLen(str){
+		return str.replace(/[\u4e00-\u9fa5]/g,"aa").length;
+	}
+	console.log(getLen(str));
+</script>
+</html>

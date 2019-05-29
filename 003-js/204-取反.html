@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>204-取反.html</title>
+</head>
+<body>
+	<textarea name="" id="txt1" cols="30" rows="10"></textarea>
+	<button id="btn">过滤</button>
+	<textarea name="" id="txt2" cols="30" rows="10"></textarea>
+	<p>我是段落</p>
+</body>
+<script>
+	/*
+	var str = "abc 123 def";
+	var reg1 = /[a-z]/g;
+	var reg2 = /[0-9]/g;
+	var reg3 = /[^a-z]/g
+
+	console.log(str);
+	console.log(str.replace(reg1,"*"));
+	console.log(str.replace(reg2,"*"));
+	console.log(str.replace(reg3,"*"));
+	*/
+	var oTxt1 = document.getElementById('txt1');
+	var oBtn = document.getElementById('btn');
+	var oTxt2 = document.getElementById('txt2');
+
+	oBtn.onclick = function(){
+		var reg = /<[^<>]+>/g;
+		oTxt2.value = oTxt1.value.replace(reg,"*");
+	}
+</script>
+</html>
