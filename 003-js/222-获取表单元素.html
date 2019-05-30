@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>222-获取表单元素.html</title>
+</head>
+<body>
+	<form action="https://www.kuazhu.com" id="form1">
+		<div>
+			用户名:<input type="text" name="username">
+		</div>
+		<div>
+			密码:<input type="password" name="password">
+		</div>
+	</form>
+	<form action="">
+		
+	</form>
+</body>
+<script>
+	// var oForm = document.getElementById('form1');
+	var aForms = document.forms;
+	var oForm = aForms[0];
+	var aElements = oForm.elements;
+
+	// var oInput = oForm.elements[0];
+	// var oInput = oForm.elements["username"];
+	var oInput = oForm.elements.username;
+	var oInput = oForm.password;
+	console.log(oInput);
+</script>
+</html>

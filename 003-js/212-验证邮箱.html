@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>212-验证邮箱.html</title>
+</head>
+<body>
+	<input type="text" id="txt" autocomplete="off">
+	<button id="btn">检测</button>
+</body>
+<script>
+	var oTxt = document.getElementById('txt');
+	var oBtn = document.getElementById('btn');
+	oBtn.onclick = function(){
+		//110110110@qq.com
+		//dasddadasd@qq.com
+		//dsdasdasd@163.com
+		var sVal = oTxt.value;
+		var reg = /^[0-9a-z_]+@[0-9a-z-]+\.[a-z]{2,5}$/;
+
+		if(reg.test(sVal)){
+			alert("合法");
+		}else{
+			alert("不合法");
+		}
+	}
+</script>
+</html>

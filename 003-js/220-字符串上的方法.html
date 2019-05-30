@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>220-字符串上的方法.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str1 = "day day is good day";
+	var reg1 = /day/g;
+	// console.log(str1.search(reg1));
+	console.log(str1.search("a"));
+
+
+	var str2 = "aa2019-05-29bbb2019-05-30cc";
+	// var reg2 = /(\d{4})-(\d{2})-(\d{2})/g;
+	var reg2 = /(?<years>\d{4})-(?<month>\d{2})-(?<day>\d{2})/;
+	console.log(str2.match(reg2));
+
+	var str3 = "asds wqerwqae hdfhgfh jhgj fs";
+	var reg3 =/\s/g;
+	console.log(str3.split(reg3));
+
+	//回文:aabaa;11311;
+	var str4 = "aabaa";
+	
+	function isH(str){
+		return str === str.split("").reverse().join("");
+	}
+	console.log(isH(str4));
+	
+</script>
+</html>

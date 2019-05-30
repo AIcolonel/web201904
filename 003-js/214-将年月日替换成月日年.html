@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>214-将年月日替换成月日年.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str = "today is 2019-05-29,is a good day";
+	var reg = /(\d{4})-(\d{2})-(\d{2})/;
+
+	console.log(str);
+	console.log(str.replace(reg,"$2/$3/$1"));
+</script>
+</html>

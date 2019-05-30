@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>217-正则对象的属性.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str = "abc afd gea";
+	var reg = /a/g;
+
+	console.log(str);
+	console.log(reg.lastIndex);
+	reg.lastIndex = 1;
+	console.log(reg.lastIndex)
+	console.log(str.replace(reg,"*"));
+	console.log(reg.source);
+	// console.log(reg.lastIndex);
+	// console.log(str.replace(reg,"*"));
+</script>
+</html>

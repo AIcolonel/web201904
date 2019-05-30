@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>224-表单脚本的方法.html</title>
+</head>
+<body>
+	<form action="">
+		用户名:<input type="text" name="username" autocomplete="off"> 
+		<p id="msg"></p>
+	</form>
+</body>
+<script>
+	var oForm = document.forms[0];
+	var oUsername = oForm.username;
+	var oMsg = document.getElementById('msg');
+	oUsername.onfocus = function(){
+		oMsg.style.color = "blue";
+		oMsg.innerHTML = "请输入7-14位有效字符";
+	}
+	oUsername.onblur = function(){
+		var sVal = oUsername.value;
+		var reg = /.{7,14}/;
+
+		if(!reg.test(sVal)){
+			oMsg.style.color = "red";
+			oMsg.innerHTML = "输入信息不合法";
+		}else{
+			oMsg.style.color = "green";
+			oMsg.innerHTML = "合法";
+		}
+	}
+</script>
+</html>

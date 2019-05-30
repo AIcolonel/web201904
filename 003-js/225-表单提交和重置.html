@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>225-表单提交和重置.html</title>
+</head>
+<body>
+	<form action="https://www.kuazhu.com" target="_blank">
+		<div>
+			<input type="text" name="username">
+		</div>
+		<div>
+			<input type="submit">
+			<input type="image" src="images/9.png">
+			<button type="submit">btn submit</button>
+		</div>
+		<div>
+			<input type="reset">
+			<button type="reset">btn reset</button>
+		</div>
+	</form>
+	<button id="btn">提交</button>
+	<button id="btn2">重置</button>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	var oBtn2 = document.getElementById('btn2');
+	var oForm = document.forms[0];
+
+	oForm.onsubmit = function(){
+		console.log("oForm.onsubmit....");
+	}
+	oBtn.onclick = function(){
+		oForm.submit();
+	}
+	oForm.onreset = function(){
+		console.log("oForm.onreset....");
+	}
+	oBtn2.onclick = function(){
+		oForm.reset();
+	}
+</script>
+</html>

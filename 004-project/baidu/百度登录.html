@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>仿百度登录页面</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .top-box{
+            width: 100%;
+            height: 100px;
+            background-image: url(images/t.png);
+            background-repeat: no-repeat;
+            background-position: -150px 0px;
+        }        
+        .main{
+            width: 990px;
+            margin: 50px auto;
+        }
+        .reg {
+            width: 720px;
+            float: left;
+        }
+        .reg div {
+            position: relative;
+            margin-bottom: 20px;
+            zoom: 1;
+            display: block;
+        }
+        .reg div:after {
+            content: "";
+            clear: both;
+            display: block;
+            visibility: hidden;
+            height: 0;
+        }
+        .reg label {
+            display: block;
+            float: left;
+            width: 65px;            
+            height: 42px;
+            line-height: 42px;
+            margin-right: 10px;
+            font-size: 14px;
+            color: #666;
+            font-weight: 700;
+            text-align: right;
+        }
+        .reg input {
+            display: block;
+            position: relative;
+            float: left;
+            width: 328px;            
+            height: 16px;
+            padding: 11px 10px;
+            margin-right: 10px;
+            border: 1px solid #ddd;
+            font-size: 14px;
+            color: #666;
+            transition: .3s;
+            float: left;
+        }
+        #verify-box input:nth-of-type(1){
+             width: 158px;
+        }
+        #verify-box input:nth-of-type(2){
+            width: 160px;            
+            height: 40px;
+            border-radius: 0;            
+            background: #f7f7f7;
+            font-weight: 400;
+            text-align: center;
+            cursor: pointer;
+        }
+        #verify-box input:nth-of-type(2):focus{
+            border: 1px solid #ddd;
+        }
+        #verify-box input:nth-of-type(2):hover{
+            background-color: #eee;
+        }
+        #verify-box .cancel{
+            left: 212px;
+        }
+        .reg .subBtn {
+            position: relative;
+            left: 75px;
+        }
+        .reg .subBtn input {
+            display: block;
+            float: left;            
+            width: 350px;
+            height: 50px;
+            border-radius: 3px;
+            border: 0;            
+            background-image: none;
+            background-color: #3f89ec;             
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            color: #fff;
+        }
+        .reg input:focus {
+            border-color: #488ee7;
+            outline: 0;
+        }
+        .reg .input-err{
+            border-color: red;
+        }
+        .msg{
+            display: none;
+        }
+        .ok {
+            display: inline-block;
+            position: relative;
+            float: left;
+            top: 14px;
+            height: 16px;
+            line-height: 12px;
+            padding-left: 20px;
+            background: url(images/reg_icons.png) -80px 0 no-repeat;
+        }
+        .err {
+            float: left;
+            position: relative;
+            width: 250px;
+            height: 16px;            
+            top: 12px;
+            padding-left: 20px;            
+            background: url(images/reg_icons.png) -80px -23px no-repeat;
+            font-size: 12px;
+            color: #fc4343;            
+        }
+        .cancel {
+            position: absolute;
+            top: 12px;
+            left: 398px;            
+            width: 16px;
+            height: 16px;
+            background: url(images/reg_icons.png) -32px -24px no-repeat;
+            cursor: pointer;
+        }
+
+        .cancel:hover {
+            background-position: -48px -24px;
+        }
+        .tiptext {
+            height: 40px;
+            line-height: 40px;
+            font-size: 12px;
+            color: #aaa;            
+        }
+        #username-box .tiptext{
+            float: left;  
+            width: 250px;          
+            line-height: 18px;
+        }
+
+        #pwdChecklist{
+            position: absolute;
+            top: 0;
+            right: 50px;            
+            width: 200px;
+            margin-left: 10px;
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+            box-shadow: 1px 1px 1px #efefef;
+            background: #f9f9f9;
+            font-size: 12px;
+        }
+        .pwd-checklist li{
+            list-style: none;
+        }
+        .pwd-checklist .pwd-checklist-item-success {
+            background-position: -86px -128px;
+        }
+        .pwd-checklist  .pwd-checklist-item-error {
+            color: rgb(252, 67, 67);
+            background-position: -86px -144px;
+        }
+        .pwd-checklist-item {
+            line-height: 20px;
+            padding-left: 18px;
+            background: url(images/reg_icons.png) no-repeat -86px -112px;
+            color: #666;
+        }
+        .pwd-checklist-arrow{
+            position: absolute;
+            top: 12px;
+            left: -7px;            
+            width: 14px;
+            height: 14px;
+            background: #f9f9f9;
+            border-bottom: 1px solid #ddd;
+            border-left: 1px solid #ddd; 
+            transform: rotateZ(45deg);                  
+        }
+        #agree-box{
+            font-size: 12px;
+        }
+        #agree-box a{
+            text-decoration: none;
+        }
+        #agree-box label{
+            width: 60px;
+            height: 40px;
+            margin:-12px 0px 0px 2px;            
+            vertical-align: top;
+            font-size: 12px;
+            color: #666;
+            font-weight: normal;
+        }
+        #agree-box input{
+            width: 20px;
+            margin: 1px 0px 0px 70px;
+        }
+        #agree-box .msg{
+            float: none;
+            top: 0;
+            color: #fc4343;
+        }
+        .left-box{
+            float: right;            
+            width: 270px;
+            height: 427px;
+            background-image: url(images/l.png);
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-box"></div>
+    <div class="main">
+        <div class="reg" id='reg'>
+            <form action="https://www.kuazhu.com">
+                <div id="username-box">
+                    <label for="username">用户名</label>
+                    <input type="text"  autocomplete="off" name="username" placeholder="请设置用户名">
+                    <span class="cancel" style="display: none;"></span>
+                    <span class="msg"></span>
+                </div>
+                <div id="phone-box">
+                    <label for="phone">手机号</label>
+                    <input type="text" autocomplete="off" name="phone" placeholder="可用于登录和找回密码">
+                    <span class="cancel" style="display: none;"></span>
+                    <span class="msg"></span>
+                </div>
+                <div id="pwd-box" class="pwd-box">
+                    <label for="password">密码</label>
+                    <input type="password" autocomplete="off" name="password" placeholder="请设置登录密码"/>
+                    <span class="cancel"  style="display: none;"></span>
+                    <span class="msg"></span>
+                    <div id="pwdChecklist" class="pwd-checklist" style="display:none;">
+                        <ul>
+                            <li class="pwd-checklist-item">长度为8~14个字符</li>
+                            <li class="pwd-checklist-item">支持数字,大小写字母和标点符号</li>
+                            <li class="pwd-checklist-item ">不允许有空格</li>
+                        </ul>
+                        <span class="pwd-checklist-arrow"></span>
+                    </div>
+                </div>
+                <div id="verify-box">
+                    <label for="verify">验证码</label>
+                    <input type="text" autocomplete="off" name="verify" placeholder="请输入验证码">
+                    <span class="cancel"  style="display: none;"></span>
+                    <input type="button"  id="smsBtn" value="获取短信验证码">
+                    <span class="msg"></span>       
+                </div> 
+                <div id='agree-box'>
+                   <input type="checkbox" name='isAgree'> 
+                   <label for="isAgree">阅读并接受</label>
+                   <a href="#">《百度用户协议》</a>及<a href="#">《百度隐私权保护声明》</a>  
+                   <span class="msg" id='agreeErr'>选“阅读并接受百度用户协议”</span>               
+                </div>           
+                <div class="subBtn">
+                    <input type="button" value="注册" id="subBtn">
+                </div>
+            </form>
+        </div>
+        <div class="left-box"></div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
