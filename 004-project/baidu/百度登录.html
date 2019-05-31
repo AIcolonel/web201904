@@ -303,6 +303,7 @@
     //1.获取元素
     var oForm = document.forms[0];
     var oUsername = oForm.username;
+    var oPhone = oForm.phone;
 
     var aMsg = document.querySelectorAll('.msg');
     var aCancel = document.querySelectorAll('.cancel');
@@ -433,7 +434,45 @@
     //6.验证手机号
     checkPhone();
     function checkPhone(){
-        
+        oPhone.onblur = function(){
+            var sVal = oPhone.value;
+            //全是空白符正则
+            var reg1 = /^\s+$/;
+            //请输入中国大陆手机号,其他用户不可见
+            var reg2 = /^1[35789]\d{9}$/;
+            //什么都没有输入
+            if(sVal == ""){
+                aMsg[1].className = "msg";
+                oPhone.className = "";
+            }
+            //输入的全是空格
+            else if(reg1.test(sVal)){
+                setError(aMsg[1],"请输入正确的手机号",oPhone);
+            }
+            //验证手机号
+            else if(!reg2.test(sVal)){
+                setError(aMsg[1],"手机号码格式不正确",oPhone);
+            }
+            //验证通过
+            else{
+                setOk(aMsg[1],oPhone)
+            }
+        }
+
+        //6.获取焦点在做处理
+        oPhone.onfocus = function(){
+            aMsg[1].innerHTML = "请输入中国大陆手机号,其他用户不可见";
+            aMsg[1].className = "tiptext";
+        }
+
+        //显示手机号只能输入数字
+        oPhone.onkeydown = function(ev){
+            // console.log(ev.keyCode);
+            // console.log(oPhone.value.length);
+            if((ev.keyCode <96 || ev.keyCode >105 || oPhone.value.length > 10) && ev.keyCode != 8 && ev.keyCode != 37 && ev.keyCode != 39){
+                return false;
+            }
+        }
     }
 </script>
 </html>
