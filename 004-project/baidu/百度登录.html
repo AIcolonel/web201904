@@ -251,7 +251,7 @@
                     <input type="password" autocomplete="off" name="password" placeholder="请设置登录密码"/>
                     <span class="cancel"  style="display: none;"></span>
                     <span class="msg"></span>
-                    <div id="pwdChecklist" class="pwd-checklist" style="display:none;">
+                    <div id="pwdChecklist" class="pwd-checklist" style="display: none;">
                         <ul>
                             <li class="pwd-checklist-item">长度为8~14个字符</li>
                             <li class="pwd-checklist-item">支持数字,大小写字母和标点符号</li>
@@ -281,6 +281,161 @@
         <div class="left-box"></div>
     </div>
 </body>
+<script>
+    //共通函数
+    function getLen(str){
+        return str.replace(/[\u4e00-\u9fa5]/g,"aa").length;
+    }
+
+    function setError(oMsg,aMsg,oInput){
+        oMsg.innerHTML = aMsg;
+        oMsg.className = "err";
+        oInput.className = "input-err";
+    }
+
+    function setOk(oMsg,oInput){
+        oMsg.innerHTML = "";
+        oMsg.className = "ok";
+        oInput.className = "";
+    }
+
+
+    //1.获取元素
+    var oForm = document.forms[0];
+    var oUsername = oForm.username;
+
+    var aMsg = document.querySelectorAll('.msg');
+    var aCancel = document.querySelectorAll('.cancel');
+
+    //2.初始化页面
+    init();
+    function init(){
+        oUsername.focus();
+        aMsg[0].innerHTML = "设置后不可更改<br>中英文均可,最长14个字符或7个汉字";
+        aMsg[0].className = "tiptext";
+
+        //利用事件委托处理显示隐藏取消按钮
+        oForm.oninput = function(ev){
+            var oEvent = ev || window.event;
+            var oInput = oEvent.target;
+            var oCancel = oInput.nextElementSibling;
+            var len = oInput.value.length;
+            if(len > 0){
+                oCancel.style.display = "block";
+            }else{
+                oCancel.style.display = "none";
+            }
+        }
+
+        //利用事件代理处理点击取消按钮回复默认状态
+        oForm.onclick = function(ev){
+            // console.log(ev.target);
+            var oCancel = ev.target;
+            var oInput = oCancel.previousElementSibling;
+            // console.log(oInput);
+            if(oInput){
+                if(oInput.name == "username" ||
+                   oInput.name == "phone" || 
+                   oInput.name == "password" ||
+                   oInput.name == "verify"
+                   )
+                {
+                    oInput.focus();
+                    oInput.value = "";
+                    oCancel.style.display = "none";
+                }
+            }
+        }
+    }
+
+    //3.监听输入事件,显示或消失取消按钮
+    /*
+    oUsername.oninput = function(){
+        var len = oUsername.value.length;
+        if(len > 0){
+            aCancel[0].style.display = "block";
+        }else{
+            aCancel[0].style.display = "none";
+        }
+    }
+    */
+
+    //4.点击取消按钮,恢复到初始状态
+    /*
+    aCancel[0].onclick = function(){
+        oUsername.focus();
+        oUsername.value = "";
+        aCancel[0].style.display = "none";
+    }
+    */
+
+    //5.失去焦点验证用户名
+    checkUsername()
+    function checkUsername(){
+        oUsername.onblur = function(){
+            var sVal = oUsername.value;
+            //全是空白符正则
+            var reg1 = /^\s+$/;
+            //用户名仅支持中英文、数字和下划线,且不能为纯数字
+            var reg2 = /[^a-z\u4e00-\u9fa5_\d]/i;
+            var reg3 = /^\d+$/;
+            //什么都没有输入
+            if(sVal == ""){
+                aMsg[0].className = "msg";
+                oUsername.className = "";
+            }
+            //输入的全是空格
+            else if(reg1.test(sVal)){
+                /*
+                aMsg[0].innerHTML = "用户名输入不规范";
+                aMsg[0].className = "err";
+                oUsername.className = "input-err";
+                */
+                setError(aMsg[0],"用户名输入不规范",oUsername);
+            }
+            //匹配最长14个字符或7个汉字
+            else if(getLen(sVal) > 14){
+                /*
+                aMsg[0].innerHTML = "用户名不能超过7个汉字或14个字符";
+                aMsg[0].className = "err";
+                oUsername.className = "input-err";
+                */
+                setError(aMsg[0],"用户名不能超过7个汉字或14个字符",oUsername);
+            }
+            //匹配用户名仅支持中英文、数字和下划线,且不能为纯数字
+            else if(reg2.test(sVal) || reg3.test(sVal)){
+                /*
+                aMsg[0].innerHTML = "用户名仅支持中英文、数字和下划线,且不能为纯数字";
+                aMsg[0].className = "err";
+                oUsername.className = "input-err";
+                */
+                setError(aMsg[0],"用户名仅支持中英文、数字和下划线,且不能为纯数字",oUsername);
+            }
+            //验证通过
+            else{
+                /*
+                aMsg[0].innerHTML = "";
+                aMsg[0].className = "ok";
+                oUsername.className = "";
+                */
+                setOk(aMsg[0],oUsername)
+            }
+            
+        }
+
+        //6.获取焦点在做处理
+        oUsername.onfocus = function(){
+            aMsg[0].innerHTML = "设置后不可更改<br>中英文均可,最长14个字符或7个汉字";
+            aMsg[0].className = "tiptext";
+        }
+    }
+
+    //6.验证手机号
+    checkPhone();
+    function checkPhone(){
+        
+    }
+</script>
 </html>
 
 
