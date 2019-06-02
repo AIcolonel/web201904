@@ -271,7 +271,7 @@
                    <input type="checkbox" name='isAgree'> 
                    <label for="isAgree">阅读并接受</label>
                    <a href="#">《百度用户协议》</a>及<a href="#">《百度隐私权保护声明》</a>  
-                   <span class="msg" id='agreeErr'>选“阅读并接受百度用户协议”</span>               
+                   <span class="msg" id='agreeErr'>请勾选“阅读并接受百度用户协议”</span>               
                 </div>           
                 <div class="subBtn">
                     <input type="button" value="注册" id="subBtn">
@@ -304,9 +304,19 @@
     var oForm = document.forms[0];
     var oUsername = oForm.username;
     var oPhone = oForm.phone;
+    var oPwd = oForm.password;
+    var oVerify = oForm.verify;
+    var oIsAgree = oForm.isAgree;
+    var oPwdChecklist = document.getElementById('pwdChecklist');
+    var aPwdLi = oPwdChecklist.querySelectorAll(".pwd-checklist-item");
+    var oSmsBtn = document.getElementById("smsBtn");
+    var oSubBtn = document.getElementById('subBtn');
+    var oAgreeErr = document.getElementById('agreeErr');
 
     var aMsg = document.querySelectorAll('.msg');
     var aCancel = document.querySelectorAll('.cancel');
+
+    var bUsername = false,bPhone = false,bPwd =false,bVerify = false;
 
     //2.初始化页面
     init();
@@ -393,6 +403,7 @@
                 oUsername.className = "input-err";
                 */
                 setError(aMsg[0],"用户名输入不规范",oUsername);
+                bUsername = false
             }
             //匹配最长14个字符或7个汉字
             else if(getLen(sVal) > 14){
@@ -402,6 +413,7 @@
                 oUsername.className = "input-err";
                 */
                 setError(aMsg[0],"用户名不能超过7个汉字或14个字符",oUsername);
+                bUsername = false
             }
             //匹配用户名仅支持中英文、数字和下划线,且不能为纯数字
             else if(reg2.test(sVal) || reg3.test(sVal)){
@@ -411,6 +423,7 @@
                 oUsername.className = "input-err";
                 */
                 setError(aMsg[0],"用户名仅支持中英文、数字和下划线,且不能为纯数字",oUsername);
+                bUsername = false
             }
             //验证通过
             else{
@@ -419,7 +432,8 @@
                 aMsg[0].className = "ok";
                 oUsername.className = "";
                 */
-                setOk(aMsg[0],oUsername)
+                setOk(aMsg[0],oUsername);
+                bUsername = true;
             }
             
         }
@@ -444,18 +458,22 @@
             if(sVal == ""){
                 aMsg[1].className = "msg";
                 oPhone.className = "";
+                bPhone = false;
             }
             //输入的全是空格
             else if(reg1.test(sVal)){
                 setError(aMsg[1],"请输入正确的手机号",oPhone);
+                bPhone = false;
             }
             //验证手机号
             else if(!reg2.test(sVal)){
                 setError(aMsg[1],"手机号码格式不正确",oPhone);
+                bPhone = false;
             }
             //验证通过
             else{
-                setOk(aMsg[1],oPhone)
+                setOk(aMsg[1],oPhone);
+                bPhone = true;
             }
         }
 
@@ -471,6 +489,151 @@
             // console.log(oPhone.value.length);
             if((ev.keyCode <96 || ev.keyCode >105 || oPhone.value.length > 10) && ev.keyCode != 8 && ev.keyCode != 37 && ev.keyCode != 39){
                 return false;
+            }
+        }
+    }
+
+    //7.密码实时验证
+    checkPwd();
+    function checkPwd(){
+        var bPwd1 = false,bPwd2 = false,bPwd3 = false;
+        oPwd.onfocus = function(){
+            oPwdChecklist.style.display = "block";
+            aMsg[2].className = "msg";
+        }
+        //实时验证密码
+        oPwd.oninput = function(){
+            var sVal = oPwd.value;
+            //长度为8~14个字符
+            var reg1 = /^.{8,14}$/;
+            //支持数字,大小写字母和标点符号
+            var reg2 = /[^0-9a-z\!\?\*\/\s]/i;
+            //不允许有空格
+            var reg3 = /\s/;
+
+            //验证长度为8~14个字符
+            if(!reg1.test(sVal)){
+                aPwdLi[0].className = "pwd-checklist-item pwd-checklist-item-error";
+                bPwd1 = false;
+            }else{
+                aPwdLi[0].className = "pwd-checklist-item pwd-checklist-item-success";
+                bPwd1 = true;
+            }
+            //支持数字,大小写字母和标点符号
+            if(reg2.test(sVal)){
+                aPwdLi[1].className = "pwd-checklist-item pwd-checklist-item-error";
+                bPwd2 = false;
+            }else{
+                aPwdLi[1].className = "pwd-checklist-item pwd-checklist-item-success";
+                bPwd2 = true;
+            }
+
+            //不允许有空格
+            if(reg3.test(sVal)){
+                aPwdLi[2].className = "pwd-checklist-item pwd-checklist-item-error";
+                bPwd3 = false;
+            }else{
+                aPwdLi[2].className = "pwd-checklist-item pwd-checklist-item-success";
+                bPwd3 = true;
+            }
+        }
+
+        //点击取消按钮处理
+        aCancel[2].onclick = function(){
+            aPwdLi[0].className = "pwd-checklist-item";
+            aPwdLi[1].className = "pwd-checklist-item";
+            aPwdLi[2].className = "pwd-checklist-item";
+        }
+        //失去焦点再次验证
+        oPwd.onblur = function(){
+            var sVal = oPwd.value;
+            //什么都没有输入
+            if(sVal == ""){
+                oPwdChecklist.style.display = "none";
+            }
+            //所有验证通过,密码符合要求
+            else if(bPwd1 && bPwd2 && bPwd3){
+                setOk(aMsg[2],oPwd);
+                oPwdChecklist.style.display = "none";
+                bPwd =true;
+            }else{
+                bPwd =false;
+            }
+        }
+    }
+
+    //8.验证码验证
+    checkVerify();
+    function checkVerify(){
+        //点击获取验证码
+        oSmsBtn.onclick = function(){
+            if(oPhone.value == ""){
+                setError(aMsg[1],"请输入手机号",oPhone);
+                return false;
+            }
+            //手机号验证不通过
+            if(!bPhone){
+                return false;
+            }
+
+            //获取验证码
+            alert("验证码获取中.....");
+        }
+
+        //失去焦点验证验证码
+        oVerify.onblur = function(){
+            var sVal = oVerify.value;
+            var reg = /^[0-9a-z]{6}$/;
+            //什么都没有输入
+            if(sVal == ""){
+                aMsg[3].className = "msg";
+                oVerify.className = "";
+            }
+            //验证码验证
+            else if(!reg.test(sVal)){
+                setError(aMsg[3],"验证码输入不正确",oVerify);
+                bVerify = false;
+            }
+            //验证通过
+            else{
+                setOk(aMsg[3],oVerify);
+                bVerify = true;
+            }
+        }
+
+        //限制验证码输入长度
+        oVerify.onkeydown = function(ev){
+            if(oVerify.value.length > 5 && ev.keyCode != 8 && ev.keyCode != 37 && ev.keyCode != 39){
+                return false;
+            }
+        }
+    }
+
+    //9.点击注册按钮注册
+    checkSubmit();
+    function checkSubmit(){
+        oSubBtn.onclick = function(){
+            //什么都没有输入
+            if(oUsername.value == ""){
+                setError(aMsg[0],"请输入用户名",oUsername);
+            }
+            if(oPhone.value == ""){
+                setError(aMsg[1],"请输入手机号",oPhone);
+            }
+            if(oPwd.value == ""){
+                setError(aMsg[2],"请输入密码",oPwd);
+            }
+            if(oVerify.value == ""){
+                setError(aMsg[3],"请输入验证码",oVerify);
+            }
+            if(!oIsAgree.checked){
+                oAgreeErr.style.display = "inline";
+            }else{
+                oAgreeErr.style.display = "none";
+            }
+            //所有验证都通过,提交注册信息
+            if(bUsername && bPhone && bPwd && bVerify && oIsAgree.checked){
+                oForm.submit();
             }
         }
     }

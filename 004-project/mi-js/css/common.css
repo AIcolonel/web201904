@@ -1,0 +1,77 @@
+.container{
+	width: 1228px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*清除浮动*/
+.clearfix:after{
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+	content: "";
+}
+.clearfix{
+	*zoom: 1;
+}
+
+/*超链接共通样式*/
+a{
+	text-decoration: none;
+	font-size: 12px;
+	color: #b0b0b0;
+}
+a:hover{
+	color: #fff;
+}
+
+.col1{
+	float: left;
+	width: 234px;
+}
+.col2{
+	float: left;
+	width: 980px;
+	margin-left: 14px;
+}
+
+/*loading图标*/
+.loading{
+	position: relative;
+	width: 3px;
+	height: 20px;
+	margin: 0 auto;
+	background-color: #ff6700;
+	animation: sport 0.3s linear 0s alternate infinite;
+}
+.loading:after,.loading:before{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 3px;
+	height: 20px;
+	background-color: #ff6700;
+	content: "";
+}
+.loading:before{
+	margin-left: -10px;
+	transform: scale(1,0.5);
+	animation: sport 0.3s linear 0.5s alternate infinite;
+}
+.loading:after{
+	margin-left: 10px;
+	transform: scale(1,0.3);
+	animation: sport 0.3s linear 0.3s alternate infinite;
+}
+
+@keyframes sport{
+	from{
+		transform: scale(1,0.4);
+		opacity: 0.3;
+	}
+	to{
+		transform: scale(1);
+		opacity: 1;
+	}
+}
