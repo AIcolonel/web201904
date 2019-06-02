@@ -226,12 +226,14 @@
 	position: absolute;
 	top: 100px;
 	left: 0;
-	height: 200px;
+	/*height: 200px;*/
+	height: 0;
 	width: 100%;
-	border-top: 1px solid #ccc;
+	/*border-top: 1px solid #ccc;*/
 	background-color: #fff;
 	z-index: 9999;
 	box-shadow: 0 2px 2px rgba(0,0,0,0.3);
+	overflow: hidden;
 }
 .header .header-nav-content li{
 	position: relative;
