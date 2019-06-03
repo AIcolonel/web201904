@@ -276,6 +276,9 @@
 	border: 1px solid #ff6700;
 	color: #ff6700;
 }
+.header .header-nav-content .loading{
+	margin-top: 80px;
+}
 /*logo区域信息结束*/
 
 /*焦点区域开始*/
@@ -289,6 +292,43 @@
 	height: 460px;
 	margin-bottom: 14px;
 	/*background: red;*/
+}
+.home .banner .cate-box{
+	/*position: relative;
+	z-index: 9999;*/
+}
+.home .banner .cate-content{
+	position: absolute;
+	top: 0;
+	left: 234px;
+	min-width: 500px;
+	height: 460px;
+	padding: 10px;
+	box-sizing: border-box;
+	background-color: #fff;
+	z-index: 9999;
+	box-shadow: 0px 2px 2px rgba(0,0,0,0.3);
+	display: none;
+}
+.home .banner .cate-content li{
+	float: left;
+	width: 120px;
+	height: 80px;
+	margin-left: 10px;
+	margin-top: 10px;
+	line-height: 80px;
+}
+.home .banner .cate-content li a:hover{
+	display: inline-block;
+	width: 120px;
+	height: 80px;
+	line-height: 80px;
+	color: #ff6700;
+}
+.home .banner .cate-content li a img{
+	width: 60px;
+	height: 60px;
+	vertical-align: middle;
 }
 .home .banner .cate{
 	position: absolute;
@@ -306,7 +346,12 @@
 	height: 44px;
 	line-height: 44px;
 }
+/*
 .home .banner .cate .cate-list-item:hover{
+	background: #ff6700;
+}
+*/
+.home .banner .cate .cate-list-item.active{
 	background: #ff6700;
 }
 .home .banner .cate .cate-list-item a{
@@ -321,11 +366,11 @@
 	float: right;
 	margin-right: 30px;
 }
+/*
 .home .banner .coursel{
 	position: relative;
 	width: 100%;
 	height: 100%;
-	/*background: red;*/
 }
 .home .banner .coursel .coursel-list{
 	width: 100%;
@@ -383,6 +428,48 @@
 	background: #96938a;
 	border:1px solid #b5b3ad;
 	border-radius: 50%;
+}
+*/
+.home .banner .coursel img{
+	width: 100%;
+	height: 100%;
+}
+.home .banner .coursel .leftbtn,.home .banner .coursel .rightbtn{
+	position: absolute;
+	top: 50%;	
+	margin-top: -30px;
+	width: 50px;
+	height: 60px;
+	line-height: 60px;
+	text-align:center;
+	font-size: 30px;
+	color: #fff;
+	background-color: rgba(0,0,0,0.3);
+	cursor: pointer;
+}
+.home .banner .coursel .leftbtn{
+	left: 234px;
+}
+.home .banner .coursel .rightbtn{
+	right: 0;
+}
+
+.home .banner .coursel .bottombtn{
+	position: absolute;
+	bottom: 10px;
+	left: 50%;
+}
+.home .banner .coursel .bottombtn li{
+	float: left;
+	width: 30px;
+	height: 30px;
+	margin-right: 15px;
+	background:  rgba(0,0,0,0.5);
+	border-radius: 50%;
+	cursor: pointer;
+}
+.home .banner .coursel .bottombtn li.active{
+	background: rgba(255,0,0,0.7);
 }
 
 .home .hot{
@@ -637,6 +724,18 @@
 .flash .product-item:nth-child(4){
 	border-top: 1px solid #e53935;
 }
+.flash .product-item:nth-child(5){
+	border-top: 1px solid pink;
+}
+.flash .product-item:nth-child(6){
+	border-top: 1px solid tomato;
+}
+.flash .product-item:nth-child(7){
+	border-top: 1px solid black;
+}
+.flash .product-item:nth-child(8){
+	border-top: 1px solid purple;
+}
 .flash .product-item .bg{
 	position: absolute;
 	top: 0;
@@ -647,6 +746,14 @@
 	/*background:#000;*/
 	background-color: rgba(0,0,0,0.2);
 	opacity: 0.1;
+}
+.flash .col2{
+	overflow: hidden;
+}
+.flash .product-list{
+	width: 1960px;
+	height: 100%;
+	transition: all 0.3s;
 }
 
 

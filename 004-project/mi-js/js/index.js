@@ -35,6 +35,7 @@ function handleNav(){
 	var oNavContent = document.querySelector(".header .header-nav-content");
 	var oContainer = oNavContent.querySelector('.container');
 	var hideTimer = null;
+	var loadDataTimer = null;
 	//2.循环遍历每一个li,绑定事件
 	for(var i =0;i<aNavItem.length-2;i++){
 		aNavItem[i].index = i;
@@ -42,13 +43,20 @@ function handleNav(){
 			clearTimeout(hideTimer);
 			//js显示上边框
 			oNavContent.style.borderTop = "1px solid #ccc";
+			//模拟加载数据显示loading图标
+			oContainer.innerHTML = '<div class="loading"></div>';
 			//动画显示导航下拉列表
 			animate(oNavContent,{height:200},false,function(){
 				oNavContent.style.overflow = "visible";
 			});
 
 			//动态加载数据
-			loadData(this.index);
+			var index = this.index;
+			//优化不必要的加载数据
+			clearTimeout(loadDataTimer);
+			loadDataTimer = setTimeout(function(){
+				loadData(index);
+			},1000)
 		}
 		aNavItem[i].onmouseleave = function(){
 			/*
@@ -108,5 +116,113 @@ function handleNav(){
 				oNavContent.style.borderTop = "none";
 			});
 		},300)
+	}
+}
+
+//3.处理轮播图
+handleCoursel();
+function handleCoursel(){
+	new Coursel({
+		id:"coursel",
+		width:1228,
+		height:460,
+		img:["images/b1.jpg","images/b2.jpg","images/b3.jpg"],
+		playtime:3000
+	});
+}
+
+//4.处理分类面板
+handleCate();
+function handleCate(){
+	var aCateItem = document.querySelectorAll('.home .banner .cate .cate-list-item');
+	var oCateContent = document.querySelector('.home .banner .cate-content');
+	var oCateBox = document.querySelector('.home .banner .cate-box');
+
+	//循环遍历每一项监听事件
+	for(var i = 0;i<aCateItem.length;i++){
+		aCateItem[i].index = i;
+		aCateItem[i].onmouseenter = function(){
+			for(var j=0;j<aCateItem.length;j++){
+				aCateItem[j].className = "cate-list-item";
+			}
+			oCateContent.style.display = "block";
+			this.className = "cate-list-item active";
+
+			//模拟加载数据
+			loadData(this.index)
+		}
+	}
+
+	//鼠标移出最外层大盒子,面板内容消失
+	oCateBox.onmouseleave = function(){
+		for(var j=0;j<aCateItem.length;j++){
+			aCateItem[j].className = "cate-list-item";
+		}
+		oCateContent.style.display = "none";
+	}
+
+	//加载数据函数
+	function loadData(index){
+		var data = aCateItemData[index];
+		// console.log(data);
+
+		var html = "";
+			html += '<ul>'
+			for(var i = 0;i<data.length;i++){
+				html +=		'<li>';
+				html +=			'<a href="'+data[i].url+'">';
+				html +=				'<img src="'+data[i].src+'" alt="">';
+				html +=				'<span>'+data[i].name+'</span>';
+				html +=			'</a>';
+				html +=		'</li>';
+			}
+			html +=	'</ul>';
+
+		oCateContent.innerHTML = html;
+	}
+}
+
+//5.处理倒计时
+handleCountDown();
+function handleCountDown(){
+	var aTimerNum = document.querySelectorAll('.flash .timer-num');
+	var timer = null;
+	var endTime = new Date("2019-06-03 23:59:59");
+
+	function handleTimer(){
+		var allSeconds = parseInt((endTime.getTime() - Date.now())/1000);
+		if(allSeconds <=0){
+			allSeconds = 0;
+			clearInterval(timer);
+		}
+		var hours = parseInt(allSeconds /3600);
+		var minutes = parseInt(allSeconds % 3600 / 60);
+		var seconds = allSeconds % 3600 % 60;
+
+		aTimerNum[0].innerHTML = to2Str(hours);
+		aTimerNum[1].innerHTML = to2Str(minutes);
+		aTimerNum[2].innerHTML = to2Str(seconds);
+	}
+	timer = setInterval(handleTimer,500);
+	handleTimer();
+
+	function to2Str(num){
+		return num>=10 ? ""+num : "0"+num;
+	}
+}
+
+//7.处理闪购滑动列表
+handleMove();
+function handleMove(){
+	var oSpan = document.querySelectorAll('.flash .flash-ctr');
+	var oProductList = document.querySelector('.flash .product-list');
+
+	//点击右边按钮向左滑动
+	oSpan[1].onclick = function(){
+		oProductList.style.marginLeft = "-980px";
+	}
+	//点击左边按钮向右滑动
+	oSpan[0].onclick = function(){
+		oProductList.style.marginLeft = "0";
 	}
 }
