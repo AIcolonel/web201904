@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>006-事件监听断点.html</title>
+</head>
+<body>
+	<input type="text" id="txt">
+	<button id="btn">测试</button>
+</body>
+<script>
+	//show = 11;
+	//show()
+	var oTxt = document.getElementById('txt');
+	var oBtn = document.getElementById('btn');
+	function sum(num){
+		try{
+			var result = 0;
+			if(isNaN(parseInt(num))){
+				throw new Error("is not a number");
+			}
+			for(var i =0 ;i<=num;i++){
+				result += i;
+			}
+			return result;
+		}
+		catch(err){
+			console.log(err);
+		}
+		finally{
+			console.log("always do something....")
+		}
+
+	}
+	function show(num){
+		return num*10;
+	}
+	oBtn.onclick = function(){
+		var val = oTxt.value;
+		var total = sum(oTxt.value);
+		console.log(show(total));
+	}
+</script>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>020-面向对象高级-继承三.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		console.log(11);
+		this.name = name;
+		this.age = age;
+	}
+	Object.defineProperty(Person.prototype,"showName",{
+		value:function(){
+			console.log("I am " +this.name);
+		},
+		enumerable:false
+	})
+	Person.prototype.showAge = function(){
+		console.log("I am " +this.age + " years old");
+	}
+	
+	function Student(name,age,major){
+		//属性继承
+		Person.call(this,name,age);
+		this.major = major;
+	}
+	/*
+	for(var attr in Person.prototype){
+		Student.prototype[attr] = Person.prototype[attr];
+	}
+	*/
+	Student.prototype.__proto__ = Person.prototype; 
+	// Student.prototype = new Person();
+	// Student.prototype.constructor = Student;
+	console.log(Student.prototype);
+	Student.prototype.showMajor = function(){
+		console.log("I am come from "+this.major);
+	}
+
+	var s1 = new Student("xiaozhang",20,"computer");
+	s1.showName();
+	s1.showAge();
+	s1.showMajor();
+	
+
+	// var p1 = new Person("tom",18);
+	// p1.showName();
+	// p1.showAge();
+	// p1.showMajor();
+</script>
+</html>

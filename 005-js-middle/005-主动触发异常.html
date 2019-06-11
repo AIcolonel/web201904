@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>005-主动触发异常.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//show = 11;
+	//show()
+	function sum(num){
+		try{
+			var result = 0;
+			if(isNaN(parseInt(num))){
+				throw new Error("is not a number");
+			}
+			for(var i =0 ;i<=num;i++){
+				result += i;
+			}
+			console.log(11);
+			return result;
+		}
+		catch(err){
+			console.log(err);
+		}
+		finally{
+			console.log("always do something....")
+		}
+
+	}
+	function show(num){
+		return num*10;
+	}
+	console.log("1:::");
+	var total = sum("a");
+	// var total = sum(3);
+	console.log(total);
+	console.log("2:::");
+	console.log(show(total));	
+	console.log("3:::")
+</script>
+</html>

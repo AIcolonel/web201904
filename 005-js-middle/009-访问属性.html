@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>009-访问属性.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+		this.LEGS = 4;
+		this.showName = function(){
+			console.log("I am "+this.name + "!!!!!!");
+		}
+	}
+	Person.prototype.showName = function(){
+		console.log("I am "+this.name);
+	}
+	Person.prototype.showAge = function(){
+		console.log("I am "+this.age+" years old");
+	}
+	Person.prototype.LEGS = 2;
+
+	var p1 = new Person("tom",18);
+	p1.showName();
+	p1.showAge();
+	console.log(p1.LEGS);
+	console.log(p1.MOUTH);
+</script>
+</html>

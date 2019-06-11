@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>004-逻辑错误-函数相关.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function sum(num){
+		var result = 0;
+		for(var i =0 ;i<=num;i++){
+			result += i;
+		}
+		return result;
+	}
+	function show(num){
+		return num*10;
+	}
+	console.log("1:::");
+	console.log(sum(3));
+	console.log("2:::");
+	console.log(show(sum(3)));	
+	console.log("3:::")
+</script>
+</html>

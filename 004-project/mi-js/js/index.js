@@ -226,3 +226,72 @@ function handleMove(){
 		oProductList.style.marginLeft = "0";
 	}
 }
+
+//8.处理家电
+handleElec();
+function handleElec(){
+	var aTabItem = document.querySelectorAll('.elec .tab-item');
+	var oElecList = document.querySelector('.elec .elec-item-list');
+
+	//默认加载第一条数据
+	loadData(0);
+	for(var i=0;i<aTabItem.length;i++){
+		aTabItem[i].index = i;
+		aTabItem[i].onmouseenter = function(){
+			for(var j=0;j<aTabItem.length;j++){
+				aTabItem[j].className = "tab-item";
+			}
+			this.className = "tab-item tab-item-active";
+
+			//模拟加载数据
+			loadData(this.index)
+		}
+	}
+
+	//加载数据函数
+	function loadData(index){
+		var data = aElecItemData[index];
+
+		var html = "";
+		for(var i=0;i<data.length-1;i++){
+			html += '<li class="product-item product-item-m">';
+			html +=	'	<a href="'+data[i].url+'">';
+			html +=	'		<img src="'+data[i].src+'" alt="">';
+			html +=	'		<p class="product-item-name">'+data[i].name+'</p>';
+			html +=	'			<p class="product-item-des">'+data[i].des+'</p>';
+			html +=	'			<p class="product-item-price">';
+			html +=	'				<strong>'+data[i].price+'元</strong>';
+			html +=	'				<del>'+data[i].del+'元</del>';
+			html +=	'			</p>';
+			html +=	'	</a>';
+			if(data[i].flag){
+				html +=	'	<span class="flag '+data[i].flag.class+'">'+data[i].flag.name+'</span>';
+			}
+			if(data[i].views){
+				html +=	'	<div class="views">';
+				html +=	'		<p class="commen">'+data[i].views.commen+'</p>';
+				html +=	'		<p class="author">'+data[i].views.author+'</p>';
+				html +=	'	</div>';
+			}
+			html +=	'</li>';
+		}
+		//单独处理最后一条数据
+		var lastData = data[data.length-1];
+			html += '<li class="product-area">';
+			html +=		'<div class="product-area-top product-area-item">';
+			html +=			'<p class=" product-area-top-des">'+lastData.topdes+'</p>';
+			html +=			'<strong>'+lastData.topprice+'元</strong>';
+			html +=			'<img src="'+lastData.topimg+'" alt="">';
+			html +=		'</div>';
+			html +=		'<div class="product-area-item product-area-bottom">';
+			html +=			'<p class="product-area-bottom-name">'+lastData.bottomname+'</p>';
+			html +=			'<p class="product-area-bottom-hot">';
+			html +=				''+lastData.bottomhot+'';
+			html +=			'</p>';
+			html +=			'<i class="iconfont">'+lastData.icon+'</i>';
+			html +=		'</div>';
+			html +=	'</li>';
+
+		oElecList.innerHTML = html;
+	}
+}

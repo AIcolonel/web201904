@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>010-添加属性.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	Person.prototype.showName = function(){
+		console.log("I am "+this.name);
+	}
+	Person.prototype.showAge = function(){
+		console.log("I am "+this.age+" years old");
+	}
+	Person.prototype.LEGS = 2;
+
+	var p1 = new Person("tom",18);
+	console.log(p1);
+	p1.sex = "male";
+	p1.name = "leo";
+	// p1.LEGS = 6;
+	console.log(p1);
+	console.log(Person.prototype.LEGS);
+	Person.prototype.LEGS = 4;
+	console.log(p1.LEGS);
+	var p2 = new Person("anmy",88);
+	console.log(p2.LEGS);
+</script>
+</html>

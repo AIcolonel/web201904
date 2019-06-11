@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>003-逻辑错误-单步跟踪.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function sum(num){
+		var result = 0;
+		for(var i =0 ;i<=num;i++){
+			result += i;
+		}
+		return result;
+	}
+	debugger
+	console.log(sum(3));	
+</script>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>007-面向对象高级-原型.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		//this = {};
+		this.name = name;
+		this.age = age;
+		//return this;
+	}
+	Person.prototype.showName = function(){
+		console.log("I am "+this.name);
+	}
+	Person.prototype.showAge = function(){
+		console.log("I am "+this.age+" years old");
+	}
+	Person.prototype.LEGS = 2;
+
+
+	console.log("Person.prototype:::",Person.prototype);
+	console.log("Person.prototype.constructor:::",Person.prototype.constructor);
+	console.log("Person.prototype.constructor === Personr:::",Person.prototype.constructor === Person);
+	console.log("Person.prototype.__proto__:::",Person.prototype.__proto__);
+	console.log("Object.prototype:::",Object.prototype);
+	console.log("Person.prototype.__proto__ === Object.prototype:::",Person.prototype.__proto__ === Object.prototype);
+	console.log("Object.prototype.__proto__:::",Object.prototype.__proto__);
+
+
+	/*
+	var p1 = Person("tom",18);
+	console.log(window)
+	*/
+	var p1 = new Person("tom",18);
+	console.log(p1);
+	p1.showName();
+	p1.showAge();
+	var p2 = new Person('leo',20);
+	console.log(p2);
+
+	console.log("p1.__proto__:::",p1.__proto__);
+	console.log("p1.__proto__ === Person.prototype:::",p1.__proto__ === Person.prototype);
+	console.log(p1.toString())
+</script>
+</html>

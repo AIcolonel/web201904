@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>013-单个属性的定义.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	/*
+	Person.prototype.showName = function(){
+		console.log("I am "+this.name);
+	}
+	Person.prototype.showAge = function(){
+		console.log("I am "+this.age+" years old");
+	}
+	Person.prototype.LEGS = 2;
+	*/
+
+	var p1 = new Person("tom",18);
+	//p1.sex = "male";
+	//p1.sex = "female";
+	// console.log(p1);
+
+	/*
+	Object.defineProperty(p1,"sex",{
+		value:"female",
+		enumerable:true
+	})
+
+	console.log(p1);
+
+	for(attr in p1){
+		console.log(attr);
+	}
+	*/
+	/*
+	Object.defineProperty(p1,"sex",{
+		value:"female",
+		enumerable:true,
+		writable:true
+	})
+	p1.sex = "male";
+	console.log(p1);
+
+	for(attr in p1){
+		console.log(attr,p1[attr]);
+	}
+	*/
+	Object.defineProperty(p1,"sex",{
+		value:"female",
+		enumerable:true,
+		writable:false,
+		configurable:true
+	});
+	Object.defineProperty(p1,"sex",{
+		value:"female",
+		enumerable:true,
+		writable:true,
+		configurable:true
+	});
+	p1.sex = "male";
+	// console.log(delete p1.sex);
+	console.log(p1);
+
+	for(attr in p1){
+		console.log(attr,p1[attr]);
+	}
+</script>
+</html>
