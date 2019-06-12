@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>036-引用计数案例.html</title>
+</head>
+<body>
+	<button id="btn">按钮</button>
+</body>
+<script>
+	bindEvent()
+	function bindEvent(){
+		var oBtn = document.getElementById('btn');
+		var id = oBtn.id;
+		oBtn.onclick = function(){
+			alert(id);
+		}
+		oBtn = null;
+	}
+</script>
+</html>

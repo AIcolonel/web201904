@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>035-引用计数.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	var a = {
+		name:"tom"
+	}
+	a = {
+		name:"leo"
+	}
+	*/
+	var p1 = {
+		name:"tom"
+	}
+	p1.obj1 = p2;
+	/*
+	{
+		name:"tom",
+		obj1:{
+			name:"leo"
+		}
+	}
+	*/
+
+	var p2 = {
+		name:"leo"
+	}
+	p2.obj2 = p1;
+	/*
+	{
+		name:"leo",
+		obj2:{
+			name:"tom"
+		}
+	}
+	*/
+</script>
+</html>
