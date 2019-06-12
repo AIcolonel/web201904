@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>031-循环中直接找到元素的索引.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+			float: left;
+			width: 100px;
+			height: 60px;
+			margin-left: 20px;
+			line-height: 60px;
+			background-color: red;
+			text-align: center;
+		}
+		.active{
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li class="active">1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+		<li>7</li>
+		<li>8</li>
+		<li>9</li>
+		<li>10</li>
+	</ul>
+</body>
+<script>
+	var aLi = document.getElementsByTagName('li');
+	var lastIndex = 0;
+	for(var i= 0;i<aLi.length;i++){
+		// aLi[i].index = i;
+		// aLi[i].onmouseover = function(){
+			/*
+			for(var j = 0;j<aLi.length;j++){
+				aLi[j].className = "";
+			}
+			*/
+			// aLi[lastIndex].className = "";
+			// this.className = "active";
+			// lastIndex = this.index;
+		// }
+		(function(i){
+			aLi[i].onmouseover = function(){
+				aLi[lastIndex].className = "";
+				this.className = "active";
+				lastIndex = i;
+			}
+		})(i);
+	}
+</script>
+</html>

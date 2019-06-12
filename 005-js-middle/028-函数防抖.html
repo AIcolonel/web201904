@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>028-函数防抖.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			height: 3000px;
+		}
+	</style>
+</head>
+<body>
+	
+</body>
+<script>
+	var i = 0;
+	function debounce(fn,delay){
+		var timer = null;
+		return function(){
+			clearTimeout(timer);
+			timer = setTimeout(fn,delay)
+		}
+	}
+
+	/*
+	window.onscroll = function(){
+		console.log(i++);
+	}
+	*/
+	window.onscroll = debounce(function(){
+		console.log(i++);
+	},300);
+</script>
+</html>

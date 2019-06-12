@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>027-函数节流.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			height: 3000px;
+		}
+	</style>
+</head>
+<body>
+	
+</body>
+<script>
+	var i = 0;
+	function throttle(fn,wait){
+		var lastTime = Date.now();
+		return function(){
+			// console.log(11)
+			var nowTime = Date.now();
+			if(nowTime - lastTime > wait){
+				fn();
+				lastTime = Date.now()
+			}
+		}
+	}
+
+	/*
+	window.onscroll = function(){
+		console.log(i++);
+	}
+	*/
+	// console.log(throttle());
+	window.onscroll = throttle(function(){
+		console.log(i++);
+	},1000);
+</script>
+</html>

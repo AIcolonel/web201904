@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>030-创建私有作用域.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var a = 1;//window.a = 1;
+	var a = 2;//window.a = 2;
+	(function(){
+		var str = "a";
+		console.log(a);
+		console.log(b)
+	})();
+	(function(){
+		var str = "b";
+		console.log(a);
+		console.log(b)
+	})();
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>029-小括号的语义.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//();
+	/*
+	if(true){
+		alert(11);
+	}
+	*/
+	/*
+	var str = "a" + (1 + 2) + "c";
+	console.log(str);
+	*/
+	/*
+	function show(name){
+		console.log(name);
+	}
+	show("tom");
+	*/
+	!(function(){
+		console.log("world");
+	})()
+	!(function (){
+		var a = 1;
+		console.log("hello");
+	})()
+	
+	// console.log(a)
+</script>
+</html>

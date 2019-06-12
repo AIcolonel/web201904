@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>032-构建对象.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	(function(w){
+		function Person(name,age){
+			this.name = name;
+			this.age = age;
+		}
+		/*
+		Person.prototype.showName = function(){
+			console.log("I am " +this.name);
+		}
+		Person.prototype.showAge = function(){
+			console.log("I am " +this.age + " years old");
+		}
+		*/
+		Person.prototype = {
+			constructor:Person,
+			showName:function(){
+				console.log("I am " +this.name);
+			},
+			showAge:function(){
+				console.log("I am " +this.age + " years old");
+			},
+			LEGS:2
+		}
+		console.log(Person.prototype)
+		w.Person = Person;
+	})(window);
+
+	(function(w){
+		function Student(name,age,major){
+			this.name = name;
+			this.age = age;
+			this.major = major;
+		}
+		Student.prototype.showName = function(){
+			console.log("I am " +this.name);
+		}
+		Student.prototype.showAge = function(){
+			console.log("I am " +this.age + " years old");
+		}
+		Student.prototype.showMajor = function(){
+			console.log("I am come from "+this.major);
+		}
+
+		w.Student = Student;
+	})(window);
+	
+	var p1 = new Person("tom",18);
+	var s1 = new Student("leo",20,"computer");
+	console.log(p1);
+	console.log(s1);
+</script>
+</html>

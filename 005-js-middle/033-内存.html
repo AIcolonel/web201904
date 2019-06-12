@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>033-内存.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function fn1(){
+		var a = 1;
+		// console.log(a);
+		add = function(){
+			a++;
+		}
+		return function(){
+			return a;
+		}
+	}
+	// fn1();
+	var result = fn1();
+	console.log(result());
+	add();
+	console.log(result());
+</script>
+</html>
