@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>041-高级数组.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var arr = [2,45,68,94,31,12];
+
+	console.log(arr);
+
+	/*
+	var result = arr.forEach(function(value,index){
+		console.log("value,index",value,index);
+	});
+	console.log(result);
+	
+	var result = arr.map(function(value,index){
+		console.log("value,index",value,index);
+		return value+10;
+	});
+	console.log("result::",result);
+	
+
+	var result = arr.filter(function(value,index){
+		console.log("value,index",value,index);
+		return value > 20;
+	});
+	console.log("result::",result);
+
+	
+
+	var isAllTure = arr.every(function(value,index){
+		console.log("value,index",value,index);
+		return value > 1;
+	});
+	console.log("isAllTure::",isAllTure);
+
+	*/
+
+	var hasTrue = arr.some(function(value,index){
+		console.log("value,index",value,index);
+		return value > 20;
+	});
+	console.log("hasTrue::",hasTrue);
+</script>
+</html>
