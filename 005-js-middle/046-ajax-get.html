@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>046-ajax-get.html</title>
+</head>
+<body>
+	<button id="btn">请求数据</button>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+
+	oBtn.onclick =  function(){
+		//1.生成ajax对象(买一个电话)
+		var oAjax = new XMLHttpRequest();
+		// console.log(oAjax);
+
+		//2.建立连接(拨号)
+		oAjax.open("GET","http://127.0.0.1:3000/046-data.json",true);
+
+		//3.发送消息(问问题)
+		oAjax.send();
+
+		//4.服务器接收并相应(听电话回答问题)
+		oAjax.onreadystatechange = function(){
+			// console.log(oAjax.readyState);
+			if(oAjax.readyState == 4){//数据完全返回
+				// console.log(oAjax.status);
+				if(oAjax.status == 200){//数据完全返回并且正确
+					// console.log(oAjax.responseText);
+					var strToObj  =  JSON.parse(oAjax.responseText);
+					console.log(strToObj.name);
+				}
+			}
+		}
+	}
+</script>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>047-高级数组.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var arr = [2,12,36,45,87,96];
+
+	console.log(arr);
+
+	/*
+	var result = arr.forEach(function(value,index){
+		console.log("value,index",value,index);
+	});
+	console.log(result);
+	
+	var result = arr.map(function(value,index){
+		console.log("value,index",value,index);
+		return value;
+	});
+	console.log(result);
+	
+	var result = arr.filter(function(value,index){
+		console.log("value,index",value,index);
+		return value >30;
+	});
+	console.log(result);
+	
+	var isAllTrue = arr.every(function(value,index){
+		console.log("value,index",value,index);
+		return value <30;
+	});
+	console.log(isAllTrue);
+	*/
+
+	var hasTrue = arr.some(function(value,index){
+		console.log("value,index",value,index);
+		return value < 30;
+	});
+	console.log(hasTrue);
+</script>
+</html>
