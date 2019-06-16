@@ -4,17 +4,7 @@ var fs = require('fs');
 var url = require('url');
 
 var server = http.createServer(function(req,res){
-	// console.log(req.method);
-	// res.setHeader("Access-Control-Allow-Origin","http://127.0.0.1:3000");
-	//设置允许访问的源
-	res.setHeader("Access-Control-Allow-Origin","*");
-	//设置允许访问头信息
-	res.setHeader("Access-Control-Expose-Headers","Date,Connection");
-
-	//设置响应头
-	res.setHeader("Content-Type","text/plain");
-	res.setHeader("Kuazhu-test","Kuazhu-test-content");
-
+	console.log(req.method);
 
 	if(req.url == "/favicon.ico"){
 		res.end("favicon.ico");
@@ -54,6 +44,6 @@ var server = http.createServer(function(req,res){
 
 });
 
-server.listen(3001,"127.0.0.1",function(){
-	console.log("server is running at http://127.0.0.1:3001");
+server.listen(3000,"127.0.0.1",function(){
+	console.log("server is running at http://127.0.0.1:3000");
 });

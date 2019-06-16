@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>050-ajax-cors.html</title>
+	<title>051-ajax-options.html</title>
 </head>
 <body>
-	<!-- 简单请求跨域 -->
+	<!-- 复杂请求跨域 -->
 	<button id="btn">请求数据</button>
 </body>
 <script>
@@ -25,6 +25,12 @@
 				var url = url + "?" + data;
 			}
 
+			//2.建立连接(拨号)
+			oAjax.open(method,url,true);
+
+			//3.发送消息(问问题)
+			oAjax.send();
+		}else{
 			//2.建立连接(拨号)
 			oAjax.open(method,url,true);
 
@@ -65,8 +71,8 @@
 
 	oBtn.onclick =  function(){
 		ajax(
-			"get",
-			"http://127.0.0.1:3001/049-data.json",
+			"PUT",
+			"http://127.0.0.1:3001/edit",
 			'',
 			function(data){
 				var oUl = document.createElement('ul');

@@ -8,6 +8,9 @@ var server = http.createServer(function(req,res){
 	// res.setHeader("Access-Control-Allow-Origin","http://127.0.0.1:3000");
 	//设置允许访问的源
 	res.setHeader("Access-Control-Allow-Origin","*");
+	//设置允许访问的方法
+	res.setHeader("Access-Control-Allow-Methods","PUT");
+
 	//设置允许访问头信息
 	res.setHeader("Access-Control-Expose-Headers","Date,Connection");
 
