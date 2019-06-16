@@ -9,7 +9,9 @@ var server = http.createServer(function(req,res){
 	//设置允许访问的源
 	res.setHeader("Access-Control-Allow-Origin","*");
 	//设置允许访问的方法
-	res.setHeader("Access-Control-Allow-Methods","PUT");
+	res.setHeader("Access-Control-Allow-Methods","PUT,DELETE");
+	//设置允许请求头字段信息
+	res.setHeader("Access-Control-Allow-Headers","Kuazhu-Test-Header");
 
 	//设置允许访问头信息
 	res.setHeader("Access-Control-Expose-Headers","Date,Connection");
