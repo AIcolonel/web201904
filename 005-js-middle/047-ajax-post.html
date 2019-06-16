@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>046-ajax-get.html</title>
+	<title>047-ajax-post.html</title>
 </head>
 <body>
-	<!-- ajax发送get请求 -->
+	<!-- ajax发送post请求 -->
 	<button id="btn">请求数据</button>
 </body>
 <script>
@@ -17,12 +17,12 @@
 		// console.log(oAjax);
 
 		//2.建立连接(拨号)
-		oAjax.open("GET","http://127.0.0.1:3000/046-data.json",true);
+		oAjax.open("POST","http://127.0.0.1:3000",true);
 
 		oAjax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-
+		//{name:"tom",age:18}
 		//3.发送消息(问问题)
-		oAjax.send();
+		oAjax.send('{"name":"tom","age":18}');
 
 		//4.服务器接收并相应(听电话回答问题)
 		oAjax.onreadystatechange = function(){
@@ -30,9 +30,9 @@
 			if(oAjax.readyState == 4){//数据完全返回
 				// console.log(oAjax.status);
 				if(oAjax.status == 200){//数据完全返回并且正确
-					// console.log(oAjax.responseText);
+					console.log(oAjax.responseText);
 					var strToObj  =  JSON.parse(oAjax.responseText);
-					console.log(strToObj.name);
+					console.log(strToObj);
 				}
 			}
 		}
