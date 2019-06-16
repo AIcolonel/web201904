@@ -1,6 +1,7 @@
 var http = require('http');
 
 var fs = require('fs');
+var url = require('url');
 
 var server = http.createServer(function(req,res){
 	console.log(req.method);
@@ -19,15 +20,22 @@ var server = http.createServer(function(req,res){
 			res.end(body);
 		});
 	}else if(req.method == "GET"){
-		var filePath  = "./" + req.url;
-		fs.readFile(filePath,function(err,data){
-			if(err){
-				res.statusCode = 404;
-				res.end("not found!!!");
-			}else{
-				res.end(data);
-			}
-		})
+		if(req.url.search(/\?/) != -1){
+			var parm = url.parse(req.url,true).query;
+			console.log(parm);
+			var objToJSON = JSON.stringify(parm);
+			res.end(objToJSON);
+		}else{
+			var filePath  = "./" + req.url;
+			fs.readFile(filePath,function(err,data){
+				if(err){
+					res.statusCode = 404;
+					res.end("not found!!!");
+				}else{
+					res.end(data);
+				}
+			})
+		}
 	}else{
 		res.end('ok');
 	}
