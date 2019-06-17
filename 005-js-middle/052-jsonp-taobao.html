@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>052-jsonp-taobao.html</title>
+</head>
+<body>
+	<button id="btn">请求数据</button>
+	<input type="text" id="txt">
+	<ul id="list">
+		
+	</ul>
+</body>
+<script>
+
+	var oUl = document.getElementById('list');
+	function handleBack(data){
+		// console.log(data);
+		oUl.innerHTML = "";
+		var data = data.result;
+		for(var i = 0;i<data.length;i++){
+			var oLi = document.createElement('li');
+			oLi.innerHTML = data[i][0];
+			oUl.appendChild(oLi);
+		}
+	}
+
+	var oBtn = document.getElementById('btn');
+	var oTxt = document.getElementById('txt');
+
+	oTxt.oninput = function(){
+		var val = oTxt.value;
+		var script = document.createElement('script');
+		script.src = "https://suggest.taobao.com/sug?code=utf-8&q="+val+"&_ksTS=1560768457952_1068&callback=handleBack&k=1&area=c2c&bucketid=20";
+		document.body.appendChild(script);
+	}
+
+
+
+	oBtn.onclick = function(){
+		var script = document.createElement('script');
+		script.src = "https://suggest.taobao.com/sug?code=utf-8&q=ann&_ksTS=1560768457952_1068&callback=handleBack&k=1&area=c2c&bucketid=20";
+		document.body.appendChild(script);
+	}
+</script>
+
+</html>

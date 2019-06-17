@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>052-jsonp.html</title>
+</head>
+<body>
+	<button id="btn">请求数据</button>
+</body>
+<script>
+	function handleBack(data){
+		console.log(data);
+	}
+
+	var oBtn = document.getElementById('btn');
+
+	oBtn.onclick = function(){
+		// alert('hello');
+		var script = document.createElement('script');
+		script.src = "http://127.0.0.1:3001/?getData=handleBack";
+		document.body.appendChild(script);
+	}
+	//handleBack()
+</script>
+<!-- <script src="http://127.0.0.1:3001/?getData=handleBack"></script> -->
+
+</html>
