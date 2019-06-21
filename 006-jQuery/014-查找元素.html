@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>014-查找元素.html</title>
+</head>
+<body>
+	<ul id="ul1">
+		<li class="li1">1</li>
+		<li class="li1">2</li>
+		<li class="li1">3</li>
+		<li class="li1">4</li>
+		<li class="li1">5</li>
+		<li class="li2">01</li>
+		<li class="li2">02</li>
+		<li class="li2">03</li>
+		<li class="li2">04</li>
+		<li class="li2">05</li>
+	</ul>
+	<ul id="ul2">
+		<li class="li1">1</li>
+		<li class="li1">2</li>
+		<li class="li1">3</li>
+		<li class="li1">4</li>
+		<li class="li1">5</li>
+		<li class="li2">01</li>
+		<li class="li2">02</li>
+		<li class="li2">03</li>
+		<li class="li2">04</li>
+		<li class="li2">05</li>
+	</ul>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		// console.log($('#ul1>.li1'));
+		console.log($("#ul2").find('.li1'));
+	});
+</script>
+</html>

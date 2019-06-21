@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>017-操作代码-文本-值.html</title>
+</head>
+<body>
+	<div>我是内容</div>
+	<div>
+		我是div
+		<p>我是段落</p>
+	</div>
+	<input type="text" id="txt">
+	<button id="btn">获取</button>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		// console.log($('div').eq(1).html());
+		// console.log($('div').html("<h2>我是标题</h2>"));
+		// console.log($('div').text());
+		// console.log($('div').text("<h2>我是标题</h2>"));
+		var oTxt = document.getElementById('txt');
+		var oBtn = document.getElementById('btn');
+		oBtn.onclick = function(){
+			// console.log(oTxt.value);
+			console.log($(oTxt).val("aaaa"));
+		}
+	});
+</script>
+</html>

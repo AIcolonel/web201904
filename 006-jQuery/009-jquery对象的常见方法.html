@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>009-jquery对象的常见方法.html</title>
+</head>
+<body>
+	<div class="div1">div1</div>
+	<div class="div2">div2</div>
+	<div class="div3">div3</div>
+	<div class="div4">div4</div>
+	<div class="div5" data-name="tom">div5</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		//什么都不传则返回对象中第一个元素下标
+		console.log($('div').index());
+		//传入dom节点则返回对应元素的下标
+		console.log($('div').index(document.querySelector('.div2')));
+		//传入jquery对象则返回对应下标
+		console.log($('div').index($('.div4')));
+
+		/*
+		$('div').each(function(index,ele){
+			console.log("index ele",index,ele);
+		});
+		
+		$.each($('div'),function(index,element){
+			console.log("index element",index,element);
+		})
+		*/
+
+		$('.div2').data("kuazhu","kuazhu-test");
+		console.log($('.div2').data("kuazhu"));
+		console.log($('.div5').data("name"));
+
+
+		console.log($('div').is('#div5'));
+		console.log($('div').is('.div1'));
+	});
+</script>
+</html>

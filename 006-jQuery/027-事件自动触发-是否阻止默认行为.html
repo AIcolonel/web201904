@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>027-事件自动触发-是否阻止默认行为.html</title>
+</head>
+<body>
+	<form action="https://www.kuazhu.com" target="_blank">
+		<input type="text" name="username">
+		<input type="submit" value="提交">
+	</form>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('input').eq(1).on('click',function(){
+			alert('input click');
+		});
+		// $('input').eq(1).trigger('click');
+		$('input').eq(1).triggerHandler('click');
+	});
+</script>
+</html>

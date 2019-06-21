@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>029-自定义事件.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<button>触发</button>
+	<div></div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		/*
+		$('div').on('click',function(){
+			alert('div click');
+		})
+		*/
+		$('div').on('test',function(ev,name){
+			alert(name + ' div test');
+		});
+		$('button').on('click',function(){
+			$('div').trigger('test',"tom");
+		})
+		
+	});
+</script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>003-jquery初体验.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			margin-top: 10px;
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">设置样式</button>
+	<div>div1</div>
+	<div>div2</div>
+	<div>div3</div>
+	<div>div4</div>
+	<div>div5</div>
+	<div>div6</div>
+	<div>div7</div>
+	<div>div8</div>
+	<div>div9</div>
+	<div>div10</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	/*
+	var oBtn = document.getElementById('btn');
+	var aDiv = document.getElementsByTagName('div');
+	oBtn.onclick = function(){
+		for(var i = 0;i<aDiv.length;i++){
+			aDiv[i].style.background = "red";
+		}
+	}
+	*/
+	$('#btn').click(function(){
+		$('div').css("background","purple");
+	})
+</script>
+</html>

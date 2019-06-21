@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>023-阻止事件冒泡.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.gf{
+			width: 300px;
+			height: 300px;
+			margin: 50px auto;
+			border: 1px solid #000;
+		}
+		.f{
+			width: 200px;
+			height: 200px;
+			background-color: green;
+			margin: 50px;
+			overflow: hidden;
+		}
+		.s{
+			width: 100px;
+			height: 100px;
+			background-color: yellow;
+			margin: 50px;
+		}
+	</style>
+</head>
+<body>
+	<div class="gf">
+		<div class="f">
+			<div class="s"></div>
+		</div>
+	</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('.gf').on('click',function(){
+			alert('grandfather click');
+		})
+		$('.f').on('click',function(){
+			alert('father click');
+			return false;
+		})
+		$('.s').on('click',function(ev){
+			alert('son click');
+			ev.stopPropagation();
+		})
+	});
+</script>
+</html>

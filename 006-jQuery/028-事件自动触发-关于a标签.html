@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>028-事件自动触发-关于a标签.html</title>
+</head>
+<body>
+	<a href="https://www.kuazhu.com" target="_blank">
+		去学习
+	</a>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('body').on('click',function(){
+			alert('body click');
+		})
+		$('a').on('click',function(){
+			alert('a click');
+		});
+
+		// $('a').trigger('click');
+		$('a').triggerHandler('click');
+	});
+</script>
+</html>

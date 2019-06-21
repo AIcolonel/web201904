@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>030-事件委托.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			height: 80px;
+			background-color: red;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<button>生成</button>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		/*
+		$('li').on('click',function(){
+			alert('li click');
+		});
+		*/
+		/*
+		$('ul').delegate("li","click",function(){
+			alert('li click');
+		})
+		*/
+		$('ul').on('click','li',function(){
+			alert('li click');
+		})
+
+
+		$('button').on('click',function(){
+			var oLi = $('<li>我是新生成的li</li>')[0];
+			$('ul')[0].appendChild(oLi);
+		})
+	});
+</script>
+</html>

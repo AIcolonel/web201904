@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>012-过滤器-内容过滤器.html</title>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div>我是div</div>
+	<div><p>我是段落</p></div>
+	<div><span>我是span</span></div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		// console.log($('div'));
+		console.log($('div:empty'));
+		console.log($('div:parent'));
+		console.log($('div:contains(我是)'));
+		console.log($('div:has(span)'));
+	});
+</script>
+</html>

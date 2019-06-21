@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>013-过滤器-过滤方法.html</title>
+	<style>
+		div:nth-child(2){
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="div1">div1</div>
+	<div>div2</div>
+	<div>div3</div>
+	<div>div4</div>
+	<div>div5</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		// console.log($('div').eq(2));
+		// console.log($('.div1').siblings());
+		console.log($('div:hidden'));
+		console.log($('div:visible'));
+	});
+</script>
+</html>

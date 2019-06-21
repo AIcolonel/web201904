@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>033-动画-淡入淡出和切换.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 200px;
+			height: 200px;
+			margin-top: 10px;
+			background-color: red;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<button>淡入</button>
+	<button>淡出</button>
+	<button>切换</button>
+	<button>淡入到固定值</button>
+	<div></div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('button').eq(0).on('click',function(){
+			$('div').fadeIn(2000,function(){
+				console.log("in...")
+			});
+		});
+		$('button').eq(1).on('click',function(){
+			$('div').fadeOut(2000,function(){
+				console.log("out...")
+			});
+		});
+		$('button').eq(2).on('click',function(){
+			$('div').fadeToggle(2000,function(){
+				console.log("in or out...")
+			});
+		});
+		$('button').eq(3).on('click',function(){
+			$('div').fadeTo(2000,0.5,function(){
+				console.log("fadeTo ...")
+			})
+		})
+	});
+</script>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>008-jquery其他静态方法.html</title>
+</head>
+<body>
+	
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		var str = "  ab c  ";
+		console.log(str);
+		console.log($.trim(str));
+
+		console.log($.isWindow(window));
+		console.log($.isWindow({}));
+
+		console.log($.isArray([1,2,3]));
+		console.log($.isArray({0:"aa",1:"bb",2:"cc",length:3}));
+
+		console.log($.isFunction(function(){}));
+		console.log($.isFunction({}));
+
+
+		var obj1 = {name:'tom',age:18};
+		var obj2 = {name:'leo'};
+		var res = $.extend({},obj1,obj2);
+		console.log("res",res);
+		console.log("obj1",obj1);
+		console.log("obj2",obj2);
+
+
+		function show(){
+			console.log(this);
+		}
+		show();
+		// var res = $.proxy(show,{name:"anmy",sex:"famale"});
+		var res = $.proxy(show,null);
+		console.log(res);
+		res();
+	});
+</script>
+</html>

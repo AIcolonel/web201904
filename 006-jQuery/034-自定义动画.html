@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>034-自定义动画.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			opacity: 0.1;
+		}
+	</style>
+</head>
+<body>
+	<button>开始动画</button>
+	<div></div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('button').on('click',function(){
+			/*
+			$('div').animate({
+				width:"300px",
+				height:300,
+				opacity:1
+			},1000,function(){
+				console.log("animate done")
+			})
+			*/
+			$('div').animate({
+				width:"+=300",
+				height:"+=300",
+				opacity:1
+			},1000,function(){
+				console.log("animate done")
+			})
+		})
+	});
+</script>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>039-插入节点.html</title>
+</head>
+<body>
+	<button>插入1</button>
+	<button>插入2</button>
+	<button>插入3</button>
+	<button>插入4</button>
+	<button>插入5</button>
+	<button>插入6</button>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('button').eq(0).on('click',function(){
+			var $li = $('<li>我是动态生成的</li>');
+			$('ul').append($li);
+		});
+		$('button').eq(1).on('click',function(){
+			var $li = $('<li>我是动态生成的</li>');
+			$li.appendTo($('ul'))
+		});
+		$('button').eq(2).on('click',function(){
+			var $li = $('<li>我是动态生成的</li>');
+			$('ul').prepend($li);
+		});
+		$('button').eq(3).on('click',function(){
+			var $li = $('<li>我是动态生成的</li>');
+			$li.prependTo($('ul'))
+		});
+		$('button').eq(4).on('click',function(){
+			var $li = $('<li>我是动态生成的</li>');
+			$('li').eq(4).after($li)
+		});
+		$('button').eq(5).on('click',function(){
+			var $li = $('<li>我是动态生成的</li>');
+			$('li').eq(0).before($li)
+		});
+	});
+</script>
+</html>

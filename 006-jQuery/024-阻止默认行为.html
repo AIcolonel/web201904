@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>024-阻止默认行为.html</title>
+</head>
+<body>
+	<p>
+		<a href="https://www.kuazhu.com" target="_blank">
+			去跳转
+		</a>
+	</p>
+	
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('p').on('click',function(){
+			alert('p click');
+		})
+		$('a').on('click',function(ev){
+			alert('a click');
+			// ev.preventDefault();
+			return false;
+		})
+	});
+</script>
+</html>

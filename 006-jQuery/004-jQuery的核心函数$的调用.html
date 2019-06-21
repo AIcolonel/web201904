@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>004-jQuery的核心函数$的调用.html</title>
+</head>
+<body>
+	<div class="box">div1</div>
+	<div class="box">div2</div>
+	<div id="box3">div3</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	var res = $(function(){
+		var oBox3 = document.getElementById('box3');
+		// console.log(oBox3);
+		// console.log($('#box3'));
+		// console.log($('<h1>我是h1</h1>'));
+		// console.log($(oBox3));
+		$(oBox3).css("color","red");
+		// oBox3.css("color","red");
+
+
+		console.log($(""));
+		console.log($(false));
+		console.log($(null));
+		console.log($(undefined));
+		console.log($(0));
+		console.log($(NaN));
+	});
+	// console.log(res);
+</script>
+</html>
