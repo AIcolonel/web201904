@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>049-原理分析-核心函数.html</title>
+	<title>051-原理分析-数组和对象处理.html</title>
 </head>
 <body>
-	
+	<div>div1</div>
+	<div>div2</div>
 </body>
 <script src="js/jquery-1.12.4.js"></script>
 <script src="js/kquery-1.0.0.js"></script>
@@ -21,6 +22,7 @@
 	*/
 
 	//2.函数
+	/*
 	console.log($(function(){}));
 	window.onload = function(){
 		console.log('window load');
@@ -31,5 +33,21 @@
 	$(function(){
 		console.log(22);
 	});
+	*/
+	//3.字符串
+	/*
+	console.log("3:::",$('<h2>我是标题</h2><div><span>我是span</span></div>'));
+	console.log("3:::",$('div'));
+	*/
+	//4.数组
+	//4.1真数组
+	console.log("4:::",$([1,2,3,4,5]));
+	//4.2假数组
+	console.log("4:::",$({0:'aa',1:'bb',2:'cc',length:3}));
+	//5.对象
+	//5.1普通对象
+	console.log("5:::",$({name:"tom",age:18}));
+	//5.2DOM节点
+	console.log("5:::",$(document.querySelector('div')));
 </script>
 </html>
