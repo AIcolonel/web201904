@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>043.ajax1.html</title>
+</head>
+<body>
+	<button>请求数据</button>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('button').on('click',function(){
+			$.ajax({
+				url:"043-data.json",
+				type:"GET",
+				data:{"name":"leo","age":18},
+				dataType:'json',
+				success:function(data,statusMsg,jqXHR){
+					console.log("1:::")
+					console.log("data:::",data);
+					console.log("data:::",data.name);
+					console.log("statusMsg:::",statusMsg);
+					console.log("jqXHR:::",jqXHR);
+				},
+				error:function(jqXHR,statusMsg){
+					console.log("2:::");
+					console.log("statusMsg:::",statusMsg);
+					console.log("jqXHR:::",jqXHR);
+				},
+				complete:function(jqXHR,statusMsg){
+					console.log("3:::");
+					console.log("statusMsg:::",statusMsg);
+					console.log("jqXHR:::",jqXHR);
+				},
+				timeout:1000,
+				statusCode:{
+					404:function(){
+						console.log("not found!!!");
+					},
+					200:function(){
+						console.log('request success!!! statusCOde:::200');
+					}
+				},
+				headers:{kuazhu:'kuahzu-test'}
+			});
+		})
+	});
+</script>
+</html>

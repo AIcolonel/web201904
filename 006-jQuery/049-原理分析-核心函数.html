@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>049-原理分析-核心函数.html</title>
+</head>
+<body>
+	
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script src="js/kquery-1.0.0.js"></script>
+<script>
+	//1.布尔值是false
+	/*
+	console.log("1:::",$(''));
+	console.log("1:::",$(false));
+	console.log("1:::",$(0));
+	console.log("1:::",$(undefined));
+	console.log("1:::",$(null));
+	console.log("1:::",$(NaN));
+	*/
+
+	//2.函数
+	// console.log($(function(){}));
+	window.onload = function(){
+		console.log('window load');
+	}
+	$(function(){
+		console.log(11);
+	});
+	$(function(){
+		console.log(22);
+	});
+</script>
+</html>
