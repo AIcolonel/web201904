@@ -1,0 +1,87 @@
+/*顶部导航开始*/
+.top{
+	height: 50px;
+	background-color: #f3f5f7;
+}
+.top .top-login{
+	color: #ea675a;
+}
+
+/*
+.dropdown:hover .dropdown-toggle{
+	background-color: #fff;
+}
+.dropdown:hover .dropdown-layer{
+	display: block;
+}
+.dropdown:hover .dropdown-icon{
+	transform: rotate(180deg);
+}
+*/
+.menu-active .dropdown-toggle{
+	background-color: #fff;
+}
+.menu-active .dropdown-layer{
+	display: block;
+}
+.menu-active .dropdown-icon{
+	transform: rotate(180deg);
+}
+
+.top .dropdown-toggle{
+	display: block;
+	height: 50px;
+	line-height: 50px;
+	padding: 0 5px;
+	text-align: center;
+	/*background-color: #fff;*/
+}
+.dropdown-layer{
+	top: 50px;
+	border: 1px solid #f3f5f7;
+	border-top: none;
+}
+.dropdown-layer li{
+	height: 30px;
+	padding: 0 5px;
+	line-height: 30px;
+	white-space: nowrap;
+	background-color: #fff;
+}
+.dropdown-layer li:hover{
+	background-color: #f3f5f7;
+}
+.top-left li{
+	height: 50px;
+	line-height: 50px;
+	margin-right: 10px;
+}
+/*顶部导航结束*/
+
+/*头部开始*/
+.header{
+	height: 100px;
+	background-color: tomato;
+}
+/*头部结束*/
+
+/*焦点区域开始*/
+.focus{
+	height: 400px;
+	background-color: purple;
+}
+/*焦点区域结束*/
+
+/*今日热销开始*/
+.todays{
+	height: 200px;
+	background-color: skyblue;
+}
+/*今日热销结束*/
+
+/*楼层开始*/
+.floor{
+	height: 260px;
+	background-color: red;
+}
+/*楼层结束*/
