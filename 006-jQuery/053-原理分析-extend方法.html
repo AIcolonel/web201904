@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>053-原理分析-extend方法.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function kQuery(){
+
+	}
+	kQuery.extend = kQuery.prototype.extend = function(options){
+		// console.log(this);
+		for(var key in options){
+			this[key] = options[key];
+		}
+	}
+
+	kQuery.prototype.extend({
+		test:function(){
+			console.log('test1111');
+		}
+	});
+
+	/*
+	kQuery.extend = function(options){
+		console.log(this);
+		for(var key in options){
+			kQuery[key] = options[key];
+		}
+	}
+	*/
+
+
+	kQuery.extend({
+		show:function(){
+			console.log('show.....');
+		}
+	})
+
+	// console.log(kQuery.prototype);
+</script>
+<script>
+	var k1 = new kQuery();
+	var k2 = new kQuery();
+	k1.test();
+	k2.test();
+	kQuery.show();
+</script>
+
+</html>

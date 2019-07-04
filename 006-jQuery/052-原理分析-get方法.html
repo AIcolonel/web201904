@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>052-原理分析-get方法.html</title>
+</head>
+<body>
+	<div>div1</div>
+	<div>div2</div>
+	<div>div3</div>
+	<div>div4</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script src="js/kquery-1.0.0.js"></script>
+<script>
+	console.log($('div').get(0));
+	console.log($('div').get(-2));
+	console.log($('div').get());
+	console.log($('div').get('a'));
+</script>
+</html>
