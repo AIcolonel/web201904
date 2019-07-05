@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>010-显示隐藏插件测试.html</title>
+	<link rel="stylesheet" href="css/common.css">
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 200px;
+			height: 200px;
+			padding: 20px;
+			border:20px solid yellow;
+			background-color: red;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<button>显示</button>
+	<button>隐藏</button>
+	<div class="box" class="transition"></div>
+	<div class="box" class="transition"></div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script src="js/showhide.js"></script>
+<script>
+	$(function(){
+		$('.box').on('show shown hide hidden',function(ev){
+			console.log(ev.type);
+		})
+		
+		
+		var $box = $('.box');
+		$box.showHide({
+			js:true,
+			mode:'fadeSlideLeftRight'
+		});
+
+		$('button').eq(0).on('click',function(){
+			$box.showHide('show');
+		});
+		$('button').eq(1).on('click',function(){
+			$box.showHide('hide');
+		});
+		
+	});
+</script>
+</html>
