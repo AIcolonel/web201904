@@ -27,7 +27,9 @@
 .menu-active .dropdown-icon{
 	transform: rotate(180deg);
 }
-
+.top .dropdown{
+	margin-left: 10px;
+}
 .top .dropdown-toggle{
 	display: block;
 	height: 50px;
