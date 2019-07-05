@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>009-显示隐藏-js-左右卷入卷出共通.html</title>
+	<link rel="stylesheet" href="css/common.css">
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 200px;
+			height: 200px;
+			padding: 20px;
+			border:20px solid yellow;
+			background-color: red;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<button>显示</button>
+	<button>隐藏</button>
+	<div id="box" class="transition"></div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	function init($elem,hiddenCallback){
+		if($elem.is(':hidden')){
+			$elem.data('status','hidden');
+			//如果元素是隐藏状态,则将元素水平方向所有值归0,为左右卷入卷出动画做准备
+			typeof hiddenCallback == 'function' && hiddenCallback();
+		}else{
+			$elem.data('status','shown');
+		}
+	}
+	function show($elem,callback){
+		if($elem.data('status') == 'show') return;
+		if($elem.data('status') == 'shown') return;
+		$elem.trigger('show').data('status','show');
+		typeof callback == 'function' && callback();
+	}
+	function hide($elem,callback){
+		if($elem.data('status') == 'hide') return;
+		if($elem.data('status') == 'hidden') return;
+		$elem.trigger('hide').data('status','hide');
+		typeof callback == 'function' && callback();
+	}
+
+
+
+	var slient = {
+		init:function($elem){
+			init($elem);
+		},
+		show:function($elem){
+			show($elem,function(){
+				$elem.show();
+				$elem.trigger('shown').data('status','shown');
+			})
+		},
+		hide:function($elem){
+			hide($elem,function(){
+				$elem.hide();
+				$elem.trigger('hidden').data('status','hidden');
+			})
+		}
+	}
+
+	var js = {
+		fade:{
+			init:function($elem){
+				js._init($elem);
+			},
+			show:function($elem){
+				js._show($elem,'fadeIn');
+			},
+			hide:function($elem){
+				js._hide($elem,'fadeOut');
+			}
+		},
+		slide:{
+			init:function($elem){
+				js._init($elem);
+			},
+			show:function($elem){
+				js._show($elem,'slideDown');
+			},
+			hide:function($elem){
+				js._hide($elem,'slideUp');
+			}
+		},
+		slideLeftRight:{
+			init:function($elem){
+				/*
+				$elem.removeClass('transition');
+				//1.记录元素水平方向所有值
+				var styles = {
+					width:$elem.css('width'),
+					paddingLeft:$elem.css('paddingLeft'),
+					paddingRight:$elem.css('paddingRight'),
+					borderLeftWidth:$elem.css('borderLeftWidth'),
+					borderRightWidth:$elem.css('borderRightWidth')
+				}
+				$elem.data('styles',styles)
+				//2.当隐藏状态时,水平方向所有值归0
+				init($elem,function(){
+					$elem.css({
+						width:0,
+						paddingLeft:0,
+						paddingRight:0,
+						borderLeftWidth:0,
+						borderRightWidth:0
+					})
+				})
+				*/
+				js._customInit($elem,{
+					width:0,
+					paddingLeft:0,
+					paddingRight:0,
+					borderLeftWidth:0,
+					borderRightWidth:0
+				})
+			},
+			show:function($elem){
+				/*
+				$elem.show()//display:block
+				show($elem,function(){
+					$elem
+					.stop()
+					.animate($elem.data('styles'),function(){
+						$elem.trigger('shown').data('status','shown');
+					})
+				})
+				*/
+				js._customShow($elem);
+			},
+			hide:function($elem){
+				/*
+				hide($elem,function(){
+					$elem
+					.stop()
+					.animate({
+						width:0,
+						paddingLeft:0,
+						paddingRight:0,
+						borderLeftWidth:0,
+						borderRightWidth:0
+					},function(){
+						$elem.trigger('hidden').data('status','hidden');
+					})
+				})
+				*/
+				js._customHide($elem,{
+					width:0,
+					paddingLeft:0,
+					paddingRight:0,
+					borderLeftWidth:0,
+					borderRightWidth:0
+				})
+			}
+		},
+		fadeSlideLeftRight:{
+			init:function($elem){
+				/*
+				$elem.removeClass('transition');
+				//1.记录元素水平方向所有值
+				var styles = {
+					width:$elem.css('width'),
+					paddingLeft:$elem.css('paddingLeft'),
+					paddingRight:$elem.css('paddingRight'),
+					borderLeftWidth:$elem.css('borderLeftWidth'),
+					borderRightWidth:$elem.css('borderRightWidth'),
+					opacity:$elem.css('opacity')
+				}
+				$elem.data('styles',styles)
+				//2.当隐藏状态时,水平方向所有值归0
+				init($elem,function(){
+					$elem.css({
+						width:0,
+						paddingLeft:0,
+						paddingRight:0,
+						borderLeftWidth:0,
+						borderRightWidth:0,
+						opacity:0
+					})
+				})
+				*/
+				js._customInit($elem,{
+					width:0,
+					paddingLeft:0,
+					paddingRight:0,
+					borderLeftWidth:0,
+					borderRightWidth:0,
+					opacity:0
+				})
+			},
+			show:function($elem){
+				/*
+				$elem.show()//display:block
+				show($elem,function(){
+					$elem
+					.stop()
+					.animate($elem.data('styles'),function(){
+						$elem.trigger('shown').data('status','shown');
+					})
+				})
+				*/
+				js._customShow($elem);
+			},
+			hide:function($elem){
+				/*
+				hide($elem,function(){
+					$elem
+					.stop()
+					.animate({
+						width:0,
+						paddingLeft:0,
+						paddingRight:0,
+						borderLeftWidth:0,
+						borderRightWidth:0,
+						opacity:0
+					},function(){
+						$elem.trigger('hidden').data('status','hidden');
+					})
+				})
+				*/
+				js._customHide($elem,{
+					width:0,
+					paddingLeft:0,
+					paddingRight:0,
+					borderLeftWidth:0,
+					borderRightWidth:0,
+					opacity:0
+				})
+			}
+		}
+	}
+	js._init = function($elem){
+		$elem.removeClass('transition');
+		init($elem);
+	}
+	js._show = function($elem,mode){
+		show($elem,function(){
+			$elem
+			.stop()
+			[mode](function(){
+				$elem.trigger('shown').data('status','shown');
+			})
+		})
+	}
+	js._hide = function($elem,mode){
+		hide($elem,function(){
+			$elem
+			.stop()
+			[mode](function(){
+				$elem.trigger('hidden').data('status','hidden');
+			})
+		})
+	}
+	js._customInit = function($elem,options){
+		$elem.removeClass('transition');
+		//1.记录元素水平方向所有值
+		var styles = {};
+		for(var key in options){
+			styles[key] = $elem.css(key);
+		}
+		$elem.data('styles',styles)
+		//2.当隐藏状态时,水平方向所有值归0
+		init($elem,function(){
+			$elem.css(options)
+		})
+	}
+	js._customShow = function($elem){
+		$elem.show()//display:block
+		show($elem,function(){
+			$elem
+			.stop()
+			.animate($elem.data('styles'),function(){
+				$elem.trigger('shown').data('status','shown');
+			})
+		})
+	}
+	js._customHide = function($elem,options){
+		hide($elem,function(){
+			$elem
+			.stop()
+			.animate(options,function(){
+				$elem.trigger('hidden').data('status','hidden');
+			})
+		})
+	}
+</script>
+<script>
+	$(function(){
+		$('#box').on('show shown hide hidden',function(ev){
+			console.log(ev.type);
+		})
+		/*
+		js.fade.init($('#box'));
+		$('button').eq(0).on('click',function(){
+			js.fade.show($('#box'));
+		});
+		$('button').eq(1).on('click',function(){
+			js.fade.hide($('#box'));
+		});
+		
+		js.slide.init($('#box'));
+		$('button').eq(0).on('click',function(){
+			js.slide.show($('#box'));
+		});
+		$('button').eq(1).on('click',function(){
+			js.slide.hide($('#box'));
+		});
+		*/
+		js.slideLeftRight.init($('#box'));
+		$('button').eq(0).on('click',function(){
+			js.slideLeftRight.show($('#box'));
+		});
+		$('button').eq(1).on('click',function(){
+			js.slideLeftRight.hide($('#box'));
+		});
+		
+		/*
+		js.fadeSlideLeftRight.init($('#box'));
+		$('button').eq(0).on('click',function(){
+			js.fadeSlideLeftRight.show($('#box'));
+		});
+		$('button').eq(1).on('click',function(){
+			js.fadeSlideLeftRight.hide($('#box'));
+		});
+		*/
+	});
+</script>
+</html>
