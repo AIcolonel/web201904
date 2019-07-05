@@ -39,6 +39,7 @@
 .dropdown-layer{
 	top: 50px;
 	border: 1px solid #f3f5f7;
+	overflow: hidden;
 	border-top: none;
 }
 .dropdown-layer li{

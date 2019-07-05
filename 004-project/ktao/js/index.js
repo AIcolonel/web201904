@@ -1,12 +1,10 @@
 (function($){
 	var $dropdown = $('.dropdown');
-	$dropdown
-	.hover(function(){
-		// console.log($(this).data('active'));
-		var activeClass = $(this).data('active') + "-active"
-		$(this).addClass(activeClass);
-	},function(){
-		var activeClass = $(this).data('active') + "-active"
-		$(this).removeClass(activeClass);
+	$dropdown.dropdown({
+		js:true,
+		mode:'slide'
+	});
+	$dropdown.on('dropdown-show dropdown-shown dropdown-hide dropdown-hidden',function(ev){
+		console.log(ev.type);
 	})
 })(jQuery);

@@ -182,6 +182,7 @@
 		}
 	}
 
+	//当不传任何参数时的默认显示动画
 	var DEFAULTS = {
 		js:true,
 		mode:'fade'
@@ -191,7 +192,7 @@
 	$.fn.extend({
 		showHide:function(options){
 			//遍历元素,实现隐式迭代
-			this.each(function(){//实现单例模式
+			return this.each(function(){//实现单例模式
 				var $elem = $(this);
 				var showHideObj = $elem.data('showHideObj');
 				if(!showHideObj){
