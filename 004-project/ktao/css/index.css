@@ -41,8 +41,10 @@
 .dropdown-layer{
 	top: 50px;
 	border: 1px solid #f3f5f7;
+	background-color: #fff;
 	overflow: hidden;
 	border-top: none;
+	z-index: 999;
 }
 .dropdown-layer li{
 	height: 30px;
@@ -61,12 +63,65 @@
 }
 /*顶部导航结束*/
 
-/*头部开始*/
+/*头部搜索区域开始*/
 .header{
 	height: 100px;
-	background-color: tomato;
+	background-color: #fff;
 }
-/*头部结束*/
+.header-logo{
+	display: block;
+	width: 248px;
+	height: 70px;
+	margin-top: 15px;
+	background-image: url(../images/header-logo.png);
+	background-repeat: no-repeat;
+}
+.search{
+	position: relative;
+	margin-top: 30px;
+	margin-left: 200px;
+}
+.search .search-input{
+	width: 400px;
+	height: 40px;
+	padding-left: 8px;
+	outline: none;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+.search .search-btn{
+	width: 80px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	outline: none;
+	border: none;
+	color: #fff;
+	cursor: pointer;
+	background-color: #000;
+}
+.search-layer{
+	position: absolute;
+	top: 40px;
+	left: 0;
+	width: 100%;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-top: none;
+	box-sizing: border-box;
+	display: none;
+}
+.search-layer li{
+	height: 30px;
+	line-height: 30px;
+	padding-left: 10px;
+	box-sizing: border-box;
+	cursor: pointer;
+}
+.search-layer li:hover{
+	background-color: #f3f5f7;
+}
+/*头部搜索区域结束*/
 
 /*焦点区域开始*/
 .focus{

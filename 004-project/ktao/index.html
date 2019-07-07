@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="css/all.css">
 	<link rel="stylesheet" href="css/common.css">
 	<link rel="stylesheet" href="css/index.css">
-</head>
+</head> 
 <body>
 	<!-- 顶部导航开始 -->
 	<div class="top">
@@ -28,14 +28,15 @@
 				</li> -->
 			</ul>
 			<ul class="top-right fr">
-				<li class="dropdown fl" data-active="menu">
+				<li class="dropdown fl" data-active="menu" data-load="data/top/mygoods.json">
 					<a href="javascript:;" class="dropdown-toggle link">
 						我的跨淘
 						<i class="fas fa-angle-down dropdown-icon transition"></i>
 					</a>
 					<ul class="dropdown-layer dropdown-left">
-						<li><a href="javascript:;">已加购的宝贝</a></li>
-						<li><a href="javascript:;">我的足迹</a></li>
+						<!-- <li><a href="javascript:;">已加购的宝贝</a></li>
+						<li><a href="javascript:;">我的足迹</a></li> -->
+						<div class="dropdown-loading"></div>
 					</ul>
 				</li>
 				<li class="dropdown fl" data-active="menu">
@@ -87,7 +88,24 @@
 
 	<!-- 头部搜索开始 -->
 	<div class="header">
-		<div class="container"></div>
+		<div class="container">
+			<h1 class="fl">
+				<a href="#" class="header-logo"></a>
+			</h1>
+			<div class="search fl clearfix">
+				<form action="https://s.taobao.com/search" class="search-form">
+					<input type="text" class="search-input fl" autocomplete="off" name="q">
+					<input type="submit" class="search-btn fl">
+				</form>
+				<ul class="search-layer">
+					<li>保温杯</li>
+					<li>保温杯</li>
+					<li>保温杯</li>
+					<li>保温杯</li>
+					<li>保温杯</li>
+				</ul>
+			</div>
+		</div>
 	</div>
 	<!-- 头部搜索结束 -->
 
@@ -136,5 +154,6 @@
 <script src="js/jquery-1.12.4.js"></script>
 <script src="js/showhide.js"></script>
 <script src="js/dropdown.js"></script>
+<script src="js/search.js"></script>
 <script src="js/index.js"></script>
 </html>
