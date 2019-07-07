@@ -43,6 +43,35 @@
 
 	/*头部搜索区域开始*/
 	var $search = $('.search');
+	$search.on('getData',function(ev,data){
+		var $elem = $(this);
+		var $layer = $elem.find('.search-layer');
+		//1.生成html结构
+		var data = data.result;
+
+		var html = createSearchLayer(data,10);
+		//2.将内容插入到搜索下拉层中
+		$elem.search('appendHTML',html);
+		//3.显示下拉层
+		if(html == ''){
+			$elem.search('hideLayer');
+		}else{
+			$elem.search('showLayer');
+		}
+	})
+	$search.on('getNoData',function(ev){
+		$elem.search('appendHTML','');
+		$elem.search('hideLayer');
+	});
+
 	$search.search({});
+	function createSearchLayer(data,max){
+		var html = '';
+		for(var i = 0 ;i<data.length;i++){
+			if(i >= max) break;
+			html += '<li>'+data[i][0]+'</li>'
+		}
+		return html;
+	}
 	/*头部搜索区域结束*/
 })(jQuery);
