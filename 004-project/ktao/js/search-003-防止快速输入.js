@@ -1,20 +1,5 @@
 (function($){
 
-//缓存数据
-var cache = {
-	data:{},
-	count:0,
-	addData:function(key,val){
-		this[key] = val;
-		this.count++;
-	},
-	getData:function(key){
-		return this[key];
-	}
-}
-
-
-
 function Search($elem,options){
 	//1.罗列属性
 	this.$elem = $elem;
@@ -25,7 +10,6 @@ function Search($elem,options){
 	this.$searchForm = this.$elem.find('.search-form');
 
 	this.timer = 0;
-	this.jqXHR = null;
 	
 	//判断html是否被加载
 	this.isLoadedHtml = false;
@@ -95,44 +79,40 @@ Search.prototype = {
 		})
 	},
 	getData:function(){
+		console.log("will get data....");
 		//获取数据
 		//如果数据为空则不发送请求
 		if(!this.getInputVal()){
 			this.hideLayer();
 			return;
 		}
-
-		//获取最新数据
-		if(this.jqXHR){
-			this.jqXHR.abort();
-		}
-
-		//每一次发送请求前在查询是否有缓存
-		if(cache.getData(this.getInputVal())){
-			var cacheData = cache.getData(this.getInputVal())
-			// console.log("cache::::",cacheData);
-			this.$elem.trigger('getData',cacheData);
-			return;
-		}
-
-		console.log("will trigger data ....");
-
-		this.jqXHR = $.ajax({
+		// console.log('will get data....');
+		$.ajax({
 			url:this.options.url + this.getInputVal(),
 			dataType:'jsonp',
 			jsonp:'callback'
 		})
 		.done(function(data){
+			/*
+			//1.生成html结构
+			var html = '';
+			for(var i = 0 ;i<data.result.length;i++){
+				html += '<li>'+data.result[i][0]+'</li>'
+			}
+			//2.将内容插入到搜索下拉层中
+			this.appendHTML(html);
+			//3.显示下拉层
+			if(html == ''){
+				this.hideLayer();
+			}else{
+				this.showLayer();
+			}
+			*/
 			this.$elem.trigger('getData',data);
-			//将数据缓存起来
-			cache.addData(this.getInputVal(),data);
 		}.bind(this))
 		.fail(function(err){
 			this.$elem.trigger('getNoData');
-		}.bind(this))
-		.always(function(){
-			this.jqXHR = null;
-		}.bind(this))
+		}.bind(this));
 	},
 	appendHTML:function(html){
 		this.$searchLayer.html(html);

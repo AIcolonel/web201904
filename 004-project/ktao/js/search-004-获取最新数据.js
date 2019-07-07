@@ -1,20 +1,5 @@
 (function($){
 
-//缓存数据
-var cache = {
-	data:{},
-	count:0,
-	addData:function(key,val){
-		this[key] = val;
-		this.count++;
-	},
-	getData:function(key){
-		return this[key];
-	}
-}
-
-
-
 function Search($elem,options){
 	//1.罗列属性
 	this.$elem = $elem;
@@ -95,6 +80,7 @@ Search.prototype = {
 		})
 	},
 	getData:function(){
+		console.log("will get data....");
 		//获取数据
 		//如果数据为空则不发送请求
 		if(!this.getInputVal()){
@@ -107,16 +93,6 @@ Search.prototype = {
 			this.jqXHR.abort();
 		}
 
-		//每一次发送请求前在查询是否有缓存
-		if(cache.getData(this.getInputVal())){
-			var cacheData = cache.getData(this.getInputVal())
-			// console.log("cache::::",cacheData);
-			this.$elem.trigger('getData',cacheData);
-			return;
-		}
-
-		console.log("will trigger data ....");
-
 		this.jqXHR = $.ajax({
 			url:this.options.url + this.getInputVal(),
 			dataType:'jsonp',
@@ -124,8 +100,6 @@ Search.prototype = {
 		})
 		.done(function(data){
 			this.$elem.trigger('getData',data);
-			//将数据缓存起来
-			cache.addData(this.getInputVal(),data);
 		}.bind(this))
 		.fail(function(err){
 			this.$elem.trigger('getNoData');

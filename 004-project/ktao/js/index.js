@@ -43,12 +43,12 @@
 
 	/*头部搜索区域开始*/
 	var $search = $('.search');
+	//成功获取并处理数据
 	$search.on('getData',function(ev,data){
 		var $elem = $(this);
 		var $layer = $elem.find('.search-layer');
 		//1.生成html结构
 		var data = data.result;
-
 		var html = createSearchLayer(data,10);
 		//2.将内容插入到搜索下拉层中
 		$elem.search('appendHTML',html);
@@ -59,17 +59,19 @@
 			$elem.search('showLayer');
 		}
 	})
+	//获取数据失败处理
 	$search.on('getNoData',function(ev){
 		$elem.search('appendHTML','');
 		$elem.search('hideLayer');
 	});
 
 	$search.search({});
+	//生成搜索下拉列表html结构并且可以控制数据条目
 	function createSearchLayer(data,max){
 		var html = '';
 		for(var i = 0 ;i<data.length;i++){
 			if(i >= max) break;
-			html += '<li>'+data[i][0]+'</li>'
+			html += '<li class="search-item">'+data[i][0]+'</li>'
 		}
 		return html;
 	}
