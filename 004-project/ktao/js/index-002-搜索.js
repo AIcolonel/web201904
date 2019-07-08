@@ -1,11 +1,10 @@
 (function($){
 	/*顶部导航逻辑开始*/
-	var $dropdown = $('.top .dropdown');
+	var $dropdown = $('.dropdown');
 	$dropdown.dropdown({
 		js:true,
 		mode:'slide'
 	});
-	//加载数据
 	$dropdown.on('dropdown-show dropdown-shown dropdown-hide dropdown-hidden',function(ev){
 		if(ev.type == 'dropdown-show'){
 			var $elem = $(this);
@@ -77,50 +76,4 @@
 		return html;
 	}
 	/*头部搜索区域结束*/
-
-	/*分类列表逻辑开始*/
-	var $categoryDropdown = $('.focus .dropdown');
-	$categoryDropdown.dropdown({
-		js:true,
-		mode:'fade'
-	});
-	//加载数据
-	$categoryDropdown.on('dropdown-show dropdown-shown dropdown-hide dropdown-hidden',function(ev){
-		if(ev.type == 'dropdown-show'){
-			var $elem = $(this);
-			var $layer = $elem.find('.dropdown-layer');
-			var url = $elem.data('load');
-			//如果没有地址则无需加载数据
-			if(!url) return;
-			//判断数据如果没有被加载则发送请求
-			if(!$elem.data('isLoaded')){
-				$.getJSON(url,function(data){
-					console.log(data);
-					//生成HTML
-					var html = '';
-					for(var i = 0;i<data.length;i++){
-						html += '<dl class="category-details">';
-						html +=	'	<dt class="category-details-title fl">';
-						html +=	'		<a href="#" class="category-details-title-link">'+data[i].title+'</a>';
-						html +=	'	</dt>';
-						html +=	'	<dd class="category-details-item fl">';
-						for(var j = 0;j<data[i].items.length;j++){
-							html +=	'		<a href="#" class="link">'+data[i].items[j]+'</a>';
-						}
-						html +=	'	</dd>';
-						html +=	'</dl>';
-					}
-					//将HTML插入到下拉层中
-					//模拟网络延迟
-					setTimeout(function(){
-						$layer.html(html);
-						//数据已经加载
-						$elem.data('isLoaded',true);
-					},1000);
-				})
-			}
-		}
-	});
-	/*分类列表逻辑结束*/
-
 })(jQuery);

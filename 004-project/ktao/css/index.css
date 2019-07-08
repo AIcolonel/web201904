@@ -178,9 +178,9 @@
 .category .dropdown:hover .dropdown-icon{
 	color: #ea675a;
 }
-.category .dropdown:hover .dropdown-layer{
+/*.category .dropdown:hover .dropdown-layer{
 	display: block;
-}
+}*/
 .category .dropdown-toggle{
 	width: 100%;
 	height: 36px;
