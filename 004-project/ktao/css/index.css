@@ -123,6 +123,26 @@
 }
 /*头部搜索区域结束*/
 
+/*主导航区域开始*/
+.nav-main{
+	height: 50px;
+	background-color: #000;
+}
+.nav-main ul{
+	margin-left: 246px;
+}
+.nav-main .nav-main-item{
+	float: left;
+	height: 50px;
+	line-height: 50px;
+	margin-right: 20px;
+}
+.nav-main-item .link{
+	color: #fff;
+	font-size: 16px;
+}
+/*主导航区域结束*/
+
 /*焦点区域开始*/
 .focus{
 	height: 400px;

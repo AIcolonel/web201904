@@ -5,11 +5,11 @@ var cache = {
 	data:{},
 	count:0,
 	addData:function(key,val){
-		this[key] = val;
+		this.data[key] = val;
 		this.count++;
 	},
 	getData:function(key){
-		return this[key];
+		return this.data[key];
 	}
 }
 
@@ -110,7 +110,7 @@ Search.prototype = {
 		//每一次发送请求前在查询是否有缓存
 		if(cache.getData(this.getInputVal())){
 			var cacheData = cache.getData(this.getInputVal())
-			// console.log("cache::::",cacheData);
+			console.log("cache::::",cacheData);
 			this.$elem.trigger('getData',cacheData);
 			return;
 		}
