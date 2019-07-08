@@ -8,7 +8,9 @@ function Coursel($elem,options){
 	this.$courselBtns = this.$elem.find('.btn-item');
 	this.$courselControls = this.$elem.find('.control');
 
-	this.now = this.options.activeIndex;
+	this.itemsLength = this.$courselItems.length;
+	this.now = this._getCorrectIndex(this.options.activeIndex);
+	this.timer = 0;
 	
 	//2.初始化
 	this.init();
@@ -34,15 +36,31 @@ Coursel.prototype = {
 			this.$courselItems.showHide(this.options);
 			//4.(事件代理)监听点击左右显示隐藏图片事件
 			this.$elem.on('click','.control-left',function(){
-
+				this._fade(this._getCorrectIndex(this.now-1));
 			}.bind(this));
 			this.$elem.on('click','.control-right',function(){
-				this._fade(this.now+1);
+				this._fade(this._getCorrectIndex(this.now+1));
 			}.bind(this));
+			//5.是否自动轮播
+			if(this.options.autoplay){
+				this.autoplay();
+				//6.鼠标移入容器停止轮播移出开始轮播
+				this.$elem.hover($.proxy(this.paused,this),$.proxy(this.autoplay,this))
+			}
+			//7.监听底部按钮事件
+			var _this = this;
+			this.$courselBtns.on('click',function(){
+				//获取当前索引值
+				var index = _this.$courselBtns.index(this);
+				_this._fade(index);
+			});
 		}
 	},
 	_fade:function(index){
 		//index代表将要显示的图片
+		//如果当前显示和即将要显示的是同一张图片则无需执行以下代码
+		if(index == this.now) return;
+		console.log(index);
 		//1.隐藏当前
 		this.$courselItems.eq(this.now).showHide('hide');
 		//2.显示显示将要显示的
@@ -52,6 +70,20 @@ Coursel.prototype = {
 		this.$courselBtns.eq(index).addClass('active');
 		//4.更新索引值
 		this.now = index;
+	},
+	_getCorrectIndex:function(num){
+		if(num >= this.itemsLength) return 0;
+		if(num <0) return this.itemsLength -1;
+		return num;
+	},
+	autoplay:function(){
+		clearInterval(this.timer);
+		this.timer = setInterval(function(){
+			this.$courselControls.eq(1).trigger('click');
+		}.bind(this),this.options.autoplay)
+	},
+	paused:function(){
+		clearInterval(this.timer);
 	}
 }
 
@@ -60,7 +92,8 @@ Coursel.DEFAULTS = {
 	slide:false,
 	activeIndex:0,
 	js:true,
-	mode:'fade'
+	mode:'fade',
+	autoplay:1000
 }
 
 //封装dropdown插件
