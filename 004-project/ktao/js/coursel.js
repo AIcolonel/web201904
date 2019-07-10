@@ -19,6 +19,9 @@ Coursel.prototype = {
 	constructor:Coursel,
 	init:function(){
 		var _this = this;
+		//图片加载默认显示的图片
+		this.$elem.trigger('coursel-show',[this.now,this.$courselItems.eq(this.now)]);
+
 		if(this.options.slide){//划入划出
 			//1.移走所有图片,显示默认图片
 			this.$elem.addClass('slide');
@@ -138,7 +141,7 @@ Coursel.prototype = {
 
 //当不传参数时的默认配置信息
 Coursel.DEFAULTS = {
-	slide:false,
+	slide:true,
 	activeIndex:0,
 	js:true,
 	mode:'fade',
