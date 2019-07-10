@@ -18,76 +18,83 @@ function Coursel($elem,options){
 Coursel.prototype = {
 	constructor:Coursel,
 	init:function(){
-		var _this = this;
 		if(this.options.slide){//划入划出
 			//1.移走所有图片,显示默认图片
 			this.$elem.addClass('slide');
 			this.$courselItems.eq(this.now).css({left:0});
 			//记录当前容器的宽度
 			this.itemWidth = this.$courselItems.eq(this.now).width();
-			
+			//2.底部按钮默认选中
+			this.$courselBtns.eq(this.now).addClass('active');
+			//3.监听鼠标移入移除显示隐藏左右按钮事件
+			this.$elem.hover(function(){
+				this.$courselControls.show();
+			}.bind(this),function(){
+				this.$courselControls.hide();
+			}.bind(this));
 			//初始化移动插件
 			this.$courselItems.move(this.options);
-
-			//监听划入划出事件
-			this.$courselItems.on('move',function(ev){
-				var index = _this.$courselItems.index(this);
-				if(_this.now != index){
-					_this.$elem.trigger('coursel-show',[index,this]);
-				}
-			})
-			
-			this._tab = this._toggle;
+			//4.(事件代理)监听点击左右划入划出图片事件
+			this.$elem.on('click','.control-left',function(){//点击左按钮向右滑动
+				this._toggle(this._getCorrectIndex(this.now-1),-1);
+			}.bind(this));
+			this.$elem.on('click','.control-right',function(){//点击右按钮向左滑动
+				this._toggle(this._getCorrectIndex(this.now+1),1);
+			}.bind(this));
+			//5.是否自动轮播
+			if(this.options.autoplay){
+				this.autoplay();
+				//6.鼠标移入容器停止轮播移出开始轮播
+				this.$elem.hover($.proxy(this.paused,this),$.proxy(this.autoplay,this))
+			}
+			//7.监听底部按钮事件
+			var _this = this;
+			this.$courselBtns.on('click',function(){
+				//获取当前索引值
+				var index = _this.$courselBtns.index(this);
+				_this._toggle(index);
+			});
 		}else{//淡入淡出
 			//1.隐藏所有图片,显示默认图片
 			this.$elem.addClass('fade');
 			this.$courselItems.eq(this.now).show();
-			
+			//2.底部按钮默认选中
+			this.$courselBtns.eq(this.now).addClass('active');
+			//3.监听鼠标移入移除显示隐藏左右按钮事件
+			this.$elem.hover(function(){
+				this.$courselControls.show();
+			}.bind(this),function(){
+				this.$courselControls.hide();
+			}.bind(this));
 			//初始化显示隐藏插件
 			this.$courselItems.showHide(this.options);
-
-			//监听显示隐藏事件
-			this.$courselItems.on('show',function(ev){
-				var index = _this.$courselItems.index(this);
-				_this.$elem.trigger('coursel-show',[index,this]);
-			})
-			
-			this._tab = this._fade;
+			//4.(事件代理)监听点击左右显示隐藏图片事件
+			this.$elem.on('click','.control-left',function(){
+				this._fade(this._getCorrectIndex(this.now-1));
+			}.bind(this));
+			this.$elem.on('click','.control-right',function(){
+				this._fade(this._getCorrectIndex(this.now+1));
+			}.bind(this));
+			//5.是否自动轮播
+			if(this.options.autoplay){
+				this.autoplay();
+				//6.鼠标移入容器停止轮播移出开始轮播
+				this.$elem.hover($.proxy(this.paused,this),$.proxy(this.autoplay,this))
+			}
+			//7.监听底部按钮事件
+			var _this = this;
+			this.$courselBtns.on('click',function(){
+				//获取当前索引值
+				var index = _this.$courselBtns.index(this);
+				_this._fade(index);
+			});
 		}
-
-		//划入划出和淡入淡出共通部分
-		//2.底部按钮默认选中
-		this.$courselBtns.eq(this.now).addClass('active');
-		//3.监听鼠标移入移除显示隐藏左右按钮事件
-		this.$elem.hover(function(){
-			this.$courselControls.show();
-		}.bind(this),function(){
-			this.$courselControls.hide();
-		}.bind(this));
-		//4.(事件代理)监听点击左右划入划出图片事件
-		this.$elem.on('click','.control-left',function(){//点击左按钮向右滑动
-			this._tab(this._getCorrectIndex(this.now-1),-1);
-		}.bind(this));
-		this.$elem.on('click','.control-right',function(){//点击右按钮向左滑动
-			this._tab(this._getCorrectIndex(this.now+1),1);
-		}.bind(this));
-		//5.是否自动轮播
-		if(this.options.autoplay){
-			this.autoplay();
-			//6.鼠标移入容器停止轮播移出开始轮播
-			this.$elem.hover($.proxy(this.paused,this),$.proxy(this.autoplay,this))
-		}
-		//7.监听底部按钮事件
-		this.$courselBtns.on('click',function(){
-			//获取当前索引值
-			var index = _this.$courselBtns.index(this);
-			_this._tab(index);
-		});
 	},
 	_fade:function(index){
 		//index代表将要显示的图片
 		//如果当前显示和即将要显示的是同一张图片则无需执行以下代码
 		if(index == this.now) return;
+		console.log(index);
 		//1.隐藏当前
 		this.$courselItems.eq(this.now).showHide('hide');
 		//2.显示显示将要显示的
@@ -138,7 +145,7 @@ Coursel.prototype = {
 
 //当不传参数时的默认配置信息
 Coursel.DEFAULTS = {
-	slide:false,
+	slide:true,
 	activeIndex:0,
 	js:true,
 	mode:'fade',

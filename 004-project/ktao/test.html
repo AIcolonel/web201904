@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		var obj1 = {name:'tom'};
+		var obj2 = {name:'leo'};
+		$('div').on('show',function(ev,o1,o2){
+			console.log(o1,o2);
+		});
+		// $('div').trigger('show',obj1,obj2);
+		$('div').trigger('show',[obj1,obj2]);
+	});
+</script>
+</html>

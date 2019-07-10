@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ktao</title>
+	<link rel="icon" href="images/logo.jpg" type="image/x-icon" />
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/all.css">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/index.css">
+	<style>
+		button{
+			width: 80px;
+			height: 40px;
+		}
+		.box{
+			position: absolute;
+			top: 100px;
+			left: 0;
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+
+	</style>
+</head> 
+<body> 
+	<button>复原</button>
+	<button>移动</button>
+	<div class="box transition"></div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script src="js/move.js"></script>
+<script>
+	$('.box').move({});
+
+	$('.box').on('move moved',function(ev){
+		console.log(ev.type);
+	})
+
+	$('button').eq(0).on('click',function(){
+		$('.box').move('to',0,100)
+	});
+	$('button').eq(1).on('click',function(){
+		$('.box').move('to',200,200)
+	});
+</script>
+</html>

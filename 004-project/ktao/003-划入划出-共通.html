@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ktao</title>
+	<link rel="icon" href="images/logo.jpg" type="image/x-icon" />
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/all.css">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/index.css">
+	<style>
+		button{
+			width: 80px;
+			height: 40px;
+		}
+		.box{
+			position: absolute;
+			top: 100px;
+			left: 0;
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+
+	</style>
+</head> 
+<body> 
+	<button>复原</button>
+	<button>移动</button>
+	<div class="box transition"></div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	function init($elem){
+		this.$elem = $elem;
+		this.$elem.removeClass('transition');
+		this.currentX = parseFloat(this.$elem.css('left'));
+		this.currentY = parseFloat(this.$elem.css('top'));
+	}
+	function to(x,y,callback){
+		//处理参数想x,y为了后面的想x,y方法
+		x = (typeof x == 'number') ? x : this.currentX;
+		y = (typeof y == 'number') ? y : this.currentY;
+		if(this.currentX == x && this.currentY == y) return;
+		this.$elem.trigger('move');
+		console.log('will move to.....');
+		typeof callback == 'function' && callback();
+		//更新当前元素的位置坐标
+		this.currentX = x;
+		this.currentY = y;
+	}
+	
+
+	function Silent($elem){
+		/*
+		this.$elem = $elem;
+		this.$elem.removeClass('transition');
+		this.currentX = parseFloat(this.$elem.css('left'));
+		this.currentY = parseFloat(this.$elem.css('top'));
+		*/
+		init.call(this,$elem)
+	}
+	Silent.prototype = {
+		constructor:Silent,
+		to:function(x,y){
+			/*
+			//处理参数想x,y为了后面的想x,y方法
+			x = (typeof x == 'number') ? x : this.currentX;
+			y = (typeof y == 'number') ? y : this.currentY;
+			if(this.currentX == x && this.currentY == y) return;
+			this.$elem.trigger('move');
+			console.log('will move to.....');
+			this.$elem.css({
+				left:x,
+				top:y
+			});
+			this.$elem.trigger('moved');
+			//更新当前元素的位置坐标
+			this.currentX = x;
+			this.currentY = y;
+			*/
+			to.call(this,x,y,function(){
+				this.$elem.css({
+					left:x,
+					top:y
+				});
+				this.$elem.trigger('moved');
+			}.bind(this));
+		},
+		x:function(x){
+			this.to(x);
+		},
+		y:function(y){
+			this.to(null,y)
+		}
+	}
+
+	function Js($elem){
+		/*
+		this.$elem = $elem;
+		this.$elem.removeClass('transition');
+		this.currentX = parseFloat(this.$elem.css('left'));
+		this.currentY = parseFloat(this.$elem.css('top'));
+		*/
+		init.call(this,$elem)
+	}
+	Js.prototype = {
+		constructor:Js,
+		to:function(x,y){
+			/*
+			//处理参数想x,y为了后面的想x,y方法
+			x = (typeof x == 'number') ? x : this.currentX;
+			y = (typeof y == 'number') ? y : this.currentY;
+			if(this.currentX == x && this.currentY == y) return;
+			this.$elem.trigger('move');
+			console.log('will move to.....');
+			this.$elem
+			.stop()
+			.animate({
+				left:x,
+				top:y
+			},function(){
+				this.$elem.trigger('moved');
+			}.bind(this))
+			//更新当前元素的位置坐标
+			this.currentX = x;
+			this.currentY = y;
+			*/
+			to.call(this,x,y,function(){
+				this.$elem
+				.stop()
+				.animate({
+					left:x,
+					top:y
+				},function(){
+					this.$elem.trigger('moved');
+				}.bind(this))
+			}.bind(this));
+		},
+		x:function(x){
+			this.to(x);
+		},
+		y:function(y){
+			this.to(null,y)
+		}
+	}
+</script>
+<script>
+
+	var move = new Silent($('.box'));
+
+	$('.box').on('move moved',function(ev){
+		console.log(ev.type);
+	})
+
+	$('button').eq(0).on('click',function(){
+		// move.to(0,100);
+		move.x(0)
+		// move.y(100)
+	});
+	$('button').eq(1).on('click',function(){
+		// move.to(200,200);
+		move.x(300)
+		// move.y(300)
+	});
+</script>
+</html>

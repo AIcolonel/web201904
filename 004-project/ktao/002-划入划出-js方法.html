@@ -61,10 +61,50 @@
 			this.to(null,y)
 		}
 	}
+
+	function Js($elem){
+		this.$elem = $elem;
+		this.currentX = parseFloat(this.$elem.css('left'));
+		this.currentY = parseFloat(this.$elem.css('top'));
+	}
+	Js.prototype = {
+		constructor:Js,
+		to:function(x,y){
+			//处理参数想x,y为了后面的想x,y方法
+			x = (typeof x == 'number') ? x : this.currentX;
+			y = (typeof y == 'number') ? y : this.currentY;
+			if(this.currentX == x && this.currentY == y) return;
+			this.$elem.trigger('move');
+			console.log('will move to.....');
+			/*
+			this.$elem.css({
+				left:x,
+				top:y
+			});
+			*/
+			this.$elem
+			.stop()
+			.animate({
+				left:x,
+				top:y
+			},function(){
+				this.$elem.trigger('moved');
+			}.bind(this))
+			//更新当前元素的位置坐标
+			this.currentX = x;
+			this.currentY = y;
+		},
+		x:function(x){
+			this.to(x);
+		},
+		y:function(y){
+			this.to(null,y)
+		}
+	}
 </script>
 <script>
 
-	var move = new Silent($('.box'));
+	var move = new Js($('.box'));
 
 	$('.box').on('move moved',function(ev){
 		console.log(ev.type);

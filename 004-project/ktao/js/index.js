@@ -131,6 +131,11 @@
 
 	/*轮播图逻辑开始*/
 	var $coursel = $('.carousel .carousel-wrap');
+	$coursel.on('coursel-show',function(ev,index,elem){
+		console.log(index,elem);
+	})
+
+
 	$coursel.coursel({});
 	/*轮播图逻辑结束*/
 
