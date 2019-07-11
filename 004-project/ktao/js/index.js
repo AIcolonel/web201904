@@ -196,4 +196,14 @@
 	$todaysCoursel.coursel({});
 	/*今日热销逻辑结束*/
 
+	/*楼层逻辑开始*/
+	var $floor = $('.floor');
+	$floor.on('tab-show',function(ev,index,elem){
+		console.log(index,elem);
+	})
+
+
+	$floor.tab({});
+	/*楼层逻辑结束*/
+
 })(jQuery);
