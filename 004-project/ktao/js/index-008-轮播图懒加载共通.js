@@ -184,6 +184,42 @@
 
 
 	var $coursel = $('.carousel .carousel-wrap');
+	/*
+	$coursel.item = {};//0:loaded 1:loaded
+	$coursel.totalNum = $coursel.find('.carousel-img').length - 1;
+	$coursel.totalLoadedNum = 0;
+	$coursel.loadFn = null;
+	//1.开始加载
+	$coursel.on('coursel-show',$coursel.loadFn = function(ev,index,elem){
+		//判断图片有没有被加载
+		if(!$coursel.item[index]){
+			$coursel.trigger('coursel-load',[index,elem]);
+		}
+	})
+	//2.执行加载
+	$coursel.on('coursel-load',function(ev,index,elem){
+		console.log('will load img',index);
+		var $elem = $(elem);
+		var $img = $elem.find('.carousel-img');
+		var imgUrl = $img.data('src');
+		loadImage(imgUrl,function(){
+			$img.attr('src',imgUrl);
+		},function(){
+			$img.attr('src','images/focus-carousel/placeholder.png');
+		});
+		//图片已经被加载
+		$coursel.item[index] = 'isLoaded';
+		$coursel.totalLoadedNum++;
+		//所有图片都被加载则移除事件
+		if($coursel.totalLoadedNum > $coursel.totalNum){
+			$coursel.trigger('coursel-loaded');
+		}
+	})
+	//3.加载完毕
+	$coursel.on('coursel-loaded',function(){
+		$coursel.off('coursel-show',$coursel.loadFn);
+	})
+	*/
 	courselLazyLoad($coursel);
 
 	$coursel.coursel({});
@@ -191,6 +227,45 @@
 
 	/*今日热销逻辑开始*/
 	var $todaysCoursel = $('.todays .carousel-wrap');
+	/*
+	$todaysCoursel.item = {};//0:loaded 1:loaded
+	$todaysCoursel.totalNum = $todaysCoursel.find('.carousel-img').length - 1;
+	$todaysCoursel.totalLoadedNum = 0;
+	$todaysCoursel.loadFn = null;
+	//1.开始加载
+	$todaysCoursel.on('coursel-show',$todaysCoursel.loadFn = function(ev,index,elem){
+		//判断图片有没有被加载
+		if(!$todaysCoursel.item[index]){
+			$todaysCoursel.trigger('coursel-load',[index,elem]);
+		}
+	})
+	//2.执行加载
+	$todaysCoursel.on('coursel-load',function(ev,index,elem){
+		// console.log('will load img',index);
+		var $elem = $(elem);
+		var $imgs = $elem.find('.carousel-img');
+		$imgs.each(function(){
+			var $img = $(this);
+			var imgUrl = $img.data('src');
+			loadImage(imgUrl,function(){
+				$img.attr('src',imgUrl);
+			},function(){
+				$img.attr('src','images/focus-carousel/placeholder.png');
+			});
+		})
+		//图片已经被加载
+		$todaysCoursel.item[index] = 'isLoaded';
+		$todaysCoursel.totalLoadedNum++;
+		//所有图片都被加载则移除事件
+		if($todaysCoursel.totalLoadedNum > $todaysCoursel.totalNum){
+			$todaysCoursel.trigger('coursel-loaded');
+		}
+	})
+	//3.加载完毕
+	$todaysCoursel.on('coursel-loaded',function(){
+		$todaysCoursel.off('coursel-show',$todaysCoursel.loadFn);
+	})
+	*/
 	courselLazyLoad($todaysCoursel);
 
 	$todaysCoursel.coursel({});
