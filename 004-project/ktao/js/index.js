@@ -23,6 +23,18 @@
 		}
 		image.src = imgUrl;
 	}
+	//3.只加载一次数据
+	function getDataOnce($elem,url,callback){
+		var data = $elem.data('data');
+		if(!data){
+			$.getJSON(url,function(resData){
+				callback(resData);
+				$elem.data('data',resData);
+			})
+		}else{
+			callback(data);
+		}
+	}
 
 
 
@@ -239,9 +251,62 @@
 	}
 
 	//楼层html懒加载
+	function buildFloorHtml(oneFloorData){
+		var html = '';
+		html += '<div class="container">';
+		html += buildFloorHeaderHtml(oneFloorData);
+		html += buildFloorBodyHtml(oneFloorData);
+		html += '</div>';
+		return html;
+	}
+	function buildFloorHeaderHtml(oneFloorData){
+		var html ='';
+		html += '<div class="floor-hd">';
+		html +=	'	<h2 class="floor-title fl">';
+		html +=	'		<span class="floor-title-num">'+oneFloorData.num+'F</span>';
+		html +=	'		<span class="floor-title-text">'+oneFloorData.text+'</span>';
+		html +=	'	</h2>';
+		html +=	'	<ul class="tab-item-wrap fr">';
+		for(var i = 0;i<oneFloorData.tabs.length;i++){
+			html +=	'<li class="fl">';
+			html +=	'	<a class="tab-item" href="javascript:;">'+oneFloorData.tabs[i]+'</a>';
+			html +=	'</li>';
+			if(i != oneFloorData.tabs.length - 1){
+				html +=	'<li class="fl tab-divider"></li>';
+			}
+		}
+		html +=	'	</ul>';
+		html +=	'</div>';
+
+		return html;
+	}
+	function buildFloorBodyHtml(oneFloorData){
+		var html = '';
+		html += '<div class="floor-bd">';
+		for(var i = 0;i<oneFloorData.items.length;i++){
+			html +=	'	<ul class="tab-panel clearfix">';
+			for(var j = 0;j<oneFloorData.items[i].length;j++){
+				html +=	'		<li class="floor-item fl">';
+				html +=	'			<p class="floor-item-pic">';
+				html +=	'				<a href="#">';
+				html +=	'					<img class="floor-img" src="images/floor/loading.gif" data-src="images/floor/'+oneFloorData.num+'/'+(i+1)+'/'+(j+1)+'.png" alt="">';
+				html +=	'				</a>';
+				html +=	'			</p>';
+				html +=	'			<p class="floor-item-name">';
+				html +=	'				<a class="link" href="#">'+oneFloorData.items[i][j].name+'</a>';
+				html +=	'			</p>';
+				html +=	'			<p class="floor-item-price">￥'+oneFloorData.items[i][j].price+' </p>';
+				html +=	'		</li>';
+			}
+			html +=	'	</ul>';
+		}
+		html +=	'</div>';
+		return html;
+	}
+
 	function floorHtmlLazyLoad(){
 		var item = {};//0:loaded 1:loaded
-		var totalNum = $elem.length - 1;
+		var totalNum = $floor.length - 1;
 		var totalLoadedNum = 0;
 		var loadFn = null;
 		//1.开始加载
@@ -254,9 +319,16 @@
 		//2.执行加载
 		$doc.on('floor-load',function(ev,index,elem){
 			//1.生成html结构
-			//2.加载html
-			//3.楼层图片懒加载
-			//4.激活选项卡
+			getDataOnce($doc,'data/floor/floorData.json',function(data){
+				// console.log(data[index]);
+				var html = buildFloorHtml(data[index]);
+				//2.加载html
+				$(elem).html(html);
+				//3.楼层图片懒加载
+				floorImgLazyLoad($(elem));
+				//4.激活选项卡
+				$(elem).tab({});
+			});
 			//楼层已经被加载
 			item[index] = 'isLoaded';
 			totalLoadedNum++;
@@ -278,15 +350,16 @@
 	var $floor = $('.floor');
 	var $win = $(window);
 	var $doc = $(document);
+	floorHtmlLazyLoad();
 	//遍历每一个楼层实现图片懒加载
 	/*
 	$floor.each(function(){
 		floorImgLazyLoad($(this));
 	})
 	*/
-	$doc.on('floor-show',function(ev,index,elem){
-		console.log(index,elem);
-	})
+	// $doc.on('floor-show',function(ev,index,elem){
+	// 	console.log(index,elem);
+	// })
 	function timeToShow(){
 		$floor.each(function(index,elem){
 			if(isVisible($(elem))){
@@ -301,7 +374,7 @@
 	})
 	
 
-	$floor.tab({});
+	// $floor.tab({});
 	/*楼层逻辑结束*/
 
 })(jQuery);
