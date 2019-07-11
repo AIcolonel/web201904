@@ -198,7 +198,7 @@
 
 	/*楼层逻辑开始*/
 	//楼层图片懒加载
-	function floorImgLazyLoad($elem){
+	function floorLazyLoad($elem){
 		var item = {};//0:loaded 1:loaded
 		var totalNum = $elem.find('.floor-img').length - 1;
 		var totalLoadedNum = 0;
@@ -237,69 +237,15 @@
 			$elem.off('tab-show',loadFn);
 		})
 	}
-
-	//楼层html懒加载
-	function floorHtmlLazyLoad(){
-		var item = {};//0:loaded 1:loaded
-		var totalNum = $elem.length - 1;
-		var totalLoadedNum = 0;
-		var loadFn = null;
-		//1.开始加载
-		$doc.on('floor-show',loadFn = function(ev,index,elem){
-			//判断图片有没有被加载
-			if(!item[index]){
-				$doc.trigger('floor-load',[index,elem]);
-			}
-		})
-		//2.执行加载
-		$doc.on('floor-load',function(ev,index,elem){
-			//1.生成html结构
-			//2.加载html
-			//3.楼层图片懒加载
-			//4.激活选项卡
-			//楼层已经被加载
-			item[index] = 'isLoaded';
-			totalLoadedNum++;
-			//所有图片都被加载则移除事件
-			if(totalLoadedNum > totalNum){
-				$doc.trigger('floor-loaded');
-			}
-		})
-		//3.加载完毕
-		$doc.on('floor-loaded',function(){
-			$doc.off('floor-show',loadFn);
-		})
-	}
-
-	//判断楼层是否在可视区
-	function isVisible($elem){
-		return ($win.height() + $win.scrollTop() > $elem.offset().top) && ($elem.offset().top + $elem.height() > $win.scrollTop())
-	};
 	var $floor = $('.floor');
-	var $win = $(window);
-	var $doc = $(document);
 	//遍历每一个楼层实现图片懒加载
-	/*
 	$floor.each(function(){
-		floorImgLazyLoad($(this));
+		floorLazyLoad($(this));
 	})
-	*/
-	$doc.on('floor-show',function(ev,index,elem){
-		console.log(index,elem);
-	})
-	function timeToShow(){
-		$floor.each(function(index,elem){
-			if(isVisible($(elem))){
-				// console.log(index,'in show.......');
-				$doc.trigger('floor-show',[index,elem]);
-			}
-		})
-	}
-	$win.on('load scroll resize',function(){
-		clearTimeout($floor.showTimer);
-		$floor.showTimer = setTimeout(timeToShow,200);
-	})
-	
+	// $floor.on('tab-show',function(ev,index,elem){
+	// 	console.log(index,elem);
+	// })
+
 
 	$floor.tab({});
 	/*楼层逻辑结束*/

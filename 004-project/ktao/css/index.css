@@ -393,8 +393,8 @@
 .floor{
 	height: 538px;
 	margin-bottom: 10px;
-	/*background-color: green;
-	font-size: 50px;*/
+	background-color: green;
+	font-size: 50px;
 }
 .floor .floor-hd{
 	width: 100%;

@@ -24,6 +24,7 @@ Tab.prototype = {
 		//2.初始化显示隐藏插件
 		this.$tabPanels.showHide(this.options);
 		//监听选项卡显示隐藏状态事件
+		this.$elem.trigger('tab-show',[this.now,this.$tabPanels.eq(this.now)]);
 		this.$tabPanels.on('show',function(ev){
 			_this.$elem.trigger('tab-show',[_this.$tabPanels.index(this),this]);
 		})
