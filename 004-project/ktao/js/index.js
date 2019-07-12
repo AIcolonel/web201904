@@ -52,6 +52,7 @@
 			$elem = options.$elem,
 			eventName = options.eventName,
 			eventPrifix = options.eventPrifix;
+			console.log(totalNum);
 		//1.开始加载
 		$elem.on(eventName,loadFn = function(ev,index,elem){
 			//判断图片有没有被加载
@@ -339,7 +340,7 @@
 			//3.楼层图片懒加载
 			// floorImgLazyLoad($(elem));
 			lazyLoad({
-				totalNum:$(elem).find('.carousel-img').length - 1,
+				totalNum:$(elem).find('.floor-img').length - 1,
 				$elem:$(elem),
 				eventName:'tab-show',
 				eventPrifix:'tab'
