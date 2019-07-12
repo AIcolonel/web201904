@@ -362,7 +362,57 @@
 		clearTimeout($floor.showTimer);
 		$floor.showTimer = setTimeout(timeToShow,200);
 	})
-	
 	/*楼层逻辑结束*/
+
+	/*电梯逻辑开始*/
+	var $elevator = $('.elevator');
+	var $elevatorItems = $('.elevator-item');
+
+	//获取楼层号
+	function getFloorNum(){
+		var num = -1;
+		$floor.each(function(index,elem){
+			num = index;
+			if($(elem).offset().top > $win.height()/2 + $win.scrollTop()){
+				num = index - 1;
+				return false;
+			}
+		})
+		return num;
+	}
+	//设置电梯号
+	function setElevator(){
+		var num = getFloorNum();
+		if(num == -1){
+			$elevator.fadeOut();
+		}else{
+			$elevator.fadeIn();
+			//清除所有选中的
+			$elevatorItems.removeClass('elevator-active');
+			//选中对应的电梯号
+			$elevatorItems.eq(num).addClass('elevator-active');
+		}
+	}
+	$win.on('load scroll resize',function(){
+		clearTimeout($elevator.showElevatorTimer);
+		$elevator.showElevatorTimer = setTimeout(setElevator,200);
+	})
+	//监听点击电梯事件回到对应楼层
+	$elevator.on('click','.elevator-item',function(){
+		var index = $elevatorItems.index(this);
+		$('html,body').animate({
+			scrollTop:$floor.eq(index).offset().top
+		});
+	})
+	/*电梯逻辑结束*/
+
+	/*工具条逻辑开始*/
+	var $backToTop = $('#backToTop');
+	$backToTop.on('click',function(){
+		$('html,body').animate({
+			scrollTop:0
+		});
+	})
+	/*工具条逻辑结束*/
 
 })(jQuery);

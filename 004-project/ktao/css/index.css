@@ -110,6 +110,7 @@
 	border-top: none;
 	box-sizing: border-box;
 	display: none;
+	z-index: 9999;
 }
 .search-layer li{
 	height: 30px;
@@ -505,3 +506,48 @@
 	display: none;
 }
 /*电梯结束*/
+
+/*工具条开始*/
+.toolbar{
+	position: fixed;
+	top: 50%;
+	right: 0;
+	margin-top: -102px;
+}
+.toolbar-item{
+	position: relative;
+	display: block;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	background: #ccc;
+	color: #fff;
+	margin-bottom: 1px;
+}
+.toolbar-icon{
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	background: #ccc;
+	position: relative;
+	z-index: 2;
+}
+.toolbar-text{
+	width: 60px;
+	height: 40px;
+	line-height: 40px;
+	background: #ccc;
+	position: absolute;
+	left:0;
+	top:0;
+	z-index: 1;
+}
+.toolbar-item:hover .toolbar-text{
+	left:-60px;
+	background: #ea675a;
+}
+.toolbar-item:hover .toolbar-icon{
+	background: #ea675a;
+}
+/*工具条结束*/
