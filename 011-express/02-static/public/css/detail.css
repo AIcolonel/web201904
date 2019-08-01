@@ -1,0 +1,19 @@
+/*
+* @Author: TomChen
+* @Date:   2019-03-13 20:33:29
+* @Last Modified by:   TomChen
+* @Last Modified time: 2019-03-13 20:35:55
+*/
+.detail-panel{
+	min-height: 600px;
+}
+.detail-panel .panel-title{
+	font-size: 30px;
+	margin-bottom: 10px;
+}
+.detail-panel .sub-title span{
+	margin-right: 10px;
+}
+.detail-panel .panel-body{
+	background: #fff;
+}

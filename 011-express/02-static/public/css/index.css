@@ -1,0 +1,13 @@
+/*
+* @Author: TomChen
+* @Date:   2019-03-13 18:10:12
+* @Last Modified by:   TomChen
+* @Last Modified time: 2019-03-13 20:26:37
+*/
+#main-carousel .carousel-inner img{
+	width: 100%;
+	height: 420px;
+}
+#main-carousel{
+	margin-bottom: 20px;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="get">get</button>
+	<button id="post">post</button>
+	<button id="put">put</button>
+	<button id="delete">delete</button>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('#get').on('click',function(){
+			$.ajax({
+				// url:"/users/user123/book/book123",
+				url:"/?userId=123&bookId=456",
+				type:"get"
+			})
+			.done(result=>{
+				console.log(result)
+			})
+		});
+		$('#post').on('click',function(){
+			$.ajax({
+				url:"/",
+				type:"post"
+			})
+			.done(result=>{
+				console.log(result)
+			})
+		});
+		$('#put').on('click',function(){
+			$.ajax({
+				url:"/",
+				type:"put"
+			})
+			.done(result=>{
+				console.log(result)
+			})
+		});
+		$('#delete').on('click',function(){
+			$.ajax({
+				url:"/",
+				type:"delete"
+			})
+			.done(result=>{
+				console.log(result)
+			})
+		});
+	});
+</script>
+</html>
