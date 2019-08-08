@@ -1,0 +1,33 @@
+{% extends './layout.html' %}
+{% block header %}
+用户列表
+{% endblock %}
+{% block content %}
+<div class="content">
+<table class="table table-hover">
+	  <thead>
+	    <tr>
+	      <th>ID</th>
+	      <th>用户名</th>
+	      <th>是否是管理员</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  	{% for user in users %}
+	    <tr>
+	      <td>{{ user._id.toString() }}</td>
+	      <td>{{ user.username }}</td>
+	      {% if user.isAdmin %}
+	      <td>是</td>
+	      {% else %}
+	      <td>否</td>
+	      {% endif %}
+	    </tr>
+	    {% endfor %}
+	  </tbody>
+</table>
+</div>
+{% if pages > 1 %}
+{% include './pagination.html' %}
+{% endif %}
+{% endblock %}

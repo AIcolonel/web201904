@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const port = 3000;
 
+/*
 app.use((req,res,next)=>{
 	console.log("A1");
 	next();
@@ -20,6 +21,12 @@ app.use((req,res,next)=>{
 
 app.get('/', (req, res) => {
 	res.send('<h1>Hello World,你好</h1>')
-})
+});
+*/
+app.get('/',(req,res,next)=>{
+	console.log("get data")
+},(req,res)=>{
+console.log("get data two...")
+});
 
 app.listen(port, () => console.log(`app listening on port ${port}!`))

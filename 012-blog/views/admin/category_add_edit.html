@@ -1,0 +1,34 @@
+{% extends './layout.html' %}
+{% block header %}
+{% if category %}
+编辑分类
+{% else %}
+新增分类
+{% endif %}
+{% endblock %}
+{% block content %}
+{% if category %}
+<form class="form-horizontal" action="/category/edit" method="post">
+{% else %}
+<form class="form-horizontal" action="/category/add" method="post">
+{% endif %}
+  <div class="form-group">
+    <label for="name" class="col-sm-2 control-label">分类名称</label>
+    <div class="col-sm-6">
+      <input type="username" class="form-control" name="name" id="name" value="{{ category.name }}">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="order" class="col-sm-2 control-label">排序</label>
+    <div class="col-sm-6">
+      <input type="number" class="form-control" name="order" id="order" value="{{ category.order || 0 }}">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-6">
+      <input type="hidden" name="id" value="{{ category._id.toString() }}">
+      <button type="submit" class="btn btn-primary">提交分类</button>
+    </div>
+  </div>
+</form>
+{% endblock %}

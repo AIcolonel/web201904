@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+  {% block title %}{% endblock %}
+  </title>
+  <link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  {% block head %}{% endblock %}
+</head>
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top" id="kz-navbar">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand link" href="#">我的个人博客</a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="index.html">首页<span class="sr-only">(current)</span></a></li>
+          {% for category in categories %}
+          <li><a href="/list/{{ category._id.toString() }}">{{ category.name }}</a></li>
+          {% endfor %}
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container -->
+  </nav>
+  <div class="main">
+    <div class="container">
+      <div class="row">
+        {% block content %}{% endblock %}
+        <div class="col-md-4 hidden-xs hidden-sm">
+          <!--用户注册登录-->
+          {% if userInfo._id %}
+          <div class="user-panel" id='user-info'>
+            欢迎<span>{{ userInfo.username }}</span>
+            {% if userInfo.isAdmin %}
+            <a class="link" href="/admin">进入管理中心</a>
+            {% else %}
+            <a class="link" href="/home">进入个人中心</a>
+            {% endif %}
+            <a class="link" href="javascript:;" id='logout'>退出</a>
+            <div class="form-group">
+              <div class="col-sm-12">
+                <p class="text-danger err"></p>
+              </div>
+            </div>              
+          </div>
+          {% else %}
+          <div class="form-horizontal user-panel" id='register' style="display: none;">
+            <div class="form-group">
+              <label class="col-sm-4 control-label">用户名</label>
+              <div class="col-sm-6">
+                <input autocomplete="off" type="text" class="form-control" name='username' placeholder="请输入用户名">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-4 control-label">密码</label>
+              <div class="col-sm-6">
+                <input autocomplete="off" type="password" class="form-control" name="password" placeholder="请输入密码">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-4 control-label">重复密码</label>
+              <div class="col-sm-6">
+                <input autocomplete="off" type="password" class="form-control" name="repassword" placeholder="请再次输入密码">
+              </div>
+            </div>            
+            <div class="form-group">
+              <div class="col-sm-offset-4 col-sm-6">
+                <a href="javascript:;" class="btn btn-primary" id='sub-register'>提交</a>
+                <a href="javascript:;" class="link" id='go-login'>已有账号,去登录</a>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-12">
+                <p class="text-danger err"></p>
+              </div>
+            </div>            
+          </div> 
+          <div class="form-horizontal user-panel" id='login'>
+            <div class="form-group">
+              <label class="col-sm-4 control-label">用户名</label>
+              <div class="col-sm-6">
+                <input autocomplete="off" type="text" class="form-control" name='username' placeholder="请输入用户名">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-4 control-label">密码</label>
+              <div class="col-sm-6">
+                <input autocomplete="off" type="password" class="form-control" name="password" placeholder="请输入密码">
+              </div>
+            </div>            
+            <div class="form-group">
+              <div class="col-sm-offset-4 col-sm-6">
+                <a href="javascript:;" class="btn btn-primary" id='sub-login'>提交</a>
+                <a href="javascript:;" class="link" id='go-register'>免费注册</a>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-12">
+                <p class="text-danger err"></p>
+              </div>
+            </div>            
+          </div>
+          {% endif %}
+          <!--用户注册登录--> 
+
+          <div class="ad">
+            <a href="#" class="thumbnail">
+              <img src="img/ad/ad1.jpg" alt="广告1">
+            </a>
+          </div>
+          <div class="ad">
+            <a href="#" class="thumbnail">
+              <img src="img/ad/ad2.jpg" alt="广告2">
+            </a>
+          </div>
+          <div class="panel panel-default custom-panel">
+            <div class="panel-heading">
+              <h3 class="panel-title">博主介绍</h3>
+            </div>
+            <div class="panel-body">
+              <div class="media">
+                <div class="media-left">
+                  <a href="#">
+                    <img class="media-object img-me img-circle" src="img/me.jpg" alt="博主帅照">
+                  </a>
+                </div>
+                <div class="media-body">
+                  <h4 class="media-heading">Tom</h4>
+                  80后草根！07年入行。一直潜心研究web技术，一边工作一边积累经验，分享一些个人心得。
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel panel-default custom-panel hot-list">
+            <div class="panel-heading">
+              <h3 class="panel-title">点击排行</h3>
+            </div>
+            <div class="panel-body">
+              <ul class="list-group">
+                <li class="list-group-item"><a href="detail.html" class="link text-ellipsis" target="_blank">Cras justo odioCras justo odioCras justo odioCras justo odioCras justo odio</a></li>
+                <li class="list-group-item"><a href="detail.html" class="link text-ellipsis" target="_blank">Cras justo odioCras justo odioCras justo odioCras justo odioCras justo odio</a></li>
+                <li class="list-group-item"><a href="detail.html" class="link text-ellipsis" target="_blank">Cras justo odioCras justo odioCras justo odioCras justo odioCras justo odio</a></li>
+                <li class="list-group-item"><a href="detail.html" class="link text-ellipsis" target="_blank">Cras justo odioCras justo odioCras justo odioCras justo odioCras justo odio</a></li>
+                <li class="list-group-item"><a href="detail.html" class="link text-ellipsis" target="_blank">Cras justo odioCras justo odioCras justo odioCras justo odioCras justo odio</a></li>
+                <li class="list-group-item"><a href="detail.html" class="link text-ellipsis" target="_blank">Cras justo odioCras justo odioCras justo odioCras justo odioCras justo odio</a></li>
+                <li class="list-group-item"><a href="detail.html" class="link text-ellipsis" target="_blank">Cras justo odioCras justo odioCras justo odioCras justo odioCras justo odio</a></li>
+                <li class="list-group-item"><a href="detail.html" class="link text-ellipsis" target="_blank">Cras justo odioCras justo odioCras justo odioCras justo odioCras justo odio</a></li>                                                 
+              </ul>     
+            </div>
+          </div>
+          <div class="panel panel-default custom-panel">
+            <div class="panel-heading">
+              <h3 class="panel-title">关注我</h3>
+            </div>
+            <div class="panel-body">
+              <img src="img/wechat.jpeg" class="img-responsive" alt="">
+            </div>
+          </div>                                         
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    Blog Design by <a href="#">Kuazhu</a> <a href="#">豫ICP备11002373号-1</a>.
+  </footer>
+
+
+<script src="lib/jquery/jquery-1.12.4.min.js"></script> 
+<script src="lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/logout.js"></script>
+{% block footer %}{% endblock %}
+</body>
+
+</html>
