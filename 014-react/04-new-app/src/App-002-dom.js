@@ -4,7 +4,6 @@ import Item from './Item.js';
 
 class App extends Component{
 	constructor(props){
-		console.log('constructor render ....')
 		super(props);
 		this.state={
 			list:["电视","冰箱","洗衣机"],
@@ -13,27 +12,20 @@ class App extends Component{
 		this.handleChange = this.handleChange.bind(this);
 		this.handleAdd = this.handleAdd.bind(this);
 	}
-	static getDerivedStateFromProps(nextProps, prevState){
-		console.log('App getDerivedStateFromProps(nextProps, prevState)',nextProps, prevState);
-		return {
-			
-		}
-	}
-	shouldComponentUpdate(nextProps, nextState){
-		console.log("App shouldComponentUpdate(nextProps, nextState)",nextProps, nextState);
-		return true;
-	}
-	getSnapshotBeforeUpdate(prevProps, prevState){
-		console.log('App getSnapshotBeforeUpdate(prevProps, prevState)',prevProps, prevState);
-		return 123;
-	}
-	componentDidUpdate(prevProps, prevState,snapshot){
-		console.log('App componentDidUpdate(prevProps, prevState,snapshot)',prevProps, prevState,snapshot);
-	}
-	componentDidMount(){
-		console.log('componentDidMount done ..... ')
-	}
 	handleAdd(){
+		/*
+		this.setState({
+			list:[...this.state.list,this.state.val],
+			val:''
+		})
+		
+		this.setState(()=>{
+			return {
+				list:[...this.state.list,this.state.val],
+				val:''
+			}
+		})
+		*/
 		//是一个异步过程
 		this.setState((preState)=>({
 			list:[...preState.list,preState.val],
@@ -43,7 +35,13 @@ class App extends Component{
 		});
 	}
 	handleChange(ev){
+		// let val = ev.target.value;
 		let val = this.input.value;
+		/*
+		this.setState({
+			val:ev.target.value
+		})
+		*/
 		this.setState(()=>({
 			val
 		}))
@@ -66,11 +64,11 @@ class App extends Component{
 		})
 	}
 	render(){
-		console.log('App render.......')
 		return( 
 			<div className='App'>
 				<input 
 				ref={(input)=>{
+					// console.log(input);
 					this.input = input;
 				}} 
 				onChange={this.handleChange} 
@@ -82,6 +80,16 @@ class App extends Component{
 					this.ul = ul;
 				}}>
 					{	
+						/*
+						this.state.list.map((item,index)=>{
+							return (
+								<Item 
+								key={index} 
+								content={item} 
+								handleDel={this.handleDelete.bind(this,index)}
+							/>)
+						})
+						*/
 						this.getItem()
 					}
 				</ul>

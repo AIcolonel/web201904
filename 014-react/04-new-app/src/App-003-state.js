@@ -14,21 +14,10 @@ class App extends Component{
 		this.handleAdd = this.handleAdd.bind(this);
 	}
 	static getDerivedStateFromProps(nextProps, prevState){
-		console.log('App getDerivedStateFromProps(nextProps, prevState)',nextProps, prevState);
+		console.log(prevState);
 		return {
-			
+			list:['睡觉']
 		}
-	}
-	shouldComponentUpdate(nextProps, nextState){
-		console.log("App shouldComponentUpdate(nextProps, nextState)",nextProps, nextState);
-		return true;
-	}
-	getSnapshotBeforeUpdate(prevProps, prevState){
-		console.log('App getSnapshotBeforeUpdate(prevProps, prevState)',prevProps, prevState);
-		return 123;
-	}
-	componentDidUpdate(prevProps, prevState,snapshot){
-		console.log('App componentDidUpdate(prevProps, prevState,snapshot)',prevProps, prevState,snapshot);
 	}
 	componentDidMount(){
 		console.log('componentDidMount done ..... ')

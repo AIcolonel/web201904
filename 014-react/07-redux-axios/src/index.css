@@ -1,0 +1,14 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.App{
+	width: 300px;
+	margin: 50px auto;
+}
+.App li{
+	list-style: none;
+	width: 100%;
+	line-height: 50px;
+	border-bottom: 1px dashed #ccc;
+}
