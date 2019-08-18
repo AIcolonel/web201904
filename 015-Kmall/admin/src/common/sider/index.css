@@ -1,0 +1,9 @@
+.AdminSider a.active{
+	color: red;
+}
+.AdminSider .ant-menu-item-selected{
+	
+}
+.AdminSider .ant-menu-item-selected:after{
+	border-right: none !important;
+}

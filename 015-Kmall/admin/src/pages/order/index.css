@@ -1,0 +1,12 @@
+.Login{
+	width: 300px;
+	margin:100px auto;
+	padding: 20px;
+	box-sizing: border-box;
+	box-shadow: 0 5px 5px rgba(0,0,0,0.5);
+	background-color: rgba(0,0,0,0.8);
+	border-radius: 5px;
+}
+.Login .login-form-button{
+	width: 100%;
+}
