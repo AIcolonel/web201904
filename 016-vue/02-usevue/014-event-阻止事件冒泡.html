@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>014-event-阻止事件冒泡.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.large-box{
+			width: 500px;
+			height: 500px;
+			margin: 0 auto;
+			overflow: hidden;
+			background-color: #ccc;
+		}
+		.big-box{
+			width: 300px;
+			height: 300px;
+			margin: 100px auto;
+			overflow: hidden;
+			background-color: red;
+		}
+		.small-box{
+			width: 100px;
+			height: 100px;
+			margin: 100px auto;
+			background-color: gold;
+		}
+	</style>
+</head>
+<body>
+	<div id="root">
+		<div class="large-box" @click="clickLarge()">
+			<div class="big-box" @click="clickBig()">
+				<div class="small-box" @click="clickSmall($event)"></div>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el:'#root',
+		data:{
+			
+		},
+		methods:{
+			clickSmall(ev){
+				ev.stopPropagation()
+				console.log('click small box')
+			},
+			clickBig(ev){
+				console.log('click big box')
+			},
+			clickLarge(ev){
+				console.log('click large box')
+			},
+		}
+	})
+</script>
+</html>

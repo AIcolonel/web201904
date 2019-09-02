@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>009-v-for列表渲染.html</title>
+</head>
+<body>
+	<!-- 
+		列表渲染就是类似于循环遍历,将数组中所有数据都能够拿到
+	 -->
+	<div id="root">
+		<table>
+			<tr>
+				<td>姓名</td>
+				<td>年龄</td>
+				<td>成绩</td>
+				<td>成绩所处区域</td>
+			</tr>
+			<tr v-for='student in students'>
+				<td>{{student.name}}</td>
+				<td>{{student.age}}</td>
+				<td>{{student.score}}</td>
+				<td v-if='student.score < 60'>不及格</td>
+				<td v-else-if='student.score < 80'>及格</td>
+				<td v-else>优秀</td>
+			</tr>
+		</table>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	//生成一个Vue实例,可以调用上面的方法
+	//vm是vueModel的缩写
+	var vm = new Vue({
+		el:'#root',
+		data:{
+			students:[
+				{name:'张三',age:18,score:60},
+				{name:'李四',age:19,score:90},
+				{name:'王五',age:19,score:40},
+			]
+		}
+	})
+	
+</script>
+</html>

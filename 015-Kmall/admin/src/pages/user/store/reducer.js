@@ -1,67 +1,44 @@
 import * as types from './actionTypes.js';
 import { fromJS } from'immutable';
 
-/*
-const defaultState = {
-	list:["电视","冰箱","洗衣机"],
-	val:'空调'
-}
-*/
 const defaultState = fromJS({
-	list:["电视","冰箱","洗衣机"],
-	val:'空调'
+	list:[{
+		    _id: '1',
+		    username: 'admin',
+		    isAdmin: true,
+		    email: 'test@kuazhu.com',
+		    phone:13456899874,
+		    createAt:'2019-08-19 12:00:00'
+		},
+		{
+		    _id: '2',
+		    username: 'tom',
+		    isAdmin: false,
+		    email: 'test@kuazhu1.com',
+		    phone:13456899874,
+		    createAt:'2019-08-19 12:00:00'
+		}
+	],
+	current:1,
+	pageSize:0,
+	total:0,
+	isLoading:false
 })
 
 export default ((state=defaultState,action)=>{
-	if(action.type == types.CHANGE_ITEM){
-		/*
-		//生成一个新的对象
-		const newState = JSON.parse(JSON.stringify(state));
-		newState.val = action.payload;
-		//返回新对象
-		return newState;
-		*/
-		return state.set('val',action.payload)
-	}
-	if(action.type == types.ADD_ITEM){
-		/*
-		//生成一个新的对象
-		const newState = JSON.parse(JSON.stringify(state));
-		newState.list.push(newState.val);
-		newState.val = '';
-		//返回新对象
-		return newState;
-		*/
-		//拿到数组要生成新的数组
-		const list = [...state.get('list')];
-		list.push(state.get('val'));
+	if(action.type == types.SET_PAGES){
 		return state.merge({
-			list:list,
-			val:''
+			list:fromJS(action.payload.list),
+			current:action.payload.current,
+			pageSize:action.payload.pageSize,
+			total:action.payload.total
 		})
 	}
-	if(action.type == types.DELETE_ITEM){
-		/*
-		//生成一个新的对象
-		const newState = JSON.parse(JSON.stringify(state));
-		newState.list.splice(action.payload,1);
-		//返回新对象
-		return newState;
-		*/
-		//拿到数组要生成新的数组
-		const list = [...state.get('list')];
-		list.splice(action.payload,1);
-		return state.set('list',list);
+	if(action.type == types.DATA_LOADING){
+		return state.set('isLoading',true);
 	}
-	if(action.type == types.LOAD_DATA){
-		/*
-		//生成一个新的对象
-		const newState = JSON.parse(JSON.stringify(state));
-		newState.list = action.payload;
-		//返回新对象
-		return newState;
-		*/
-		return state.set('list',action.payload);
+	if(action.type == types.DATA_DONE){
+		return state.set('isLoading',false);
 	}
 	return state;
 })

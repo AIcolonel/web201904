@@ -1,51 +1,31 @@
 const axios = require('axios');
-import * as types from './actionTypes.js'
+import * as types from './actionTypes.js';
+import { message } from 'antd';
 
+import { request,setUsername } from 'util/index.js';
+import { ADMIN_COUNT } from 'api/index.js';
 
-export const getAddActions = ()=>{
-	return {
-		type:types.ADD_ITEM
-	}
-}
+const setCountAction = (payload)=>({
+	type:types.SET_COUNT,
+	payload
+})
 
-export const getChangeActions = (val)=>{
-	return {
-		type:types.CHANGE_ITEM,
-		payload:val
-	}
-}
-
-export const getDeleteActions = (index)=>{
-	return {
-		type:types.DELETE_ITEM,
-		payload:index
-	}
-}
-
-export const getDataActions = (data)=>{
-	return {
-		type:types.LOAD_DATA,
-		payload:data
-	}
-}
-
-export const getInitDataActions = ()=>{
+export const getCountAction = ()=>{
 	return (dispatch)=>{
-		//发送请求
-		// Make a request for a user with a given ID
-		axios.get('http://127.0.0.1:3000')
-		.then(function (response) {
-		    // 拿到数据,派发action
-		    // console.log(response.data);
-		    const action = getDataActions(response.data);
-			dispatch(action);
+		request({
+		  	method: 'get',
+		  	url: ADMIN_COUNT,
 		})
-		.catch(function (error) {
-		    // handle error
-		    console.log(error);
+		.then(response=>{
+			//获取到后台数据并更新后台数据
+			if(response.code == 0){
+				dispatch(setCountAction(response.data))
+			}
 		})
-		.finally(function () {
-		    // always executed
-		});
+		.catch((err)=>{
+			console.log(err);
+			message.error('网络错误,请稍后再试')
+		})
+		
 	}
 }

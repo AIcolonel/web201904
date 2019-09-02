@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>006-v-if条件渲染.html</title>
+</head>
+<body>
+	<!-- 条件渲染是当满足当前条件时则渲染当前节点
+		不满足条件则不进行渲染
+	 -->
+	<div id="root">
+		<input type="text" v-model='result'>
+		<p>你的成绩是:{{result}}</p>
+		<p v-if='result >= 60'>及格</p>
+		<p v-else>不及格</p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	//生成一个Vue实例,可以调用上面的方法
+	//vm是vueModel的缩写
+	var vm = new Vue({
+		el:'#root',
+		data:{
+			result:0
+		}
+	})
+	
+</script>
+</html>

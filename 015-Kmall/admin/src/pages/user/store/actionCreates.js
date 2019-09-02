@@ -1,51 +1,48 @@
-const axios = require('axios');
-import * as types from './actionTypes.js'
+import * as types from './actionTypes.js';
+import { request } from 'util/index.js';
+import { GET_PAGES } from 'api/index.js';
 
 
-export const getAddActions = ()=>{
+const getRequestAction = ()=>{
 	return {
-		type:types.ADD_ITEM
+		type:types.DATA_LOADING
+	}
+}
+const getRequestDoneAction = ()=>{
+	return {
+		type:types.DATA_DONE
 	}
 }
 
-export const getChangeActions = (val)=>{
+export const setPageAction = (data)=>{
 	return {
-		type:types.CHANGE_ITEM,
-		payload:val
-	}
-}
-
-export const getDeleteActions = (index)=>{
-	return {
-		type:types.DELETE_ITEM,
-		payload:index
-	}
-}
-
-export const getDataActions = (data)=>{
-	return {
-		type:types.LOAD_DATA,
+		type:types.SET_PAGES,
 		payload:data
 	}
 }
 
-export const getInitDataActions = ()=>{
+export const getPageAction = (page)=>{
 	return (dispatch)=>{
-		//发送请求
-		// Make a request for a user with a given ID
-		axios.get('http://127.0.0.1:3000')
-		.then(function (response) {
-		    // 拿到数据,派发action
-		    // console.log(response.data);
-		    const action = getDataActions(response.data);
-			dispatch(action);
+		//请求数据前显示loading图标
+		dispatch(getRequestAction());
+		request({
+			url:GET_PAGES,
+			data:{
+				page:page
+			}
 		})
-		.catch(function (error) {
-		    // handle error
-		    console.log(error);
+		.then(result=>{
+			//获取到后台数据库中用户所有信息,接下来就是改变store中数据
+			// console.log(result)
+			if(result.code == 0){
+				dispatch(setPageAction(result.data))
+			}
 		})
-		.finally(function () {
-		    // always executed
-		});
+		.catch(err=>{
+			console.log(err)
+		})
+		.finally(()=>{
+			dispatch(getRequestDoneAction());
+		})
 	}
 }

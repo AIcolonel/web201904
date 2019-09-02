@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>012-v-bind-style绑定属性.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		p{
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 
+		绑定属性:将vue实例中的某个属性绑定到dom节点上
+		v-bind:可以省略v-bind只用一个:
+		style属性的绑定有特殊的处理
+	 -->
+	<div id="root">
+		<p>我是文字</p>
+		<p style="color: red;background-color: gold">style="color: red;background-color: gold"</p>
+		<p :style="{backgroundColor:'gold',color:'red'}">:style="{backgroundColor:'gold',color:'red'}"</p>
+		<p :style="{backgroundColor:bg,color:cl}">:style="{backgroundColor:bg,color:cl}"</p>
+		<p :style="[{backgroundColor:bg},{color:cl}]">:style="[{backgroundColor:bg},{color:cl}]"</p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	//生成一个Vue实例,可以调用上面的方法
+	//vm是vueModel的缩写
+	var vm = new Vue({
+		el:'#root',
+		data:{
+			bg:'green',
+			cl:'red'
+		}
+	})
+	
+</script>
+</html>

@@ -9,6 +9,12 @@ const defaultState = fromJS({
 })
 
 export default ((state=defaultState,action)=>{
-	
+	if(action.type == types.SET_COUNT){
+		return state.merge({
+			usernum:action.payload.usernum,
+			productnum:action.payload.productnum,
+			ordernum:action.payload.ordernum
+		})
+	}
 	return state;
 })

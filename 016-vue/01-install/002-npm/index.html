@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue</title>
+</head>
+<body>
+	<div id="root">
+		{{ content }}
+	</div>
+</body>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+	let vx = new Vue({
+		el:'#root',
+		data:{
+			content:'hello Vue'
+		}
+	})
+	console.log(vx);
+</script>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue</title>
+</head>
+<body>
+	<div id="root">
+		<h1 ref='title'>
+			{{ content }}
+		</h1>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	//生成一个Vue实例,可以调用上面的方法
+	//vm是vueModel的缩写
+	var vm = new Vue({
+		el:'#root',
+		data:{
+			content:'hello vue'
+		}
+	})
+	console.log(vm.$data.content);
+	console.log(vm.$el)
+	console.log(vm.$refs.title)
+
+	vm.$watch('content',function(){
+		console.log('content has been changed')
+	})
+
+	vm.$destroy()
+</script>
+</html>

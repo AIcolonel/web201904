@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>013-v-on绑定事件.html</title>
+</head>
+<body>
+	<div id="root">
+		<button v-on:click="count++">点击了{{count}}次</button>
+		<button @click="count++">点击了{{count}}次</button>
+		<button @click="handleCount">点击了{{count}}次</button>
+		<button @click="handleCount('tom')">点击了{{count}}次</button>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el:'#root',
+		data:{
+			count:0
+		},
+		methods:{
+			handleCount(name){
+				console.log(name)
+				this.count++
+			}
+		}
+	})
+</script>
+</html>

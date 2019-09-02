@@ -1,9 +1,3 @@
-/*
- * @Author: TomChen
- * @Date:   2018-08-04 17:14:00
- * @Last Modified by:   Tom
- * @Last Modified time: 2019-07-04 15:09:39
- */
 const mongoose = require('mongoose');
 const pagination = require('../util/pagination.js');
 const { unlimitedForTree } = require('../util/unlimitedCategory.js');
@@ -41,7 +35,7 @@ CategorySchema.statics.getPaginationCategories = function(page=1, query = {}) {
         .find({}, '-createdAt -updatedAt -__v')
         .sort({ order: -1 })
         .then(categories => {
-            const pageSize = 2;
+            const pageSize = 10;
             /*
                 第 1 页: 0 2
                 第 2 页: 2 2

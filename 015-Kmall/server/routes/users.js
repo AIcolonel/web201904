@@ -10,11 +10,29 @@ const hmac = require('../util/hmac.js')
 const router = Router();
 
 //模拟注册信息
+/*
 router.get('/init',(req,res)=>{
 	UserModel
 	.insertMany({username:"admin",password:hmac("admin"),isAdmin:true})
 	.then(data=>{
 		res.json(data)
+	})
+})
+*/
+router.get('/init',(req,res)=>{
+	const userlist = [];
+	for(let i =0;i<500;i++){
+		userlist.push({
+			username:'test'+i,
+			password:hmac('test'+i),
+			email:'test'+i+'@kuazhu.com',
+			phone:'13546879'+parseInt(Math.random()*10000)
+		})
+	}
+	UserModel
+	.insertMany(userlist)
+	.then(result=>{
+		res.send('insert user ok')
 	})
 })
 
@@ -138,7 +156,7 @@ router.get('/list',(req,res)=>{
 		model:UserModel, //操作的数据模型
 		query:{}, //查询条件
 		projection:'-password -__v -updatedAt', //投影
-		sort:{_id:-1} //排序
+		sort:{_id:1} //排序
 	}
 	pagination(options)
 	.then((result)=>{

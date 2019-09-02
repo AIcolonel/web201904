@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue</title>
+</head>
+<body>
+	<div id="root">
+		<h1 ref='title'>
+			{{ content }}
+		</h1>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	//生成一个Vue实例,可以调用上面的方法
+	//vm是vueModel的缩写
+	var vm = new Vue({
+		el:'#root',
+		data:{
+			content:'hello vue'
+		},
+		beforeCreate(){
+			console.log('beforeCreate');
+
+			console.log('this.$data',this.$data);//undefined
+			console.log('this.$el',this.$el)//undefined
+			console.log('this.$refs.title',this.$refs.title)//undefined
+		},
+		created(){
+			console.log('created');
+
+			console.log('this.$data',this.$data);//object
+			console.log('this.$el',this.$el)//undefined
+			console.log('this.$refs.title',this.$refs.title)//undefined
+		},
+		beforeMount(){
+			console.log('beforeMount');
+
+			console.log('this.$data',this.$data);//object
+			console.log('this.$el',this.$el)//object
+			console.log('this.$refs.title',this.$refs.title)//undefined
+		},
+		mounted(){
+			console.log('mounted');
+
+			console.log('this.$data',this.$data);//object
+			console.log('this.$el',this.$el)//object
+			console.log('this.$refs.title',this.$refs.title)//object
+		},
+		beforeUpdate(){
+			console.log('beforeUpdate');
+		},
+		updated(){
+			console.log('updated');
+		},
+		beforeDestroy(){
+			console.log('beforeDestroy');
+		},
+		destroyed(){
+			console.log('destroyed');
+		}
+	})
+	
+</script>
+</html>

@@ -1,4 +1,3 @@
-const axios = require('axios');
 import { message } from 'antd';
 import * as types from './actionTypes.js';
 import { request,setUsername } from 'util/index.js';

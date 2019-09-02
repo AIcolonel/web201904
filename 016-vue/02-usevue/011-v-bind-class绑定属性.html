@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>011-v-bind-class绑定属性.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		p{
+			margin-top: 10px;
+		}
+		.active{
+			background-color: gold;
+		}
+		.error{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<!-- 
+		绑定属性:将vue实例中的某个属性绑定到dom节点上
+		v-bind:可以省略v-bind只用一个:
+		class属性的绑定有特殊的处理
+	 -->
+	<div id="root">
+		<p>我是文字</p>
+		<p v-bind:class="{active:true,error:true}">v-bind:class="{active:true,error:true}"</p>
+		<p :class="objClass">:class="objClass"</p>
+		<p :class="['active','error']">:class="[active,error]"</p>
+		<p :class="arrClass">:class="arrClass"</p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	//生成一个Vue实例,可以调用上面的方法
+	//vm是vueModel的缩写
+	var vm = new Vue({
+		el:'#root',
+		data:{
+			objClass:{
+				active:true,
+				error:false
+			},
+			arrClass:['active','error']
+		}
+	})
+	
+</script>
+</html>

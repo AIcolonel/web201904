@@ -1,9 +1,4 @@
-/*
-* @Author: TomChen
-* @Date:   2018-08-04 17:14:00
-* @Last Modified by:   Tom
-* @Last Modified time: 2019-07-11 11:18:14
-*/
+
 const mongoose = require('mongoose');
 const pagination = require('../util/pagination.js');
 

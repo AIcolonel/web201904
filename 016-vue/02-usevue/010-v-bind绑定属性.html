@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>010-v-bind绑定属性.html</title>
+</head>
+<body>
+	<!-- 
+		绑定属性:将vue实例中的某个属性绑定到dom节点上
+		v-bind:可以省略v-bind只用一个:
+	 -->
+	<div id="root">
+		<a href="https://www.baidu.com">百度</a>
+		<a v-bind:href="url">百度</a>
+		<a :href="url">百度</a>
+		<!-- <a href="{{url}}">百度</a> -->
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	//生成一个Vue实例,可以调用上面的方法
+	//vm是vueModel的缩写
+	var vm = new Vue({
+		el:'#root',
+		data:{
+			url:'https://www.baidu.com'
+		}
+	})
+	
+</script>
+</html>

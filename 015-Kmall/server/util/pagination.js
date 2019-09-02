@@ -1,12 +1,4 @@
 /*
-* @Author: TomChen
-* @Date:   2018-08-09 10:22:53
-* @Last Modified by:   Tom
-* @Last Modified time: 2019-06-25 18:05:58
-*/
-
-
-/*
 options = {
 	page: //需要显示的页码
 	model: //操作的数据模型
@@ -33,7 +25,7 @@ let pagination = (options)=>{
 		}
 
 		//每页显示条数
-		let limit = options.pageSize || 2;
+		let limit = options.pageSize || 10;
 
 		/*
 		分页:

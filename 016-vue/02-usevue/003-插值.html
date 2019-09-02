@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>003-插值.html</title>
+</head>
+<body>
+	<!-- 
+		v-text:插入文本和直接用{{}}结果一样
+		v-html:插入HTML,默认情况下会将html标签当做文本解析
+		v-once:只插入一次该数据,就算数据发生变化该值也不会再发生变化
+	-->
+	<div id="root">
+		<h1 ref='title'>
+			{{ content }}
+		</h1>
+		<p v-text='content'></p>
+		<p v-once>{{content}}</p>
+		<p>{{insHtml}}</p>
+		<p v-html='insHtml'></p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	//生成一个Vue实例,可以调用上面的方法
+	//vm是vueModel的缩写
+	var vm = new Vue({
+		el:'#root',
+		data:{
+			content:'hello vue',
+			insHtml:'<h2>我是二级标题</h2>'
+		}
+	})
+	
+</script>
+</html>

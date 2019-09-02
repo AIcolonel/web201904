@@ -2,10 +2,14 @@ import React,{Component,Fragment} from 'react';
 import './index.css';
 import { Card, Col, Row } from 'antd';
 import { connect } from 'react-redux';
+import {actionCreaters} from './store/index.js';
 import AdminLayout from 'common/layout/index.js';
 
 /*容器组件*/
 class Home extends Component{
+	componentDidMount(){
+		this.props.handleCount();
+	}
 	render(){
 		return (
 			<div className="Home">
@@ -45,7 +49,10 @@ const mapStateToProps = (state)=>{
 
 const mapDispatchToProps = (dispatch)=>{
 	return {
-
+		handleCount:()=>{
+			const action = actionCreaters.getCountAction();
+			dispatch(action);
+		}
 	}
 }
 

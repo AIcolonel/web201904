@@ -6,7 +6,7 @@ import { fromJS } from'immutable';
 
 //引入immutable数据格式
 const defaultState = fromJS({
-	isFething:false
+	isAddLoading:true
 })
 
 export default ((state=defaultState,action)=>{

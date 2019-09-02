@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>005-v-model双向数据绑定-修饰符.html</title>
+</head>
+<body>
+	<!-- 修饰符就是对当前数据绑定做出更加详细的处理 -->
+	<div id="root">
+		<h1 ref='title'>
+			{{ content }}
+		</h1>
+		<input type="text" v-model='content'>
+		<input type="text" v-model.lazy='content'>
+		<input type="text" v-model.number='content'>
+		<input type="text" v-model.trim='content'>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	//生成一个Vue实例,可以调用上面的方法
+	//vm是vueModel的缩写
+	var vm = new Vue({
+		el:'#root',
+		data:{
+			content:'hello vue'
+		}
+	})
+	
+</script>
+</html>

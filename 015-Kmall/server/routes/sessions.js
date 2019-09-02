@@ -1,9 +1,4 @@
-/*
-* @Author: Tom
-* @Date:   2018-08-06 09:23:30
-* @Last Modified by:   Tom
-* @Last Modified time: 2019-07-08 11:32:49
-*/
+
 const Router = require('express').Router
 
 const UserModel = require('../models/user.js')
