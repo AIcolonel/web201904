@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>038-自定义指令-局部.html</title>
+	<link rel="stylesheet" href="css/animate.css">
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		
+	</style>
+</head>
+<body>
+	<!--
+		
+	-->
+	<div id="root">
+		<input v-focus type="text">
+	</div>
+	<div id="root2">
+		<input v-focus type="text">
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	//注册自定义指令和注册组件非常相似,使用时结合注册组件记忆
+	var vm1 = new Vue({
+		el:'#root',
+		data:{
+			
+		},
+		directives: {
+		  	'focus': {
+		    	// 指令的定义
+		    	inserted: function (el) {
+		      		el.focus()
+		    	}
+		  	}
+		}
+	})
+	var vm2 = new Vue({
+		el:'#root2',
+		data:{
+			
+		}
+	})
+</script>
+</html>

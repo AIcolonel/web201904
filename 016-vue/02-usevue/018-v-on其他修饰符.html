@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>018-v-on其他修饰符.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.large-box{
+			width: 500px;
+			height: 500px;
+			margin: 0 auto;
+			overflow: hidden;
+			background-color: #ccc;
+		}
+		.big-box{
+			width: 300px;
+			height: 300px;
+			margin: 100px auto;
+			overflow: hidden;
+			background-color: red;
+		}
+		.small-box{
+			width: 100px;
+			height: 100px;
+			margin: 100px auto;
+			background-color: gold;
+		}
+	</style>
+</head>
+<body>
+	<!--
+		原生dom阻止事件冒泡:ev.stopPropagation()
+		原生dom阻止默认行为:ev.preventDefault()
+		修饰符阻止事件冒泡:.stop
+		修饰符阻止默认行为:.prevent
+		.capture 在捕获阶段执行
+		.self 只有在自身触发的事件才会执行,不会隔断冒泡,如果是事件冒泡触发则不会执行
+		.once 自身事件只触发一次,冒泡不会停止
+	-->
+	<div id="root">
+		<div class="large-box" @click="clickLarge()">
+			<div class="big-box" @click.self="clickBig()">
+				<div class="small-box" @click="clickSmall($event)"></div>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el:'#root',
+		data:{
+			
+		},
+		methods:{
+			clickSmall(ev){
+				console.log('click small box')
+			},
+			clickBig(ev){
+				console.log('click big box')
+			},
+			clickLarge(ev){
+				console.log('click large box')
+			},
+		}
+	})
+</script>
+</html>

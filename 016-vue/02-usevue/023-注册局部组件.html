@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>023-注册局部组件.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+<body>
+	<!--
+		
+	-->
+	<div id="root1">
+		<button-counte></button-counte>
+		<button-counte></button-counte>
+		<button-counte></button-counte>
+	</div>
+	<div id="root2">
+		<button-counte></button-counte>
+		<button-counte></button-counte>
+		<button-counte></button-counte>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	// 注册局部组件就是在vue实例中的components中进行注册,那么注册完成的组件只能够当前实例使用,别的实例不能使用
+	var vm1 = new Vue({
+		el:'#root1',
+		data:{
+			
+		},
+		components:{
+			'button-counte':{
+				data(){
+					return {
+						count:0
+					}
+				},
+				template: '<button @click="count++">我被点击了 {{ count }} 次</button>'
+			}
+		}
+	})
+	var vm2 = new Vue({
+		el:'#root2',
+		data:{
+			
+		}
+	})
+</script>
+</html>

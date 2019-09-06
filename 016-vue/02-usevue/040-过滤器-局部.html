@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>040-过滤器-局部.html</title>
+	<link rel="stylesheet" href="css/animate.css">
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		
+	</style>
+</head>
+<body>
+	<!--
+		
+	-->
+	<div id="root">
+		<p :title="price | formatPrice">{{price | formatPrice}}</p>
+	</div>
+	<div id="root2">
+		<p>{{price | formatPrice}}</p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	// 注册一个全局自定义过滤器
+	// toFixed方法保留两位小数
+	//!!!注意:当既有全局和局部过滤器时,并且产生冲突,局部优先级高
+	Vue.filter('formatPrice', function (price) {
+		return '$'+price.toFixed(3);
+	})
+	var vm1 = new Vue({
+		el:'#root',
+		data:{
+			price:10
+		},
+		//注册局部过滤器,只能在当前组件使用
+		filters:{
+			'formatPrice':function(price){
+				return '$'+price.toFixed(2);
+			}
+		}
+	})
+	var vm2 = new Vue({
+		el:'#root2',
+		data:{
+			price:30
+		}
+	})
+</script>
+</html>

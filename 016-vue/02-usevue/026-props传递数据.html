@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>026-props传递数据.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+<body>
+	<!--
+		
+	-->
+	<div id="root">
+		<ul>
+			<todo-list msg="睡觉"></todo-list>
+			<todo-list msg="吃饭"></todo-list>
+			<todo-list msg="打豆豆"></todo-list>
+		</ul>
+	</div>
+	
+
+	<!--注册组件的模板,需要定义在Vue所属的 DOM 元素外-->
+
+	<template id="todo-list">
+		<li>{{msg}}</li>
+	</template>
+	
+</body>
+<script src="js/vue.js"></script>
+<script>
+	// 传递数据步骤:1.数据在哪里开始传递
+	// 2.数据在哪里接收
+	// 3.怎样将接收数据应用到组件中
+	var TodoList = Vue.extend({
+		data(){
+			return {
+				
+			}
+		},
+		template: '#todo-list',
+		//接收数据
+		// props:["msg"]
+		props:{
+			msg:String
+		}
+	})
+	Vue.component('todo-list',TodoList);
+
+
+
+	var vm1 = new Vue({
+		el:'#root',
+		data:{
+			
+		}
+	})
+</script>
+</html>

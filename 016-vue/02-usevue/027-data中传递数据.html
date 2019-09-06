@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>027-data中传递数据.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+<body>
+	<!--
+		
+	-->
+	<div id="root">
+		<ul>
+			<!-- <todo-list v-bind:msg="msg"></todo-list> -->
+			<todo-list
+			v-for="(item,index) in message" 
+			:key="index"
+			:index="index"
+			:msg="item.msg">
+				
+			</todo-list>
+		</ul>
+	</div>
+	
+
+	<!--注册组件的模板,需要定义在Vue所属的 DOM 元素外-->
+
+	<template id="todo-list">
+		<li>{{index}}--{{msg}}</li>
+	</template>
+	
+</body>
+<script src="js/vue.js"></script>
+<script>
+	// 传递数据步骤:1.数据在哪里开始传递
+	// 2.数据在哪里接收
+	// 3.怎样将接收数据应用到组件中
+	var TodoList = Vue.extend({
+		data(){
+			return {
+				
+			}
+		},
+		template: '#todo-list',
+		//接收数据
+		// props:["msg"]
+		props:{
+			msg:String,
+			index:Number
+		}
+	})
+	Vue.component('todo-list',TodoList);
+
+
+
+	var vm1 = new Vue({
+		el:'#root',
+		data:{
+			// msg:"do something",
+			message:[
+				{
+					id:0,
+					msg:"吃饭"
+				},
+				{
+					id:1,
+					msg:"睡觉"
+				},
+				{
+					id:2,
+					msg:"打游戏"
+				}
+			]
+		}
+	})
+</script>
+</html>

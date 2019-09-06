@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>035-单元素动画.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.fade-enter-active, .fade-leave-active {
+		  	transition: opacity .5s;
+		}
+		.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+		  opacity: 0;
+		}
+	</style>
+</head>
+<body>
+	<!--
+		要想给元素添加动画效果,则用transition标签将元素包裹起来,并且利用css属性完成动画效果
+		对于这些在过渡中切换的类名来说，如果你使用一个没有名字的 <transition>，则 v- 是这些类名的默认前缀
+		可以通过 appear 特性设置节点在初始渲染的过渡
+	-->
+	<div id="root">
+		<button @click="show = !show">切换</button>
+		<transition name="fade" appear>
+			<p v-if="show">
+				动画切换
+			</p>
+		</transition>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm1 = new Vue({
+		el:'#root',
+		data:{
+			show:true
+		}
+	})
+</script>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>036-列表动画.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.fade-enter-active, .fade-leave-active {
+		  	transition: all 0.5s;
+		}
+		.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+		  opacity: 0;
+		  transform: translateY(10px);
+		}
+
+		.container{
+			width: 400px;
+			margin: 50px auto;
+		}
+		input{
+			width: 60%;
+			height: 40px;
+			padding-left: 10px;
+			outline: none;
+			box-sizing: border-box;
+		}
+		button{
+			width: 80px;
+			height: 40px;
+		}
+		li{
+			list-style: none;
+			width: 100%;
+			height: 40px;
+			line-height: 40px;
+			margin-top: 5px;
+			border: 1px dashed #ccc;
+		}
+	</style>
+</head>
+<body>
+	<!--
+		要想给元素添加列表动画效果,则用<transition-group>标签将元素包裹起来,并且利用css属性完成动画效果
+		对于这些在过渡中切换的类名来说，如果你使用一个没有名字的 <transition>，则 v- 是这些类名的默认前缀
+		可以通过 appear 特性设置节点在初始渲染的过渡
+		不同于 <transition>，它会以一个真实元素呈现：默认为一个 <span>。你也可以通过 tag 特性更换为其他元素。
+	-->
+	<div id="root">
+		<div class="container">
+			<input type="text" v-model="value"><button @click="add()">添加</button>
+			<transition-group name="fade" tag="ul" appear>
+				<li 
+					v-for='(item,index) in list'
+					:key="''+index"
+					@click="del(index)"
+				>
+					{{item}}
+				</li>
+			</transition-group>
+		</div>
+		
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm1 = new Vue({
+		el:'#root',
+		data:{
+			list:['看书','写字','打游戏'],
+			value:''
+		},
+		methods:{
+			add(){
+				// console.log(this.value)
+				this.list.push(this.value)
+				this.value = "";
+			},
+			del(index){
+				// console.log(index)
+				this.list.splice(index,1);
+			}
+		}
+	})
+</script>
+</html>

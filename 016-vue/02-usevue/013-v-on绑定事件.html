@@ -5,6 +5,9 @@
 	<title>013-v-on绑定事件.html</title>
 </head>
 <body>
+	<!-- 
+		监听事件两种写法:v-on:或者@,后面加上事件名称 
+	-->
 	<div id="root">
 		<button v-on:click="count++">点击了{{count}}次</button>
 		<button @click="count++">点击了{{count}}次</button>

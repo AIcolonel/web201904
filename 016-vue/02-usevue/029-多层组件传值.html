@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>029-多层组件传值.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+<body>
+	<!--
+		!!!注意点:Prop 的大小写 (camelCase 和 kebab-case)
+		HTML 中的特性名是大小写不敏感的，所以浏览器会把所有大写字符解释为小写字符。
+		这意味着当使用 DOM 中的模板时，camelCase (驼峰命名法) 的 prop 名需要使用其等价的 kebab-case (短横线分隔命名) 命名：
+
+		Vue.component('blog-post', {
+		  // 在 JavaScript 中是 camelCase 的
+		  props: ['postTitle'],
+		  template: '<h3>{{ postTitle }}</h3>'})
+		 
+		在HTML 中，需要将组件的属性 postTitle 改成 post-title。
+
+		在 HTML 中是 kebab-case 的
+		<blog-post post-title="hello!"></blog-post>
+	-->
+	<div id="root">
+		<ul>
+			<todo-list
+				v-for="(item,index) in items"
+				:key="index"
+				:task="item.task"
+				:dateline="item.dateline"
+			>
+				
+			</todo-list>
+		</ul>
+	</div>
+	
+
+	<!--注册组件的模板,需要定义在Vue所属的 DOM 元素外-->
+
+	<template id="todo-list">
+		<li>
+			<task :task="task"></task>
+			<date-line :dateline="dateline"></date-line>
+		</li>
+		
+	</template>
+	
+	<template id="task">
+		<span>{{tag}}--{{task}}</span>
+	</template>
+	<template id="date-line">
+		<span>{{dateDone}}--{{dateline}}</span>
+	</template>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	// todo-list组件中有两个子组件
+	var Task = Vue.extend({
+		data(){
+			return {
+				tag:"任务"
+			}
+		},
+		template: '#task',
+		//接收数据
+		props:{
+			task:String
+		}
+	})
+	var DateLine = Vue.extend({
+		data(){
+			return {
+				dateDone:"截止时间"
+			}
+		},
+		template: '#date-line',
+		//接收数据
+		props:{
+			dateline:String
+		}
+	})
+
+	// 传递数据步骤:1.数据在哪里开始传递
+	// 2.数据在哪里接收
+	// 3.怎样将接收数据应用到组件中
+	var TodoList = Vue.extend({
+		data(){
+			return {
+				
+			}
+		},
+		template: '#todo-list',
+		//接收数据
+		props:{
+			task:String,
+			dateline:String
+		},
+		components:{
+			"task":Task,
+			"date-line":DateLine
+		}
+	})
+	Vue.component('todo-list',TodoList);
+
+
+
+	var vm1 = new Vue({
+		el:'#root',
+		data:{
+			items:[
+				{
+					task:"打游戏",
+					dateline:"今天早上"
+				},
+				{
+					task:"学习编程",
+					dateline:"永远"
+				}
+			]
+		}
+	})
+</script>
+</html>

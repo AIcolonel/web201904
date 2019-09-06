@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>036-自定义动画类.html</title>
+	<link rel="stylesheet" href="css/animate.css">
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		
+	</style>
+</head>
+<body>
+	<!--
+		自定义过渡类需要引入第三方css库,并且用法是必须加上animated类,具体动画实现方式参考'https://daneden.github.io/animate.css/'
+	-->
+	<div id="root">
+		<button @click="show = !show">切换</button>
+		<transition
+		    name="custom-classes-transition"
+		    enter-active-class="animated slideOutDown"
+		    leave-active-class="animated slideOutUp"
+		    appear
+		>
+			<p v-if="show">
+				动画切换
+			</p>
+		</transition>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm1 = new Vue({
+		el:'#root',
+		data:{
+			show:true
+		}
+	})
+</script>
+</html>

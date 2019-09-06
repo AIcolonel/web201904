@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>031-插槽.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+<body>
+	<!--
+		当模板中没有做任何改动时则使用template中默认插槽
+		当在模板中对对应的插槽做出改变是则优先级高
+	-->
+	<div id="root">
+		<layout>
+			<div slot="focus">首页焦点区域</div>
+			<div slot="content">首页内容区域</div>
+		</layout>
+	</div>
+	
+
+	<!--注册组件的模板,需要定义在Vue所属的 DOM 元素外-->
+
+	<template id="layout">
+		<div>
+			<nav>导航区域</nav>
+			<slot name="focus">焦点区域</slot>
+			<slot name="content">内容区域</slot>
+			<footer>底部区域</footer>
+		</div>
+		
+	</template>
+	
+</body>
+<script src="js/vue.js"></script>
+<script>
+	Vue.component('layout',{
+		data(){
+			return {
+				
+			}
+		},
+		template: '#layout',
+	})
+	var vm1 = new Vue({
+		el:'#root',
+		data:{
+			
+		}
+	})
+</script>
+</html>

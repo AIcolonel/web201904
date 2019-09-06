@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>034-动态组件-状态保持.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		button{
+			width: 80px;
+			height: 40px;
+			margin-right: 10px;
+		}
+		li{
+			list-style: none;
+		}
+		.content-wrap{
+			display: flex;
+			flex-direction: row;
+		}
+		.active{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<!--
+		
+	-->
+	<div id="root">
+		<button 
+		v-for="tab in tabs"
+		@click="currentTab = tab"
+		>{{tab}}</button>
+
+		<keep-alive>
+			<component :is="currentComponent"></component>
+		</keep-alive>
+	</div>
+	<!--注册组件的模板,需要定义在Vue所属的 DOM 元素外-->
+
+	<template id="tab-home">
+		<div>home</div>
+	</template>
+	<template id="tab-articles">
+		<div class="content-wrap">
+			<ul>
+				<li
+					v-for="article in articles"
+					@click="selectArticle = article"
+					:class="{active:selectArticle == article}"
+				>
+					{{article.title}}
+				</li>
+			</ul>
+			<div v-if="selectArticle" >
+				{{selectArticle.content}}
+			</div>
+		</div>
+	</template>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	Vue.component('tab-home',{
+		data(){
+			return {
+				
+			}
+		},
+		template: '#tab-home',
+	})
+	Vue.component('tab-articles',{
+		data(){
+			return {
+				articles:[
+					{
+						title:'vue介绍',
+						content:'vue是一个视图层框架'
+					},
+					{
+						title:'react介绍',
+						content:'react也是一个视图层框架'
+					}
+				],
+				selectArticle:null
+			}
+		},
+		template: '#tab-articles',
+	})
+	var vm1 = new Vue({
+		el:'#root',
+		data:{
+			currentTab:'home',
+			tabs:['home','articles'],
+		},
+		computed:{
+			currentComponent:{
+				get(){
+					return "tab-"+this.currentTab
+				}
+			}
+		}
+
+
+	})
+</script>
+</html>

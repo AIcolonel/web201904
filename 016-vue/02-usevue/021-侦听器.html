@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>021-侦听器.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+<body>
+	<!--
+		计算属性就是相当于在computed中添加一个属性,在对应dom节点上可以通过该属性获取属性值
+		在computed中定义了一个属性之后只要是获取对应的属性值,则会触发get方法,只要是设置属性值则会触发set方法
+
+
+		侦听器用于监听属性值发生变化和实例对象上的$watch作用一致
+	-->
+	<div id="root">
+		<input type="text" v-model='fullName'>
+		<p>firstName:{{firstName}}</p>
+		<p>lastName:{{lastName}}</p>
+		<p>fullName:{{fullName}}</p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el:'#root',
+		data:{
+			firstName:'tom',
+			lastName:'chen'
+		},
+		methods:{
+			getFullName(){
+				return this.firstName + " " + this.lastName;
+			}	
+		},
+		computed:{
+			/*
+			fullName(){
+				return this.firstName + " " + this.lastName;
+			}
+			*/
+			fullName:{
+				get(){
+					// console.log('do this ')
+					return this.firstName + " " + this.lastName;
+				},
+				set(newValue){
+					// console.log(newValue)
+					var arr = newValue.split(' ');
+					console.log(arr)
+					this.firstName = arr[0];
+					this.lastName = arr[arr.length-1];
+				}
+			}
+		},
+		watch:{
+			fullName(){
+				console.log('111')
+			}
+		}
+	})
+	vm.$watch('fullName',function(){
+		console.log(222)
+	})
+</script>
+</html>

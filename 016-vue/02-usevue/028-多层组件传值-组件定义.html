@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>028-多层组件传值-组件定义.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+<body>
+	<!--
+		
+	-->
+	<div id="root">
+		<ul>
+			<todo-list></todo-list>
+		</ul>
+	</div>
+	
+
+	<!--注册组件的模板,需要定义在Vue所属的 DOM 元素外-->
+
+	<template id="todo-list">
+		<li>
+			<task></task>
+			<date-line></date-line>
+		</li>
+		
+	</template>
+	
+	<template id="task">
+		<span>{{tag}}--吃饭</span>
+	</template>
+	<template id="date-line">
+		<span>{{dateDone}}--今天中午</span>
+	</template>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	// todo-list组件中有两个子组件
+	var Task = Vue.extend({
+		data(){
+			return {
+				tag:"任务"
+			}
+		},
+		template: '#task',
+		//接收数据
+		props:{
+			
+		}
+	})
+	var DateLine = Vue.extend({
+		data(){
+			return {
+				dateDone:"截止时间"
+			}
+		},
+		template: '#date-line',
+		//接收数据
+		props:{
+			
+		}
+	})
+
+	// 传递数据步骤:1.数据在哪里开始传递
+	// 2.数据在哪里接收
+	// 3.怎样将接收数据应用到组件中
+	var TodoList = Vue.extend({
+		data(){
+			return {
+				
+			}
+		},
+		template: '#todo-list',
+		//接收数据
+		props:{
+			msg:String,
+			index:Number
+		},
+		components:{
+			"task":Task,
+			"date-line":DateLine
+		}
+	})
+	Vue.component('todo-list',TodoList);
+
+
+
+	var vm1 = new Vue({
+		el:'#root',
+		data:{
+			
+		}
+	})
+</script>
+</html>

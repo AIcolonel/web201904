@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>039-过滤器-全局.html</title>
+	<link rel="stylesheet" href="css/animate.css">
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		
+	</style>
+</head>
+<body>
+	<!--
+		
+	-->
+	<div id="root">
+		<p :title="price | formatPrice">{{price | formatPrice}}</p>
+	</div>
+	<div id="root2">
+		<p>{{price | formatPrice}}</p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	// 注册一个全局自定义过滤器
+	// toFixed方法保留两位小数
+	Vue.filter('formatPrice', function (price) {
+		return '$'+price.toFixed(2);
+	})
+	var vm1 = new Vue({
+		el:'#root',
+		data:{
+			price:10
+		}
+	})
+	var vm2 = new Vue({
+		el:'#root2',
+		data:{
+			price:30
+		}
+	})
+</script>
+</html>

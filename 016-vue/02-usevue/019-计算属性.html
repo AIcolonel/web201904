@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>019-计算属性.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+<body>
+	<!--
+		计算属性就是相当于在computed中添加一个属性,在对应dom节点上可以通过该属性获取属性值
+	-->
+	<div id="root">
+		<p>firstName:{{firstName}}</p>
+		<p>lastName:{{lastName}}</p>
+		<p>fullName:{{getFullName()}}</p>
+		<p>fullName:{{fullName}}</p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el:'#root',
+		data:{
+			firstName:'tom',
+			lastName:'chen'
+		},
+		methods:{
+			getFullName(){
+				return this.firstName + " " + this.lastName;
+			}	
+		},
+		computed:{
+			fullName(){
+				return this.firstName + " " + this.lastName;
+			}
+		}
+	})
+</script>
+</html>

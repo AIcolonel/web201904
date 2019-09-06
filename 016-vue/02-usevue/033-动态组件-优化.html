@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>033-动态组件-优化.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+<body>
+	<!--
+		
+	-->
+	<div id="root">
+		<button 
+		v-for="tab in tabs"
+		@click="currentTab = tab"
+		>{{tab}}</button>
+		<component :is="currentComponent"></component>
+	</div>
+	<!--注册组件的模板,需要定义在Vue所属的 DOM 元素外-->
+
+	<template id="tab-home">
+		<div>home</div>
+	</template>
+	<template id="tab-articles">
+		<div>articles</div>
+	</template>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	Vue.component('tab-home',{
+		data(){
+			return {
+				
+			}
+		},
+		template: '#tab-home',
+	})
+	Vue.component('tab-articles',{
+		data(){
+			return {
+				
+			}
+		},
+		template: '#tab-articles',
+	})
+	var vm1 = new Vue({
+		el:'#root',
+		data:{
+			currentTab:'home',
+			tabs:['home','articles'],
+		},
+		computed:{
+			currentComponent:{
+				get(){
+					return "tab-"+this.currentTab
+				}
+			}
+		}
+
+
+	})
+</script>
+</html>
