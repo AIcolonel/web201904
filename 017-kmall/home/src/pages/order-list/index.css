@@ -1,0 +1,138 @@
+/*
+* @Author: TomChen
+* @Date:   2019-08-21 17:54:02
+* @Last Modified by:   TomChen
+* @Last Modified time: 2019-08-28 15:35:59
+*/
+
+.product-title li,
+.product-item li,
+.product-footer li{
+    float: left;
+}
+.product-title,
+.product-item,
+.product-footer{
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.product-title {
+    height: 40px;
+    line-height: 40px;
+    background-color: #ddd;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.product-item {
+    height: 80px;
+    line-height: 80px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+}
+
+.product-item .product-info img{
+    width: 60px;
+    height: 60px;
+    vertical-align: middle;
+}
+
+.product-item  .product-totalPrice{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.product-footer{
+    height: 60px;
+    line-height: 60px;
+    background-color: #ddd;
+    color: #666;    
+}
+
+.product-footer .product-submit{
+    float: right;
+}
+.product-footer .product-submit .btn-submit{
+    height: 60px;
+    line-height: 60px;
+    width: 100px;   
+}
+.product-footer .product-submit  .total-price{
+    display: inline-block;
+    line-height: 60px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #f21;
+    margin-right: 20px;
+}
+.product-footer .product-submit .total-price-text{
+    position: relative;
+    top:-2px;
+}
+.panel{
+    padding: 10px;
+    background-color: #fff;
+}
+.panel-header{
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    color: #666;
+    border-bottom: 1px solid #fafafa;
+}
+.pandel-body{
+    padding: 10px;
+    overflow: hidden;
+}
+
+/*
+订单
+*/
+
+.order-list .product-info{
+    width: 70%;
+}
+.order-list .product-price{
+    width: 10%;
+}
+.order-list .product-count{
+    width: 10%;
+}
+.order-list .product-totalPrice{
+    width: 10%;
+}
+
+.order-list .product-item{
+    margin-bottom: 0px;
+    margin-top: -1px;
+}
+
+.order-list .order-title{
+    margin-top: 20px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #fafafa;
+    padding: 0 10px;
+}
+.order-list .order-title li{
+    float: left;
+    margin-right: 10px;
+    color: #666;
+}
+.order-list .order-title li.order-payment .text{
+    color: #f21;
+    font-size: 14px;
+    font-weight: bold;
+}
+.order-list .order-title li.order-detail{
+    float: right;
+}
+
+.order-list .order-title li.order-shipping-name .text{
+    width: 100px;
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: middle;
+    text-overflow: ellipsis;
+}

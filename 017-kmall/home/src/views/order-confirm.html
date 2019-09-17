@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <%= require('html-loader!./common/meta.html') %>
+    <title>
+        <%= htmlWebpackPlugin.options.title %>
+    </title>
+</head>
+<body>
+    <%= require('html-loader!./common/nav.html') %>
+    <%= require('html-loader!./common/search.html') %>
+    <div class="order-confirm">
+        <div class="container">
+            <div class="crumb">
+                <a href="/" class="link">首页</a>
+                <i class="fa fa-angle-right"></i>
+                <span class="link-text">
+                    <%= htmlWebpackPlugin.options.title %> 
+                </span>
+            </div>
+        </div>      
+        <div class="container clearfix">
+            <div class="shipping-box">
+                <!--
+                <div class="panel">
+                    <h2 class="panel-header">送货地址</h2>
+                    <div class="pandel-body">
+    
+                        <div class="shipping-item active" data-shipping-id="111">                       
+                            <h3 class="shipping-title">北京 北京(张三)</h3>
+                            <p class="shipping-detail">
+                                北京 北京 天安门 13512344321
+                            </p>
+                            <div class="shipping-footer">
+                                <span class="link shipping-edit">编辑</span>
+                                <span class="link shipping-delete">删除</span>
+                            </div>
+                        </div>
+                        <div class="shipping-item" data-shipping-id="111">                      
+                            <h3 class="shipping-title">北京 北京(张三)</h3>
+                            <p class="shipping-detail">
+                                北京 北京 天安门 13512344321
+                            </p>
+                            <div class="shipping-footer">
+                                <span class="link shipping-edit">编辑</span>
+                                <span class="link shipping-delete">删除</span>
+                            </div>
+                        </div>                      
+                        <div class="shipping-add">
+                            <i class="fa fa-plus"></i>
+                            <p class="shipping-add-text">添加新地址</p>
+                        </div>
+                    </div>
+                </div>
+                -->
+            </div>
+            <div class="product-box">
+                <!--
+                <div class="panel">
+                    <h2 class="panel-header">商品清单</h2>
+                    <div class="pandel-body">
+                        <ul class="product-title clearfix">
+                            <li class="product-info">
+                                商品
+                            </li>
+                            <li class="product-price">
+                                单价
+                            </li>
+                            <li class="product-count">
+                                数量
+                            </li>
+                            <li class="product-totalPrice">
+                                小计
+                            </li>
+                        </ul>
+                        <ul class="product-item" data-product-id="1234">
+                            <li class="product-info text-ellipsis">
+                                <a href="./detail.html?productId=1234" class="link" target="_blank">
+                                    <img src="" alt="">
+                                    <span>手机</span>
+                                </a>
+                            </li>
+                            <li class="product-price">
+                                ￥12
+                            </li>
+                            <li class="product-count">
+                                2
+                            </li>
+                            <li class="product-totalPrice">
+                                ￥12
+                            </li>   
+                        </ul>
+                        <ul class="product-item" data-product-id="1234">
+                            <li class="product-info text-ellipsis">
+                                <a href="./detail.html?productId=1234" class="link" target="_blank">
+                                    <img src="" alt="">
+                                    <span>手机</span>
+                                </a>
+                            </li>
+                            <li class="product-price">
+                                ￥12
+                            </li>
+                            <li class="product-count">
+                                2
+                            </li>
+                            <li class="product-totalPrice">
+                                ￥12
+                            </li>   
+                        </ul>                       
+                        <ul class="product-footer">
+                            <li class="product-submit">
+                                <span class="total-price-text">总价:</span>
+                                <span class="total-price">￥88</span>
+                                <a href="javascript:;" class="btn btn-submit">去支付</a>
+                            </li>
+                        </ul>       
+                    </div>
+                </div>
+                -->
+            </div>
+            <div class="modal-box">
+                <!--
+                <div class="modal close">
+                    <div class="modal-container">
+                        <div class="modal-header">
+                            <h2 class="modal-title">新增地址</h2>
+                            <i class="fa fa-close close-icon close"></i>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form">
+                                <div class="form-box">
+                                    <div class="error-item">
+                                        <i class="fa fa-minus-circle error-icon"></i>
+                                        <p class="error-msg">error</p>
+                                    </div>
+                                    <div class="form-item">
+                                        <label for="" class="form-lable">
+                                            <i class="fa fa-user"></i>
+                                        </label>
+                                        <input type="text" class="form-content" name="name" placeholder="请输入收货人姓名" >
+                                    </div>
+                                    <div class="form-item city-item">
+                                        <label for="" class="form-lable">
+                                            <i class="fa fa-building"></i>
+                                        </label>
+                                        <select name="province" class="province-select">
+                                            <option value="">请选择</option>
+                                        </select>
+                                        <select name="city" class="city-select">
+                                            <option value="">请选择</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-item">
+                                        <label for="" class="form-lable">
+                                            <i class="fa fa-map-marker"></i>
+                                        </label>
+                                        <input type="text" class="form-content" name="address" placeholder="请输入详细地址到门牌号" >
+                                    </div>
+                                    <div class="form-item">
+                                        <label for="" class="form-lable">
+                                            <i class="fa fa-phone"></i>
+                                        </label>
+                                        <input type="text" class="form-content" name="phone" placeholder="请输入手机号" >
+                                    </div>
+                                    <div class="form-item">
+                                        <label for="" class="form-lable">
+                                            <i class="fa fa-envelope"></i>
+                                        </label>
+                                        <input type="text" class="form-content" name="zip" placeholder="请输入邮编,如100001" >
+                                    </div>      
+                                    <div class="btn-item">
+                                        <a href="javascript:;" class="btn btn-submit" id="btn-submit">提交</a>
+                                    </div>  
+                                </div>                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                -->
+            </div>          
+        </div>
+    </div>
+    <%= require('html-loader!./common/footer.html') %>
+</body>
+</html>

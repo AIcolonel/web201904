@@ -19,6 +19,7 @@
 <script>
 
 //导出组件
+import {DEL_TODO} from '../store/types.js'
 export default {
     name: 'Item',
     data(){
@@ -40,14 +41,14 @@ export default {
         handleDel(){
             // console.log(this.index)
             if(window.confirm('你确定要删除'+this.todo.msg+'选项吗?')){
-                this.delTodo(this.index)
+                //派发action删除该条数据
+                this.$store.dispatch(DEL_TODO,this.inex)
             }
         }
     },
     props:{
         todo:Object,
         index:Number,
-        delTodo:Function
     }
 }
 </script>

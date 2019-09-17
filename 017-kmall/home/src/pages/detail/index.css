@@ -1,0 +1,138 @@
+/*
+* @Author: TomChen
+* @Date:   2019-08-21 17:54:02
+* @Last Modified by:   TomChen
+* @Last Modified time: 2019-08-25 17:18:45
+*/
+.product-intro{
+    margin-bottom: 20px;
+}
+.product-img{
+    float: left;
+    width: 440px;
+    margin-right: 20px;
+}
+.product-main-img{
+    width: 440px;
+    height: 440px;
+    box-sizing: border-box;
+    border: 1px solid #999; 
+    margin-bottom: 10px;
+}
+.product-main-img img{
+    width: 100%;
+    height: 100%;
+}
+
+.product-small-img-item{
+    float: left;
+    width: 80px;
+    height: 80px;
+    margin-right: 10px;
+    border: 1px solid #999; 
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.product-small-img-item.active{
+    border-color: #f21;
+}
+.product-small-img-item img{
+    width: 100%;
+    height: 100%;
+}
+.product-small-img-item:last-child{
+    margin-right: 0px;
+}
+.product-info{
+    float: left;
+    width: 620px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+.product-info .product-name{
+    font-size: 18px;
+    font-weight: bold;
+    height: 60px;
+    line-height: 30px;
+}
+.product-info .product-description{
+    font-size: 14px;
+    height: 40px;
+    line-height: 19px;
+    color: #f21;
+    margin-bottom: 15px;
+}
+.product-info .product-info-item{
+    height: 40px;
+    line-height: 40px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    padding-left: 10px;
+}
+.product-info .product-info-item.product-price{
+    background-color: #ddd;
+}
+.product-info .product-info-item.product-price .info{
+    color: #f21;
+}
+.product-info .product-count .count-input{
+    width: 40px;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    outline: none;
+
+}
+.product-info .product-info-item.product-count{
+    position: relative;
+}
+.product-info .product-info-item.product-count .count-btn{
+    position: absolute;
+    left:100px;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+}
+.product-info .product-info-item.product-count .plus{
+    top:2px;
+}
+.product-info .product-info-item.product-count .minus{
+    top:18px;
+}
+.product-info .add-cart{
+    padding-left: 10px;
+}
+.product-info .add-cart-btn{
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+}
+
+.product-detail .tab{
+
+}
+.product-detail .tab-list{
+    height: 40px;
+    line-height: 40px;
+    background-color: #ddd;
+    border-bottom: 1px solid #f21;
+}
+.product-detail .tab-item{
+    width: 80px;
+    padding: 0 10px;
+    float: left;
+    font-size: 16px;
+    font-weight: bold;
+}
+.product-detail .tab-item.active{
+    background-color: #f21;
+    color: #fff;
+}
+
+.product-detail .tab-content{
+    padding: 10px;
+    min-height: 200px;
+}

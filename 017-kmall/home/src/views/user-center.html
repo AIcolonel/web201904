@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <%= require('html-loader!./common/meta.html') %>
+    <title>
+        <%= htmlWebpackPlugin.options.title %>
+    </title>
+</head>
+<body>
+    <%= require('html-loader!./common/nav.html') %>
+    <%= require('html-loader!./common/search.html') %>
+    <div class="user-page-wrap">
+        <div class="container">
+            <div class="crumb">
+                <a href="/" class="link">首页</a>
+                <i class="fa fa-angle-right"></i>
+                <span class="link-text">
+                    <%= htmlWebpackPlugin.options.title %>
+                </span>
+            </div>
+        </div>      
+        <div class="container clearfix">
+            <!--
+            <ul class="side">
+                <li class="side-item active">
+                    <a class="link" href="./user-center.html">用户中心</a>
+                </li>
+                <li class="side-item">
+                    <a class="link" href="./order-list.html">我的订单</a>
+                </li>
+                <li class="side-item">
+                    <a class="link" href="./user-update-password.html">修改密码</a>
+                </li>                               
+            </ul>
+            -->
+            <%= require('html-loader!./common/side.html') %>
+            <div class="side-content">
+                <!--
+                <div class="form-item">
+                    <span class="label-item">用户名:</span>
+                    <span class="content-item">test</span>
+                </div>
+                <div class="form-item">
+                    <span class="label-item">邮箱:</span>
+                    <span class="content-item">test@126.com</span>
+                </div>
+                <div class="form-item">
+                    <span class="label-item">电话:</span>
+                    <span class="content-item">13412344321</span>
+                </div>
+                -->
+            </div>
+
+        </div>
+    </div>     
+    <%= require('html-loader!./common/footer.html') %>
+</body>
+</html>

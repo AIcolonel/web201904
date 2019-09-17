@@ -1,0 +1,211 @@
+/*
+* @Author: TomChen
+* @Date:   2019-08-21 17:54:02
+* @Last Modified by:   TomChen
+* @Last Modified time: 2019-08-26 15:48:43
+*/
+.product-title li,
+.product-item li,
+.product-footer li{
+    float: left;
+}
+.product-title,
+.product-item,
+.product-footer{
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.product-title {
+    height: 40px;
+    line-height: 40px;
+    background-color: #ddd;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.product-item {
+    height: 80px;
+    line-height: 80px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+}
+
+.product-item .product-info img{
+    width: 60px;
+    height: 60px;
+    vertical-align: middle;
+}
+
+.product-item  .product-totalPrice{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.product-footer{
+    height: 60px;
+    line-height: 60px;
+    background-color: #ddd;
+    color: #666;    
+}
+
+.product-footer .product-submit{
+    float: right;
+}
+.product-footer .product-submit .btn-submit{
+    height: 60px;
+    line-height: 60px;
+    width: 100px;   
+}
+.product-footer .product-submit  .total-price{
+    display: inline-block;
+    line-height: 60px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #f21;
+    margin-right: 20px;
+}
+.product-footer .product-submit .total-price-text{
+    position: relative;
+    top:-2px;
+}
+.panel{
+    padding: 10px;
+    background-color: #fff;
+}
+.panel-header{
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    color: #666;
+    border-bottom: 1px solid #fafafa;
+}
+.pandel-body{
+    padding: 10px;
+    overflow: hidden;
+}
+/*
+送货地址
+*/
+.shipping-item,
+.shipping-add{
+    float: left;
+    width: 280px;
+    margin: 0px 20px 20px 0px;
+    padding: 10px;
+    border: 4px dashed #ddd;
+    cursor: pointer;
+}
+.shipping-item.active{
+    border-color: #f21;
+}
+.shipping-title{
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px dashed #ddd;
+    font-size: 16px;
+    color: #666;
+    overflow: hidden;
+    text-overflow: ellipsis;    
+}
+.shipping-detail{
+    height: 60px;
+    line-height: 30px;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.shipping-footer{
+    text-align: right;
+    visibility: hidden;
+}
+.shipping-item:hover{
+    background-color: #fafafa;
+}
+.shipping-item:hover .shipping-footer{
+    visibility: visible;
+}
+.shipping-add{
+    height: 103px;
+    padding-top: 25px;
+    font-size: 30px;
+    text-align: center;
+    color: #eee;
+}
+/*
+商品列表
+*/
+.product-box .product-info{
+    width: 70%;
+}
+.product-box .product-price{
+    width: 10%;
+}
+.product-box .product-count{
+    width: 10%;
+}
+.product-box .product-totalPrice{
+    width: 10%;
+}
+
+.product-box .gocart-btn{
+    width: 120px;
+    display: block;
+    margin: 20px auto;
+}
+/*
+弹窗
+*/
+.modal{
+    position: fixed;
+    top:0;
+    left:0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.4);
+}
+.modal .modal-container{
+    width: 450px;
+    height: 400px;
+    padding: 10px;
+    background-color: #fff;
+    margin: 100px auto;
+}
+
+.modal .modal-header{
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+    color: #333;
+    overflow: hidden;
+}
+.modal .modal-title{
+    float: left;
+}
+.modal .close-icon{
+    float: right;
+    margin-top: 12px;
+    cursor: pointer;
+}
+.modal .close-icon:hover{
+    color: #666;
+}
+.modal .modal-body .form{
+    background-color: #fff;
+}
+.modal .modal-body .form .form-box{
+    margin: 0 auto;
+}
+.modal .modal-body .form-item.city-item{
+    border: none;
+}
+.modal .modal-body .form-item.city-item .form-lable{
+    border: 1px solid #bdbdbd;
+}
+.modal .modal-body .form-item.city-item select{
+    width: 100px;
+    margin-right: 10px;
+}

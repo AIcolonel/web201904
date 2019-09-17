@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <%= require('html-loader!./common/meta.html') %>
+    <title>
+        <%= htmlWebpackPlugin.options.title %>
+    </title>
+</head>
+<body>
+    <%= require('html-loader!./common/nav.html') %>
+    <%= require('html-loader!./common/search.html') %>
+    <div class="order-list">
+        <div class="container">
+            <div class="crumb">
+                <a href="/" class="link">首页</a>
+                <i class="fa fa-angle-right"></i>
+                <span class="link-text">
+                    <%= htmlWebpackPlugin.options.title %>
+                </span>
+            </div>
+        </div>      
+        <div class="container clearfix">
+            <!--
+            <ul class="side">
+                <li class="side-item active">
+                    <a class="link" href="./user-center.html">用户中心</a>
+                </li>
+                <li class="side-item">
+                    <a class="link" href="./order-list.html">我的订单</a>
+                </li>
+                <li class="side-item">
+                    <a class="link" href="./user-update-password.html">修改密码</a>
+                </li>                               
+            </ul>
+            -->
+            <%= require('html-loader!./common/side.html') %>
+            <div class="side-content">
+                <div class="order-box">
+                    <!--
+                    <div class="panel">
+                        <h2 class="panel-header">订单列表</h2>
+                        <div class="pandel-body">
+                            <ul class="product-title clearfix">
+                                <li class="product-info">
+                                    商品
+                                </li>
+                                <li class="product-price">
+                                    单价
+                                </li>
+                                <li class="product-count">
+                                    数量
+                                </li>
+                                <li class="product-totalPrice">
+                                    小计
+                                </li>
+                            </ul>
+                                <ul class="order-title">
+                                    <li class="order-no">
+                                        <span class="lable">订单号:</span>
+                                        <span class="text">1111</span>
+                                    </li>
+                                    <li class="order-create-time">
+                                        <span class="lable">创建时间:</span>
+                                        <span class="text">2019-10-14</span>
+                                    </li>
+                                    <li class="order-status">
+                                        <span class="lable">订单状态:</span>
+                                        <span class="text">已支付</span>
+                                    </li>
+                                    <li class="order-shipping-name">
+                                        <span class="lable">收件人:</span>
+                                        <span class="text">xxx</span>
+                                    </li>
+                                    <li class="order-payment">
+                                        <span class="lable">订单金额:</span>
+                                        <span class="text">￥50</span>
+                                    </li>
+                                    <li class="order-detail">
+                                        <a class="link" target="_blank" href="./order-detail.html?orderNo=1111">查看详情</a>
+                                    </li>                                           
+                                </ul>
+                                    <ul class="product-item">
+                                        <li class="product-info text-ellipsis">
+                                            <a href="./detail.html?productId={{productId}}" class="link" target="_blank">
+                                                <img src="{{image}}" alt="">
+                                                <span>bbb</span>
+                                            </a>
+                                        </li>
+                                        <li class="product-price">
+                                            ￥11
+                                        </li>
+                                        <li class="product-count">
+                                            1
+                                        </li>
+                                        <li class="product-totalPrice">
+                                            ￥11
+                                        </li>   
+                                    </ul>
+                        </div>
+                    </div>
+                    -->
+                </div>
+                <div class="pagination-box">    
+                </div>              
+            </div>
+
+        </div>
+    </div>     
+    <%= require('html-loader!./common/footer.html') %>
+</body>
+</html>

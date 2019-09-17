@@ -8,7 +8,6 @@
     		v-model="task"
     		@keyup.enter="handleAdd()"
     	>
-    	<button>新增</button>
     </div>
 </template>
 
@@ -16,6 +15,7 @@
 <script>
 
 //导出组件
+import {ADD_TODO} from '../store/types.js'
 export default {
     name: 'Header',
     data(){
@@ -25,7 +25,7 @@ export default {
     	}
     },
     props:{
-    	handleTodo:Function,
+    	
     },
     methods:{
     	handleAdd(){
@@ -41,7 +41,8 @@ export default {
     			done:false
     		}
     		//3.将数据对象插入到顶层App数据数组中
-    		this.handleTodo(todo);
+            //派发action到store中
+            this.$store.dispatch(ADD_TODO,todo);
     		//4.清空输入框
     		this.task = ''
     	}
@@ -67,17 +68,10 @@ export default {
 	}
 	input{
 		float: left;
-		width: 90%;
+		width: 100%;
 		height: 30px;
 		padding-left: 10px;
 		box-sizing: border-box;
 		outline: none;
-	}
-	button{
-		float: left;
-		width: 10%;
-		height: 30px;
-		text-align: center;
-		line-height: 30px;
 	}
 </style>

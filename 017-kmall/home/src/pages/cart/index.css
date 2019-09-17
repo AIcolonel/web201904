@@ -1,0 +1,130 @@
+/*
+* @Author: TomChen
+* @Date:   2019-08-21 17:54:02
+* @Last Modified by:   TomChen
+* @Last Modified time: 2019-08-26 10:20:46
+*/
+.product-title li,
+.product-item li,
+.product-footer li{
+    float: left;
+}
+.product-title,
+.product-item,
+.product-footer{
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.product-title {
+    height: 40px;
+    line-height: 40px;
+    background-color: #ddd;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.product-item {
+    height: 80px;
+    line-height: 80px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+}
+
+.product-item .product-info img{
+    width: 60px;
+    height: 60px;
+    vertical-align: middle;
+}
+
+.product-item  .product-totalPrice{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.product-footer{
+    height: 60px;
+    line-height: 60px;
+    background-color: #ddd;
+    color: #666;    
+}
+
+.product-footer .product-submit{
+    float: right;
+}
+.product-footer .product-submit .btn-submit{
+    height: 60px;
+    line-height: 60px;
+    width: 100px;   
+}
+.product-footer .product-submit  .total-price{
+    display: inline-block;
+    line-height: 60px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #f21;
+    margin-right: 20px;
+}
+.product-footer .product-submit .total-price-text{
+    position: relative;
+    top:-2px;
+}
+
+
+
+.cart .cart-box .product-select{
+    width: 6%;
+}
+.cart .cart-box .product-info{
+    width: 54%;
+}
+.cart .cart-box .product-price{
+    width: 10%;
+}
+.cart .cart-box .product-count{
+    width: 10%;
+}
+.cart .cart-box .product-totalPrice{
+    width: 10%;
+}
+.cart .cart-box .product-opreation{
+    width: 10%;
+}
+
+.cart .cart-box .product-item .product-count .count-input{
+    width: 40px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    outline: none;
+    border: 1px solid #ddd;
+    margin-left: -1px;
+}
+.cart .cart-box .product-item .product-count .count-btn{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border: 1px solid #ddd; 
+    background-color: #fff;
+    cursor: pointer;
+    user-select: none;
+}
+.cart .cart-box .product-item .product-count .count-btn.plus{
+    margin-left: -1px;
+}
+
+.cart .cart-box .product-item .product-opreation .delete-one{
+    cursor: pointer;
+    user-select: none;
+}
+.cart .cart-box .product-footer .product-opreation .delete-selected{
+    cursor: pointer;
+    user-select: none;
+}
+
+.cart .cart-box .product-box .gohome-btn{
+    display: block;
+    margin: 20px auto;
+}

@@ -1,0 +1,103 @@
+/*
+* @Author: TomChen
+* @Date:   2019-08-21 17:54:02
+* @Last Modified by:   TomChen
+* @Last Modified time: 2019-08-25 16:44:28
+*/
+.focus{
+    margin-bottom: 40px;
+}
+.categories{
+    float: left;
+    width: 240px;
+    height: 440px;
+    padding: 20px 0px;
+    background: #999;
+    box-sizing: border-box;
+    margin-right: 10px;
+}
+.categories .keyowrd-item{
+    padding:0 10px;
+    height: 40px;
+    line-height: 40px;
+}
+.categories .keyowrd-item:hover{
+    background-color: #666;
+}
+.categories .keyowrd-item .link{
+    color: #fff;
+    font-size: 14px;
+    margin-right: 5px;
+}
+.categories .keyowrd-item .link:hover{
+    color: #f21;
+}
+
+
+.focus .swiper-container{
+    height: 440px;
+}
+.focus .swiper-container .swiper-pagination-bullet{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+
+.floor{
+    margin-bottom: 20px;
+}
+.floor-box{
+    margin-bottom: 20px;
+}
+.floor-title{
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+.floor-box:nth-child(odd) .floor-title{
+    color: #f21;
+    border-bottom: 1px solid #f21;
+}
+.floor-box:nth-child(even) .floor-title{
+    color: #69A88F;
+    border-bottom: 1px solid #69A88F;
+}
+.floor-item:nth-child(5n){
+    margin-right: 0
+}
+.floor-item{
+    float: left;
+    width: 208px;
+    height: 280px;
+    margin-right: 10px;
+    background-color: #fff;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+.floor-item:hover{
+    box-shadow: 0px 1px 7px rgba(0,0,0,0.5);
+}
+.floor-item:last-child{
+    margin-right: 0px;
+}
+.floor-item a{
+    text-decoration: none;
+
+}
+.floor-text{
+    width: 100%;
+    font-size: 16px;
+    color: #111;
+
+}
+.floor-price{
+    font-size: 16px;
+    color: #f21;
+}
+.floor-img{
+    width: 180px;
+    height: 180px;
+    margin-top: 20px;
+}  

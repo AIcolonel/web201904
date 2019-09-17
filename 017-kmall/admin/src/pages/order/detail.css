@@ -1,0 +1,110 @@
+/*
+* @Author: Tom
+* @Date:   2019-04-22 15:43:36
+* @Last Modified by:   TomChen
+* @Last Modified time: 2019-08-28 17:01:31
+*/
+li{
+	list-style: none;
+}
+.link{
+	text-decoration: none;
+	color: #888;
+	cursor: pointer;
+}
+.link:hover{
+	color: #f12;
+}
+.order-detail .product-info{
+	width: 70%;
+}
+.order-detail .product-price{
+	width: 10%;
+}
+.order-detail .product-count{
+	width: 10%;
+}
+.order-detail .product-totalPrice{
+	width: 10%;
+}
+
+.order-detail .product-item{
+	margin-bottom: 0px;
+	margin-top: -1px;
+}
+
+.order-detail .order-info li{
+	height: 30px;
+	line-height: 30px;
+	color: #333;
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+.order-detail .order-info li.order-payment .text{
+	color: #f21;
+	font-size: 16px;
+	font-weight: bold;
+}
+.text-ellipsis{
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+/*
+panel
+*/
+.panel{
+	padding: 10px;
+	background-color: #fff;
+}
+.panel-header{
+	height: 30px;
+	line-height: 30px;
+	font-size: 16px;
+	color: #666;
+	border-bottom: 1px solid #fafafa;
+}
+.pandel-body{
+	padding: 10px;
+	overflow: hidden;
+}
+/*
+商品列表
+*/
+.product-title li,
+.product-item li,
+.product-footer li{
+	float: left;
+}
+.product-title,
+.product-item,
+.product-footer{
+	padding-left: 10px;
+	box-sizing: border-box;
+}
+
+.product-title {
+	height: 40px;
+	line-height: 40px;
+	background-color: #ddd;
+	color: #666;
+	margin-bottom: 15px;
+}
+
+.product-item {
+	height: 80px;
+	line-height: 80px;
+	margin-bottom: 15px;
+	border: 1px solid #ddd;
+}
+
+.product-item .product-info img{
+	width: 60px;
+	height: 60px;
+	vertical-align: middle;
+}
+
+.product-item  .product-totalPrice{
+	font-size: 14px;
+	font-weight: bold;
+}

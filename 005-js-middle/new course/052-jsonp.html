@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>052-jsonp.html</title>
+</head>
+<body>
+	<p>jsonp跨域方案</p>
+	<button id="btn">请求数据</button>
+</body>
+<!-- <script src='http://127.0.0.1:3001/052-data.js'></script> -->
+<script>
+	function callBack(data){
+		console.log(data)
+	}
+
+	var oBtn = document.getElementById('btn')
+	oBtn.onclick = function(){
+		var script = document.createElement('script');
+		script.src = 'http://127.0.0.1:3001/?getDate=callBack';
+		document.body.appendChild(script)
+	}
+</script>
+</html>

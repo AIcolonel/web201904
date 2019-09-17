@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <%= require('html-loader!./common/meta.html') %>
+    <title>
+        <%= htmlWebpackPlugin.options.title %>
+    </title>
+</head>
+<body>
+    <%= require('html-loader!./common/nav.html') %>
+    <%= require('html-loader!./common/search.html') %>
+    <div class="detail">
+        <div class="container">
+            <div class="crumb">
+                <a href="/" class="link">首页</a>
+                <i class="fa fa-angle-right"></i>
+                <span class="link-text">
+                    <%= htmlWebpackPlugin.options.title %> 
+                </span>
+            </div>
+        </div>      
+        <div class="container clearfix">
+            <div class="detail-box">
+                <!--
+                <div class="product-intro clearfix">
+                    <div class="product-img">
+                        <div class="product-main-img">
+                            <img src=""  alt="" />
+                        </div>
+                        <ul class="product-small-img-list clearfix">
+                            <li class="product-small-img-item">
+                                <img src="" alt="" />
+                            </li>
+                            <li class="product-small-img-item">
+                                <img src="" alt="" />
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-name">nnnn</h2>
+                        <p class="product-description">ddd</p>
+                        <div class="product-info-item product-price">
+                            <span class="label">价格:</span>
+                            <span class="info">￥111</span>
+                        </div>
+                        <div class="product-info-item">
+                            <span class="label">库存:</span>
+                            <span class="info">222</span>
+                        </div>
+                        <div class="product-info-item product-count">
+                            <span class="label">数量:</span>
+                            <input type="text" value="1" class="count-input" readonly />
+                            <span class="count-btn plus">+</span>
+                            <span class="count-btn minus">-</span>
+                        </div>
+                        <div class="add-cart">
+                            <a href="javascript:;" class="btn add-cart-btn">添加购物车</a>
+                        </div>                                                  
+                    </div>
+                </div>
+                <div class="product-detail">
+                    <div class="tab">
+                        <ul class="tab-list clearfix">
+                            <li class="tab-item active">商品详情</li>
+                        </ul>
+                        <div class="tab-content">
+                            ddddd
+                        </div>
+                    </div>
+                </div>
+                -->
+            </div>
+        </div>
+    </div>
+    <%= require('html-loader!./common/footer.html') %>
+</body>
+</html>

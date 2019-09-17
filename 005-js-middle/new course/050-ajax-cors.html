@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>050-ajax-cors.html</title>
+</head>
+<body>
+	<p>简单请求跨域</p>
+	<button id="btn">请求数据</button>
+</body>
+<script>
+	function ajax(method,url,data,fnSucc,fnErr){
+		//1.生成ajax对象(买一个电话)
+		var oAjax = new XMLHttpRequest();
+		if(method.toUpperCase() == "POST"){
+			//2.建立连接(拨号)
+			oAjax.open(method,url,true);
+
+			// oAjax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+
+			//3.发送消息(问问题)
+			oAjax.send(data);
+		}else if(method.toUpperCase() == "GET"){
+			if(data){
+				var url = url + "?" + data;
+			}
+
+			//2.建立连接(拨号)
+			oAjax.open(method,url,true);
+
+			//3.发送消息(问问题)
+			oAjax.send();
+		}
+
+		//4.服务器接收并相应(听电话回答问题)
+		oAjax.onreadystatechange = function(){
+			if(oAjax.readyState == 4){//数据完全返回
+				//获取响应头信息
+				console.log(oAjax.getResponseHeader("Date"));
+				console.log(oAjax.getResponseHeader("Connection"));
+				console.log(oAjax.getResponseHeader("Content-Type"));
+
+
+				if(oAjax.status == 200){//数据完全返回并且正确
+					try{
+						// console.log(oAjax.responseText);
+						var strToObj  =  JSON.parse(oAjax.responseText);
+						typeof fnSucc == "function" && fnSucc(strToObj);
+					}catch(e){
+						console.log(e);
+					}
+				}else{
+					typeof fnErr == "function" && fnErr(oAjax.status);
+				}
+			}
+		}
+		oAjax.onerror = function(){
+			console.log("onerror.....");
+		}
+	}
+
+
+	var oBtn = document.getElementById('btn');
+
+	oBtn.onclick =  function(){
+		ajax(
+			"get",
+			"http://127.0.0.1:3001/049-data.json",
+			'',
+			function(data){
+				var oUl = document.createElement('ul');
+				for(var i = 0;i<data.length;i++){
+					var oLi = document.createElement('li');
+					oLi.innerHTML = "姓名: "+data[i].name + " 年龄: "+data[i].age;
+					oUl.appendChild(oLi);
+				}
+				document.body.appendChild(oUl);
+			},
+			function(err){
+				console.log("failed request ,status code ::" + err);
+			}
+		);
+	}
+</script>
+</html>

@@ -9,40 +9,52 @@
 
 <!-- 逻辑 -->
 <script>
-
+import { mapGetters } from 'vuex'
+import { ALL_DONE,DEL_ALL_DONE } from '../store/types.js'
 //导出组件
 export default {
     name: 'Footer',
     props:{
     	todos:Array,
-        handleAllDone:Function,
-        delAllDone:Function
     },
     computed:{
+        // 使用对象展开运算符将 getter 混入 computed 对象中
+        ...mapGetters([
+            'total',
+            'totalDone',
+        ]),
+        allDone:{
+            get(){
+                /*
+                return (this.total == this.totalDone) && (this.total != 0)
+                */
+                return this.$store.getters.allDone;
+            },
+            set(value){
+                // this.handleAllDone(value)
+                //派发action改变数据
+                this.$store.dispatch(ALL_DONE,value)
+            }
+        }
+        /*
         total(){
-            return this.todos.length;
+            return this.$store.getters.todos;
         },
         totalDone(){
-            return this.todos.reduce((total,item)=>{
+            return this.$store.getters.todos.reduce((total,item)=>{
                 if(item.done){
                     total = total + 1;
                 }
                 return total;
             },0)
         },
-        allDone:{
-            get(){
-                return (this.total == this.totalDone) && (this.total != 0)
-            },
-            set(value){
-                this.handleAllDone(value)
-            }
-        }
+        */
     },
     methods:{
         handleDelAllDone(){
             if(window.confirm('是否要删除所选中的所有项?')){
-                this.delAllDone();
+                //派发action删除选中的所有选项
+                this.$store.dispatch(DEL_ALL_DONE)
             }
         }
     }

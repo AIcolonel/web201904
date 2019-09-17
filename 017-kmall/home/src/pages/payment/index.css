@@ -1,0 +1,26 @@
+/*
+* @Author: TomChen
+* @Date:   2019-08-21 17:54:02
+* @Last Modified by:   TomChen
+* @Last Modified time: 2019-08-28 11:40:58
+*/
+.payment-box{
+    text-align: center;
+}
+.payment-title{
+    margin-top: 20px;
+    height: 40px;
+    line-height: 40px;
+    color:#666;
+    font-size: 16px;
+}
+.payment-tips{
+    height: 40px;
+    line-height: 40px;
+    color: #f21;
+    font-size: 16px;
+}
+.payment-qr{
+    width: 350px;
+    height: 350px;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	function filterNum(num){
+		var result = [];
+		for(var i = 0;i<=num;i++){
+			var arr = i.toString().split('');
+			for(var j = 0;j<arr.length;j++){
+				if(Number(arr[j]) == 0){
+					result.push(i);
+					break;
+				}
+			}
+		}
+
+		return result;
+	}
+	*/
+	function filterNum(num){
+		var result = [];
+		for(var i = 1;i<=num;i++){
+			var str = i.toString();
+			if(/0/g.test(str) == true){
+				// console.log(i)
+				result.push(i);
+			}
+		}
+		return result;
+	}
+	
+	console.log(filterNum(200));
+
+</script>
+</html>

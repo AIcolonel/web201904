@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <%= require('html-loader!./common/meta.html') %>
+    <title>
+        <%= htmlWebpackPlugin.options.title %>
+    </title>
+</head>
+<body>
+    <%= require('html-loader!./common/nav.html') %>
+    <%= require('html-loader!./common/search.html') %>
+    <div class="focus">
+        <div class="container clearfix">
+            <ul class="categories">
+                <!--
+                <li class="keyowrd-item">
+                    <a href="./list.html?keyword=手机" class="link">手机</a>    
+                    <a href="./list.html?keyword=手机" class="link">手机</a>    
+                </li>
+                <li class="keyowrd-item">
+                    <a href="./list.html?keyword=手机" class="link">手机</a>    
+                    <a href="./list.html?keyword=手机" class="link">手机</a>    
+                </li>
+                <li class="keyowrd-item">
+                    <a href="./list.html?keyword=手机" class="link">手机</a>    
+                    <a href="./list.html?keyword=手机" class="link">手机</a>    
+                </li>
+                <li class="keyowrd-item">
+                    <a href="./list.html?keyword=手机" class="link">手机</a>    
+                    <a href="./list.html?keyword=手机" class="link">手机</a>    
+                </li>
+                <li class="keyowrd-item">
+                    <a href="./list.html?keyword=手机" class="link">手机</a>    
+                    <a href="./list.html?keyword=手机" class="link">手机</a>    
+                </li>
+                <li class="keyowrd-item">
+                    <a href="./list.html?keyword=手机" class="link">手机</a>    
+                    <a href="./list.html?keyword=手机" class="link">手机</a>    
+                </li>                                                                           
+                <li class="keyowrd-item">
+                    <a href="./list.html?keyword=手机" class="link">手机</a>    
+                    <a href="./list.html?keyword=手机" class="link">手机</a>    
+                </li>
+                <li class="keyowrd-item">
+                    <a href="./list.html?keyword=手机" class="link">手机</a>    
+                    <a href="./list.html?keyword=手机" class="link">手机</a>    
+                </li>
+                <li class="keyowrd-item">
+                    <a href="./list.html?keyword=手机" class="link">手机</a>    
+                    <a href="./list.html?keyword=手机" class="link">手机</a>    
+                </li>
+                <li class="keyowrd-item">
+                    <a href="./list.html?keyword=手机" class="link">手机</a>    
+                    <a href="./list.html?keyword=手机" class="link">手机</a>    
+                </li>
+                
+                -->
+            </ul>
+            <div class="swiper-container">
+               <div class="swiper-wrapper">
+                    <!--
+                    <div class="swiper-slide">Slide 1</div>
+                    <div class="swiper-slide">Slide 2</div>
+                    <div class="swiper-slide">Slide 3</div>
+                    -->
+                </div>
+                <!-- 如果需要分页器 -->
+                <div class="swiper-pagination"></div>
+                
+                <!-- 如果需要导航按钮 -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>      
+        </div>
+    </div>
+    <div class="floor">
+        <div class="container">
+            <div class="floor-wrap">
+                <!--
+                <div class="floor-box">
+                    <a href="./list.html?categoryId=" class="link"><h2 class="floor-title">F1 服装</h2></a>
+                    <ul class="floor-list clearfix">
+                        <li class="floor-item">
+                            <a href="./detail.html?productId=">
+                                <img class="floor-img" src="" alt="" />
+                                <p class="floor-text text-ellipsis">好衣服</p>
+                                <p class="floor-price">88</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                -->
+
+            </div>
+        </div>
+    </div>    
+    <%= require('html-loader!./common/footer.html') %>
+</body>
+</html>

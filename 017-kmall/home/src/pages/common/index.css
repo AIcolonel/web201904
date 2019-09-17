@@ -1,0 +1,141 @@
+/*
+* @Author: TomChen
+* @Date:   2019-08-21 17:53:29
+* @Last Modified by:   TomChen
+* @Last Modified time: 2019-08-22 11:12:19
+*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:text-top}sub{vertical-align:text-bottom}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit}input,textarea,select{*font-size:100%}legend{color:#000}
+body{
+    background-color: #eee;
+    font-size: 12px;
+}
+.container{
+    width: 1080px;
+    margin:0 auto;
+}
+.clearfix:after{
+    clear:both;
+    display: block;
+    content: '';
+    visibility: hidden;
+    height: 0;
+}
+.link{
+    text-decoration: none;
+    color: #888;
+    cursor: pointer;
+}
+.link:hover{
+    color: #f12;
+}
+.link-text{
+    text-decoration: none;
+    color: #888;    
+}
+.text-ellipsis{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.hide{
+    display: none;
+}
+
+/*
+表单相关共通样式
+*/
+.btn{
+    display: inline-block;  
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #f21;
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0 10px;
+}
+.btn:hover{
+    opacity: 0.8;
+}
+.form{
+    background-color: #bdbdbd;
+    overflow: hidden;
+}
+.form-box{
+    width: 350px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 30px;
+}
+
+.form-box .title{
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.form-box .error-item{
+    display: none;
+    border: 1px solid red;
+    color: red;
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    padding-left: 10px;
+}
+
+.form-box .error-msg{
+    display: inline-block;
+    margin-left: 10px;
+}
+.form-box .form-item{
+    border: 1px solid #bdbdbd;
+    margin-bottom: 10px;
+    height: 30px;
+    line-height: 30px;
+}
+.form-box .form-lable{
+    display: inline-block;
+    background-color: #f3f3f3;
+    width: 30px;
+    text-align: center;
+    border-right: 1px solid #bdbdbd;
+}
+.form-box .form-content{
+    width: 300px;
+    line-height: 30px;
+    outline: none;
+    border: none;
+    padding-left: 10px;
+}
+.form-box .btn-item{
+    margin-bottom: 10px;
+}
+
+.form-box .btn-submit{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+}
+.form-box .link-item{
+    text-align: right;
+}
+
+.crumb{
+    height: 40px;
+    line-height: 40px;
+    margin-bottom: 10px;
+    color: #888;
+    font-size: 14px;
+}
+.empty-message{
+    text-align: center;
+    padding-top: 100px;
+    height: 300px;
+    font-size: 30px;
+    color: #0af;
+}

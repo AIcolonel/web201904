@@ -1,0 +1,41 @@
+/*
+* @Author: TomChen
+* @Date:   2019-08-21 17:54:02
+* @Last Modified by:   TomChen
+* @Last Modified time: 2019-08-23 10:33:30
+*/
+.logo-text{
+    color: #f21;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: bold;
+}
+.search-box{
+    background-color: #fff;
+    height: 80px;
+    padding: 18px 0;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #f21;
+}
+.logo{
+    float: left;
+}
+.search{
+    float: left;
+}
+.search-input{
+    width: 400px;
+    margin-left: 150px;
+    outline: none;
+    border: 2px solid #f21;
+    height: 38px;
+    padding-left: 10px;
+    font-size: 14px;
+    float: left;
+}
+.btn-search{
+    height: 42px;
+    line-height: 42px;
+    float: left;
+}

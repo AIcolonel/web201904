@@ -1,0 +1,16 @@
+//基准的根元素的font-size,一般是参考的设计稿的设备根元素的font-size
+@rem:32;
+
+//根据基准值和设计稿的像素值计算出rem的值
+.rem(@attr,@px) {
+  @{attr}:unit((@px/@rem),rem);
+}
+.rem(@attr,@px1,@px2) {
+  @{attr}:unit((@px1/@rem),rem) unit((@px2/@rem),rem);
+}
+.rem(@attr,@px1,@px2,@px3) {
+  @{attr}:unit((@px1/@rem),rem) unit((@px2/@rem),rem) unit((@px3/@rem),rem);
+}
+.rem(@attr,@px1,@px2,@px3,@px4) {
+  @{attr}:unit((@px1/@rem),rem) unit((@px2/@rem),rem) unit((@px3/@rem),rem) unit((@px4/@rem),rem);
+} 

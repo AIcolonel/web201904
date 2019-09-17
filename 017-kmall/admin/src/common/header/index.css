@@ -1,0 +1,15 @@
+/*
+* @Author: TomChen
+* @Date:   2019-08-15 16:55:42
+* @Last Modified by:   TomChen
+* @Last Modified time: 2019-08-15 17:26:59
+*/
+.AdminHeader .logo{
+    float: left;
+    color: #1DA57A;
+    font-size: 24px;
+    font-weight: 600;
+}
+.AdminHeader .ant-dropdown-link{
+    float: right;
+}

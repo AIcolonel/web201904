@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <%= require('html-loader!./common/meta.html') %>
+    <title>
+        <%= htmlWebpackPlugin.options.title %>
+    </title>
+</head>
+<body>
+    <%= require('html-loader!./common/logo.html') %>
+    <div class="form">
+        <div class="container">
+            <div class="form-box">
+                <h2 class="title">用户登录</h2>
+                <div class="error-item">
+                    <i class="fa fa-minus-circle error-icon"></i>
+                    <p class="error-msg">error</p>
+                </div>
+                <div class="form-item">
+                    <label for="" class="form-lable">
+                        <i class="fa fa-user"></i>
+                    </label>
+                    <input type="text" class="form-content" name="username" placeholder="请输入用户名">
+                </div>
+                <div class="form-item">
+                    <label for="" class="form-lable">
+                        <i class="fa fa-lock"></i>
+                    </label>
+                    <input type="password" class="form-content" name="password" placeholder="请输入用密码">
+                </div>
+                <div class="btn-item">
+                    <a href="javascript:;" class="btn btn-submit" id="btn-submit">提交</a>
+                </div>  
+                <div class="link-item">
+                    <a href="./user-register.html" class="link">免费注册</a>
+                </div>          
+            </div>
+        </div>
+    </div>      
+    <%= require('html-loader!./common/footer.html') %>
+</body>
+</html>

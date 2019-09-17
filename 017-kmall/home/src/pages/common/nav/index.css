@@ -1,0 +1,98 @@
+/*
+* @Author: TomChen
+* @Date:   2019-08-22 11:06:52
+* @Last Modified by:   TomChen
+* @Last Modified time: 2019-08-22 11:07:53
+*/
+.nav{
+    height: 30px;
+    line-height: 30px;
+    background-color: #f3f3f3;
+}
+.user-info{
+    float: left;
+}
+.username{
+    color: #666;
+    margin-right: 10px;
+}
+.nav-list{
+    float: right;
+}
+.nav-list .nav-item{
+    float: left;
+    margin-right: 10px;
+}
+.nav-item{
+    padding: 0 5px;
+}
+.nav-item:hover{
+    background-color: #fff;
+}
+
+.nav .cart-box{
+    position: relative;
+}
+.nav .cart-box .cart-content{
+    display: none;
+    position: absolute;
+    top:30px;
+    width: 300px;
+    min-height: 100px;
+    z-index: 999;
+    background-color: #fff;
+    overflow: hidden;
+    padding: 5px;
+    margin-left: -5px;
+    border: 1px solid #eee;
+    border-top: none;
+}
+.nav .cart-box .loader{
+    margin-top: 40px;
+}
+.nav .cart-box .empty-cart{
+    display: inline-block;
+    margin-top: 40px;
+    font-size: 12px;
+    font-weight: 400;
+}
+.nav .cart-item .link{
+    float: left;
+}
+.nav .cart-item{
+    margin-bottom: 10px;
+}
+.nav .cart-item .link img{
+    width: 50px;
+    height: 50px;
+    vertical-align: top;
+}
+.nav .cart-item .link span{
+    display: inline-block;
+    width: 170px;
+}
+.nav .cart-item .product-price{
+    float: right;
+    width: 30px;
+    color: #f21;
+    margin-right: 10px;
+}
+.nav .cart-item .product-count{
+    float: right;
+    width: 20px;
+}
+.nav .cart-tip{
+    color: #111;
+    font-weight: 800;
+}
+.nav .line{
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    margin: 10px 0;
+}
+.nav .cart-btn{
+    width: 120px;
+    float: right;
+}

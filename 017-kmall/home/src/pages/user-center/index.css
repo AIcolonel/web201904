@@ -1,0 +1,57 @@
+/*
+* @Author: TomChen
+* @Date:   2019-08-21 17:54:02
+* @Last Modified by:   TomChen
+* @Last Modified time: 2019-08-23 11:12:46
+*/
+.user-page-wrap{
+    margin-bottom: 20px;
+}
+/*
+.side{
+    width: 150px;
+    min-height: 600px;
+    float: left;
+    background-color: #fff;
+    margin-right: 20px;
+    padding-top: 20px;
+    box-sizing: border-box;
+}
+.side-item{
+    height: 30px;
+    line-height: 30px;
+    box-sizing: border-box;
+    padding-left: 20px;
+}
+.side-item.active .link{
+    color: #f21;
+}
+.side-item.active{
+    border-right: 2px solid #f21;
+}
+
+.side-content{
+    float: left;
+    width: 910px;
+    min-height: 600px;
+    background-color: #fff;
+    box-sizing: border-box;
+    padding: 20px;
+}
+*/
+
+.form-item{
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+}
+.label-item{
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+}
+.content-item{
+    display: inline-block;
+    width: 400px;
+    padding-left: 40px;
+} 

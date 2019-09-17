@@ -1,0 +1,21 @@
+//唯一数据源
+export default {
+	todos:[
+        {
+            msg:'看书',
+            done:true
+        },
+        {
+            msg:'学习',
+            done:false
+        },
+        {
+            msg:'打游戏',
+            done:false
+        },
+        {
+        	msg:'练字',
+        	done:true
+        }
+    ]
+}
