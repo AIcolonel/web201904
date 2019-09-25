@@ -7,7 +7,7 @@
 <body>
 	
 </body>
-<script src="js/jquery-1.12.4.js"></script>
+<!-- <script src="js/jquery-1.12.4.js"></script> -->
 <script src="js/kquery-1.0.0.js"></script>
 <script>
 	//1.布尔值是false
@@ -19,12 +19,15 @@
 	console.log("1:::",$(null));
 	console.log("1:::",$(NaN));
 	*/
-
+ 
 	//2.函数
-	console.log($(function(){}));
+	// console.log($(function(){}));
 	window.onload = function(){
 		console.log('window load');
 	}
+	document.addEventListener('DOMContentLoaded',function(){
+		console.log('DOMContentLoaded');
+	})
 	$(function(){
 		console.log(11);
 	});

@@ -1,0 +1,122 @@
+/*css所有语法在less中都可以使用*/
+*{
+	margin: 0;
+	padding: 0;
+}
+
+/*
+	我是多行注释
+*/
+//我是单行注释
+
+@c:#ff6700;
+@w:100px;
+@h:100px;
+
+.box1{
+	width: @w;
+	height: @h;
+	margin-top: 10px;
+	background-color: @c;
+}
+.box2{
+	.box1;
+}
+/*
+.border-r{
+	-mo-border-radius:10px;
+	-o-border-radius:10px;
+	-webkit-border-radius:10px;
+	-moz-border-radius:10px;
+	border-radius: 10px;
+}
+*/
+.border-r(@r){
+	-mo-border-radius:@r;
+	-o-border-radius:@r;
+	-webkit-border-radius:@r;
+	-moz-border-radius:@r;
+	border-radius: @r;
+}
+.border-r-def(@r:30px){
+	-mo-border-radius:@r;
+	-o-border-radius:@r;
+	-webkit-border-radius:@r;
+	-moz-border-radius:@r;
+	border-radius: @r;
+}
+.box3{
+	// .border-r(20px);
+	.border-r-def(50px)
+}
+//匹配模式@_代表任意匹配
+.trangle(@_,@w,@c){
+	width: 0px;
+	height: 0px;
+	border-style: solid;
+}
+.trangle(top,@w,@c){
+	border-width: @w;
+	border-color: @c transparent transparent transparent; 
+}
+.trangle(right,@w,@c){
+	border-width: @w;
+	border-color: transparent @c  transparent transparent; 
+}
+.trangle(bottom,@w,@c){
+	border-width: @w;
+	border-color: transparent transparent @c  transparent; 
+}
+.trangle(left,@w,@c){
+	border-width: @w;
+	border-color: transparent transparent transparent @c ; 
+}
+.box4{
+	.trangle(left,30px,#f60);
+}
+
+//嵌套
+ul{
+	width: 600px;
+	margin: 100px auto;
+	list-style: none;
+	border: 1px dashed #ccc;
+	li{	
+		height: 30px;
+		line-height: 30px;
+		span{
+			float: left;
+		}
+		a{
+			float: right;
+		}
+		&:hover{
+			background-color: #ccc;
+		}
+	}
+}
+//运算
+.calc-fs(@fs){
+	font-size: @fs + 10px;
+}
+.box5{
+	// .calc-fs(20)
+	font-size: calc(10px + 20px);
+}
+//避免编译
+.box5{
+	font-size: ~'calc(10px + 20px)';
+}
+//!important关键字
+.box6{
+	.box5 !important;
+}
+//混合参数做为属性和设置计算后的属性值,此种方法不可设置颜色
+.setAttr(@attr,@val){
+	//错误写法
+	//@attr:@val;
+	@{attr}:unit(@val,px);
+}
+.box7{
+	.setAttr(width,50)
+}
