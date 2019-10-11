@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>029-弹性布局-项目属性3.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			display: flex;
+			/*(默认row)*/
+			/*flex-direction: row;*/
+			/*flex-direction: row-reverse;*/
+			/*flex-direction: column;*/
+			/*flex-direction: column-reverse;*/
+
+			/*flex-wrap: nowrap;*/
+			/*flex-wrap: wrap;*/
+			/*flex-wrap: wrap-reverse;*/
+
+
+			/*flex-flow: row wrap;*/
+			/*justify-content: flex-start;*/
+			/*justify-content: flex-end;*/
+			/*justify-content: center;*/
+			/*justify-content: space-between;*/
+			/*justify-content: space-around;*/
+
+			/*align-items: stretch;*/
+			/*align-items: flex-start;*/
+			/*align-items: flex-end;*/
+			 /*align-items: center; */
+			 /*align-items: baseline; */
+
+
+			/*align-content: stretch;*/
+			/*align-content: flex-start;*/
+			/*align-content: flex-end;*/
+			 /*align-content: center; */
+			/*align-content: baseline; */
+
+
+			width: 800px;
+			/*height: 400px;*/
+			border: 1px solid #000;
+			margin: 50px auto;
+		}
+		.father div{
+			height: 50px;
+		}
+		.son1{
+			flex-shrink: 0;
+			width: 200px;
+			background-color: pink;
+		}
+		.son2{
+			width:300px;
+			background-color: tomato;
+		}
+		.son3{
+			width: 400px;
+			background-color: skyblue;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son1">son1</div>
+		<div class="son2">son2</div>
+		<div class="son3">son3</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>002-let解决i值问题.html</title>
+</head>
+<body>
+	<button>button1</button>
+	<button>button2</button>
+	<button>button3</button>
+	<button>button4</button>
+</body>
+<script>
+	var aBtn = document.getElementsByTagName('button')
+	/*
+	for(var i = 0;i<aBtn.length;i++){
+		aBtn[i].index = i;
+		aBtn[i].onclick = function(){
+			console.log(this.index);
+		}
+	}
+	*/
+	/*
+	for(var i = 0;i<aBtn.length;i++){
+		;(function(i){
+			aBtn[i].onclick = function(){
+				console.log(i);
+			}
+		})(i)
+	}
+	*/
+
+	for(let i = 0;i<aBtn.length;i++){
+		aBtn[i].onclick = function(){
+			console.log(i);
+		}
+	}
+</script>
+</html>

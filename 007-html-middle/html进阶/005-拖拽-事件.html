@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>005-拖拽-事件.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#target{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+		#container{
+			width: 300px;
+			height: 300px;
+			background-color: gray;
+		}
+	</style>
+</head>
+<body>
+	<div id="container"></div>
+	<div id="target" draggable='true'></div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('#target')
+		.on('dragstart',function(){
+			//ondragstart当元素开始拖动时触发
+			console.log('target:::dragstart...')
+		})
+		.on('drag',function(){
+			//ondrag 被拖动元素拖动时触发
+			console.log('target:::drag...')
+		})
+		.on('dragend',function(){
+			//ondragend 拖拽时松开鼠标时触发
+			console.log('target:::dragend...')
+		})
+
+		$('#container')
+		.on('drop',function(){
+			//ondrop 当放置被拖动元素时触发
+			console.log('container:::drop....');
+			$('#container').append($('#target'));
+		})
+		.on('dragover',function(ev){
+			//ondragover 被拖动元素正在到放置到容器时触发,默认无法把元素放置到其他元素中,如果需要设置允许放置,我们必须阻止对元素的默认处理方式。
+			console.log('container:::dragover')
+			ev.preventDefault();
+		})
+		.on('dragenter',function(){
+			//ondragenter 当被拖动元素进入容器时触发
+			console.log('container:::dragdragenterover')
+		})
+		.on('dragleave',function(){
+			//ondragleave 当被拖动元素离开容器时触发
+			console.log('container:::dragleave')
+		})
+		.on('dragend',function(){
+			//ondragend 被拖动元素在容器中松开鼠标时触发
+			console.log('container:::dragend')
+		})
+		.on('drag',function(){
+			//ondrag 容器中的被拖动元素拖动时触发
+			console.log('container:::drag')
+		})
+	});
+</script>
+
+
+
+
+</html>

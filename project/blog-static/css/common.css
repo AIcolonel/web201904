@@ -1,0 +1,26 @@
+/*
+* @Author: Chen
+* @Date:   2019-09-29 09:37:57
+* @Last Modified by:   Chen
+* @Last Modified time: 2019-09-29 09:44:02
+*/
+.link{
+	text-decoration: none !important;
+}
+.link:hover{
+	color:#f65a8a !important;
+}
+#blog-navbar .navbar-nav li{
+	margin-right: 20px;
+}
+#blog-navbar .navbar-nav li a{
+	font-size: 16px;
+}
+#blog-navbar .navbar-nav li a:hover{
+	color:#f65a8a;
+}
+#blog-navbar .navbar-nav .active a{
+	font-weight: 600;
+	color: #f65a8a;
+	background-color: transparent;
+}

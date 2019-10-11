@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>010-canvas基本使用.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		canvas{
+			/*width: 600px;
+			height: 400px;*/
+			background-color: #ccc;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+</body>
+<script>
+	//获取canvas的DOM元素
+	var oCanvas = document.getElementById('canvas');
+
+	//设置画布的宽高
+	oCanvas.width = 600;
+	oCanvas.height = 300;
+
+	//获取canvas的上下文环境
+	var ctx = oCanvas.getContext('2d');
+	
+	ctx.moveTo(0,0);//指定起始坐标
+	ctx.lineTo(100,100);//直线终点坐标
+	ctx.lineTo(100,200);
+	ctx.strokeStyle = '#f00';//指定描边的样式
+	ctx.lineWidth = 1;//设置线条的宽度
+	ctx.fillStyle = '#ff0';//设置填充的颜色
+	ctx.closePath();//封闭路径
+	ctx.stroke();//描边
+	ctx.fill();//闭合路径后填充 
+</script>
+</html>

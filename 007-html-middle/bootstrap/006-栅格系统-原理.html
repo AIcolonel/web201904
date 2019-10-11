@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>006-栅格系统-原理.html</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- <link rel="stylesheet" href="bootstrap-3.3.7/dist/css/bootstrap.css"> -->
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        @media screen and (max-width:768px){
+            .container{
+                width: 100%;
+            }
+        }
+        @media screen and (min-width:768px) and (max-width: 992px){
+            .container{
+                width: 750px;
+            }
+        }
+        @media screen and (min-width:992px) and (max-width: 1200px){
+            .container{
+                width: 970px;
+            }
+        }
+        @media screen and (min-width:1200px){
+            .container{
+                width: 1170px;
+            }
+        }
+        .row{
+            padding-left: -15px;
+            padding-right: -15px;
+        }
+        .col-md-1,
+        .col-md-2,
+        .col-md-3,
+        .col-md-4,
+        .col-md-5,
+        .col-md-6,
+        .col-md-7,
+        .col-md-8,
+        .col-md-9,
+        .col-md-10,
+        .col-md-11,
+        .col-md-12{
+            padding-right: 15px;
+            padding-left: 15px;
+            box-sizing: border-box;
+        }
+        @media screen and (min-width:992px){
+            .col-md-1,
+            .col-md-2,
+            .col-md-3,
+            .col-md-4,
+            .col-md-5,
+            .col-md-6,
+            .col-md-7,
+            .col-md-8,
+            .col-md-9,
+            .col-md-10,
+            .col-md-11,
+            .col-md-12{
+                float: left;
+            }
+            .col-md-1{
+                width: 8.3333333%;
+            }
+            .col-md-2{
+                width: 16.6666667%;
+            }
+            .col-md-3{
+                width: 25%;
+            }
+            .col-md-4{
+                width: 33.3333333%;
+            }
+            .col-md-5{
+                width: 41.6666667%;
+            }
+            .col-md-6{
+                width: 50%;
+            }
+            .col-md-7{
+                width: 58.3333333%;
+            }
+            .col-md-8{
+                width: 66.6666667%;
+            }
+            .col-md-9{
+                width: 75%;
+            }
+            .col-md-10{
+                width: 83.3333333%;
+            }
+            .col-md-11{
+                width: 91.6666667%;
+            }
+            .col-md-12{
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+	<div class="row">
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-1">.col-md-1</div>
+      <div class="col-md-5">.col-md-5</div>
+      <div class="col-md-5">.col-md-5</div>
+    </div>
+</body>
+<script src="js/jquery-1.12.4.min.js"></script>
+<script src="bootstrap-3.3.7/dist/js/bootstrap.js"></script>
+</html>

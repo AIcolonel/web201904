@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>022-弹性布局.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			display: flex;
+			width: 800px;
+			border: 1px solid #000;
+			margin: 50px auto;
+		}
+		.father div{
+			height: 50px;
+		}
+		.son1{
+			width: 100px;
+			background-color: pink;
+		}
+		.son2{
+			width: 200px;
+			background-color: tomato;
+		}
+		.son3{
+			width: 400px;
+			background-color: skyblue;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son1"></div>
+		<div class="son2"></div>
+		<div class="son3"></div>
+	</div>
+</body>
+</html>
