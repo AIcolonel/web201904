@@ -3,7 +3,7 @@
 	var oRoot = doc.getElementsByTagName('html')[0];
 	function refresh(){
 		//2.获取整个视口宽度
-		var oWidth = doc.body.clientWidth || doc.documentElements.clientWidth;
+		var oWidth = doc.body.clientWidth || doc.documentElement.clientWidth;
 		console.log(oWidth);
 		//3.设置根元素字体大小比例
 		var fontSize = oWidth / 10;

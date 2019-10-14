@@ -7,6 +7,15 @@ body{
 	background-color: #ccc;
 }
 
+
+
+
+
+
+
+
+
+
 /*
 	我是多行注释
 */
@@ -50,10 +59,57 @@ body{
 	border-radius: @r;
 }
 .box3{
-	.border-r();
-	// .border-r-def()
+	// .border-r(20px);
+	.border-r-def(50px)
 }
+
+
+
+
+
+
+
+
 //匹配模式@_代表任意匹配
+/*
+.trangle(top){
+	width:0;
+	height: 0;
+	border-style: solid;
+	border-width: 10px;
+	border-color: #f0f transparent transparent transparent; 
+}
+.trangle(right){
+	width:0;
+	height: 0;
+	border-style: solid;
+	border-width: 10px;
+	border-color: transparent #f0f transparent transparent; 
+}
+.trangle(bottom){
+	width:0;
+	height: 0;
+	border-style: solid;
+	border-width: 10px;
+	border-color: transparent transparent #f0f transparent; 
+}
+.trangle(left){
+	width:0;
+	height: 0;
+	border-style: solid;
+	border-width: 10px;
+	border-color: transparent transparent transparent #f0f; 
+}
+*/
+
+/*
+.trangle(@_){
+	width:0;
+	height: 0;
+	border-style: solid;
+}
+*/
+
 .trangle(@_,@w,@c){
 	width: 0px;
 	height: 0px;
@@ -75,9 +131,22 @@ body{
 	border-width: @w;
 	border-color: transparent transparent transparent @c ; 
 }
+
 .box4{
-	.trangle(left,30px,#f60);
+	// .trangle(bottom);
+	.trangle(bottom,30px,#f60);
 }
+
+
+
+
+
+
+
+
+
+
+
 
 //嵌套
 ul{

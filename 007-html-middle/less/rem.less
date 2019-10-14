@@ -17,15 +17,25 @@
 	padding: 0;
 }
 //定义根元素字体
-@rem:32;
+@rem:37.5;
 
 .rem(@attr,@px1){
 	@{attr}:unit(@px1 / @rem,rem);
 }
+.rem(@attr,@px1,@px2){
+	@{attr}:unit(@px1 / @rem,rem) unit(@px2 / @rem,rem);
+}
+.rem(@attr,@px1,@px2,@px3){
+	@{attr}:unit(@px1 / @rem,rem) unit(@px2 / @rem,rem) unit(@px3 / @rem,rem);
+}
+.rem(@attr,@px1,@px2,@px3,@px4){
+	@{attr}:unit(@px1 / @rem,rem) unit(@px2 / @rem,rem) unit(@px3 / @rem,rem) unit(@px4 / @rem,rem);
+}
 
 img{
 	float: left;
-	.rem(width,150)
+	.rem(width,150);
+	.rem(margin,10,20,30,40);
 }
 p{
 	// font-size: 0.75rem;

@@ -17,8 +17,9 @@
 }
 img {
   float: left;
-  width: 4.6875rem;
+  width: 4rem;
+  margin: 0.26666667rem 0.53333333rem 0.8rem 1.06666667rem;
 }
 p {
-  font-size: 0.75rem;
+  font-size: 0.64rem;
 }
