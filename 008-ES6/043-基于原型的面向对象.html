@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>043-基于原型的面向对象.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	Person.prototype.sayName = function(){
+		console.log('i am '+this.name)
+	}
+	Person.prototype.sayAge = function(){
+		console.log('i am '+this.age+' years old')
+	}
+	Person.sayHi = function(){
+		console.log('hello everybody')
+	}
+
+	let p1 = new Person('tom',18)
+	// p1.sayName()
+	// p1.sayAge()
+	// Person.sayHi()
+
+
+	function Student(name,age,major){
+		Person.call(this,name,age)
+		this.major = major
+	}
+	Student.prototype = Object.create(Person.prototype)
+	Student.prototype.sayMajor = function(){
+		console.log('i am from '+this.major)
+	}
+	Student.sayHi = Person.sayHi
+
+	let s1 = new Student('leo',20,'computer')
+	s1.sayName()
+	s1.sayAge()
+	s1.sayMajor()
+	Student.sayHi()
+</script>
+</html>

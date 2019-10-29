@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>041-await的执行顺序.html</title>
+</head>
+<body>
+	
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	let getDataPromise = (url)=>{
+		return new Promise((resolve,reject)=>{
+			//处理异步逻辑
+			$.ajax({
+				url:url,
+				dataType:'json',
+				success:(data)=>{
+					resolve(data)
+				},
+				error:(jqXHR,statusMsg)=>{
+					reject(statusMsg)
+				}
+			})
+		})
+	}
+   	
+   	//1.指定用户=>2.获取用户信息=>3.根据用户信息中订单号获取订单信息
+   	//有继发关系
+   	async function fn(username){
+   		const user = await getDataPromise('./data/'+username+'.json')
+   		// console.log(user)
+   		const userOrder = await getDataPromise('./data/'+user.orderNo+'.json')
+   		// console.log(userOrder)
+   		return userOrder
+   	}
+   	fn('a')
+   	.then(data=>{
+   		console.log(data)
+   	})
+
+   	//回去a和b的信息没有继发关系,因此让他们都先把请求发出去,然后等待数据返回,这样执行效率更高
+   	async function getUsers(){
+   		/*
+   		const userA = await getDataPromise('./data/a.json')
+   		const userB = await getDataPromise('./data/b.json')
+		*/
+		    const promiseA = getDataPromise('./data/a.json')
+		    const promiseB = getDataPromise('./data/b.json')
+
+		    const userA = await promiseA
+   		const userB = await promiseB
+
+   		return [userA,userB]
+   	}
+   	getUsers()
+   	.then(data=>{
+   		console.log(data)
+   	})
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>018-es5函数的定义.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	//1.函数声明
+	function show(){
+		console.log('hello tom')
+	}
+
+	//2.函数表达式
+	var show = function(){
+		console.log('hello leo')
+	}
+
+	show()
+	*/
+
+	// console.log(show)
+	show()
+
+	var show = function(){
+		console.log('hello leo')
+	}
+
+	function show(){
+		console.log('hello tom')
+	}
+	show()//此处执行的还是函数表达式,因为就算函数声明写在后面它也会有声明的提升
+</script>
+</html>

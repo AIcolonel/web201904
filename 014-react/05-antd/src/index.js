@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App.js';
+import WrappedNormalLoginForm from './App.js';
 
 ReactDOM.render(
-	<App />,
+	<WrappedNormalLoginForm />,
   	document.getElementById('root')
 )
 /*

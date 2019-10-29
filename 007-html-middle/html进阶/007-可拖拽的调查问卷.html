@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>007-可拖拽的调查问卷.html</title>
+	<title>document</title>
 	<style>
 		*{
 			margin: 0;
@@ -68,6 +68,7 @@
 		var targetDom = null;
 		$('.target-list')
 		.on('dragstart','.box',function(ev){
+			console.log(this)
 			targetDom = this;
 		});
 

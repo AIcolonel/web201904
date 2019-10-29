@@ -12,4 +12,5 @@
 	}
 	win.addEventListener('DOMContentLoaded',refresh,false);
 	win.addEventListener('resize',refresh,false);
+	win.addEventListener('load',refresh,false);
 })(window,document)

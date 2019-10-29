@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>008-数组的扩展运算.html</title>
+</head>
+<body>
+	<ul>
+		<li>li01</li>
+		<li>li02</li>
+		<li>li03</li>
+		<li>li04</li>
+		<li>li05</li>
+		<li>li06</li>
+		<li>li07</li>
+		<li>li08</li>
+		<li>li09</li>
+		<li>li10</li>
+	</ul>
+</body>
+<script>
+	// console.log(...[11,22,33])
+
+	/*
+	function sum(n1,n2){
+		return n1+n2;
+	}
+	var arr = [22,33];
+	console.log(sum(1,2));
+	console.log(sum(...arr));//console.log(sum(22,33))
+	*/
+
+
+	/*
+	function sum(...arr){
+		// console.log(arr);
+		var total = 0;
+
+		for(let i = 0;i<arr.length;i++){
+			total += arr[i];
+		}
+
+		return total;
+	}
+	console.log(sum(11,22,33))
+	*/
+
+	// var arr = [6,85,12,96,45];
+	// console.log(Math.max(53,25,12,78));
+	// console.log(Math.max(arr));
+	// console.log(Math.max.apply(null,arr));
+	// console.log(Math.max(...arr));
+
+
+	var arr = [11,22,33,44];
+	// var arr1 = arr;
+
+	/*
+	var arr1 = []
+	for(let i = 0;i<arr.length;i++){
+		arr1.push(arr[i]);
+	}
+	*/
+	var arr1 = arr.concat();
+	console.log(arr1 == arr)
+	// var arr1 = arr.slice();
+	/*
+	var arr1 = [...arr];
+	arr1.push(88);
+	console.log('arr',arr);
+	console.log('arr1',arr1);
+	*/
+
+
+	var oLi = document.getElementsByTagName('li');
+	// console.log(oLi);
+	var newList = [...oLi];
+	// console.log(newList)
+</script>
+</html>

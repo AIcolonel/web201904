@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>024-异步任务处理.html</title>
+</head>
+<body>
+	
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	//1.ajax
+	//https://api.github.com/users/AIcolonel
+	// $.get('http://api.github.com/users/AIcolonel',(data)=>{
+	// 	console.log(data)
+	// })
+	$.ajax({
+		url:'https://api.github.com/users/AIcolonel',
+		type:'get',
+		success:(data)=>{
+			// console.log(data)
+			$.get(data.followers_url,(result)=>{
+				console.log(result)
+				$.get(result[0].followers_url,(result2)=>{
+					console.log(result2)
+				})
+			})
+		}
+	})
+
+	console.log('get data loading ....')
+	//2.dom事件
+	const img = new Image()
+	img.onload = function(){
+		console.log('load img success')
+	}
+	img.onerror = function(){
+		console.log('load img error')
+	}
+
+	img.src = './img/01.jpg'
+	console.log('get img loading ....')
+	//3.定时器
+	setTimeout(function(){
+		console.log('load timer ....')
+	},0)
+
+	console.log('get timer ....')
+</script>
+</html>

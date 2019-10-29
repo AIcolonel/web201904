@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>033-promise的静态方法-race.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let getTimerData = (delay) =>{
+		return new Promise((resolve,reject)=>{
+			setTimeout(()=>{
+				//这里是易失误的地方
+				resolve('get timer '+ delay + ' data success')
+			},delay)
+		})
+	}
+	const p1 = getTimerData(200)
+	const p2 = getTimerData(800)
+	const p3 = getTimerData(1200)
+	const p4 = new Promise((resolve,reject)=>{
+		setTimeout(()=>{
+			reject('get timer '+ 400 + ' data failed')
+		},400)
+	})
+	const promise = Promise.race([p1,p2,p3,p4])
+	
+	promise
+	.then(data=>{
+		console.log(promise)
+		console.log(data)
+	})
+	.catch(err=>{
+		console.log(promise)
+		console.log(err)
+	})
+
+</script>
+</html>

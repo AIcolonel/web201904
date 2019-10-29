@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>046-ES8对象的新增方法.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	const {
+		keys,
+		entries,
+		values,
+		getOwnPropertyDescriptors,
+		assign,
+		is
+	}
+	= Object
+
+	// console.log(keys)
+	// Object.prototype.test = 222
+	let obj = {
+		name:'tom',
+		age:18
+	}
+	Object.defineProperty(obj,'sex',{
+		value:'female',
+		enumerable:false
+	})
+	// console.log('Object.prototype.test:::',Object.prototype.test)
+	console.log('obj::',obj)
+	console.log(keys(obj))
+	console.log(entries(obj))
+	console.log(values(obj))
+	console.log(getOwnPropertyDescriptors(obj))
+
+	const DEFAULT = {
+		js:false,
+		time:2000
+	}
+	const options = {
+		js:true
+	}
+	console.log(assign({},DEFAULT,options))
+	console.log(DEFAULT)
+	console.log(options)
+	console.log(assign([11,22,33,99],[44,55,66]))
+
+
+	console.log('1 == "1"',1 == '1')
+	console.log("1 === '1'",1 === '1')
+	console.log("is(1,'1')",is(1,'1'))
+
+	console.log("+0 === -0",+0 === -0)
+	console.log("is(+0,-0)",is(+0,-0))
+	console.log('NaN === NaN',NaN === NaN)
+	console.log('is(NaN,NaN)',is(NaN,NaN))
+</script>
+</html>

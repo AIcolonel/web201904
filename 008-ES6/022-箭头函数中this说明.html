@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>022-箭头函数中this说明.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Timer(id){
+		//this = Timer{}
+		this.id = id;
+		setTimeout(function(){
+			console.log(this,this.id)
+		},100)
+		//return this
+	}
+	/*
+	function Timer(id){
+		this.id = id;
+		setTimeout(()=>{
+			console.log(this,this.id)
+		},100)
+	}
+	*/
+
+	var id = 33;
+	const t =Timer(11);
+	// const t = new Timer(11);
+</script>
+</html>

@@ -2,13 +2,20 @@
 	margin: 0;
 	padding: 0;
 }
-.App{
-	width: 300px;
+.login-form{
+	width: 400px;
+	padding:20px;
+	border: 1px solid #ccc;
 	margin: 50px auto;
 }
-.App li{
-	list-style: none;
-	width: 100%;
-	line-height: 50px;
-	border-bottom: 1px dashed #ccc;
+.login-title{
+	font-weight: 800;
+	text-align: center;
+}
+.login-form-button{
+	display: block;
+	width: 100px;
+	height: 40px;
+	margin-left: auto;
+	margin-right: auto;
 }

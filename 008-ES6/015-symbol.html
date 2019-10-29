@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>015-symbol.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// let s = new Symbol()//不是一个构造函数
+	/*
+	let s1 = Symbol('Tom') 
+	let s2 = Symbol('Tom') 
+
+	console.log(s1)
+	console.log(s2)
+	console.log(s1 == s2)
+	*/
+
+	let s1 = Symbol('Tom') 
+	let s2 = Symbol('Leo') 
+	let obj = {
+		name:'Tom',
+		[s1]:'Hello',
+		[s2]:'你好'
+	}
+	console.log(obj[s1])
+	console.log(obj)
+
+	/*
+	for (let key in obj){
+		console.log(key)
+	}
+	*/
+	// console.log(Reflect.ownKeys(obj))
+	const arr = Reflect.ownKeys(obj)
+	for(let key in arr){
+		// console.log(arr[key])
+		console.log(obj[arr[key ]])
+	}
+</script>
+</html>

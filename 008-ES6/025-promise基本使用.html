@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>025-promise基本使用.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//生成新的promise对象时必须传递一个回调函数,回调函数需要接受两个参数(resolve,reject),这两个参数都是函数
+	//一旦生成新的promise对象,会立即执行里面的回调函数
+	const promise = new Promise((resolve,reject)=>{
+		console.log('do now')
+		//当异步处理成功时则调用resolve函数,状态由pending=>fulfilled
+		//当异步处理失败时则调用reject函数,状态由pending=>rejected
+		// resolve('ok')
+		// reject('error')
+
+		setTimeout(()=>{
+			// resolve('ok')
+			reject('error')
+		},0)
+	})
+
+	console.log(promise)
+	promise
+	.then(data=>{
+		console.log(promise)
+		console.log(data)
+	},error=>{
+		console.log(promise)
+		console.log(error)
+	})
+
+</script>
+</html>

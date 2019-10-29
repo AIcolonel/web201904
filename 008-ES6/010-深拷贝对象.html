@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>010-深拷贝对象.html</title>
+</head>
+<body>
+	
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	const obj = {
+		name:'Tom',
+		age:18,
+		friends:{
+			name:'Leo',
+			age:20
+		},
+		pets:['cat','dog']
+	}
+
+
+	/*直接赋值,浅copy*/
+	/*
+	const obj1 = obj;
+
+	obj1.name = 'Mike';
+	obj1.friends.name = 'Peter';
+	obj1.pets.push('tiger');
+	console.log('obj',obj);
+	console.log('obj1',obj1);
+	*/
+
+	/*扩展运算,浅copy*/
+	/*
+	const obj2 = {...obj};
+
+	obj2.name = 'Mike';
+	obj2.friends.name = 'Peter';
+	obj2.pets.push('tiger');
+	console.log('obj',obj);
+	console.log('obj2',obj2);
+	*/
+
+
+	/*循环遍历*/
+	/*
+	const obj3 = {};
+	for(key in obj){
+		obj3[key] = obj[key];
+	}
+	obj3.name = 'Mike';
+	obj3.friends.name = 'Peter';
+	obj3.pets.push('tiger');
+	console.log('obj',obj);
+	console.log('obj3',obj3);
+	*/
+
+	/*写一个深拷贝函数*/
+	function getDataType(data){
+		if(data instanceof Array){
+			return 'array'
+		}else if(data instanceof Object){
+			return 'object'
+		}
+	}
+	function deepCopy(data){
+		var type = getDataType(data);
+		var result;
+		if(type == 'array'){
+			result = []
+		}else if(type == 'object'){
+			result = {}
+		}else{
+			return data
+		}
+
+		//循环遍历数组或是对象
+		for(var key in data){
+			if(getDataType(data[key]) == 'array' || getDataType(data[key]) == 'object'){
+				result[key] = deepCopy(data[key])
+			}else{
+				result[key] = data[key]
+			}
+		}
+
+
+		return result;
+	}
+	/*
+	const obj4 = deepCopy(obj);
+	obj4.name = 'Mike';
+	obj4.friends.name = 'Peter';
+	obj4.pets.push('tiger');
+	console.log('obj',obj);
+	console.log('obj4',obj4);
+	*/
+
+
+	/*利用JSON上面的方法*/
+	/*
+	const obj5 = JSON.parse(JSON.stringify(obj))
+	obj5.name = 'Mike';
+	obj5.friends.name = 'Peter';
+	obj5.pets.push('tiger');
+	console.log('obj',obj);
+	console.log('obj5',obj5);
+	*/
+
+	/*利用jquery上面的extend方法*/
+	//如果第一个参数是false则是浅拷贝是true则是深拷贝
+	const obj6 = $.extend(true,{},obj);
+	obj6.name = 'Mike';
+	obj6.friends.name = 'Peter';
+	obj6.pets.push('tiger');
+	console.log('obj',obj);
+	console.log('obj6',obj6);
+
+
+
+	function getDataType(data){
+		if(data instanceof Array){
+			return 'array'
+		}else if(data instanceof Object){
+			return 'object'
+		}
+	}
+	function deepCopy(data){
+		const type = getDataType(data)
+		let result
+		if(type == 'array'){
+			result = []
+		}else if(type == 'object'){
+			result = {}
+		}else{
+			return data
+		}
+
+		for(let key in data){
+			if(getDataType(data[key]) == 'array' || getDataType(data[key]) == 'object'){
+				result[key] = deepCopy(data[key])
+			}else{
+				result[key] = data[key]
+			}
+		}
+	}
+</script>
+</html>

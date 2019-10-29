@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>037-for-of获取遍历器对象.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function * gen (x){
+		yield 1
+		yield 2
+		yield 3
+		yield 4
+		yield 5
+		yield 6
+	}
+	
+
+	const g = gen(5)
+	
+	/*
+	console.log(g.next())
+	console.log(g.next())
+	console.log(g.next())
+	console.log(g.next())
+	console.log(g.next())
+	console.log(g.next())
+	*/
+	for(v of g){
+		console.log(v)
+	}
+
+</script>
+</html>

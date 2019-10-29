@@ -11,7 +11,7 @@ body{
 
 
 
-
+ 
 
 
 
@@ -37,7 +37,7 @@ body{
 }
 /*
 .border-r{
-	-mo-border-radius:10px;
+	-ms-border-radius:10px;
 	-o-border-radius:10px;
 	-webkit-border-radius:10px;
 	-moz-border-radius:10px;
@@ -45,7 +45,7 @@ body{
 }
 */
 .border-r(@r){
-	-mo-border-radius:@r;
+	-ms-border-radius:@r;
 	-o-border-radius:@r;
 	-webkit-border-radius:@r;
 	-moz-border-radius:@r;
@@ -102,14 +102,29 @@ body{
 }
 */
 
-/*
 .trangle(@_){
 	width:0;
 	height: 0;
 	border-style: solid;
 }
-*/
+.trangle(top){
+	border-width: 10px;
+	border-color: #f0f transparent transparent transparent; 
+}
+.trangle(right){
+	border-width: 10px;
+	border-color: transparent #f0f transparent transparent; 
+}
+.trangle(bottom){
+	border-width: 10px;
+	border-color: transparent transparent #f0f transparent; 
+}
+.trangle(left){
+	border-width: 10px;
+	border-color: transparent transparent transparent #f0f; 
+}
 
+/*
 .trangle(@_,@w,@c){
 	width: 0px;
 	height: 0px;
@@ -131,10 +146,11 @@ body{
 	border-width: @w;
 	border-color: transparent transparent transparent @c ; 
 }
+*/
 
 .box4{
-	// .trangle(bottom);
-	.trangle(bottom,30px,#f60);
+	.trangle(right);
+	// .trangle(bottom,30px,#f60);
 }
 
 

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>034-generator函数基本使用.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function * gen (){
+		console.log('start gen fn ...')
+
+		yield 'data1'
+
+		console.log('do something after get data1 ....')
+		console.log('continue gen fn ...')
+
+		yield 'data2'
+
+		console.log('do something after get data2 ...')
+
+		return 'get data'
+	}
+
+	//调用函数并不会被执行会返回一个generator遍历器对象
+	// gen()
+	console.log(gen())
+	const g = gen()
+	//注意打印出来返回值
+	console.log(g.next())
+	console.log(g.next())
+	console.log(g.next())
+</script>
+</html>

@@ -20,8 +20,8 @@
 	document.cookie = "age=18";
 	console.log(document.cookie);
 	*/
-	setCookie("username","leo",10);
-	setCookie("age","20",10);
+	setCookie("username","leo",1000);
+	setCookie("age","20",1000);
 	// console.log(document.cookie);
 	//'username'
 	function getCookie(key){
@@ -33,7 +33,7 @@
 		for(var i = 0;i<arr1.length;i++){
 			// console.log(arr1[i])
 			var arr2 = arr1[i].split('=');
-			// console.log(arr2);
+			console.log(arr2);
 			for(var j = 0;j<arr2.length;j++){
 				if(key.trim() == arr2[0].trim()){
 					return arr2[1];
@@ -47,6 +47,6 @@
 	function removeCookie(key){
 		setCookie(key,false,-1);
 	}
-	removeCookie('age');
+	// removeCookie('age');
 </script>
 </html>

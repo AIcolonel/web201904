@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>047-数组.html</title>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+<script>
+	const doms = document.getElementsByTagName('div')
+	const obj = {
+		"0":'xf001',
+		"1":'xf002',
+		length:2
+	}
+	console.log(obj)
+	//console.log([...obj])//报错
+	console.log(Array.from(obj))
+	console.log('doms',doms)
+	console.log('[...doms]',[...doms])
+	console.log('Array.from(doms)',Array.from(doms))
+
+	const arr = [1,45,62,31,78,63,12]
+	console.log(arr.find(n=>n>60))//返回值
+	console.log(arr.findIndex(n=>n>60))//返回下标
+	console.log(arr.includes(62,3))
+</script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>040-async函数中await的使用.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	async function fn(){
+		const data1 = await ' ok data1'
+		// console.log('data1 = ',data1)
+		return data1
+	}
+	fn()
+	.then(data=>{
+		console.log(data)
+	})
+	
+
+	function fn(){
+		const data1 = await ' ok data1'
+		console.log('data1 = ',data1)
+	}
+	fn()
+	*/
+	const promise = new Promise((resolve,reject)=>{
+		setTimeout(()=>{
+			// resolve('success data')
+			reject('failed data')
+		},200)
+	})
+
+	async function fn(){
+		// try{
+			const data1 = await promise
+			console.log('data1 = ',data1)
+			console.log('do something....')
+			return data1
+		// }catch(err){
+			// console.log(err)
+		// }
+
+		// return 'result data'
+	}
+	fn()
+	.then(data=>{
+		console.log(data)
+	})
+</script>
+</html>

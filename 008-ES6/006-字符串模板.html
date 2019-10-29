@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>006-字符串模板.html</title>
+</head>
+<body>
+	<button id="btn">点我</button>
+	<div id="content"></div>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	var oContent = document.getElementById('content');
+
+
+	var data = ['tom','anmy','leo'];
+	oBtn.onclick = function(){
+		var html = '<ul>';
+		for(var i = 0;i<data.length;i++){
+			// html += '<li>' + data[i] + '</li>'
+			html += `<li>${data[i]}</li>`
+		}
+		html += '</ul>';
+		oContent.innerHTML = html;
+	}
+</script>
+</html>

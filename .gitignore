@@ -1,3 +1,5 @@
 ./001-html/resource
 **/node_modules
 **/folder.ini
+*.mp4
+*.mp3

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>036-next说明.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function * gen (x){
+		console.log('start gen x= ',x)
+
+		const y = yield (x+10)
+
+		console.log('y= ',y)
+
+		const z = yield (y + 20)
+
+		console.log('z = ',z)
+
+		return (x+y+z)
+	}
+	
+
+	const g = gen(5)
+	//next的参数被当作上一个yield表达式的返回值。
+	//调用next方法后会返回一个对象,对象中value属性存储的就是上一个yield表达式后面的计算结果
+	//而next方法中的参数会作为上一个yiled表达式的返回值,这两个盖=概念是不一样的
+	console.log(g.next(20))//{value: 15, done: false}
+	console.log(g.next(30))//{value: 35, done: false}
+	console.log(g.next(80))//{value: 115, done: true}
+
+	/*
+	const data1 = g.next()
+	console.log('data1::',data1)
+	const data2 = g.next(data1.value)
+	console.log('data2::',data2)
+	const data3 = g.next(30)
+	console.log('data3::',data3)
+	*/
+
+</script>
+</html>

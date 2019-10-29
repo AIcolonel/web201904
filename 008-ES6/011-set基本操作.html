@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>011-set基本操作.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	const s = new Set();
+
+	console.log(s);
+	*/
+	const arr = [11,22,33];
+	const s = new Set(arr);
+	console.log(s.add(44));
+	console.log(s.add(55));
+	console.log('s.delete(22)',s.delete(22));
+	console.log('s.has(66)',s.has(66));
+	console.log(s.clear());
+	console.log(s);
+	console.log(s.size);
+</script>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>012-数组去重.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	const arr = [11,55,11,45,96,33,45,11];
+	console.log(arr)
+
+	//方法一
+	function uniqueArr1(arr){
+		const result = [];
+		for(let i = 0;i<arr.length;i++){
+			if(result.indexOf(arr[i],0) == -1){
+				result.push(arr[i])
+			}
+		}
+
+		return result 
+	}
+
+	// const newArr = uniqueArr1(arr);
+	// console.log(newArr);
+
+	//方法二
+	function uniqueArr2(arr){
+		const result = [];
+		const obj = {};
+		for(let i = 0;i<arr.length;i++){
+			obj[arr[i]] = ''
+		}
+
+		for(let key in obj){
+			result.push(key*1);
+		}
+		return result;
+	}
+
+	//const newArr = uniqueArr2(arr);
+	//console.log(newArr);
+
+	//方法三
+	function uniqueArr3(arr){
+		const s = new Set(arr);
+		const result = [...s];
+		return result;
+	}
+
+	const newArr = uniqueArr3(arr);
+	console.log(newArr);
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>014-map的遍历方法.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	const m = new Map()
+	let obj1 = {id:1001}
+	let obj2 = {id:1002}
+
+	m.set('name','Tom')
+	m.set(obj1,'Hello')
+	m.set(obj2,'你好')
+
+	// console.log(m.keys())
+	for(let key of m.keys()){
+		console.log(key)
+	}
+
+	for(let value of m.values()){
+		console.log(value)
+	}
+
+	for(let entry of m.entries()){
+		console.log(entry)
+	}
+
+	m.forEach(function(value,key){
+		console.log('value='+value,'key='+key)
+	})
+	console.log(m)
+</script>
+</html>

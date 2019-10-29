@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>030-promise的静态方法-resolve.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	const promise = new Promise((resolve,reject)=>{
+		setTimeout(()=>{
+			resolve('ok')
+		},0)
+	})
+	// 不带有任何参数,直接返回一个resolved状态的 Promise 对象
+	const p1 = Promise.resolve()
+	console.log('p1::',p1)
+	// 如果参数是Promise实例,那么Promise.resolve将不做任何修改、原封不动地返回这个实例 
+	const p2 = Promise.resolve(promise)
+	console.log('p2::',p2)
+	console.log('promise == p2',promise == p2)
+	// 如果参数是一个具有then方法的对象,resolve方法会将这个对象转为 Promise 对象然后就立即执行该对象的then方法
+	const obj = {
+		then:function(){
+			console.log('then of obj')
+		}
+	}
+	const p3 = Promise.resolve(obj)
+	console.log('p3::',p3)
+	// 如果参数不是具有then方法的对象,或根本就不是对象,返回一个新的 Promise 对象,状态为resolved
+	const p4 = Promise.resolve({name:'tom'})
+	const p5 = Promise.resolve('aaa')
+	console.log('p4::',p4)
+	console.log('p5::',p5)
+</script>
+</html>

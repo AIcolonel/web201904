@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>005-对象的结构解析.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let person = {
+		name:'tom',
+		age:18
+	}
+	/*
+	let name = person.name
+	let age = person.age
+	console.log(name)
+	console.log(age)
+	*/
+
+	/*
+	let {name:name1,age:age1} = person;
+	console.log(name1)
+	console.log(age1)
+	*/
+
+	/*
+	let {name:name,age:age} = person;
+	console.log(name)
+	console.log(age)
+	*/
+
+
+	/*
+	let {name,age} = person;
+	console.log(name)
+	console.log(age)
+	*/
+
+	let {name='leo',age,sex='male'} = person;
+	console.log(name)
+	console.log(age)
+	console.log(sex)
+</script>
+</html>

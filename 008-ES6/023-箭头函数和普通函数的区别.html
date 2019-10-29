@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>023-箭头函数和普通函数的区别.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	*/
+	let Person = (name,age)=>{
+		this.name = name;
+		this.age = age;
+	}
+	const p1 = new Person('tom',18)
+
+	/*
+	function show(n1,n2){
+		console.log(arguments)
+	}
+	
+	let show = (n1,n2)=>{
+		console.log(arguments)
+	}
+	show(1,2)
+	*/
+
+	/*
+	show()
+	let show = ()=>{
+		console.log('show something...')
+	}
+	*/
+	
+</script>
+</html>

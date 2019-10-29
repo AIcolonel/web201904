@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	const obj = {
+		str:'hello',
+		say(){
+			Array.from(arguments).forEach(item=>{
+				console.log(`${this.str} ${item}`)
+			})
+		}
+	}
+
+	// obj.say('foo')
+	// obj.say('foo','bar')
+
+	/*
+	function f(){
+		return obj.say(...arguments)
+	}
+	f('foo')
+	f('foo','bar')
+	*/
+
+	/*
+	var f = obj.say.bind(obj)
+	f('foo')
+	f('foo','bar')
+	*/
+	
+	function f(){
+		let {say} = obj
+		say.apply(obj,arguments)
+	}
+	f('foo')
+	f('foo','bar')
+
+</script>
+</html>

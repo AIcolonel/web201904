@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>038-generator函数处理ajax.html</title>
+</head>
+<body>
+	
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	let getDataPromise = (url)=>{
+		return new Promise((resolve,reject)=>{
+			//处理异步逻辑
+			$.ajax({
+				url:url,
+				success:(data)=>{
+					resolve(data)
+				},
+				error:(jqXHR,statusMsg)=>{
+					reject(statusMsg)
+				}
+			})
+		})
+	}
+	function * gen (url){
+		const data1 = yield getDataPromise(url)
+		const data2 = yield getDataPromise(data1)
+		const data3 = yield getDataPromise(data2)
+		console.log('get user data::',data3)
+	}
+	
+
+	const g = gen('https://api.github.com/users/AIcolonel')
+	//console.log(g.next())//{value: Promise, done: false}
+
+	g.next().value
+	.then(data=>{
+		// console.log(data)
+		// console.log(g.next(data.followers_url))
+		return g.next(data.followers_url).value
+	})
+	.then(data=>{
+		// console.log(data)
+		// console.log(g.next(data[0].followers_url))
+		return g.next(data[0].followers_url).value
+	})
+	.then(data=>{
+		console.log(data)
+		g.next(data)
+	})
+
+</script>
+</html>

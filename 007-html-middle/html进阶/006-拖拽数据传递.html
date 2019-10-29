@@ -29,6 +29,7 @@
 	$(function(){
 		$('#target')
 		.on('dragstart',function(ev){
+			console.log(ev)
 			ev.originalEvent.dataTransfer.setData('targetId',ev.target.id);
 		})
 

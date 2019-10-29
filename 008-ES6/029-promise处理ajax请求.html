@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>029-promise处理ajax请求.html</title>
+</head>
+<body>
+	
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	//需要一个生成promise对象的函数
+	let getDataPromise = (url)=>{
+		return new Promise((resolve,reject)=>{
+			//处理异步逻辑
+			$.ajax({
+				url:url,
+				success:(data)=>{
+					resolve(data)
+				},
+				error:(jqXHR,statusMsg)=>{
+					reject(statusMsg)
+				}
+			})
+		})
+	}
+
+	//生成promise对象
+	getDataPromise('https://api.github.com/users/AIcolonel')
+	.then(data=>{
+		// console.log(data)
+		return getDataPromise(data.followers_url)
+	})
+	.then(data=>{
+		// console.log(data)
+		return getDataPromise(data[0].followers_url)
+	})
+	.then(data=>{
+		console.log(data)
+	})
+	.catch(err=>{
+		console.log(err)
+	})
+</script>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>004-数组的结构解析.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	let a = 1,
+		b = 2,
+		c = 3;
+	*/
+	/*
+	let [a,b,c] = [1,2,3];
+	console.log(a,b,c);
+	*/
+
+	/*
+	let [a,[b,c],d] = [1,[2,3],4];
+	console.log(a,b,c,d)
+	*/
+
+	/*
+	let [a,[b],d] = [1,[2,3],4];
+	console.log(a,b,d)
+	*/
+
+	/*
+	let [a,b,d] = [1,[2,3],4];
+	console.log(a,b,d)
+	*/
+
+	/*
+	let [a,b,c] = [1,2];
+	console.log(a,b,c)
+	*/
+
+
+	// let [a,b,c=666] = [1,2]
+	// let [a,b,c=666] = [1,2,undefined]
+	// let [a,b,c=666] = [1,2,null]
+	// console.log(a,b,c)
+
+
+	let [a,b,c] = {};//{} is not iterable 不是可迭代的
+	console.log(a,b,c)
+</script>
+</html>

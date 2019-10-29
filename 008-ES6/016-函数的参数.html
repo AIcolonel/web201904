@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>016-函数的参数.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	function show(name,age){
+		var name = name || 'Tom'
+		var age = age || 18
+		console.log(name,age)
+	}
+	*/
+
+	// show('Tom',18)
+	// show('Tom')
+	// show()
+
+
+	function show(name='Tom',age=18){
+		console.log(name,age)
+	}
+	// show()
+	// show('Leo',20)
+
+	let i = 1
+	function test(x = ++i){
+		console.log(x)
+	}
+	test()
+	i = 5
+	test()
+
+
+	function request(url,{method='get',data='id=000'} = {}){
+		console.log(url,method,data)
+	}
+	request('http://api.kuazhu.com',{method:'post',data:'id=111'})
+	// request('http://api.kuazhu.com')
+
+
+	function sum(...arr){
+		console.log(arr)
+	}
+	sum(11,22,33)
+</script>
+</html>

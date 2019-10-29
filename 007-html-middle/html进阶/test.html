@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			height: 3000px;
+		}
+		div {
+			width: 200px;
+			height: 150px;
+			/*background: linear-gradient(skyblue,purple);*/
+			/*background: -webkit-gradient(left, 0 0, 0 100%, from(skyblue), to(purple));*/
+			/*-webkit-linear-gradient(#ccc,#000);*/
+			background:linear-gradient(to right,skyblue,purple)
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+<script>
+	function setCookie(key,val,iDate){
+		var oDate = new Date();
+	    oDate.setDate(oDate.getDate() + iDate);
+		document.cookie = key+"="+val+";Expires="+oDate;
+	}
+	function getCookie(key){
+		var str = document.cookie;
+		var arr1 = str.split(';');
+		for(var i = 0;i<arr1.length;i++){
+			var arr2 = arr1[i].split('=');
+			for(var j = 0;j<arr2.length;j++){
+				if(key.trim() == arr2[0].trim()){
+					return arr2[1];
+					break;
+				}
+			}
+		}
+	}
+	function removeCookie(key){
+		setCookie(key,false,-1);
+	}
+	window.onload = function(){
+		setCookie('timer',39,1)
+		console.log(getCookie('timer'))
+	}
+</script>
+</html>

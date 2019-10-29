@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>042-await处理ajax.html</title>
+</head>
+<body>
+	
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	let getDataPromise = (url)=>{
+		return new Promise((resolve,reject)=>{
+			//处理异步逻辑
+			$.ajax({
+				url:url,
+				dataType:'json',
+				success:(data)=>{
+					resolve(data)
+				},
+				error:(jqXHR,statusMsg)=>{
+					reject(statusMsg)
+				}
+			})
+		})
+	}
+   
+
+   async function getGithubData(url){
+      const data1 = await getDataPromise(url)
+      // console.log(data1)
+      const data2 = await getDataPromise(data1.followers_url)
+      // console.log(data2)
+      const data3 = await getDataPromise(data2[0].followers_url)
+
+      return data3
+   }
+   getGithubData('https://api.github.com/users/AIcolonel')
+   .then(data=>{
+      console.log(data)
+   })
+</script>
+</html>

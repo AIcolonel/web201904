@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>039-async函数的返回值.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//添加async会自动返回一个promise对象
+	/*
+	async function fn(){
+		return 'ok data'
+	}
+
+	const p1 = fn()
+	console.log(p1)
+	p1.then(data=>{
+		console.log(data)
+	})
+	*/
+
+
+	//虽然在async函数内返回的promise是p1并且用p2接收到,但是p1和p2并不相同
+	//如果将async去掉则p1 == p2
+	let p1 = null;
+	async function fn(){
+		p1 = Promise.resolve('ok data')
+		return p1
+	}
+
+	const p2 = fn()
+	console.log('p1::',p1)
+	console.log('p2::',p2)
+	console.log('p1==p2',p1==p2)
+</script>
+</html>
