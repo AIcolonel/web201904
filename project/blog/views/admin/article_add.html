@@ -1,0 +1,47 @@
+{% extends './layout.html' %}
+{% block header %}
+	新增文章
+{% endblock %}
+{% block content %}
+<form class="form-horizontal" action="/article/add" method="POST">
+  <div class="form-group">
+    <label for="category" class="col-sm-2 control-label">分类名称</label>
+    <div class="col-sm-6">
+      <select class="form-control" id="category" name="category">
+        {% for category in categories %}
+        <option value="{{ category._id.toString() }}">{{ category.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="title" class="col-sm-2 control-label">标题</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="title" name="title" placeholder="标题">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="intro" class="col-sm-2 control-label">简介</label>
+    <div class="col-sm-6">
+      <textarea class="form-control" name="intro" id="intro" cols="30" rows="6"></textarea>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="content" class="col-sm-2 control-label">文章内容</label>
+    <div class="col-sm-6">
+      <textarea class="form-control" name="content" id="content" cols="30" rows="6"></textarea>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-6">
+      <button type="submit" class="btn btn-primary">提交</button>
+    </div>
+  </div>
+</form>
+
+{% endblock %}
+{% block footer %}
+  <script src="/lib/ckeditor/ckeditor.js"></script>
+  <script src="/lib/ckeditor/translations/zh-cn.js"></script>
+  <script src="/js/article.js"></script>
+{% endblock %}

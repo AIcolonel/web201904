@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{{ title }}</title>
+</head>
+<body>
+	<h1>hello {{ name }}</h1>
+	{% if name === "Tom" %}
+	<p>你好,Tom</p>
+	{% elseif name === "Leo" %}
+	<p>你好,Leo</p>
+	{% else %}
+	<p>你好,guys</p>
+	{% endif %}
+
+	<ul>
+		{% for key,val in names %}
+		<li>{{ key }}--{{ val }}</li>
+		{% endfor %}
+	</ul>
+</body>
+</html>

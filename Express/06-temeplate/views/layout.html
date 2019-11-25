@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	{% block title %}{% endblock %}
+	<link rel="stylesheet" href="css/common.css">
+	{% block head %}{% endblock %}
+</head>
+<body>
+	<nav>
+		网站导航
+	</nav>
+	<div>
+		{% block content %}{% endblock %}
+	</div>
+	<footer>
+		底部导航
+	</footer>
+</body>
+{% include './footer.html' %}
+{% block end %}{% endblock %}
+</html>

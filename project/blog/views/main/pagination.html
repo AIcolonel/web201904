@@ -1,0 +1,40 @@
+ 
+ 
+    <ul class="pagination">
+      {% if pages > 1 %} 
+      	{% if page == 1 %}
+        <li class="disabled">
+          <a href="javascript:;" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        {% else %}
+        <li>
+          <a href="javascript:;" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        {% endif %}
+        {% for i in list %}
+        	{% if i == page %}
+        	<li class="active"><a href="javascript:;">{{ i }}</a></li>
+        	{% else %}
+        	<li><a href="javascript:;">{{ i }}</a></li>
+        	{% endif %}
+        {% endfor %}
+        {% if page == pages %}
+        <li class="disabled">
+          <a href="javascript:;" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+        {% else %}
+        <li>
+          <a href="javascript:;" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+        {% endif %}
+      {% endif %}
+    </ul>
+

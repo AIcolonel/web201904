@@ -1,0 +1,36 @@
+{% extends './layout.html' %}
+{% block title %}博客列表{% endblock %}
+
+{% block content %}
+<!--
+<div id="article-wrap">
+  {% for article in articles %}
+    <div class="panel panel-default content-item">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <a href="{{article._id.toString()}}" class="link" target="_blank">{{article.title}}</a>
+        </h3>
+      </div>
+      <div class="panel-body">
+        {{article.intro}}
+      </div>
+      <div class="panel-footer">
+        <span class="glyphicon glyphicon-user"></span>
+        <span class="panel-footer-text text-muted">{{article.user.username}}</span>
+        <span class="glyphicon glyphicon-th-list"></span>
+        <span class="panel-footer-text text-muted">{{article.category.name}}</span>
+        <span class="glyphicon glyphicon-time"></span>
+        <span class="panel-footer-text text-muted">{{article.createdTime}}</span>
+        <span class="glyphicon glyphicon-eye-open"></span>
+        <span class="panel-footer-text text-muted"><em>{{article.click}}</em>已阅读</span>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+<nav aria-label="Page navigation" id="articles-page">
+  {% include './pagination.html' %}   
+</nav>  
+-->    
+{% include './article_list.html' %}                                 
+{% endblock %}
+
