@@ -1,0 +1,15 @@
+/*
+* @Author: Chen
+* @Date:   2019-12-04 16:23:15
+* @Last Modified by:   Chen
+* @Last Modified time: 2019-12-04 16:55:14
+*/
+.AdminHeader .logo{
+	float: left;
+	font-size: 20px;
+	font-weight: 600;
+	color: #1DA57A;
+}
+.AdminHeader .drop-down{
+	float: right;
+}

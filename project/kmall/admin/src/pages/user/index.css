@@ -1,0 +1,10 @@
+/*
+* @Author: Chen
+* @Date:   2019-12-02 09:31:29
+* @Last Modified by:   Chen
+* @Last Modified time: 2019-12-06 20:17:06
+*/
+
+.User .ant-table-body{
+	min-height: 600px;
+}

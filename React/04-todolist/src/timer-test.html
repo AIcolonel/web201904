@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="root">
+		<h1>hello</h1>
+		<p>15:42</p>
+	</div>
+</body>
+<script>
+	var oRoot = document.getElementById('root')
+	function tick(){
+		oRoot.innerHTML = `<h1>hello</h1><p>${new Date().toLocaleString()}</p>`
+	}
+	setInterval(tick,1000)
+</script>
+</html>

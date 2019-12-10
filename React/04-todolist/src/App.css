@@ -1,0 +1,48 @@
+/*
+* @Author: Chen
+* @Date:   2019-11-25 11:12:00
+* @Last Modified by:   Chen
+* @Last Modified time: 2019-11-26 09:26:52
+*/
+*{
+	margin: 0;
+	padding: 0;
+}
+.App{
+	width: 960px;
+	margin: 50px auto;
+}
+input{
+	height: 36px;
+	width: 80%;
+	font-size: 18px;
+	padding-left: 5px;
+	outline: none;
+	box-sizing: border-box;
+	vertical-align: middle;
+}
+.btn{
+	width: 20%;
+	height: 36px;
+	line-height: 36px;
+	outline: none;
+	border:none;
+}
+.list{
+	list-style: none;
+	margin-top: 8px;
+}
+.list li{
+	width: 100%;
+	height: 40px;
+	padding-left: 10px;
+	margin-top: 10px;
+	line-height: 40px;
+	border-left: 2px solid #f69;
+	border-bottom: 1px dashed #ccc;
+	box-sizing: border-box;
+}
+.list li:hover{
+	cursor: pointer;
+	background-color: #ccc;
+}

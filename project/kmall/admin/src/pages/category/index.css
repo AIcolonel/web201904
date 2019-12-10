@@ -1,0 +1,15 @@
+/*
+* @Author: Chen
+* @Date:   2019-12-02 09:31:29
+* @Last Modified by:   Chen
+* @Last Modified time: 2019-12-09 16:50:27
+*/
+.CategoryList .content{
+	margin-top: 15px;
+}
+.CategoryList .btn{
+	height: 40px;
+}
+.CategoryList .btn-add{
+	float: right;
+}
