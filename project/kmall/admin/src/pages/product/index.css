@@ -1,0 +1,33 @@
+/*
+* @Author: Chen
+* @Date:   2019-12-02 09:31:29
+* @Last Modified by:   Chen
+* @Last Modified time: 2019-12-16 10:12:40
+*/
+.CategoryList .ant-table-body{
+	min-height: 600px;
+}
+.CategoryList .content{
+	margin-top: 15px;
+}
+.CategoryList .btn{
+	height: 40px;
+}
+.CategoryList .btn-add{
+	float: right;
+}
+.CategorySave .simditor-body{
+	overflow: hidden;
+}
+.imageBox li{
+	list-style: none;
+	width: 100px;
+	height: 100px;
+	margin-left: 10px;
+	border: 1px solid #ccc;
+	float: left;
+}
+.imageBox li img{
+	width: 100%;
+	height: 100%;
+}

@@ -2,7 +2,7 @@
 * @Author: Chen
 * @Date:   2019-12-02 09:30:34
 * @Last Modified by:   Chen
-* @Last Modified time: 2019-12-05 09:59:06
+* @Last Modified time: 2019-12-19 15:38:00
 */
 import React,{Component,Fragment} from 'react'
 import {actionCreators} from './store'
@@ -36,12 +36,12 @@ class Home extends React.Component {
 				      </Col>
 				      <Col span={8}>
 				      	<Card title="商品数" bordered={false} style={{ width: 300 }}>
-					      <p>{ordernum}</p>
+					      <p>{productnum}</p>
 					    </Card>
 				      </Col>
 				      <Col span={8}>
 				      	<Card title="订单数" bordered={false} style={{ width: 300 }}>
-					      <p>{productnum}</p>
+					      <p>{ordernum}</p>
 					    </Card>
 				      </Col>
 				    </Row>

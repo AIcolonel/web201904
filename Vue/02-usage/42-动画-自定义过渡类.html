@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>42-动画-自定义过渡类.html</title>
+	<link rel="stylesheet" href="css/animate.css">
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		
+		button{
+			width: 80px;
+			height: 40px;
+			margin-right: 10px;
+		}
+		
+	</style>
+</head>
+<body>
+	<div id="app">
+		<div>
+			<button @click="isShow = !isShow">切换</button>
+			<transition
+			enter-active-class="animated bounceInDown"
+    		leave-active-class="animated bounceOutRight"
+			appear>
+				<p v-if="isShow">文字</p>
+			</transition>
+		</div>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			isShow:true
+		},
+	})
+</script>
+</html>

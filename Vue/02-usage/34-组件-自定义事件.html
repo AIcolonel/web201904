@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>34-组件-自定义事件.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<button-counter @total-count="totalCount()"></button-counter>
+		<button-counter @total-count="totalCount()"></button-counter>
+		<button-counter @total-count="totalCount()"></button-counter>
+		<p>总共被点击了{{total}}次</p>
+	</div>
+	<!--模板必须卸载挂载的dom节点外部-->
+	<template id="button-counter">
+		<button @click="addCount()">我被点击了{{ count }}次</button>
+	</template>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	Vue.component('button-counter',{
+		data(){
+			return {
+				count:0
+			}
+		},
+		template: '#button-counter',
+		methods:{
+			addCount:function(){
+				this.count++
+				//触发自定义事件
+				this.$emit('total-count')
+			}
+		}
+	})
+
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			total:0
+		},
+		methods:{
+			totalCount:function(){
+				this.total++
+			}
+		}
+	})
+</script>
+</html>

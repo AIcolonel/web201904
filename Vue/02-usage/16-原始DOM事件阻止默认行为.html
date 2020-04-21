@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>16-原始DOM事件阻止默认行为.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		
+	</style>
+</head>
+<body>
+	<div id="app">
+		<a @click="goBaidu($event)" href="https://www.baidu.com">百度</a>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			
+		},
+		methods:{
+			goBaidu:function(ev){
+				ev.preventDefault()
+				console.log('go baidu ...')
+			}
+		}
+	})
+</script>
+</html>

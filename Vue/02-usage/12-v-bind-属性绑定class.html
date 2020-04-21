@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>12-v-bind-属性绑定class.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.active{
+			background-color: blue;
+		}
+		.error{
+			color: red;
+		}
+		p{
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<p>我是文字</p>
+		<p class="active error">class="active error"</p>
+		<p :class="{active:true,error:false}">:class="{active:true,error:false}"</p>
+		<p :class="{active:isActive,error:isError}">:class="{active:isActive,error:isError}"</p>
+		<p :class="['active','error']">:class="['active','error']"</p>
+		<p :class="[isActive ? 'active' : '','error']">:class="[isActive ? 'active' : '','error']"</p>
+		<p :class="objClass">:class="objClass"</p>
+		<p :class="arrClass">:class="arrClass"</p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			isActive:false,
+			isError:true,
+			objClass:{
+				active:true,
+				error:true
+			},
+			arrClass:['active','error']
+		},
+	})
+</script>
+</html>

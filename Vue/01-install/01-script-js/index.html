@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue Test</title>
+</head>
+<body>
+	<div id="app">
+		{{message}}
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	// console.log(Vue)
+	var vue = new Vue({
+		el:'#app',
+		data:{
+			message:'hello'
+		}
+	})
+	console.log(vue)
+</script>
+</html>

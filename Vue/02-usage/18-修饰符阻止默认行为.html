@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>18-修饰符阻止默认行为.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		
+	</style>
+</head>
+<body>
+	<div id="app">
+		<a @click.prevent="goBaidu()" href="https://www.baidu.com">百度</a>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			
+		},
+		methods:{
+			goBaidu:function(){
+				console.log('go baidu ...')
+			}
+		}
+	})
+</script>
+</html>

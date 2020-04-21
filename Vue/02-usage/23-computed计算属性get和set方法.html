@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>23-computed计算属性get和set方法.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		
+	</style>
+</head>
+<body>
+	<div id="app">
+		<input v-model="fullName" type="text">
+		<p>firstName::{{firstName}}</p>
+		<p>lastName::{{lastName}}</p>
+		<p>fullName::{{fullName}}</p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			firstName:'Chen',
+			lastName:'Tom'
+		},
+		methods:{
+			
+		},
+		computed:{
+			fullName:{
+				get:function(){
+					return this.firstName + " " + this.lastName
+				},
+				//只要当前计算属性的值发生变化时,则或处罚其中的set方法
+				set:function(newName){
+					// console.log(newName)
+					var names = newName.split(' ')
+					console.log(names)
+					this.firstName = names[0]
+					this.lastName = names[names.length - 1]
+				}
+			}
+		}
+	})
+	console.log(vm)
+</script>
+</html>

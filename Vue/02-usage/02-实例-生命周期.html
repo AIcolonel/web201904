@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>02-实例-生命周期</title>
+</head>
+<body>
+	<div id="app">
+		<p ref='p1'>{{message}}</p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			message:'hello world'
+		},
+		beforeCreate:function(){
+			console.log('beforeCreate::')
+			console.log('this.$el',this.$el)//undefined
+			console.log('this.$data',this.$data)//undefined
+			console.log('this.$refs',this.$refs)//{}
+		},
+		created:function(){
+			console.log('created::')
+			console.log('this.$el',this.$el)//undefined
+			console.log('this.$data',this.$data)//{message}
+			console.log('this.$refs',this.$refs)//{}
+		},
+		beforeMount:function(){
+			console.log('beforeMount::')
+			console.log('this.$el',this.$el)//dom
+			console.log('this.$data',this.$data)//{message}
+			console.log('this.$refs',this.$refs)//{}
+		},
+		mounted:function(){
+			console.log('mounted::')
+			console.log('this.$el',this.$el)//dom
+			console.log('this.$data',this.$data)//{message}
+			console.log('this.$refs',this.$refs)//{p1:p}
+		},
+		beforeUpdate:function(){
+			console.log('beforeUpdate::')
+		},
+		updated:function(){
+			console.log('updated::')
+		},
+		beforeDestroy:function(){
+			console.log('beforeDestroy::')
+		},
+		destroyed:function(){
+			console.log('destroyed::')
+		},
+	})
+</script>
+</html>

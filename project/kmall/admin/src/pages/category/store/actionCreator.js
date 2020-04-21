@@ -2,7 +2,7 @@
 * @Author: Chen
 * @Date:   2019-11-28 10:32:00
 * @Last Modified by:   Chen
-* @Last Modified time: 2019-12-09 16:56:39
+* @Last Modified time: 2019-12-10 11:45:16
 */
 import * as actionTypes from './actionTypes.js'
 import { message } from 'antd'
@@ -74,15 +74,13 @@ export const getPageAction = (page)=>{
 			page:page
 		})
 		.then(result=>{
-			console.log(result)
-			/*
+			// console.log(result)
 			const data = result.data
 			if(data.code == 0){//登录成功
 				dispatch(getSetPageAction(data.data))
 			}else{//登录失败
-				message.error('请求失败,请稍后再试!')
+				message.error(data.message)
 			}
-			*/
 		})
 		.catch(err=>{
 			message.error('请求失败,请稍后再试!')
@@ -90,6 +88,99 @@ export const getPageAction = (page)=>{
 		.finally(()=>{
 			//请求后停止loading 
 			dispatch(getPageDoneAction())
+		})
+	}
+}
+//处理更新分类名称
+export const getUpdateNameAction = (id,newName)=>{
+	return (dispatch,getState)=>{
+		// console.log(getState().get('category').get('current'))
+		const page = getState().get('category').get('current')
+		api.updateCategoryName({
+			id:id,
+			name:newName,
+			page:page
+		})
+		.then(result=>{
+			const data = result.data
+			if(data.code == 0){//登录成功
+				message.success('更新分类名称成功')
+				dispatch(getSetPageAction(data.data))
+			}else{//登录失败
+				message.error(data.message)
+			}
+		})
+		.catch(err=>{
+			message.error('请求失败,请稍后再试!')
+		})
+	}
+}
+//处理更新手机分类
+export const getUpdateMobileNameAction = (id,newMobileName)=>{
+	return (dispatch,getState)=>{
+		const page = getState().get('category').get('current')
+		api.updateCategoryMobileName({
+			id:id,
+			mobileName:newMobileName,
+			page:page
+		})
+		.then(result=>{
+			const data = result.data
+			if(data.code == 0){//登录成功
+				message.success('更新手机分类名称成功')
+				dispatch(getSetPageAction(data.data))
+			}else{//登录失败
+				message.error(data.message)
+			}
+		})
+		.catch(err=>{
+			message.error('请求失败,请稍后再试!')
+		})
+	}
+}
+//处理更新排序
+export const getUpdateOrderAction = (id,newOrder)=>{
+	return (dispatch,getState)=>{
+		const page = getState().get('category').get('current')
+		api.updateCategoryOrder({
+			id:id,
+			order:newOrder,
+			page:page
+		})
+		.then(result=>{
+			const data = result.data
+			if(data.code == 0){//登录成功
+				message.success('更新排序成功')
+				dispatch(getSetPageAction(data.data))
+			}else{//登录失败
+				message.error(data.message)
+			}
+		})
+		.catch(err=>{
+			message.error('请求失败,请稍后再试!')
+		})
+	}
+}
+//处理更新上下架
+export const getUpdateIsShowAction = (id,newIsShow)=>{
+	return (dispatch,getState)=>{
+		const page = getState().get('category').get('current')
+		api.updateCategoryIsShow({
+			id:id,
+			isShow:newIsShow,
+			page:page
+		})
+		.then(result=>{
+			const data = result.data
+			if(data.code == 0){//登录成功
+				message.success('更新上下架成功')
+				dispatch(getSetPageAction(data.data))
+			}else{//登录失败
+				message.error(data.message)
+			}
+		})
+		.catch(err=>{
+			message.error('请求失败,请稍后再试!')
 		})
 	}
 }

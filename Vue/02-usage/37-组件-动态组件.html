@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>37-组件-动态组件.html</title>
+	<style>
+		
+	</style>
+</head>
+<body>
+	<div id="app">
+		<button @click="currentComponent = 'tab-home'">home</button>
+		<button @click="currentComponent = 'tab-article'">article</button>
+		<component :is="currentComponent"></component>
+	</div>
+	<!--模板必须卸载挂载的dom节点外部-->
+	<template id="tab-home">
+		<div>
+			tab-home
+		</div>
+	</template>
+	<template id="tab-article">
+		<div>
+			tab-article
+		</div>
+	</template>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	Vue.component('tab-home',{
+		template: '#tab-home',
+	})
+	Vue.component('tab-article',{
+		template: '#tab-article',
+	})
+
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			currentComponent:'tab-home'
+		},
+	})
+</script>
+</html>

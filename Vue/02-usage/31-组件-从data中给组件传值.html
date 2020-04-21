@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>31-组件-从data中给组件传值.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<!-- <todo-item v-bind:task="item"></todo-item> -->
+		<todo-item 
+			v-for="(item,index) in items" 
+			v-bind:task="item.task"
+			:key="index"
+			:index="index"
+		>
+			
+		</todo-item>
+
+	</div>
+	<!--模板必须卸载挂载的dom节点外部-->
+	<template id="todo-item">
+		<div>{{index}}--{{task}}</div>
+	</template>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	//注册全局组件(所有的Vue实例都可以使用)
+	//组件必须在生成实例之前注册
+	//定义组件
+	var TodoItem = Vue.extend({
+		template: '#todo-item',
+		data(){
+			return {
+			}
+		},
+		// props:['task']
+		props:{
+			task:String,
+			index:Number
+		}
+	})
+	//注册
+	Vue.component('todo-item',TodoItem)
+
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			// item:'吃饭'
+			items:[
+				{
+					id:1,
+					task:'吃饭'
+				},
+				{
+					id:2,
+					task:'睡觉'
+				},
+				{
+					id:3,
+					task:'打豆豆'
+				}
+			]
+		},
+	})
+</script>
+</html>

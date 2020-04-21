@@ -1,0 +1,10 @@
+.star-wrap image{
+  width: 22rpx;
+  height: 22rpx;
+  margin-right: 2px;
+}
+.star-wrap .score{
+  font-size: 32rpx;
+  color: #333;
+  margin-left: 8px;
+}

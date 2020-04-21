@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>010-v-for-列表渲染.html</title>
+</head>
+<body>
+	<div id="app">
+		<table>
+			<tr>
+				<th>姓名</th>
+				<th>年龄</th>
+				<th>成绩</th>
+				<th>是否及格</th>
+			</tr>
+			<tr v-for="person in persons">
+				<td>{{person.name}}</td>
+				<td>{{person.age}}</td>
+				<td>{{person.score}}</td>
+				<td v-if="person.score >= 60">及格</td>
+				<td v-else>不及格</td>
+			</tr>
+		</table>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			persons:[
+				{name:'tom',age:18,score:50},
+				{name:'leo',age:18,score:65},
+				{name:'petter',age:18,score:90},
+			]
+		},
+	})
+</script>
+</html>

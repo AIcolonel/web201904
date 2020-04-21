@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>29-组件-定义分离.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<todo-item task="吃饭"></todo-item>
+		<todo-item task="睡觉"></todo-item>
+	</div>
+	<!--模板必须卸载挂载的dom节点外部-->
+	<template id="todo-item">
+		<div>{{task}}</div>
+	</template>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	//注册全局组件(所有的Vue实例都可以使用)
+	//组件必须在生成实例之前注册
+	//定义组件
+	var TodoItem = Vue.extend({
+		template: '#todo-item',
+		data(){
+			return {
+			}
+		},
+		// props:['task']
+		props:{
+			task:String
+		}
+	})
+	//注册
+	Vue.component('todo-item',TodoItem)
+
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			
+		},
+	})
+</script>
+</html>

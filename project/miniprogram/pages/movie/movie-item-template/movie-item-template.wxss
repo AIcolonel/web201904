@@ -1,0 +1,18 @@
+@import '../star-template/star-template.wxss';
+
+.movie-item-wrap{
+  display: flex;
+  flex-direction: column;
+}
+.movie-item-wrap .cover-img{
+  width: 220rpx;
+  height: 270rpx;
+}
+.movie-item-wrap .title{
+  font-size: 32rpx;
+  font-weight: 600;
+  width: 220rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

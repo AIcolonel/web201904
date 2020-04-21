@@ -1,0 +1,56 @@
+<import src="./movie-list-template/movie-list-template.wxml" />
+<view class='movie-wrap'>
+  <!-- <view class='movie-list-wrap'>
+    <view class='head'>
+      <text class='tag'>正在热映</text>
+      <text 
+        catchtap='tapMore' 
+        class='more'
+      >更多></text>
+    </view>
+    <view class='list'>
+      <view class='movie-item-wrap'>
+        <image class='cover-img' src='/images/article/a1.jpg'></image>
+        <text class='title'>寒战</text>
+        <view class='star-wrap'>
+            <image 
+              src="/images/icon/star.png">
+            </image>
+            <image 
+              src="/images/icon/star.png">
+            </image>
+          <text class='score'>5.5</text>
+        </view>
+      </view>
+      <view class='movie-item-wrap'>
+        <image class='cover-img' src='/images/article/a1.jpg'></image>
+        <text class='title'>寒战</text>
+        <view class='star-wrap'>
+            <image 
+              src="/images/icon/star.png">
+            </image>
+            <image 
+              src="/images/icon/star.png">
+            </image>
+          <text class='score'>5.5</text>
+        </view>
+      </view>
+      <view class='movie-item-wrap'>
+        <image class='cover-img' src='/images/article/a1.jpg'></image>
+        <text class='title'>寒战</text>
+        <view class='star-wrap'>
+            <image 
+              src="/images/icon/star.png">
+            </image>
+            <image 
+              src="/images/icon/star.png">
+            </image>
+          <text class='score'>5.5</text>
+        </view>
+      </view>
+    </view>
+  </view> -->
+  <template is="movieList" data="{{movies:inTheatersMovies,tag:'正在热映',type:'inTheaters'}}" />
+  <template is="movieList" data="{{movies:comingSoonMovies,tag:'即将上映',type:'comingSoon'}}" />
+  <template is="movieList" data="{{movies:top250Movies,tag:'豆瓣Top250',type:'top250'}}" />
+</view>

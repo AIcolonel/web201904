@@ -1,0 +1,26 @@
+/*
+* @Author: Chen
+* @Date:   2019-12-16 11:40:41
+* @Last Modified by:   Chen
+* @Last Modified time: 2019-12-18 15:23:51
+*/
+.result{
+    min-height: 300px;
+    background-color: #999;
+    padding-top: 100px;
+    text-align: center;
+}
+.result .title{
+    font-size: 30px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+.result-box{
+    display: none;
+}
+.addCart .btn{
+    width: 110px;
+}
+.result-box .btn{
+	width: 120px;
+}

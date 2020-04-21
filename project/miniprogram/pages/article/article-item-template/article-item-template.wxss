@@ -1,0 +1,50 @@
+.article-wrap{
+  width: 100%;
+}
+.article-item{
+  width: 100%;
+  margin: 20rpx 0;
+  border-bottom: 1px solid #ccc;
+}
+.article-head{
+  margin: 10px 0 10px 10px;
+}
+.article-head-avatar{
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+.article-head-date{
+  color: #333;
+  font-size: 12px;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+.article-title{
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.article-img{
+  margin: 10px 0;
+  width: 100%;
+  height: 400rpx;
+}
+.article-desc{
+  margin-left: 10px;
+  font-size: 14px;
+  color: #333;
+}
+.article-footer{
+  margin: 10px 0 10px 10px;
+}
+.article-footer-icon{
+  width: 36rpx;
+  height: 36rpx;
+}
+.article-footer-text{
+  color: #ccc;
+  margin-left: 5px;
+  margin-right: 10px;
+}

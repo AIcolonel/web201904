@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>14-v-on-绑定事件.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		
+	</style>
+</head>
+<body>
+	<div id="app">
+		<button v-on:click="count++">我被点击了{{count}}次</button>
+		<button @click="count++">我被点击了{{count}}次</button>
+		<button @click="calculate">我被点击了{{count}}次</button>
+		<button @click="calculate()">我被点击了{{count}}次</button>
+		<button @click="say">我被点击了</button>
+		<button @click="say('tom')">我被点击了</button>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			count:0
+		},
+		methods:{
+			calculate:function(){
+				this.count++
+			},
+			say:function(msg){
+				console.log(msg)
+			}
+		}
+	})
+</script>
+</html>

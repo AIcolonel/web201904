@@ -2,7 +2,7 @@
 * @Author: TomChen
 * @Date:   2018-08-09 10:22:53
 * @Last Modified by:   Chen
-* @Last Modified time: 2019-12-06 19:29:07
+* @Last Modified time: 2019-12-13 10:21:53
 */
 
 
@@ -33,7 +33,7 @@ let pagination = (options)=>{
 		}
 
 		//每页显示条数
-		let limit = options.pageSize || 10;
+		let limit = options.pageSize || 2;
 
 		/*
 		分页:

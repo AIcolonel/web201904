@@ -2,7 +2,7 @@
 * @Author: Tom
 * @Date:   2018-08-06 09:23:30
 * @Last Modified by:   Chen
-* @Last Modified time: 2019-12-06 19:28:58
+* @Last Modified time: 2019-12-19 10:28:09
 */
 const Router = require('express').Router;
 
@@ -117,6 +117,7 @@ router.use((req,res,next)=>{
 		})
 	}
 })
+//更新密码
 router.put("/",(req,res)=>{
 	UserModel.update({_id:req.userInfo._id},{password:hmac(req.body.password)})
 	.then(raw=>{

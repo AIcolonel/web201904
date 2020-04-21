@@ -2,7 +2,7 @@
 * @Author: Chen
 * @Date:   2019-11-27 16:35:26
 * @Last Modified by:   Chen
-* @Last Modified time: 2019-12-09 12:00:19
+* @Last Modified time: 2019-12-10 10:33:21
 */
 import * as actionTypes from './actionTypes.js'
 import {fromJS} from 'immutable'
@@ -10,21 +10,13 @@ import {fromJS} from 'immutable'
 const defaultState = fromJS({
 	categories:[],
 	isFetching:false,
-	list:[
-		{	
-			_id:1,
-			username:'admin',
-			isAdmin:true,
-			email:'110110110@qq.com',
-			phone:13836544563,
-			createdAt:'2019-12-06 10:10:10'
-		}
-	],
+	list:[],
 	current:0,
 	pageSize:0,
 	total:0
 })
 export default (state=defaultState,action)=>{
+	//处理获取分页分类数据
 	if(action.type == actionTypes.SET_PAGE){
 		return state.merge({
 			list:fromJS(action.payload.list),

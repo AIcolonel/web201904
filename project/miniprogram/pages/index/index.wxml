@@ -1,0 +1,16 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="/images/avatar/u1.jpg" mode="cover"></image>
+      <text class="userinfo-nickname">Tom</text>
+  </view>
+  <!-- <view class="usermotto" bindtap="tapView">
+    <text class="user-motto" bindtap="tapText">开启之旅</text>
+  </view> -->
+  <!-- <view class="usermotto" catchtap="tapView">
+    <text class="user-motto" catchtap="tapText">开启之旅</text>
+  </view> -->
+  <view class="usermotto" bindtap="tapMotto">
+    <text class="user-motto">开启之旅</text>
+  </view>
+</view>

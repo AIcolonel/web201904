@@ -1,0 +1,41 @@
+/*
+* @Author: Chen
+* @Date:   2019-12-16 11:40:41
+* @Last Modified by:   Chen
+* @Last Modified time: 2019-12-18 16:07:42
+*/
+.logo-text{
+    color: #f21;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: bold;
+}
+.search-box{
+    background-color: #fff;
+    height: 80px;
+    padding: 18px 0;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #f21;
+}
+.logo{
+    float: left;
+}
+.search{
+    float: left;
+}
+.search-input{
+    width: 400px;
+    margin-left: 150px;
+    outline: none;
+    border: 2px solid #f21;
+    height: 38px;
+    padding-left: 10px;
+    font-size: 14px;
+    float: left;
+}
+.btn-search{
+    height: 42px;
+    line-height: 42px;
+    float: left;
+}

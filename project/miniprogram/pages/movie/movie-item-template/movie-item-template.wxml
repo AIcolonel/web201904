@@ -1,0 +1,20 @@
+<import src="../star-template/star-template.wxml" />
+
+<template name="movieItem">
+  <view class='movie-item-wrap'>
+    <!-- <image class='cover-img' src='/images/article/a1.jpg'></image>
+    <text class='title'>寒战</text> -->
+    <image class='cover-img' src='{{coverImage}}'></image>
+    <text class='title'>{{title}}</text>
+    <!-- <view class='star-wrap'>
+        <image 
+          src="/images/icon/star.png">
+        </image>
+        <image 
+          src="/images/icon/star.png">
+        </image>
+      <text class='score'>5.5</text>
+    </view> -->
+    <template is="star" data="{{score:score,stars:stars}}" />
+  </view>
+</template>

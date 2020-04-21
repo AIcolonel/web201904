@@ -1,0 +1,68 @@
+<!-- <view class='container article-detail'>
+  <view class='focus'>
+    <image class='focus-bg' src='/images/article/a1.jpg'></image>
+    <image 
+      class='focus-music' 
+      src='/images/icon/music-start.png'>
+    </image>
+  </view>
+  <view class='head'>
+    <image class='avatar' src='/images/avatar/u1.jpg'></image>
+    <text class='author'>Tom</text>
+    <text class='text'>发表于</text>
+    <text class='time'>2天前</text>
+  </view>
+  <text class='title'>标题</text>
+  <view class='operation'>
+    <image
+      class='operation-collection'
+      src='/images/icon/collection.png'>
+    </image>  
+    <image 
+      class='operation-share' 
+      src='/images/icon/share.png'
+    >
+    </image>
+    <view class='operation-line'></view>    
+  </view>
+  <text class='content'>我是内容</text>
+</view> -->
+<view class='container article-detail'>
+  <view class='focus'>
+    <image class='focus-bg' src='{{img}}'></image>
+    <image 
+      catchtap="tapMusic"
+      class='focus-music' 
+      src='{{isPlaying ? "/images/icon/music-stop.png" : "/images/icon/music-start.png"}}'>
+    </image>
+  </view>
+  <view class='head'>
+    <image class='avatar' src='{{avatar}}'></image>
+    <text class='author'>{{author}}</text>
+    <text class='text'>发表于</text>
+    <text class='time'>{{time}}</text>
+  </view>
+  <text class='title'>{{title}}</text>
+  <view class='operation'>
+    <image
+      catchtap="tapCollection"
+      wx:if="{{isCollected}}"
+      class='operation-collection'
+      src='/images/icon/collection.png'>
+    </image>  
+    <image
+      wx:else
+      catchtap="tapCollection"
+      class='operation-collection'
+      src='/images/icon/collection-none.png'>
+    </image>  
+    <image 
+      catchtap="tapShare"
+      class='operation-share' 
+      src='/images/icon/share.png'
+    >
+    </image>
+    <view class='operation-line'></view>    
+  </view>
+  <text class='content'>{{content}}</text>
+</view>

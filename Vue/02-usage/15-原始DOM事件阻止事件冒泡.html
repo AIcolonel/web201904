@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>15-原始DOM事件阻止事件冒泡.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.large-box{
+			width: 400px;
+			height: 400px;
+			border: 1px solid #000;
+			margin: 50px auto;
+			background-color: red;
+		}
+		.big-box{
+			width: 300px;
+			height: 300px;
+			border: 1px solid #000;
+			margin: 50px auto;
+			background-color: green;
+		}
+		.small-box{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+			margin: 50px auto;
+			background-color: skyblue;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<div class="large-box" @click="clickLargeBox()">
+			<div class="big-box" @click="clickBigBox()">
+				<div class="small-box" @click="clickSmallBox('tom',$event)"></div>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			
+		},
+		methods:{
+			clickLargeBox:function(){
+				console.log('click large box ...')
+			},
+			clickBigBox:function(){
+				console.log('click big box ...')
+			},
+			clickSmallBox:function(name,ev){
+				ev.stopPropagation()
+				console.log('click small box ...')
+			},
+		}
+	})
+</script>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>05-双向绑定数据-修饰符.html</title>
+</head>
+<body>
+	<div id="app">
+		<p>{{message}}</p>
+		<input v-model="message" type="text">
+		<input v-model.lazy="message" type="text">
+		<input v-model.number="message" type="text">
+		<input v-model.trim="message" type="text">
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			message:'hello world',
+		},
+	})
+</script>
+</html>

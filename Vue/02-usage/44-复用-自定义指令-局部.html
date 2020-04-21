@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>44-复用-自定义指令-局部.html</title>
+	<link rel="stylesheet" href="css/animate.css">
+	<style>
+		
+	</style>
+</head>
+<body>
+	<div id="app">
+		<input v-focus type="text">
+	</div>
+	<div id="app2">
+		<input v-focus type="text">
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			
+		},
+		directives: {
+		  'focus': {
+		    // 指令的定义
+		    inserted: function (el) {
+		      el.focus()
+		    }
+		  }
+		}
+	})
+	var vm2 = new Vue({
+		el:'#app2',
+		data:{
+			
+		},
+	})
+</script>
+</html>

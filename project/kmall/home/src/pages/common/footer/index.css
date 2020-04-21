@@ -1,0 +1,19 @@
+/*
+* @Author: Chen
+* @Date:   2019-12-17 10:06:08
+* @Last Modified by:   Chen
+* @Last Modified time: 2019-12-17 10:06:16
+*/
+.footer{
+    margin-top: 10px;
+    text-align: center;
+}
+.links{
+    margin-bottom: 10px;
+}
+.links .link{
+    padding:0 10px;
+}
+.copyright{
+    color: #999;
+}

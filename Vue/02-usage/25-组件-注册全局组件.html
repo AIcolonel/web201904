@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>25-组件-注册全局组件.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<button-counter></button-counter>
+		<button-counter></button-counter>
+		<button-counter></button-counter>
+	</div>
+	<div id="app2">
+		<button-counter></button-counter>
+		<button-counter></button-counter>
+		<button-counter></button-counter>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	//注册全局组件(所有的Vue实例都可以使用)
+	//组件必须在生成实例之前注册
+	Vue.component('button-counter',{
+		//data必须是一个函数
+		data(){
+			return {
+				count:0
+			}
+		},
+		template: '<button v-on:click="count++">我被点击了{{ count }}次</button>'
+	})
+
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			
+		},
+	})
+	var vm = new Vue({
+		el:'#app2',
+		data:{
+			
+		},
+	})
+</script>
+</html>

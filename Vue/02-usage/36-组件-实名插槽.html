@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>36-组件-实名插槽.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<layout>
+			<div slot='focus'>首页主体焦点内容</div>
+			<div slot='category'>首页主体分类内容</div>
+		</layout>
+	</div>
+	<!--模板必须卸载挂载的dom节点外部-->
+	<template id="layout">
+		<div>
+			<div>顶部导航</div>
+			<slot name='focus'>主体焦点内容</slot>
+			<slot name='category'>主体分类内容</slot>
+			<div>底部导航</div>
+		</div>
+	</template>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	Vue.component('layout',{
+		template: '#layout',
+	})
+
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			
+		},
+	})
+</script>
+</html>

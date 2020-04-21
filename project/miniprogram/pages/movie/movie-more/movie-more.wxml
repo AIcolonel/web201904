@@ -1,0 +1,7 @@
+<import src="../movie-item-template/movie-item-template.wxml" />
+
+<view class='movie-more-wrap'>
+  <block wx:for="{{movies}}" wx:key="index">
+    <template is="movieItem" data="{{...item}}"  />
+  </block>
+</view>

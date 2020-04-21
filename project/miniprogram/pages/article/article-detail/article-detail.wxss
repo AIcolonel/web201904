@@ -1,0 +1,75 @@
+/* pages/article/article-detail/article-detail.wxss */
+.article-detail .focus{
+  position: relative;
+  width: 100%;
+  height: 460rpx;
+}
+.article-detail .focus .focus-bg{
+  width: 100%;
+  height: 100%;
+}
+.article-detail .focus .focus-music{
+  position: absolute;
+  left:50%;
+  top:190rpx;
+  width: 80rpx;
+  height: 80rpx;
+  margin-left: -30rpx;
+}
+.article-detail .head{
+  width: 100%;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin: 10px 0 30px 10px;
+}
+.article-detail .head .avatar{
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+.article-detail .head text{
+  margin-left: 10px;
+  font-size: 14px;
+  color: #333;
+}
+.article-detail .title{
+  width: 100%;
+  margin-left: 10px;
+  font-size: 18px;
+  font-weight: 600;
+}
+.article-detail .operation{
+  position: relative;
+  margin-left: 10px;
+  width: 100%;
+  height: 80px;
+  line-height: 80px;
+}
+.article-detail .operation .operation-collection,
+.article-detail .operation .operation-share{
+  position: absolute;
+  top:60rpx;
+  width: 80rpx;
+  height: 80rpx;
+  z-index: 88;
+}
+.article-detail .operation .operation-collection{
+  right: 80px;
+}
+.article-detail .operation .operation-share{
+  right: 30px;
+}
+.article-detail .operation .operation-line{
+  position: absolute;
+  top:40px;
+  height: 1px;
+  width: 100%;
+  background: #ccc;
+}
+.article-detail .content{
+  width: 100%;
+  padding-left: 10px;
+  color: #333;
+  font-size: 32rpx;
+}

@@ -1,8 +1,8 @@
 /*
 * @Author: TomChen
 * @Date:   2018-08-04 17:14:00
-* @Last Modified by:   Tom
-* @Last Modified time: 2019-07-08 15:55:26
+* @Last Modified by:   Chen
+* @Last Modified time: 2019-12-24 11:04:30
 */
 const mongoose = require('mongoose');
 const ProductModel = require('./product.js');

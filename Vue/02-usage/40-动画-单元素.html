@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>40-动画-单元素.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		
+		button{
+			width: 80px;
+			height: 40px;
+			margin-right: 10px;
+		}
+		.fade-enter-active, .fade-leave-active {
+		  	transition: opacity .5s;
+		}
+		.fade-enter, .fade-leave-to{
+		  	opacity: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<div>
+			<button @click="isShow = !isShow">切换</button>
+			<transition name="fade" appear>
+				<p v-if="isShow">文字</p>
+			</transition>
+		</div>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	
+	var vm = new Vue({
+		el:'#app',
+		data:{
+			isShow:true
+		},
+	})
+</script>
+</html>
